@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 25: Lights Along a Dangerous Coast</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .title-box {
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .title-box b {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  #timer {
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+  .sub {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  main {
+    flex-direction: column;
+  }
+  #left {
+    border-right: 0;
+    border-bottom: 3px solid #cbd5e1;
+    max-height: 46vh;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #right {
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pane-toolbar {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  .pane-toolbar-title {
+    font-size: 12px;
+  }
+  .tool-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .q {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .n {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .q-prompt {
+    font-size: 14px;
+  }
+  .opts label {
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .q-input, input[type="text"] {
+    width: min(100%, 260px) !important;
+  }
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #pal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #pal::-webkit-scrollbar {
+    display: none;
+  }
+  #pal span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #pal button {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  #sub {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .title-box b {
+    max-width: 150px;
+  }
+  #timer {
+    font-size: 14px;
+  }
+  #left {
+    max-height: 42vh;
+  }
+}
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* Netlify Badge Clearance: Move Submit button comfortably left */
+#sub {
+  margin-right: 180px !important;
+}
+@media (max-width: 768px) {
+  #sub {
+    margin-right: 150px !important;
+  }
+}
+@media (max-width: 480px) {
+  #sub {
+    margin-right: 140px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 25</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 1</b> &nbsp;|&nbsp; Read the text and answer Questions 1–13. Spend about 20 minutes on this part.</span>
+  <span><b>Lights Along a Dangerous Coast</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
+    <div class="passage-body">
+      <h2>Lights Along a Dangerous Coast</h2>
+      <p class="sb">How the Stevenson dynasty engineered Scotland&#39;s iconic rock lighthouses</p>
+    <p><b>A</b> Until the late eighteenth century, sailing around the coast of Scotland was among the most dangerous undertakings in northern Europe. Reefs lay hidden just below the surface, tides ran with great force, and storms could arrive within hours. Some headlands carried coal fires lit to warn ships away, but these were unreliable: they depended on the goodwill of local landowners, failed in bad weather, and were easily mistaken for one another. In 1786, Parliament established the Northern Lighthouse Board to provide proper navigation lights. Its first engineer, Thomas Smith, had previously been a maker of lamps rather than a builder of towers, and it was his stepson and assistant, Robert Stevenson, who would eventually take on the most ambitious projects.</p>
+    <p><b>B</b> The greatest of these was the Bell Rock, a reef some eighteen kilometres off the east coast, which lies beneath the sea at high tide and had long been a graveyard for ships. Earlier proposals to build on it had been abandoned as impractical, and it was only after a series of disastrous storms that the Board finally approved the plan. Work began in 1807, but the builders could labour on the reef for only a few hours each day, when the tide fell, and at first they lived on a vessel anchored nearby. On one occasion, the boats that carried them drifted away, leaving the men stranded on the rock as the water rose, and disaster was avoided only when a passing pilot vessel took them aboard. The celebrated engineer John Rennie had been consulted on the project and later claimed much of the credit, although most historians now regard Stevenson as the true designer.</p>
+    <p><b>C</b> The tower that rose from the reef owed a good deal to an earlier lighthouse, John Smeaton&#39;s Eddystone in England. Like Smeaton, Stevenson had the granite blocks cut with dovetail joints, so that each stone locked into its neighbours, allowing the structure to withstand waves that would have shattered ordinary masonry. To reduce the danger of the labourers being cut off by the sea, the builders eventually erected a wooden barrack on stilts above the reef, where they slept. The finished tower, thirty-five metres high, was first lit in 1811. Its lamp rotated, showing red and white beams in turn, so that sailors could tell at once which light they were seeing.</p>
+    <p><b>D</b> Optical technology advanced rapidly in the following decades. In 1822 the French physicist Augustin Fresnel designed a lens made of concentric rings of glass that gathered the light from a lamp and projected it as a single powerful beam, requiring far less fuel than the polished metal reflectors then in use. Robert&#39;s son Alan, who succeeded his father as the Board&#39;s engineer, travelled to France to inspect the invention and persuaded his employers to adopt it. His most remarkable achievement was Skerryvore, a forty-two-metre tower built on a lonely reef off the west coast and completed in 1844. Its granite had to be shipped from the island of Mull, and the project took years of dangerous work. Poor health forced Alan to retire in 1853, and his brothers David and Thomas took over.</p>
+    <p><b>E</b> The family&#39;s influence extended beyond lighthouses. Thomas Stevenson, a keen student of weather, designed a louvred wooden box for housing thermometers outdoors; the &#39;Stevenson screen&#39; is still used by meteorological stations around the world. His only son, Robert Louis, was expected to join the family firm and began studying engineering at Edinburgh. He soon lost interest, switched to law, and then abandoned that too in order to write. The author of Treasure Island and Kidnapped nonetheless acknowledged his debt to the family trade, and the voyages he made with his father to inspect lights supplied settings and atmosphere for some of his early work.</p>
+    <p>For those who staffed the lights, life was demanding and often lonely. Keepers on rock stations such as the Bell Rock might spend weeks cut off from the mainland, with supplies delivered by boat only when the weather allowed. Each day followed a strict routine: trimming wicks, polishing brass and lenses, winding the clockwork that turned the lamp, and recording the weather in a log. Because a light had to burn every night, stations normally had three keepers, so that one could rest or fall ill without leaving the lamp unattended. In 1900, all three keepers disappeared from the Flannan Isles lighthouse in the Outer Hebrides, a mystery that has inspired poems, novels and a film. Most investigators believe a huge wave swept them away, but nothing has ever been proved.</p>
+    <p><b>G</b> Electric lamps arrived in the twentieth century, followed by radio beacons and, eventually, satellite navigation, which allowed ships to fix their position within metres. Automation made keepers unnecessary, and the last staffed lighthouse in Scotland, on Fair Isle, was converted in 1998. Yet the lights have not been switched off. Many ships still rely on them as a back-up when electronic systems fail, and the Bell Rock continues to shine, controlled remotely from Edinburgh. Some former keepers&#39; cottages have been turned into holiday homes, while the Stevensons&#39; notebooks and drawings are preserved as a record of a family that lit a dangerous coast for several generations.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 1–5</h3>
+<div class="notes">
+
+<div class="q gap-item" id="q1">
+  <span class="n">1</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">The Board&#39;s first engineer had earlier worked as a maker of</span>
+    <input type="text" name="t1" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q2">
+  <span class="n">2</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">The Bell Rock is covered by water at</span>
+    <input type="text" name="t2" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q3">
+  <span class="n">3</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">When the workers&#39; boats drifted off, a</span>
+    <input type="text" name="t3" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q4">
+  <span class="n">4</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">The tower&#39;s stone blocks were cut with</span>
+    <input type="text" name="t4" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q5">
+  <span class="n">5</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">Workers slept in a wooden barrack that stood on</span>
+    <input type="text" name="t5" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 6–9</h3>
+
+<div class="q" id="q6">
+  <span class="n">6</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Robert Stevenson was the first engineer employed by the Northern Lighthouse Board.</div>
+    <div class="opts">
+      <label><input type="radio" name="r6" value="TRUE"> TRUE</label>
+      <label><input type="radio" name="r6" value="FALSE"> FALSE</label>
+      <label><input type="radio" name="r6" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q7">
+  <span class="n">7</span>
+  <div style="flex:1;">
+    <div class="q-prompt">John Rennie opposed the plan to build a lighthouse on the Bell Rock.</div>
+    <div class="opts">
+      <label><input type="radio" name="r7" value="TRUE"> TRUE</label>
+      <label><input type="radio" name="r7" value="FALSE"> FALSE</label>
+      <label><input type="radio" name="r7" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q8">
+  <span class="n">8</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Alan Stevenson convinced the Board to use a lens system invented in France.</div>
+    <div class="opts">
+      <label><input type="radio" name="r8" value="TRUE"> TRUE</label>
+      <label><input type="radio" name="r8" value="FALSE"> FALSE</label>
+      <label><input type="radio" name="r8" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q9">
+  <span class="n">9</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Robert Louis Stevenson completed his engineering degree before turning to writing.</div>
+    <div class="opts">
+      <label><input type="radio" name="r9" value="TRUE"> TRUE</label>
+      <label><input type="radio" name="r9" value="FALSE"> FALSE</label>
+      <label><input type="radio" name="r9" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 10–13</h3>
+
+<div class="options-box" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:12px 16px; margin:12px 0;">
+  <h4 style="margin:0 0 8px; color:#1d3557; font-size:15px;">Options / Researchers</h4>
+  <ul style="margin:0; padding-left:20px; line-height:1.6; font-size:14px;">
+    <li><b>A</b> &nbsp; A</li>
+    <li><b>B</b> &nbsp; B</li>
+    <li><b>C</b> &nbsp; C</li>
+    <li><b>D</b> &nbsp; D</li>
+    <li><b>E</b> &nbsp; E</li>
+    <li><b>F</b> &nbsp; F</li>
+    <li><b>G</b> &nbsp; G</li>
+  </ul>
+</div>
+
+<div class="q match-feature-q" id="q10">
+  <span class="n">10</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a reference to a disagreement over who deserved recognition for a project</span>
+    <select name="r10" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q11">
+  <span class="n">11</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a mention of lighthouses that no longer have staff but still operate</span>
+    <select name="r11" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q12">
+  <span class="n">12</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">an account of a family member whose career took an unexpected direction</span>
+    <select name="r12" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q13">
+  <span class="n">13</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a description of the regular tasks carried out by people living at a lighthouse</span>
+    <select name="r13" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 1;
+const MAX_Q = 13;
+const KEY = {"1":["lamps","maker of lamps"],"2":["high tide"],"3":["pilot","pilot vessel"],"4":["dovetail"],"5":["stilts"],"6":["FALSE"],"7":["FALSE"],"8":["TRUE"],"9":["FALSE"],"10":["B"],"11":["G"],"12":["E"],"13":["F"]};
+const EXPLANATIONS = {"1":{"answer":"lamps","explanation":"Paragraph A states Thomas Smith 'had previously been a maker of lamps rather than a builder of towers'.","evidence":"Its first engineer, Thomas Smith, had previously been a maker of lamps rather than a builder of towers...","passageTarget":"Its first engineer, Thomas Smith, had previously been a maker of lamps rather than a builder of towers, and it was his stepson and assistant, Robert Stevenson, who would eventually take on the most ambitious projects."},"2":{"answer":"high tide","explanation":"Paragraph B explains that the reef 'lies beneath the sea at high tide'.","evidence":"...a reef some eighteen kilometres off the east coast, which lies beneath the sea at high tide and had long been a graveyard for ships.","passageTarget":"B The greatest of these was the Bell Rock, a reef some eighteen kilometres off the east coast, which lies beneath the sea at high tide and had long been a graveyard for ships."},"3":{"answer":"pilot","explanation":"Paragraph B states 'disaster was avoided only when a passing pilot vessel took them aboard'.","evidence":"...disaster was avoided only when a passing pilot vessel took them aboard.","passageTarget":"On one occasion, the boats that carried them drifted away, leaving the men stranded on the rock as the water rose, and disaster was avoided only when a passing pilot vessel took them aboard."},"4":{"answer":"dovetail","explanation":"Paragraph C describes how Stevenson 'had the granite blocks cut with dovetail joints'.","evidence":"...Stevenson had the granite blocks cut with dovetail joints, so that each stone locked into its neighbours...","passageTarget":"Like Smeaton, Stevenson had the granite blocks cut with dovetail joints, so that each stone locked into its neighbours, allowing the structure to withstand waves that would have shattered ordinary masonry."},"5":{"answer":"stilts","explanation":"Paragraph C explains that builders erected 'a wooden barrack on stilts above the reef, where they slept'.","evidence":"...the builders eventually erected a wooden barrack on stilts above the reef, where they slept.","passageTarget":"To reduce the danger of the labourers being cut off by the sea, the builders eventually erected a wooden barrack on stilts above the reef, where they slept."},"6":{"answer":"FALSE","explanation":"Paragraph A states Thomas Smith was the first engineer, while Robert Stevenson was his stepson and assistant.","evidence":"Its first engineer, Thomas Smith, had previously been a maker of lamps... and it was his stepson and assistant, Robert Stevenson, who would eventually take on the most ambitious projects.","passageTarget":"Its first engineer, Thomas Smith, had previously been a maker of lamps rather than a builder of towers, and it was his stepson and assistant, Robert Stevenson, who would eventually take on the most ambitious projects."},"7":{"answer":"FALSE","explanation":"Paragraph B states John Rennie had been consulted on the project and later claimed credit for it, not that he opposed it.","evidence":"The celebrated engineer John Rennie had been consulted on the project and later claimed much of the credit...","passageTarget":"The celebrated engineer John Rennie had been consulted on the project and later claimed much of the credit, although most historians now regard Stevenson as the true designer."},"8":{"answer":"TRUE","explanation":"Paragraph D states Alan travelled to France to inspect the Fresnel lens and 'persuaded his employers to adopt it'.","evidence":"Robert's son Alan, who succeeded his father as the Board's engineer, travelled to France to inspect the invention and persuaded his employers to adopt it.","passageTarget":"Robert&#39;s son Alan, who succeeded his father as the Board&#39;s engineer, travelled to France to inspect the invention and persuaded his employers to adopt it."},"9":{"answer":"FALSE","explanation":"Paragraph E states he lost interest in engineering, switched to law, and abandoned that too in order to write.","evidence":"His only son, Robert Louis, was expected to join the family firm and began studying engineering at Edinburgh. He soon lost interest, switched to law, and then abandoned that too in order to write.","passageTarget":"His only son, Robert Louis, was expected to join the family firm and began studying engineering at Edinburgh."},"10":{"answer":"B","explanation":"Paragraph B mentions John Rennie claiming credit although historians regard Stevenson as the true designer.","evidence":"The celebrated engineer John Rennie had been consulted on the project and later claimed much of the credit, although most historians now regard Stevenson as the true designer.","passageTarget":"The celebrated engineer John Rennie had been consulted on the project and later claimed much of the credit, although most historians now regard Stevenson as the true designer."},"11":{"answer":"G","explanation":"Paragraph G explains automation made keepers unnecessary, yet lights remain in operation and remotely controlled.","evidence":"Automation made keepers unnecessary, and the last staffed lighthouse in Scotland, on Fair Isle, was converted in 1998. Yet the lights have not been switched off... controlled remotely from Edinburgh.","passageTarget":"Automation made keepers unnecessary, and the last staffed lighthouse in Scotland, on Fair Isle, was converted in 1998."},"12":{"answer":"E","explanation":"Paragraph E describes Robert Louis Stevenson leaving engineering and law to become a famous novelist.","evidence":"His only son, Robert Louis, was expected to join the family firm and began studying engineering at Edinburgh. He soon lost interest, switched to law, and then abandoned that too in order to write.","passageTarget":"His only son, Robert Louis, was expected to join the family firm and began studying engineering at Edinburgh."},"13":{"answer":"F","explanation":"Paragraph F details the daily routine: trimming wicks, polishing brass and lenses, winding clockwork, and recording the weather.","evidence":"Each day followed a strict routine: trimming wicks, polishing brass and lenses, winding the clockwork that turned the lamp, and recording the weather in a log.","passageTarget":"Each day followed a strict routine: trimming wicks, polishing brass and lenses, winding the clockwork that turned the lamp, and recording the weather in a log."}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
+
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
+    return;
+  }
+
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
+      }
+    }
+    hideHighlightPopup();
+  }, 15);
+}
+
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
+
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (range) {
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== document.body) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = accepted.map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
+        </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+               Show in Passage
+            </button>
+          </div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Official IELTS Reading Mock Tests (26 Tests)</title>
+<style>
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --card: #ffffff;
+  --bd: #e2e8f0;
+  --ac: #2563eb;
+  --ac-hover: #1d4ed8;
+  --muted: #64748b;
+  --badge-p1: #0284c7;
+  --badge-p2: #059669;
+  --badge-p3: #b91c1c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --fg: #f8fafc;
+    --card: #1e293b;
+    --bd: #334155;
+    --ac: #38bdf8;
+    --ac-hover: #0ea5e9;
+    --muted: #94a3b8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+header {
+  padding: 32px 24px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.top-nav {
+  margin-bottom: 16px;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #0f172a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.back-btn:hover {
+  background: #334155;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+p.subtitle {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+.filter-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--bd);
+  background: var(--card);
+  color: var(--fg);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--ac);
+  color: #fff;
+  border-color: var(--ac);
+}
+.search-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 8px 14px;
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--fg);
+}
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ac);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.test-num {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ac);
+  letter-spacing: 0.5px;
+}
+.part-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.tag-p1 { background: rgba(2, 132, 199, 0.12); color: var(--badge-p1); }
+.tag-p2 { background: rgba(5, 150, 105, 0.12); color: var(--badge-p2); }
+.tag-p3 { background: rgba(185, 28, 28, 0.12); color: var(--badge-p3); }
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--bd);
+  padding-top: 12px;
+}
+.start-cta {
+  font-weight: 700;
+  color: var(--ac);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px 16px 12px;
+  }
+  h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  p.subtitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .filters-bar {
+    padding: 0 16px;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .search-input {
+    min-width: 100%;
+    width: 100%;
+    font-size: 14px;
+  }
+  .filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .grid {
+    padding: 0 16px 40px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card {
+    padding: 16px 16px;
+  }
+  .card-title {
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+  .back-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="top-nav">
+    <a href="../../index.html" class="back-btn">&larr; Back to Main IELTS Portal</a>
+  </div>
+  <h1>IELTS Academic Reading Mock Tests (26 Tests)</h1>
+  <p class="subtitle">Official single-passage mock tests with scanned original exam papers, authentic question layout, 20-minute live timer, interactive answer sheet, and verified grading.</p>
+</header>
+
+<div class="filters-bar">
+  <button class="filter-btn active" onclick="filterTests('all')">All Tests (26)</button>
+  <button class="filter-btn" onclick="filterTests('p1')">Passage 1 (12 Tests)</button>
+  <button class="filter-btn" onclick="filterTests('p2')">Passage 2 (10 Tests)</button>
+  <button class="filter-btn" onclick="filterTests('p3')">Passage 3 (4 Tests)</button>
+  <input type="text" id="search" class="search-input" placeholder="Search by test title or number..." oninput="handleSearch()">
+</div>
+
+<div class="grid" id="grid">
+  <a class="card" href="Test01.html" data-part="1" data-title="a survivor's story (morepork owl)" data-num="01">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 01</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">A Survivor's Story (Morepork owl)</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test02.html" data-part="1" data-title="james hargreaves and the spinning jenny" data-num="02">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 02</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">James Hargreaves and the Spinning Jenny</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test03.html" data-part="2" data-title="john ray and the study of plants" data-num="03">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 03</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">John Ray and the Study of Plants</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test04.html" data-part="1" data-title="australia's cane toad problem" data-num="04">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 04</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Australia's Cane Toad Problem</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test05.html" data-part="2" data-title="the myth of the eight-hour sleep" data-num="05">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 05</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">The Myth of the Eight-hour Sleep</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test06.html" data-part="1" data-title="the weeping wood (rubber)" data-num="06">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 06</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">The Weeping Wood (Rubber)</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test07.html" data-part="1" data-title="scott and bowne's cod liver oil" data-num="07">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 07</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Scott and Bowne's Cod Liver Oil</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test08.html" data-part="2" data-title="how to be happy" data-num="08">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 08</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">How to Be Happy</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test09.html" data-part="1" data-title="starting school later (teen sleep)" data-num="09">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 09</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Starting School Later (Teen Sleep)</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test10.html" data-part="1" data-title="think small (nanoscience)" data-num="10">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 10</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Think Small (Nanoscience)</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test11.html" data-part="3" data-title="redesigning the cleveland museum of art" data-num="11">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 11</span>
+        <span class="part-tag tag-p3">Passage 3</span>
+      </div>
+      <h3 class="card-title">Redesigning the Cleveland Museum of Art</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 27–40 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test12.html" data-part="3" data-title="nz home textile crafts 1930s-1950s" data-num="12">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 12</span>
+        <span class="part-tag tag-p3">Passage 3</span>
+      </div>
+      <h3 class="card-title">NZ Home Textile Crafts 1930s-1950s</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 27–40 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test13.html" data-part="1" data-title="gordon moore - titan of technology" data-num="13">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 13</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Gordon Moore - Titan of Technology</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test14.html" data-part="1" data-title="the history of ice cream" data-num="14">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 14</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">The History of Ice Cream</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test15.html" data-part="2" data-title="bristlecone pines" data-num="15">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 15</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">Bristlecone Pines</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test16.html" data-part="2" data-title="learning from the romans" data-num="16">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 16</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">Learning from the Romans</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test17.html" data-part="2" data-title="corporate social responsibility" data-num="17">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 17</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">Corporate Social Responsibility</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test18.html" data-part="2" data-title="memory in plants" data-num="18">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 18</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">Memory in Plants</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 17–27 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test19.html" data-part="2" data-title="a great leap forward (maud island frogs)" data-num="19">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 19</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">A Great Leap Forward (Maud Island Frogs)</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–24 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test20.html" data-part="2" data-title="how the mind ages" data-num="20">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 20</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">How the Mind Ages</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–26 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test21.html" data-part="3" data-title="the art of deception" data-num="21">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 21</span>
+        <span class="part-tag tag-p3">Passage 3</span>
+      </div>
+      <h3 class="card-title">The Art of Deception</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 27–40 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test22.html" data-part="1" data-title="the development of plastics" data-num="22">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 22</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">The Development of Plastics</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test23.html" data-part="1" data-title="tunnelling under the thames" data-num="23">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 23</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Tunnelling under the Thames</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test24.html" data-part="3" data-title="some views on the use of headphones" data-num="24">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 24</span>
+        <span class="part-tag tag-p3">Passage 3</span>
+      </div>
+      <h3 class="card-title">Some Views on the Use of Headphones</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 27–40 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test25.html" data-part="1" data-title="lights along a dangerous coast" data-num="25">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 25</span>
+        <span class="part-tag tag-p1">Passage 1</span>
+      </div>
+      <h3 class="card-title">Lights Along a Dangerous Coast</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 1–13 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+  <a class="card" href="Test26.html" data-part="2" data-title="coral reefs" data-num="26">
+    <div>
+      <div class="card-header">
+        <span class="test-num">TEST 26</span>
+        <span class="part-tag tag-p2">Passage 2</span>
+      </div>
+      <h3 class="card-title">Coral Reefs</h3>
+    </div>
+    <div class="card-footer">
+      <span>Q 14–25 &bull; 20 min</span>
+      <span class="start-cta">Start Test &rarr;</span>
+    </div>
+  </a>
+</div>
+
+<script>
+let curFilter = 'all';
+function filterTests(f) {
+  curFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.toLowerCase().includes(f === 'all' ? 'all' : 'passage ' + f.replace('p','')));
+  });
+  applyFilter();
+}
+function handleSearch() {
+  applyFilter();
+}
+function applyFilter() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.card').forEach(c => {
+    const part = c.dataset.part;
+    const title = c.dataset.title;
+    const num = c.dataset.num;
+    const matchesFilter = (curFilter === 'all') || (curFilter === 'p' + part);
+    const matchesQuery = !q || title.includes(q) || num.includes(q);
+    c.style.display = (matchesFilter && matchesQuery) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>

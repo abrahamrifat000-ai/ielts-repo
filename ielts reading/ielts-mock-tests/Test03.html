@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 03: John Ray and the Study of Plants</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .title-box {
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .title-box b {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  #timer {
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+  .sub {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  main {
+    flex-direction: column;
+  }
+  #left {
+    border-right: 0;
+    border-bottom: 3px solid #cbd5e1;
+    max-height: 46vh;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #right {
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pane-toolbar {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  .pane-toolbar-title {
+    font-size: 12px;
+  }
+  .tool-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .q {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .n {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .q-prompt {
+    font-size: 14px;
+  }
+  .opts label {
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .q-input, input[type="text"] {
+    width: min(100%, 260px) !important;
+  }
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #pal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #pal::-webkit-scrollbar {
+    display: none;
+  }
+  #pal span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #pal button {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  #sub {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .title-box b {
+    max-width: 150px;
+  }
+  #timer {
+    font-size: 14px;
+  }
+  #left {
+    max-height: 42vh;
+  }
+}
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* Netlify Badge Clearance: Move Submit button comfortably left */
+#sub {
+  margin-right: 180px !important;
+}
+@media (max-width: 768px) {
+  #sub {
+    margin-right: 150px !important;
+  }
+}
+@media (max-width: 480px) {
+  #sub {
+    margin-right: 140px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 03</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 1</b> &nbsp;|&nbsp; Read the text and answer Questions 14–26. Spend about 20 minutes on this part.</span>
+  <span><b>John Ray and the Study of Plants</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
+    <div class="passage-body">
+      <h2>John Ray and the Study of Plants</h2>
+      <p class="sb">The revolutionary transition from Aristotelian tradition to empirical botanical science</p>
+    <p><b>Paragraph A</b> The 17th-century English scholar and botanist John Ray was well aware that he lived through, and participated in, a profound revolution in the way people interacted with nature. In the preface to his Synopsis of British Plants, published in 1690, he gave thanks that he had been born at a time when traditional dependence on the teaching of the Greek philosopher Aristotle (384-322 BCE) had given way to a new philosophy, based on experiment and observation of the real world, that we now call science.</p>
+    <p><b>Paragraph B</b> Ray was born in 1627. His father was a village blacksmith, and his mother was also a respected member of the community, a healer who was an expert in folk medicine and the use of herbs to treat ailments. Ray must have stood out as an unusually bright boy among his schoolmates, and his talents were recognised by a church official, Samuel Covell, who had graduated from Cambridge University in 1600, and maintained his links with his university. Through his influence, Ray was admitted to Cambridge University in 1644 at the age of seventeen — a huge step for a village blacksmith’s son. There he made a solid start, and quickly gained a reputation as a brilliant student. He studied the classics (Greek, Latin and Hebrew) and mathematics, but there was nothing yet we would now call science in the curriculum. After graduating in 1648, he became a minor member of staff at Trinity College, Cambridge. He was appointed Lecturer in Greek in 1651, Lecturer in Mathematics in 1653, and Lecturer in Humanities in 1655.</p>
+    <p><b>Paragraph C</b> Almost immediately after graduating, Ray also seems to have developed the interest to which he would devote the rest of his life: the study of the natural world. He explains this conversion into a naturalist — in particular into a botanist — in the preface to his first book, the Cambridge Catalogue of English Plants. Here Ray tells us that he suffered an illness in his early twenties, and was advised to take long walks and ride in the fresh air while recovering. While doing this, he became interested in the local flora, and finding nobody able to teach him, Ray investigated it for himself. He then went on to pass on the knowledge he acquired to others.</p>
+    <p><b>Paragraph D</b> By the mid-1650s, even the first-year students at Trinity College were able to identify the plants and flowers around Cambridge, as they were being taught (unofficially — none of this was part of their formal education) by Ray. Many of them were the sons of landowners, and so had a natural, if amateurish, interest in country matters. But a few of them took his efforts to understand the natural world much more seriously. One of these, Francis Willughby, later played an important part in Ray&#39;s life.</p>
+    <p><b>Paragraph E</b> Having himself had no authority on the subject of plants on which to draw, Ray also started work on what would become his Cambridge Catalogue of English Plants. The work was not published until 1660 because, as Ray explained in the preface, he had to start from scratch: ‘I had first to become familiar with the literature, to compare the plants that I found with the pictures, and when there seemed to be a resemblance, to go fully into any unknown descriptions. Gaining skill by experience, I acquired at last the ability to recognise what tribe and family similar or could be assigned; this taught me to search for similarities and saved a vast deal of labour, which others would have spent in their difficulties. I was eager to make the most of this and was fortunate to share my enthusiasm with my friends ...’</p>
+    <p><b>Paragraph F</b> Ray&#39;s Cambridge Catalogue of English Plants was much more than a simple list of species. It gave the names of plants found in the area around Cambridge and included information about where they grew and how common they were. In doing this, Ray was producing something that would be of practical use to students and other readers interested in the local natural world. At the same time, the book showed his determination to describe plants accurately, on the basis of direct examination rather than reliance on old authorities. In this respect, it reflected the spirit of the new learning that Ray admired.</p>
+    <p><b>Paragraph G</b> Ray&#39;s studies of plants were only the beginning of a much larger ambition. With the support of Francis Willughby, he began to imagine a more comprehensive investigation of nature, one that would attempt to classify living things according to careful observation of their shared characteristics. This was an ambitious undertaking, especially at a time when many aspects of the natural world remained poorly described. Yet Ray believed that by collecting evidence systematically and comparing related forms, it would be possible to build a more reliable understanding of nature than scholars had possessed before.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 14–20</h3>
+<div class="instr"><p>Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below. Write the correct number, i–ix, in boxes 14–20 on your answer sheet.</p></div>
+
+<div class="headings-box">
+  <h4>List of Headings</h4>
+  <ol type="i">
+    <li>Ray&#39;s account of his working methods</li>
+    <li>The botanical expert who inspired Ray</li>
+    <li>A succession of academic achievements</li>
+    <li>Ray&#39;s informal tuition</li>
+    <li>Ray&#39;s appreciation of his contemporary academic culture</li>
+    <li>A childhood interest in plants</li>
+    <li>Plans for a bold new project</li>
+    <li>A description of the content of Ray&#39;s first book</li>
+    <li>A change of direction for Ray</li>
+  </ol>
+</div>
+
+<div class="q match-heading-q" id="q14">
+  <span class="n">14</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph A</span>
+    <select name="r14" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q15">
+  <span class="n">15</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph B</span>
+    <select name="r15" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q16">
+  <span class="n">16</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph C</span>
+    <select name="r16" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q17">
+  <span class="n">17</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph D</span>
+    <select name="r17" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q18">
+  <span class="n">18</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph E</span>
+    <select name="r18" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q19">
+  <span class="n">19</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph F</span>
+    <select name="r19" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-heading-q" id="q20">
+  <span class="n">20</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="font-weight:600; min-width:140px;">Paragraph G</span>
+    <select name="r20" class="cd-select">
+      <option value="">-- Select Heading --</option>
+      <option value="i">i - Ray&#39;s account of his working methods</option>
+      <option value="ii">ii - The botanical expert who inspired Ray</option>
+      <option value="iii">iii - A succession of academic achievements</option>
+      <option value="iv">iv - Ray&#39;s informal tuition</option>
+      <option value="v">v - Ray&#39;s appreciation of his contemporary academic culture</option>
+      <option value="vi">vi - A childhood interest in plants</option>
+      <option value="vii">vii - Plans for a bold new project</option>
+      <option value="viii">viii - A description of the content of Ray&#39;s first book</option>
+      <option value="ix">ix - A change of direction for Ray</option>
+    </select>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 21–24</h3>
+<div class="instr"><p>Complete the summary below. Choose ONE WORD ONLY from the passage for each answer. Write your answer in boxes 21–24 on your answer sheet.</p></div>
+<div class="notes">
+  <p>A New Approach to Knowledge: John Ray was a scholar and self-taught botanist, whose work reflected the <span class="gap-wrap" id="q21"><b>21</b> <input type="text" name="t21" autocomplete="off" spellcheck="false" class="cd-gap-input"></span> that was taking place during the 17th century in people&#39;s way of thinking about the natural world.</p>
+  <p>This new approach is the basis of the modern field of <span class="gap-wrap" id="q22"><b>22</b> <input type="text" name="t22" autocomplete="off" spellcheck="false" class="cd-gap-input"></span>. It represented a complete break from the ideas of Aristotle, which had dominated thinking up until that time.</p>
+  <p>As Ray himself explained, his interest in plants was aroused after graduating, when he had to spend time outdoors after a period of <span class="gap-wrap" id="q23"><b>23</b> <input type="text" name="t23" autocomplete="off" spellcheck="false" class="cd-gap-input"></span>.</p>
+  <p>He taught himself, in addition to many Cambridge <span class="gap-wrap" id="q24"><b>24</b> <input type="text" name="t24" autocomplete="off" spellcheck="false" class="cd-gap-input"></span> and began compiling his catalogue of plants, which was published in 1660.</p>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 25–26</h3>
+<div class="instr"><p>Choose TWO letters, A–E. Write the correct letters in boxes 25 and 26 on your answer sheet. Which TWO of the following statements are true of Ray's early life?</p></div>
+
+<div class="q" id="q25">
+  <span class="n">25</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Which statement is true of Ray&#39;s early life? (First selection)</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r25" value="A"> <b>A</b> &nbsp; Option A</label>
+      <label><input type="radio" name="r25" value="B"> <b>B</b> &nbsp; Option B</label>
+      <label><input type="radio" name="r25" value="C"> <b>C</b> &nbsp; Option C</label>
+      <label><input type="radio" name="r25" value="D"> <b>D</b> &nbsp; Option D</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q26">
+  <span class="n">26</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Which statement is true of Ray&#39;s early life? (Second selection)</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r26" value="A"> <b>A</b> &nbsp; Option A</label>
+      <label><input type="radio" name="r26" value="B"> <b>B</b> &nbsp; Option B</label>
+      <label><input type="radio" name="r26" value="C"> <b>C</b> &nbsp; Option C</label>
+      <label><input type="radio" name="r26" value="D"> <b>D</b> &nbsp; Option D</label>
+    </div>
+  </div>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 14;
+const MAX_Q = 26;
+const KEY = {"14":["v"],"15":["iii"],"16":["ix"],"17":["iv"],"18":["i"],"19":["viii"],"20":["vii"],"21":["revolution"],"22":["science"],"23":["illness"],"24":["students"],"25":["C","c"],"26":["D","d"]};
+const EXPLANATIONS = {"14":{"answer":"v","explanation":"Paragraph A describes Ray giving thanks for the new philosophy based on experiment and observation rather than Aristotle.","evidence":"gave thanks that he had been born at a time when traditional dependence on the teaching of the Greek philosopher Aristotle had given way to a new philosophy","passageTarget":"In the preface to his Synopsis of British Plants, published in 1690, he gave thanks that he had been born at a time when traditional dependence on the teaching of the Greek philosopher Aristotle (384-322 BCE) had given way to a new philosophy, based on experiment and observation of the real world, that we now call science."},"15":{"answer":"iii","explanation":"Paragraph B chronicles Ray's rapid academic appointments at Cambridge (Lecturer in Greek in 1651, Mathematics in 1653, Humanities in 1655).","evidence":"He was appointed Lecturer in Greek in 1651, Lecturer in Mathematics in 1653, and Lecturer in Humanities in 1655.","passageTarget":"He was appointed Lecturer in Greek in 1651, Lecturer in Mathematics in 1653, and Lecturer in Humanities in 1655."},"16":{"answer":"ix","explanation":"Paragraph C explains Ray's sudden conversion and change of direction into a naturalist/botanist following his illness.","evidence":"He explains this conversion into a naturalist — in particular into a botanist — in the preface to his first book","passageTarget":"He explains this conversion into a naturalist — in particular into a botanist — in the preface to his first book, the Cambridge Catalogue of English Plants."},"17":{"answer":"iv","explanation":"Paragraph D focuses on Ray unofficially teaching students how to identify local plants outside the formal curriculum.","evidence":"first-year students at Trinity College were able to identify the plants and flowers around Cambridge, as they were being taught (unofficially — none of this was part of their formal education) by Ray.","passageTarget":"By the mid-1650s, even the first-year students at Trinity College were able to identify the plants and flowers around Cambridge, as they were being taught (unofficially — none of this was part of their formal education) by Ray."},"18":{"answer":"i","explanation":"Paragraph E contains Ray's own direct quotation recounting how he worked from scratch to classify plants.","evidence":"I had first to become familiar with the literature, to compare the plants that I found with the pictures","passageTarget":"The work was not published until 1660 because, as Ray explained in the preface, he had to start from scratch: ‘I had first to become familiar with the literature, to compare the plants that I found with the pictures, and when there seemed to be a resemblance, to go fully into any unknown descriptions."},"19":{"answer":"viii","explanation":"Paragraph F describes the exact content of his Cambridge Catalogue: names, locations, abundance, and empirical descriptions.","evidence":"Ray's Cambridge Catalogue of English Plants was much more than a simple list of species. It gave the names of plants found in the area around Cambridge and included information about where they grew","passageTarget":"It gave the names of plants found in the area around Cambridge and included information about where they grew and how common they were."},"20":{"answer":"vii","explanation":"Paragraph G discusses Ray's ambitious future plans with Francis Willughby to classify all living nature.","evidence":"Ray's studies of plants were only the beginning of a much larger ambition. With the support of Francis Willughby, he began to imagine a more comprehensive investigation of nature","passageTarget":"Ray&#39;s studies of plants were only the beginning of a much larger ambition."},"21":{"answer":"revolution","explanation":"Ray participated in a profound revolution in how people interacted with nature.","evidence":"participated in, a profound revolution in the way people interacted with nature.","passageTarget":"The 17th-century English scholar and botanist John Ray was well aware that he lived through, and participated in, a profound revolution in the way people interacted with nature."},"22":{"answer":"science","explanation":"The new philosophy based on experiment and observation is what we now call science.","evidence":"based on experiment and observation of the real world, that we now call science.","passageTarget":"In the preface to his Synopsis of British Plants, published in 1690, he gave thanks that he had been born at a time when traditional dependence on the teaching of the Greek philosopher Aristotle (384-322 BCE) had given way to a new philosophy, based on experiment and observation of the real world, that we now call science."},"23":{"answer":"illness","explanation":"Ray suffered an illness in his early twenties and was advised to take long walks in the fresh air.","evidence":"Here Ray tells us that he suffered an illness in his early twenties, and was advised to take long walks and ride in the fresh air","passageTarget":"Here Ray tells us that he suffered an illness in his early twenties, and was advised to take long walks and ride in the fresh air while recovering."},"24":{"answer":"students","explanation":"Ray unofficially taught Cambridge students at Trinity College.","evidence":"first-year students at Trinity College were able to identify the plants and flowers around Cambridge, as they were being taught","passageTarget":"By the mid-1650s, even the first-year students at Trinity College were able to identify the plants and flowers around Cambridge, as they were being taught (unofficially — none of this was part of their formal education) by Ray."},"25":{"answer":"C","explanation":"Samuel Covell, who graduated from Cambridge in 1600, used his influence to help Ray gain admission.","evidence":"Samuel Covell, who had graduated from Cambridge University in 1600... Through his influence, Ray was admitted to Cambridge University","passageTarget":"Ray must have stood out as an unusually bright boy among his schoolmates, and his talents were recognised by a church official, Samuel Covell, who had graduated from Cambridge University in 1600, and maintained his links with his university."},"26":{"answer":"D","explanation":"His father was a village blacksmith and his mother a respected healer expert in folk medicine in the community.","evidence":"His father was a village blacksmith, and his mother was also a respected member of the community, a healer who was an expert in folk medicine","passageTarget":"His father was a village blacksmith, and his mother was also a respected member of the community, a healer who was an expert in folk medicine and the use of herbs to treat ailments."}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
+
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
+    return;
+  }
+
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
+      }
+    }
+    hideHighlightPopup();
+  }, 15);
+}
+
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
+
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (range) {
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== document.body) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = accepted.map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
+        </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+               Show in Passage
+            </button>
+          </div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>

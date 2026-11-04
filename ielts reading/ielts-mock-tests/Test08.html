@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 08: How to be Happy: Some recent developments in the science of happiness</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .title-box {
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .title-box b {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  #timer {
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+  .sub {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  main {
+    flex-direction: column;
+  }
+  #left {
+    border-right: 0;
+    border-bottom: 3px solid #cbd5e1;
+    max-height: 46vh;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #right {
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pane-toolbar {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  .pane-toolbar-title {
+    font-size: 12px;
+  }
+  .tool-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .q {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .n {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .q-prompt {
+    font-size: 14px;
+  }
+  .opts label {
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .q-input, input[type="text"] {
+    width: min(100%, 260px) !important;
+  }
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #pal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #pal::-webkit-scrollbar {
+    display: none;
+  }
+  #pal span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #pal button {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  #sub {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .title-box b {
+    max-width: 150px;
+  }
+  #timer {
+    font-size: 14px;
+  }
+  #left {
+    max-height: 42vh;
+  }
+}
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* Netlify Badge Clearance: Move Submit button comfortably left */
+#sub {
+  margin-right: 180px !important;
+}
+@media (max-width: 768px) {
+  #sub {
+    margin-right: 150px !important;
+  }
+}
+@media (max-width: 480px) {
+  #sub {
+    margin-right: 140px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 08</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 2</b> &nbsp;|&nbsp; Read the text and answer Questions 14–26. Spend about 20 minutes on this part.</span>
+  <span><b>How to be Happy: Some recent developments in the science of happiness</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
+    <div class="passage-body">
+      <h2>How to be Happy: Some recent developments in the science of happiness</h2>
+      <p class="sb">Can the brain be trained to cultivate lasting contentment?</p>
+    <p><b>A</b> Psychiatrist Tony Fernando was walking down the street when he saw a group of young homeless men sitting on the footpath. As Fernando handed out gifts of food, he tried to video the men&#39;s reactions in his mind, recording how their gratitude lifted him in return. &#39;I felt warm, content, meaningful,&#39; he says. Fernando believes the brain can be trained to make us happy and that his &#39;video method&#39; is one way to achieve this. In fact, a growing body of scientific research internationally is showing how we can learn happiness in the same way we can learn to play the piano. In the soft tissue that forms the brain, there are approximately ten trillion synapses connecting roughly a hundred billion neurons. Active synapses become more sensitive, less active synapses die but new ones grow quickly. This is relatively new thinking - just 30 years ago, neuroscientists believed that adult brain cells couldn&#39;t regenerate. One of the pioneers in this field is University of Wisconsin professor Richard Davidson. He studied Buddhist monks using brain scans in his research facility, and found that those trained in meditation had higher levels of activity in the left prefrontal cortex - the area associated with happiness. Davidson believes that the trained brain is physically different from the untrained one.</p>
+    <p><b>B</b> The idea that we can train our brains to find more happiness has been called &#39;mindfulness&#39; by neuropsychologist Rick Hanson, author of Hardwiring Happiness. It was in college that Hanson, quite unintentionally, first recognised the importance of something that would become his life&#39;s work. As an unconfident teenager, he discovered he could turn a small event, &#39;a young woman smiling at me&#39;, into a good feeling he could hold on to. To do this, Hanson employs exactly the same imaginary &#39;video method&#39; as psychiatrist Tony Fernando. &#39;The brain takes its shape from what the mind rests upon,&#39; says Hanson. If you keep resting your mind on self-criticism and worries, he argues, your brain will be shaped by that. Hanson explains that resting it on pleasant feelings and the things you have accomplished means that over time your brain will take on a different shape, with strength and optimism hardwired into it.</p>
+    <p><b>C</b> In New Zealand, the Mental Health Foundation runs mindfulness programmes in 14 schools. Foundation CEO Judi Clements says &#39;it&#39;s a valuable approach because children are told to pay attention, but aren&#39;t told how to pay attention.&#39; Preliminary results on the outcomes found that children had sustained increases in well-being. The Foundation recognises five pathways to happiness - being active, connecting with others, taking notice, learning and giving. And, says Clements, &#39;We&#39;re detecting a hunger for it from different organisations and professions as well&#39;, so the Foundation is soon going to pilot an online &#39;well-being game&#39; in several workplaces. The project leader is psychologist Carsten Grimm, who is interested in whether some pathways to happiness are more effective than others. In a study, Grimm recorded the activities and corresponding happiness scores of 173 people. What he found was that people who used several pathways to happiness achieved the best results, suggesting it&#39;s better to have a balance than concentrate on the single pathway you most identify with.</p>
+    <p><b>D</b> However, Associate Professor of Psychological Medicine Nathan Consedine greets our relentless search for the secrets to happiness with a tired sigh. &#39;The more you chase it, the less you get it,&#39; he says, quoting studies showing those who value contentment and well-being are, in fact, less happy. The big question, he says, is whether there&#39;s any benefit in actively seeking happiness. He cites a study, for example, which showed that people who were happier were less inclined to show sympathy. Consedine says that&#39;s probably because happy people are strongly motivated to stay happy, but engaging sympathetically with others typically involves engaging with their distress, and that&#39;s going to reduce their own happiness. Consedine is not disagreeing with the theory of mindfulness, but believes there&#39;s more work to be done.</p>
+    <p><b>E</b> Some of that work is being conducted at Auckland University&#39;s Centre for Brain Research. Associate Professor Johanna Montgomery has been studying Hanson&#39;s theory - that altering our brain activity at a synaptic level affects our behaviour. She accepts that it&#39;s a logical explanation based on studies from animals, but we haven&#39;t yet got the technology to prove it scientifically in humans. It&#39;s true that MRI scans certainly do indicate an increased flow of blood to different areas of the brain which are experiencing positive stimuli. However, she warns that this is a long way from confirming that the brain itself is developing or strengthening.</p>
+    <p><b>F</b> Nonetheless, Montgomery believes she is making progress. In the laboratory, when scientists want to experiment with synaptic connections, they stimulate the brain with electricity, as this copies the high-frequency firings that happen normally in the brain every second. Using this technique, Montgomery has made a number of findings. For example, the hormones that are released routinely in response to good or bad situations - such as adrenaline - act to regulate the brain, in the same way that weather has a regulating effect on human activity more generally. But scientists understand some of these stimuli better than others. More is known about the impact on brain activity of prolonged periods of fear than the effects of &#39;happiness&#39; hormones that are released by positive events in life. This is one potentially important area that she hopes to investigate further in future.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 14–17</h3>
+<div class="instr"><p>Reading Passage 2 has six paragraphs, A–F. Which paragraph contains the following information? Write the correct letter, A–F in boxes 14–17 on your answer sheet.</p></div>
+
+<div class="options-box" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:12px 16px; margin:12px 0;">
+  <h4 style="margin:0 0 8px; color:#1d3557; font-size:15px;">Options / Researchers</h4>
+  <ul style="margin:0; padding-left:20px; line-height:1.6; font-size:14px;">
+    <li><b>A</b> &nbsp; Paragraph A</li>
+    <li><b>B</b> &nbsp; Paragraph B</li>
+    <li><b>C</b> &nbsp; Paragraph C</li>
+    <li><b>D</b> &nbsp; Paragraph D</li>
+    <li><b>E</b> &nbsp; Paragraph E</li>
+    <li><b>F</b> &nbsp; Paragraph F</li>
+  </ul>
+</div>
+
+<div class="q match-feature-q" id="q14">
+  <span class="n">14</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a reference to a fact that two scientists use the same technique to promote their own happiness</span>
+    <select name="r14" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Paragraph A</option>
+      <option value="B">B - Paragraph B</option>
+      <option value="C">C - Paragraph C</option>
+      <option value="D">D - Paragraph D</option>
+      <option value="E">E - Paragraph E</option>
+      <option value="F">F - Paragraph F</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q15">
+  <span class="n">15</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">the suggestion that scientific opinion about an aspect of brain function has changed over a given time period</span>
+    <select name="r15" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Paragraph A</option>
+      <option value="B">B - Paragraph B</option>
+      <option value="C">C - Paragraph C</option>
+      <option value="D">D - Paragraph D</option>
+      <option value="E">E - Paragraph E</option>
+      <option value="F">F - Paragraph F</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q16">
+  <span class="n">16</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">an estimate of how numerous some brain components are</span>
+    <select name="r16" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Paragraph A</option>
+      <option value="B">B - Paragraph B</option>
+      <option value="C">C - Paragraph C</option>
+      <option value="D">D - Paragraph D</option>
+      <option value="E">E - Paragraph E</option>
+      <option value="F">F - Paragraph F</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q17">
+  <span class="n">17</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">the reason why some educational courses were set up</span>
+    <select name="r17" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Paragraph A</option>
+      <option value="B">B - Paragraph B</option>
+      <option value="C">C - Paragraph C</option>
+      <option value="D">D - Paragraph D</option>
+      <option value="E">E - Paragraph E</option>
+      <option value="F">F - Paragraph F</option>
+    </select>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 18–21</h3>
+<div class="instr"><p>Look at the following statements (Questions 18–21) and the list of people below. Match each statement with the correct person, A–F. Write the correct letter, A–F, in boxes 18–21 on your answer sheet.</p></div>
+
+<div class="options-box" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:12px 16px; margin:12px 0;">
+  <h4 style="margin:0 0 8px; color:#1d3557; font-size:15px;">Options / Researchers</h4>
+  <ul style="margin:0; padding-left:20px; line-height:1.6; font-size:14px;">
+    <li><b>A</b> &nbsp; Tony Fernando</li>
+    <li><b>B</b> &nbsp; Rick Hanson</li>
+    <li><b>C</b> &nbsp; Judi Clements</li>
+    <li><b>D</b> &nbsp; Nathan Consedine</li>
+    <li><b>E</b> &nbsp; Carsten Grimm</li>
+    <li><b>F</b> &nbsp; Johanna Montgomery</li>
+  </ul>
+</div>
+
+<div class="q match-feature-q" id="q18">
+  <span class="n">18</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">It&#39;s better to look for a variety of ways to increase happiness than focus on just one.</span>
+    <select name="r18" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Tony Fernando</option>
+      <option value="B">B - Rick Hanson</option>
+      <option value="C">C - Judi Clements</option>
+      <option value="D">D - Nathan Consedine</option>
+      <option value="E">E - Carsten Grimm</option>
+      <option value="F">F - Johanna Montgomery</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q19">
+  <span class="n">19</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">Focusing on personal achievements rather than negative experiences will make people happier.</span>
+    <select name="r19" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Tony Fernando</option>
+      <option value="B">B - Rick Hanson</option>
+      <option value="C">C - Judi Clements</option>
+      <option value="D">D - Nathan Consedine</option>
+      <option value="E">E - Carsten Grimm</option>
+      <option value="F">F - Johanna Montgomery</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q20">
+  <span class="n">20</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">Happy people might have a reason not to display one favourable characteristic.</span>
+    <select name="r20" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Tony Fernando</option>
+      <option value="B">B - Rick Hanson</option>
+      <option value="C">C - Judi Clements</option>
+      <option value="D">D - Nathan Consedine</option>
+      <option value="E">E - Carsten Grimm</option>
+      <option value="F">F - Johanna Montgomery</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q21">
+  <span class="n">21</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">A range of groups are becoming more interested in learning techniques to improve happiness.</span>
+    <select name="r21" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - Tony Fernando</option>
+      <option value="B">B - Rick Hanson</option>
+      <option value="C">C - Judi Clements</option>
+      <option value="D">D - Nathan Consedine</option>
+      <option value="E">E - Carsten Grimm</option>
+      <option value="F">F - Johanna Montgomery</option>
+    </select>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 22–26</h3>
+<div class="instr"><p>Complete the summary below. Choose ONE WORD ONLY from the passage for each answer. Write your answers in boxes 22–26 on your answer sheet.</p></div>
+<div class="notes">
+  <p>Auckland University’s Centre for Brain Research: Associate Professor Johanna Montgomery says current research into brain activity and behavior only relates to <span class="gap-wrap" id="q22"><b>22</b> <input type="text" name="t22" autocomplete="off" spellcheck="false" class="cd-gap-input"></span>, so Hanson&#39;s theories have not been proved correct.</p>
+  <p>While scans do show that positive stimuli result in more <span class="gap-wrap" id="q23"><b>23</b> <input type="text" name="t23" autocomplete="off" spellcheck="false" class="cd-gap-input"></span> reaching parts of the brain, this isn&#39;t proof that the brain is getting stronger.</p>
+  <p>In laboratory experiments, scientists use <span class="gap-wrap" id="q24"><b>24</b> <input type="text" name="t24" autocomplete="off" spellcheck="false" class="cd-gap-input"></span> to initiate brain activity, because it&#39;s similar to natural processes.</p>
+  <p>One finding is that hormones can be compared to the <span class="gap-wrap" id="q25"><b>25</b> <input type="text" name="t25" autocomplete="off" spellcheck="false" class="cd-gap-input"></span> because both can change human behavior.</p>
+  <p>scientists understand some stimuli, such as <span class="gap-wrap" id="q26"><b>26</b> <input type="text" name="t26" autocomplete="off" spellcheck="false" class="cd-gap-input"></span>, better than they understand more positive stimuli.</p>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 14;
+const MAX_Q = 26;
+const KEY = {"14":["B"],"15":["A"],"16":["A"],"17":["C"],"18":["E"],"19":["C"],"20":["F"],"21":["D"],"22":["animals"],"23":["blood"],"24":["electricity"],"25":["weather"],"26":["fear"]};
+const EXPLANATIONS = {"14":{"answer":"B","explanation":"Paragraph B: 'Hanson employs exactly the same imaginary video method as psychiatrist Tony Fernando.'","evidence":"Hanson employs exactly the same imaginary 'video method' as psychiatrist Tony Fernando.","passageTarget":"To do this, Hanson employs exactly the same imaginary &#39;video method&#39; as psychiatrist Tony Fernando."},"15":{"answer":"A","explanation":"Paragraph A: 'just 30 years ago, neuroscientists believed that adult brain cells couldn't regenerate.'","evidence":"This is relatively new thinking - just 30 years ago, neuroscientists believed that adult brain cells couldn't regenerate.","passageTarget":"This is relatively new thinking - just 30 years ago, neuroscientists believed that adult brain cells couldn&#39;t regenerate."},"16":{"answer":"A","explanation":"Paragraph A: 'ten trillion synapses connecting roughly a hundred billion neurons.'","evidence":"there are approximately ten trillion synapses connecting roughly a hundred billion neurons.","passageTarget":"In the soft tissue that forms the brain, there are approximately ten trillion synapses connecting roughly a hundred billion neurons."},"17":{"answer":"C","explanation":"Paragraph C: 'children are told to pay attention, but aren't told how to pay attention.'","evidence":"children are told to pay attention, but aren't told how to pay attention.","passageTarget":"Foundation CEO Judi Clements says &#39;it&#39;s a valuable approach because children are told to pay attention, but aren&#39;t told how to pay attention."},"18":{"answer":"E","explanation":"Carsten Grimm found 'people who used several pathways to happiness achieved the best results, suggesting it's better to have a balance'.","evidence":"What he found was that people who used several pathways to happiness achieved the best results, suggesting it's better to have a balance than concentrate on the single pathway you most identify with.","passageTarget":"What he found was that people who used several pathways to happiness achieved the best results, suggesting it&#39;s better to have a balance than concentrate on the single pathway you most identify with."},"19":{"answer":"C","explanation":"Rick Hanson argues that resting mind on pleasant feelings and accomplishments reshapes the brain with optimism.","evidence":"Hanson explains that resting it on pleasant feelings and the things you have accomplished means that over time your brain will take on a different shape","passageTarget":"Hanson explains that resting it on pleasant feelings and the things you have accomplished means that over time your brain will take on a different shape, with strength and optimism hardwired into it."},"20":{"answer":"F","explanation":"Nathan Consedine notes happy people are less inclined to show sympathy to avoid reducing their own happiness.","evidence":"Consedine says that's probably because happy people are strongly motivated to stay happy, but engaging sympathetically with others typically involves engaging with their distress, and that's going to reduce their own happiness.","passageTarget":"Consedine says that&#39;s probably because happy people are strongly motivated to stay happy, but engaging sympathetically with others typically involves engaging with their distress, and that&#39;s going to reduce their own happiness."},"21":{"answer":"D","explanation":"Judi Clements observes: 'We're detecting a hunger for it from different organisations and professions as well'.","evidence":"We're detecting a hunger for it from different organisations and professions as well","passageTarget":"And, says Clements, &#39;We&#39;re detecting a hunger for it from different organisations and professions as well&#39;, so the Foundation is soon going to pilot an online &#39;well-being game&#39; in several workplaces."},"22":{"answer":"animals","explanation":"Paragraph E: 'logical explanation based on studies from animals, but we haven't yet got the technology to prove it scientifically in humans.'","evidence":"She accepts that it's a logical explanation based on studies from animals, but we havent yet got the technology to prove it scientifically in humans.","passageTarget":"She accepts that it&#39;s a logical explanation based on studies from animals, but we haven&#39;t yet got the technology to prove it scientifically in humans."},"23":{"answer":"blood","explanation":"Paragraph E: 'indicate an increased flow of blood to different areas of the brain...'","evidence":"MRI scans certainly do indicate an increased flow of blood to different areas of the brain which are experiencing positive stimuli.","passageTarget":"It&#39;s true that MRI scans certainly do indicate an increased flow of blood to different areas of the brain which are experiencing positive stimuli."},"24":{"answer":"electricity","explanation":"Paragraph F: 'they stimulate the brain with electricity, as this copies the high-frequency firings...'","evidence":"when scientists want to experiment with synaptic connections, they stimulate the brain with electricity","passageTarget":"In the laboratory, when scientists want to experiment with synaptic connections, they stimulate the brain with electricity, as this copies the high-frequency firings that happen normally in the brain every second."},"25":{"answer":"weather","explanation":"Paragraph F: 'in the same way that weather has a regulating effect on human activity more generally.'","evidence":"in the same way that weather has a regulating effect on human activity more generally.","passageTarget":"For example, the hormones that are released routinely in response to good or bad situations - such as adrenaline - act to regulate the brain, in the same way that weather has a regulating effect on human activity more generally."},"26":{"answer":"fear","explanation":"Paragraph F: 'More is known about the impact on brain activity of prolonged periods of fear than the effects of happiness hormones...'","evidence":"More is known about the impact on brain activity of prolonged periods of fear than the effects of 'happiness' hormones","passageTarget":"More is known about the impact on brain activity of prolonged periods of fear than the effects of &#39;happiness&#39; hormones that are released by positive events in life."}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
+
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
+    return;
+  }
+
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
+      }
+    }
+    hideHighlightPopup();
+  }, 15);
+}
+
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
+
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (range) {
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== document.body) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = accepted.map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
+        </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+               Show in Passage
+            </button>
+          </div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>

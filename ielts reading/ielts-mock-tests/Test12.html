@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 12: New Zealand home textile crafts of the 1930s to 1950s</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .title-box {
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .title-box b {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  #timer {
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+  .sub {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  main {
+    flex-direction: column;
+  }
+  #left {
+    border-right: 0;
+    border-bottom: 3px solid #cbd5e1;
+    max-height: 46vh;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #right {
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pane-toolbar {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  .pane-toolbar-title {
+    font-size: 12px;
+  }
+  .tool-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .q {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .n {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .q-prompt {
+    font-size: 14px;
+  }
+  .opts label {
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .q-input, input[type="text"] {
+    width: min(100%, 260px) !important;
+  }
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #pal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #pal::-webkit-scrollbar {
+    display: none;
+  }
+  #pal span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #pal button {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  #sub {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .title-box b {
+    max-width: 150px;
+  }
+  #timer {
+    font-size: 14px;
+  }
+  #left {
+    max-height: 42vh;
+  }
+}
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* Netlify Badge Clearance: Move Submit button comfortably left */
+#sub {
+  margin-right: 180px !important;
+}
+@media (max-width: 768px) {
+  #sub {
+    margin-right: 150px !important;
+  }
+}
+@media (max-width: 480px) {
+  #sub {
+    margin-right: 140px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 12</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 3</b> &nbsp;|&nbsp; Read the text and answer Questions 27–40. Spend about 20 minutes on this part.</span>
+  <span><b>New Zealand home textile crafts of the 1930s to 1950s</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
+    <div class="passage-body">
+      <h2>New Zealand home textile crafts of the 1930s to 1950s</h2>
+      <p class="sb">Objects made by previous generations of women should be valued more highly</p>
+    <p><b>1</b> Domestic crafts do not build monuments to their makers, nor do they create wealth, and too often they have not survived. In consequence, the domestic crafts produced by mothers, grandmothers, and great-grandmothers in New Zealand are often overlooked. But needlework should be preserved, for it helps to convey a sense of people&#39;s identity and past beliefs in these remote islands in the Pacific Ocean.</p>
+    <p><b>2</b> Women of previous generations expected to sew; they had to dress their families in a time when few people could afford to buy what they were capable of making. For some women this work may have been unwelcome drudgery, but for others it was an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand—a needle, some thread, and a piece of fabric.</p>
+    <p><b>3</b> Textiles are frustrating to collect. They are fragile; they stain; they develop rust marks; they fray and rot. If they are used, they deteriorate; yet if they are merely stored, the owner does not fully enjoy possession. That is probably why they have not been as popular to collect as antique furniture or fine china, which are more durable investments. Domestic crafts are also seldom signed, as creators never expected them to be seen outside the family home.</p>
+    <p><b>4</b> It does not help that such work falls into the category of crafts rather than fine arts, because crafts are looked on too often as a poor cousin to true creativity. If things are made to be useful within the home by ordinary housewives, society has agreed they cannot be art. The collector of textiles is like an archaeologist, digging through junk shops to understand history through physical evidence.</p>
+    <p><b>5</b> The domestic crafts of 1930–1950 cannot be separated from women&#39;s magazines showing photos of how prosperous people lived. Magazines provided inducements to social betterment, alongside printed patterns available at low cost for everyday items like aprons, tea cosies, and curtains. Collectors today find greater enjoyment in individual, imaginative needlework where flaws and serendipity take on a life of their own.</p>
+    <p><b>6</b> Nostalgia reminds us of the care with which women selected fabrics. Old patchwork quilts in particular represent an unknown family&#39;s compressed history: pyjamas, ball gowns, school dresses, all thrown together as a wish for something better during hard economic times.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 27–32</h3>
+<div class="instr"><p>Choose the correct letter, A, B, C or D.</p></div>
+
+<div class="q" id="q27">
+  <span class="n">27</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What does the writer say about domestic crafts in the first paragraph?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r27" value="A"> <b>A</b> &nbsp; They can be sold for high prices today.</label>
+      <label><input type="radio" name="r27" value="B"> <b>B</b> &nbsp; They were used to tell stories in the past.</label>
+      <label><input type="radio" name="r27" value="C"> <b>C</b> &nbsp; They are sources of information about society.</label>
+      <label><input type="radio" name="r27" value="D"> <b>D</b> &nbsp; They have been well documented by historians.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q28">
+  <span class="n">28</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What is the writer&#39;s main point in the second paragraph?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r28" value="A"> <b>A</b> &nbsp; Women sewed to make money.</label>
+      <label><input type="radio" name="r28" value="B"> <b>B</b> &nbsp; Women used to have larger families.</label>
+      <label><input type="radio" name="r28" value="C"> <b>C</b> &nbsp; Sewing was enjoyed as a social activity.</label>
+      <label><input type="radio" name="r28" value="D"> <b>D</b> &nbsp; Sewing could be a means of self-expression.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q29">
+  <span class="n">29</span>
+  <div style="flex:1;">
+    <div class="q-prompt">According to the writer, domestic crafts are not frequently collected because</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r29" value="A"> <b>A</b> &nbsp; they are difficult to see.</label>
+      <label><input type="radio" name="r29" value="B"> <b>B</b> &nbsp; they are easily damaged.</label>
+      <label><input type="radio" name="r29" value="C"> <b>C</b> &nbsp; they provide little enjoyment.</label>
+      <label><input type="radio" name="r29" value="D"> <b>D</b> &nbsp; they have no practical use today.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q30">
+  <span class="n">30</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What point does the writer make about signatures on textiles?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r30" value="A"> <b>A</b> &nbsp; Many women at that time could not sign their names.</label>
+      <label><input type="radio" name="r30" value="B"> <b>B</b> &nbsp; The signatures have faded over time and cannot be seen.</label>
+      <label><input type="radio" name="r30" value="C"> <b>C</b> &nbsp; The style of stitching served as an alternative to a signature.</label>
+      <label><input type="radio" name="r30" value="D"> <b>D</b> &nbsp; They were unnecessary since everyone in the home would know the maker.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q31">
+  <span class="n">31</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What is the writer doing in the fourth paragraph?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r31" value="A"> <b>A</b> &nbsp; Suggesting that needlework is not a true art form.</label>
+      <label><input type="radio" name="r31" value="B"> <b>B</b> &nbsp; Challenging the usual distinction between &#39;arts&#39; and crafts.</label>
+      <label><input type="radio" name="r31" value="C"> <b>C</b> &nbsp; Arguing that functional objects were seldom made in the home.</label>
+      <label><input type="radio" name="r31" value="D"> <b>D</b> &nbsp; Criticizing the attitude of women today towards domestic crafts.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q32">
+  <span class="n">32</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Why does the writer compare textile collecting to archaeology?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r32" value="A"> <b>A</b> &nbsp; They both require hard work.</label>
+      <label><input type="radio" name="r32" value="B"> <b>B</b> &nbsp; They involve similar processes.</label>
+      <label><input type="radio" name="r32" value="C"> <b>C</b> &nbsp; They can both be done on a low budget.</label>
+      <label><input type="radio" name="r32" value="D"> <b>D</b> &nbsp; They are both undervalued in society today.</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 33–36</h3>
+<div class="instr"><p>Complete the summary using the list of words, A–G. Choose the correct letter, A–G.</p></div>
+
+<div class="q" id="q33">
+  <span class="n">33</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Women&#39;s magazines in this period mainly influenced domestic crafts by showing the lifestyle of the</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r33" value="A"> <b>A</b> &nbsp; skilful</label>
+      <label><input type="radio" name="r33" value="B"> <b>B</b> &nbsp; creative</label>
+      <label><input type="radio" name="r33" value="C"> <b>C</b> &nbsp; wealthy</label>
+      <label><input type="radio" name="r33" value="D"> <b>D</b> &nbsp; practical</label>
+      <label><input type="radio" name="r33" value="E"> <b>E</b> &nbsp; imperfect</label>
+      <label><input type="radio" name="r33" value="F"> <b>F</b> &nbsp; industrious</label>
+      <label><input type="radio" name="r33" value="G"> <b>G</b> &nbsp; detailed</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q34">
+  <span class="n">34</span>
+  <div style="flex:1;">
+    <div class="q-prompt">The printed patterns produced items that can be contrasted with work demonstrating the</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r34" value="A"> <b>A</b> &nbsp; skilful</label>
+      <label><input type="radio" name="r34" value="B"> <b>B</b> &nbsp; creative</label>
+      <label><input type="radio" name="r34" value="C"> <b>C</b> &nbsp; wealthy</label>
+      <label><input type="radio" name="r34" value="D"> <b>D</b> &nbsp; practical</label>
+      <label><input type="radio" name="r34" value="E"> <b>E</b> &nbsp; imperfect</label>
+      <label><input type="radio" name="r34" value="F"> <b>F</b> &nbsp; industrious</label>
+      <label><input type="radio" name="r34" value="G"> <b>G</b> &nbsp; detailed</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q35">
+  <span class="n">35</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Printed patterns mainly guided work for items that were</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r35" value="A"> <b>A</b> &nbsp; skilful</label>
+      <label><input type="radio" name="r35" value="B"> <b>B</b> &nbsp; creative</label>
+      <label><input type="radio" name="r35" value="C"> <b>C</b> &nbsp; wealthy</label>
+      <label><input type="radio" name="r35" value="D"> <b>D</b> &nbsp; practical</label>
+      <label><input type="radio" name="r35" value="E"> <b>E</b> &nbsp; imperfect</label>
+      <label><input type="radio" name="r35" value="F"> <b>F</b> &nbsp; industrious</label>
+      <label><input type="radio" name="r35" value="G"> <b>G</b> &nbsp; detailed</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q36">
+  <span class="n">36</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Collectors often appreciate work that is</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r36" value="A"> <b>A</b> &nbsp; skilful</label>
+      <label><input type="radio" name="r36" value="B"> <b>B</b> &nbsp; creative</label>
+      <label><input type="radio" name="r36" value="C"> <b>C</b> &nbsp; wealthy</label>
+      <label><input type="radio" name="r36" value="D"> <b>D</b> &nbsp; practical</label>
+      <label><input type="radio" name="r36" value="E"> <b>E</b> &nbsp; imperfect</label>
+      <label><input type="radio" name="r36" value="F"> <b>F</b> &nbsp; industrious</label>
+      <label><input type="radio" name="r36" value="G"> <b>G</b> &nbsp; detailed</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 37–40</h3>
+<div class="instr"><p>Do the following statements agree with the views of the writer in Reading Passage 3?<br>In boxes 37–40 on your answer sheet, write:<br>YES if the statement agrees with the views of the writer<br>NO if the statement contradicts the views of the writer<br>NOT GIVEN if it is impossible to say what the writer thinks about this</p></div>
+
+<div class="q" id="q37">
+  <span class="n">37</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Nostalgia can promote an unreliable image of the past.</div>
+    <div class="opts">
+      <label><input type="radio" name="r37" value="YES"> YES</label>
+      <label><input type="radio" name="r37" value="NO"> NO</label>
+      <label><input type="radio" name="r37" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q38">
+  <span class="n">38</span>
+  <div style="flex:1;">
+    <div class="q-prompt">In the 1950s, women chose fabric according to its durability.</div>
+    <div class="opts">
+      <label><input type="radio" name="r38" value="YES"> YES</label>
+      <label><input type="radio" name="r38" value="NO"> NO</label>
+      <label><input type="radio" name="r38" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q39">
+  <span class="n">39</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Patchwork quilts are only of interest to the makers&#39; family.</div>
+    <div class="opts">
+      <label><input type="radio" name="r39" value="YES"> YES</label>
+      <label><input type="radio" name="r39" value="NO"> NO</label>
+      <label><input type="radio" name="r39" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q40">
+  <span class="n">40</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Needlework was a way for women to escape the reality of their lives.</div>
+    <div class="opts">
+      <label><input type="radio" name="r40" value="YES"> YES</label>
+      <label><input type="radio" name="r40" value="NO"> NO</label>
+      <label><input type="radio" name="r40" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 27;
+const MAX_Q = 40;
+const KEY = {"27":["C"],"28":["D"],"29":["B"],"30":["D"],"31":["B"],"32":["B"],"33":["C"],"34":["B"],"35":["D"],"36":["E"],"37":["YES"],"38":["NOT GIVEN"],"39":["NO"],"40":["YES"]};
+const EXPLANATIONS = {"27":{"answer":"C","explanation":"Paragraph 1: 'needlework should be preserved, for it helps to convey a sense of people's identity and past beliefs'.","evidence":"helps to convey a sense of people's identity and past beliefs in these remote islands","passageTarget":"But needlework should be preserved, for it helps to convey a sense of people&#39;s identity and past beliefs in these remote islands in the Pacific Ocean."},"28":{"answer":"D","explanation":"Paragraph 2 states sewing was an opportunity to explore identities, beliefs, and dreams.","evidence":"an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand","passageTarget":"For some women this work may have been unwelcome drudgery, but for others it was an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand—a needle, some thread, and a piece of fabric."},"29":{"answer":"B","explanation":"Paragraph 3: 'They are fragile; they stain; they develop rust marks; they fray and rot.'","evidence":"They are fragile; they stain; they develop rust marks; they fray and rot.","passageTarget":"They are fragile; they stain; they develop rust marks; they fray and rot."},"30":{"answer":"D","explanation":"Paragraph 3: women never expected items to be seen outside their homes, 'where the creator's identity was never in doubt'.","evidence":"They were not expecting it to be seen outside their homes, where the creator's identity was never in doubt.","passageTarget":"Women of previous generations expected to sew; they had to dress their families in a time when few people could afford to buy what they were capable of making."},"31":{"answer":"B","explanation":"Paragraph 4 challenges the assumption that utilitarian objects made at home cannot be considered art.","evidence":"If things are made to be useful, especially within the home and by ordinary housewives, we seem to have agreed they cannot be art. Why not?","passageTarget":"If things are made to be useful within the home by ordinary housewives, society has agreed they cannot be art."},"32":{"answer":"B","explanation":"Paragraph 4 explains both involve digging for physical evidence of the past.","evidence":"Archaeology is a combination of history and detective work... Likewise, digging for the past is what textile collectors do in junk shops","passageTarget":"The collector of textiles is like an archaeologist, digging through junk shops to understand history through physical evidence."},"33":{"answer":"C","explanation":"Paragraph 5 mentions magazines allowed women to glimpse how 'more prosperous people lived' (C: wealthy).","evidence":"allow women to glimpse how more prosperous people lived","passageTarget":"The domestic crafts of 1930–1950 cannot be separated from women&#39;s magazines showing photos of how prosperous people lived."},"34":{"answer":"B","explanation":"Paragraph 5 contrasts printed patterns with individual work that reflects 'imagination' (B: creative).","evidence":"distinguish this regulated tradition of needlework... from the more individual work that women dreamed up themselves and whose form and execution were reflections of their own ideals and imagination.","passageTarget":"For some women this work may have been unwelcome drudgery, but for others it was an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand—a needle, some thread, and a piece of fabric."},"35":{"answer":"D","explanation":"Paragraph 5 notes patterns were for everyday items fulfilling 'some domestic function' (D: practical).","evidence":"Mostly, such pattems were for everyday items that fulfilled some domestic function","passageTarget":"Magazines provided inducements to social betterment, alongside printed patterns available at low cost for everyday items like aprons, tea cosies, and curtains."},"36":{"answer":"E","explanation":"Paragraph 5: 'flaws can be enjoyable; even failure may bring pleasure' (E: imperfect).","evidence":"When it comes to needlework, flaws can be enjoyable; even failure may bring pleasure, and in this respect needlework can be contrasted with other art forms, where successful completion is paramount.","passageTarget":"Collectors today find greater enjoyment in individual, imaginative needlework where flaws and serendipity take on a life of their own."},"37":{"answer":"YES","explanation":"Paragraph 6: 'nostalgia should not always be trusted as it can be a sanitized form of history that blots out harsh reality.'","evidence":"nostalgia should not always be trusted as it can be a sanitized form of history that blots out harsh reality.","passageTarget":"But needlework should be preserved, for it helps to convey a sense of people&#39;s identity and past beliefs in these remote islands in the Pacific Ocean."},"38":{"answer":"NOT GIVEN","explanation":"Paragraph 6 mentions women agonizing over choices and textures, but does not say they chose based on durability.","evidence":"","passageTarget":"If they are used, they deteriorate; yet if they are merely stored, the owner does not fully enjoy possession."},"39":{"answer":"NO","explanation":"Paragraph 6 states offcuts were used as a means of 'recording their family's story for others to appreciate'.","evidence":"as a means of recording their family's story for others to appreciate.","passageTarget":"For some women this work may have been unwelcome drudgery, but for others it was an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand—a needle, some thread, and a piece of fabric."},"40":{"answer":"YES","explanation":"Paragraph 6 concludes that fabrics were 'a wish for something better, a way of daydreaming about a life that would turn out well in the end.'","evidence":"Such fabrics, then, should be seen as a wish for something better, a way of daydreaming about a life that would turn out well in the end.","passageTarget":"For some women this work may have been unwelcome drudgery, but for others it was an opportunity to explore their identities, beliefs, and dreams with the only means readily at hand—a needle, some thread, and a piece of fabric."}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
+
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
+    return;
+  }
+
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
+      }
+    }
+    hideHighlightPopup();
+  }, 15);
+}
+
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
+
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (range) {
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== document.body) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = accepted.map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
+        </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+               Show in Passage
+            </button>
+          </div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>

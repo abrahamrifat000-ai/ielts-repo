@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 21: The Art of Deception: The Truth About Lying</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  header {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .title-box {
+    gap: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .title-box b {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  #timer {
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+  .sub {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 2px;
+  }
+  main {
+    flex-direction: column;
+  }
+  #left {
+    border-right: 0;
+    border-bottom: 3px solid #cbd5e1;
+    max-height: 46vh;
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #right {
+    padding: 14px 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pane-toolbar {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+  .pane-toolbar-title {
+    font-size: 12px;
+  }
+  .tool-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .q {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .n {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .q-prompt {
+    font-size: 14px;
+  }
+  .opts label {
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .q-input, input[type="text"] {
+    width: min(100%, 260px) !important;
+  }
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #pal {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #pal::-webkit-scrollbar {
+    display: none;
+  }
+  #pal span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  #pal button {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  #sub {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .title-box b {
+    max-width: 150px;
+  }
+  #timer {
+    font-size: 14px;
+  }
+  #left {
+    max-height: 42vh;
+  }
+}
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* Netlify Badge Clearance: Move Submit button comfortably left */
+#sub {
+  margin-right: 180px !important;
+}
+@media (max-width: 768px) {
+  #sub {
+    margin-right: 150px !important;
+  }
+}
+@media (max-width: 480px) {
+  #sub {
+    margin-right: 140px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 21</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 3</b> &nbsp;|&nbsp; Read the text and answer Questions 27–40. Spend about 20 minutes on this part.</span>
+  <span><b>The Art of Deception: The Truth About Lying</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
+    <div class="passage-body">
+      <h2>The Art of Deception: The Truth About Lying</h2>
+      <p class="sb">Do tiny changes of facial expression reveal whether someone is lying?</p>
+    <p><b>1</b> Forty years ago, research psychologist Dr Paul Ekman was asked by young psychiatrists in training whether there was any way to be sure a patient is telling the truth. Filming 12-minute interviews, Ekman slowed a tape down after a patient confessed to lying. Across just two frames lasting less than 1/15th of a second, he caught an intense expression of extreme anguish. He termed this &#39;micro-expression&#39;: rapid, involuntary displays of emotion that the subject intends to conceal.</p>
+    <p><b>2</b> Over four decades, Ekman validated Charles Darwin&#39;s proposition that expressions of rage, disgust, contempt, fear, surprise, happiness, and sadness are universal across human cultures from the US to Papua New Guinea. Micro-expressions are virtually impossible to suppress when lying. While only 50 out of 15,000 tested people (&#39;naturals&#39;) spotted them untrained, Ekman showed almost anyone can be trained. The FBI, CIA, and legal professionals have routinely called on him for training.</p>
+    <p><b>3</b> Ekman&#39;s research inspired the television drama series Lie to Me, starring the fictional Dr Cal Lightman. Initially apprehensive that the show might foster false beliefs among jurors and lead to miscarriages of justice, Ekman consulted on each script to ensure 80–90% accuracy. Ekman defines a &#39;true lie&#39; as requiring deliberate intent to deceive without notification, focusing strictly on high-stakes deception.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 27–31</h3>
+<div class="instr"><p>Choose the correct letter, A, B, C or D.</p></div>
+
+<div class="q" id="q27">
+  <span class="n">27</span>
+  <div style="flex:1;">
+    <div class="q-prompt">According to the writer, Ekman became interested in lying after a question from his</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r27" value="A"> <b>A</b> &nbsp; peers.</label>
+      <label><input type="radio" name="r27" value="B"> <b>B</b> &nbsp; patients.</label>
+      <label><input type="radio" name="r27" value="C"> <b>C</b> &nbsp; students.</label>
+      <label><input type="radio" name="r27" value="D"> <b>D</b> &nbsp; teachers.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q28">
+  <span class="n">28</span>
+  <div style="flex:1;">
+    <div class="q-prompt">The writer refers to the 12-minute interviews in order to</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r28" value="A"> <b>A</b> &nbsp; illustrate how frequently patients lie.</label>
+      <label><input type="radio" name="r28" value="B"> <b>B</b> &nbsp; describe the origins of Ekman&#39;s theories.</label>
+      <label><input type="radio" name="r28" value="C"> <b>C</b> &nbsp; compare Ekman&#39;s research to previous studies.</label>
+      <label><input type="radio" name="r28" value="D"> <b>D</b> &nbsp; show how patients&#39; behaviour is affected by filming.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q29">
+  <span class="n">29</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What is the writer&#39;s point in the second paragraph?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r29" value="A"> <b>A</b> &nbsp; Micro-expressions are common to all people.</label>
+      <label><input type="radio" name="r29" value="B"> <b>B</b> &nbsp; Recent research has refuted an old idea.</label>
+      <label><input type="radio" name="r29" value="C"> <b>C</b> &nbsp; With practice we can learn to control our micro-expressions.</label>
+      <label><input type="radio" name="r29" value="D"> <b>D</b> &nbsp; Human society is too complex to allow for generalisations.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q30">
+  <span class="n">30</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What are we told about Ekman&#39;s conclusions from his tests?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r30" value="A"> <b>A</b> &nbsp; It is natural for people to lie.</label>
+      <label><input type="radio" name="r30" value="B"> <b>B</b> &nbsp; Few untrained people can detect lying.</label>
+      <label><input type="radio" name="r30" value="C"> <b>C</b> &nbsp; Most liars suffer from periods of depression.</label>
+      <label><input type="radio" name="r30" value="D"> <b>D</b> &nbsp; All of his subjects were trained to identify micro-expressions.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q31">
+  <span class="n">31</span>
+  <div style="flex:1;">
+    <div class="q-prompt">What point does the writer make about Ekman&#39;s techniques in the fourth paragraph?</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r31" value="A"> <b>A</b> &nbsp; They take a decade to teach.</label>
+      <label><input type="radio" name="r31" value="B"> <b>B</b> &nbsp; They have been in great demand.</label>
+      <label><input type="radio" name="r31" value="C"> <b>C</b> &nbsp; They have aroused the suspicions of some agencies.</label>
+      <label><input type="radio" name="r31" value="D"> <b>D</b> &nbsp; They can be used by a limited range of occupations.</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 32–36</h3>
+<div class="instr"><p>Complete the summary using the list of words, A–I, below. Choose the correct letter, A–I.</p></div>
+
+<div class="q" id="q32">
+  <span class="n">32</span>
+  <div style="flex:1;">
+    <div class="q-prompt">The television series based on Ekman&#39;s work: Ekman feared encouraging viewers&#39;</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r32" value="A"> <b>A</b> &nbsp; consequences</label>
+      <label><input type="radio" name="r32" value="B"> <b>B</b> &nbsp; crimes</label>
+      <label><input type="radio" name="r32" value="C"> <b>C</b> &nbsp; false beliefs</label>
+      <label><input type="radio" name="r32" value="D"> <b>D</b> &nbsp; motives</label>
+      <label><input type="radio" name="r32" value="E"> <b>E</b> &nbsp; justice</label>
+      <label><input type="radio" name="r32" value="F"> <b>F</b> &nbsp; accuracy</label>
+      <label><input type="radio" name="r32" value="G"> <b>G</b> &nbsp; acting</label>
+      <label><input type="radio" name="r32" value="H"> <b>H</b> &nbsp; research</label>
+      <label><input type="radio" name="r32" value="I"> <b>I</b> &nbsp; ratings</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q33">
+  <span class="n">33</span>
+  <div style="flex:1;">
+    <div class="q-prompt">He was worried that one day</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r33" value="A"> <b>A</b> &nbsp; consequences</label>
+      <label><input type="radio" name="r33" value="B"> <b>B</b> &nbsp; crimes</label>
+      <label><input type="radio" name="r33" value="C"> <b>C</b> &nbsp; false beliefs</label>
+      <label><input type="radio" name="r33" value="D"> <b>D</b> &nbsp; motives</label>
+      <label><input type="radio" name="r33" value="E"> <b>E</b> &nbsp; justice</label>
+      <label><input type="radio" name="r33" value="F"> <b>F</b> &nbsp; accuracy</label>
+      <label><input type="radio" name="r33" value="G"> <b>G</b> &nbsp; acting</label>
+      <label><input type="radio" name="r33" value="H"> <b>H</b> &nbsp; research</label>
+      <label><input type="radio" name="r33" value="I"> <b>I</b> &nbsp; ratings</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q34">
+  <span class="n">34</span>
+  <div style="flex:1;">
+    <div class="q-prompt">He gave his blessing because no other comparable programme is based on a single person&#39;s</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r34" value="A"> <b>A</b> &nbsp; consequences</label>
+      <label><input type="radio" name="r34" value="B"> <b>B</b> &nbsp; crimes</label>
+      <label><input type="radio" name="r34" value="C"> <b>C</b> &nbsp; false beliefs</label>
+      <label><input type="radio" name="r34" value="D"> <b>D</b> &nbsp; motives</label>
+      <label><input type="radio" name="r34" value="E"> <b>E</b> &nbsp; justice</label>
+      <label><input type="radio" name="r34" value="F"> <b>F</b> &nbsp; accuracy</label>
+      <label><input type="radio" name="r34" value="G"> <b>G</b> &nbsp; acting</label>
+      <label><input type="radio" name="r34" value="H"> <b>H</b> &nbsp; research</label>
+      <label><input type="radio" name="r34" value="I"> <b>I</b> &nbsp; ratings</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q35">
+  <span class="n">35</span>
+  <div style="flex:1;">
+    <div class="q-prompt">The serious</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r35" value="A"> <b>A</b> &nbsp; consequences</label>
+      <label><input type="radio" name="r35" value="B"> <b>B</b> &nbsp; crimes</label>
+      <label><input type="radio" name="r35" value="C"> <b>C</b> &nbsp; false beliefs</label>
+      <label><input type="radio" name="r35" value="D"> <b>D</b> &nbsp; motives</label>
+      <label><input type="radio" name="r35" value="E"> <b>E</b> &nbsp; justice</label>
+      <label><input type="radio" name="r35" value="F"> <b>F</b> &nbsp; accuracy</label>
+      <label><input type="radio" name="r35" value="G"> <b>G</b> &nbsp; acting</label>
+      <label><input type="radio" name="r35" value="H"> <b>H</b> &nbsp; research</label>
+      <label><input type="radio" name="r35" value="I"> <b>I</b> &nbsp; ratings</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q36">
+  <span class="n">36</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Ekman is happy with the show&#39;s overall</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r36" value="A"> <b>A</b> &nbsp; consequences</label>
+      <label><input type="radio" name="r36" value="B"> <b>B</b> &nbsp; crimes</label>
+      <label><input type="radio" name="r36" value="C"> <b>C</b> &nbsp; false beliefs</label>
+      <label><input type="radio" name="r36" value="D"> <b>D</b> &nbsp; motives</label>
+      <label><input type="radio" name="r36" value="E"> <b>E</b> &nbsp; justice</label>
+      <label><input type="radio" name="r36" value="F"> <b>F</b> &nbsp; accuracy</label>
+      <label><input type="radio" name="r36" value="G"> <b>G</b> &nbsp; acting</label>
+      <label><input type="radio" name="r36" value="H"> <b>H</b> &nbsp; research</label>
+      <label><input type="radio" name="r36" value="I"> <b>I</b> &nbsp; ratings</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 37–40</h3>
+<div class="instr"><p>Do the following statements agree with the claims of the writer in Reading Passage 3? In boxes 37–40 on your answer sheet, write YES if the statement agrees with the information, NO if the statement contradicts the information, NOT GIVEN if there is no information on this.</p></div>
+
+<div class="q" id="q37">
+  <span class="n">37</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Ekman regrets the lies he told as a child.</div>
+    <div class="opts">
+      <label><input type="radio" name="r37" value="YES"> YES</label>
+      <label><input type="radio" name="r37" value="NO"> NO</label>
+      <label><input type="radio" name="r37" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q38">
+  <span class="n">38</span>
+  <div style="flex:1;">
+    <div class="q-prompt">People who are good at lying tend to be good at detecting lies.</div>
+    <div class="opts">
+      <label><input type="radio" name="r38" value="YES"> YES</label>
+      <label><input type="radio" name="r38" value="NO"> NO</label>
+      <label><input type="radio" name="r38" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q39">
+  <span class="n">39</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Ekman has worked with poker players to help them lie more convincingly.</div>
+    <div class="opts">
+      <label><input type="radio" name="r39" value="YES"> YES</label>
+      <label><input type="radio" name="r39" value="NO"> NO</label>
+      <label><input type="radio" name="r39" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q40">
+  <span class="n">40</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Ekman is more interested in the types of lies with serious consequences.</div>
+    <div class="opts">
+      <label><input type="radio" name="r40" value="YES"> YES</label>
+      <label><input type="radio" name="r40" value="NO"> NO</label>
+      <label><input type="radio" name="r40" value="NOT GIVEN"> NOT GIVEN</label>
+    </div>
+  </div>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 27;
+const MAX_Q = 40;
+const KEY = {"27":["C"],"28":["B"],"29":["A"],"30":["B"],"31":["B"],"32":["C"],"33":["E"],"34":["H"],"35":["D"],"36":["F"],"37":["NOT GIVEN"],"38":["NO"],"39":["NOT GIVEN"],"40":["YES"]};
+const EXPLANATIONS = {"27":{"answer":"C","explanation":"Paragraph 1: addressing young psychiatrists in training (students).","evidence":"Ekman was addressing a group of young psychiatrists in training when he was asked a question","passageTarget":"Forty years ago, research psychologist Dr Paul Ekman was asked by young psychiatrists in training whether there was any way to be sure a patient is telling the truth."},"28":{"answer":"B","explanation":"The interviews describe how Ekman discovered micro-expressions on film.","evidence":"As part of his research, he had already filmed a series of 12-minute interviews with psychiatric patients... And suddenly, there, across just two frames of the film, he saw it","passageTarget":"Ekman&#39;s research inspired the television drama series Lie to Me, starring the fictional Dr Cal Lightman."},"29":{"answer":"A","explanation":"Paragraph 2 states basic facial expressions are universal regardless of language or culture.","evidence":"the ways in which we express rage, disgust, contempt, fear, surprise, happiness and sadness are universal.","passageTarget":"Over four decades, Ekman validated Charles Darwin&#39;s proposition that expressions of rage, disgust, contempt, fear, surprise, happiness, and sadness are universal across human cultures from the US to Papua New Guinea."},"30":{"answer":"B","explanation":"Paragraph 2: only 50 out of 15,000 tested people could detect micro-expressions untrained.","evidence":"Of the 15,000 Ekman has tested, only 50 people, whom he calls 'naturals' , have been able to do it.","passageTarget":"While only 50 out of 15,000 tested people (&#39;naturals&#39;) spotted them untrained, Ekman showed almost anyone can be trained."},"31":{"answer":"B","explanation":"Called in by FBI, CIA, law-enforcement, defence and prosecution lawyers, and health professionals worldwide.","evidence":"he has been called in by the FBI and CIA (among countless more law-enforcement and other agencies around the world)","passageTarget":"The FBI, CIA, and legal professionals have routinely called on him for training."},"32":{"answer":"C","explanation":"Feared creating 'the quite inaccurate impression among audiences' (C: false beliefs).","evidence":"fearful that the show would exaggerate the effectiveness of his techniques and create the quite inaccurate impression among audiences","passageTarget":"Initially apprehensive that the show might foster false beliefs among jurors and lead to miscarriages of justice, Ekman consulted on each script to ensure 80–90% accuracy."},"33":{"answer":"E","explanation":"Concerned about 'unfair convictions' by untrained jurors (E: justice).","evidence":"concerned about unfair convictions, that one day someone not properly trained in his techniques might be sitting on a jury and wrongly find someone guilty","passageTarget":"Initially apprehensive that the show might foster false beliefs among jurors and lead to miscarriages of justice, Ekman consulted on each script to ensure 80–90% accuracy."},"34":{"answer":"H","explanation":"First commercial TV drama based on 'the work of just one scientist' (H: research).","evidence":"It is the first time, as far as Ekman is aware, that a commercial TV drama has been based on the work of just one scientist.","passageTarget":"Ekman&#39;s research inspired the television drama series Lie to Me, starring the fictional Dr Cal Lightman."},"35":{"answer":"D","explanation":"Impressed with the producer's 'serious and well-intentioned reasons' (D: motives).","evidence":"impressed with the producer's manifestly serious and well-intentioned reasons for making the programme.","passageTarget":"The FBI, CIA, and legal professionals have routinely called on him for training."},"36":{"answer":"F","explanation":"Believes 80–90% of the show is based on fact (F: accuracy).","evidence":"he believes probably 80—90 per cent of the show is based on fact and that's good enough","passageTarget":"Initially apprehensive that the show might foster false beliefs among jurors and lead to miscarriages of justice, Ekman consulted on each script to ensure 80–90% accuracy."},"37":{"answer":"NOT GIVEN","explanation":"He states he was a terrible liar since childhood, but never mentions feeling regret.","evidence":"Ekman, incidentally, professes to have been a terrible liar ever since he was a small boy","passageTarget":"Forty years ago, research psychologist Dr Paul Ekman was asked by young psychiatrists in training whether there was any way to be sure a patient is telling the truth."},"38":{"answer":"NO","explanation":"Text: 'the ability to detect a lie and the ability to lie successfully are completely unrelated.'","evidence":"the ability to detect a lie and the ability to lie successfully are completely unrelated.","passageTarget":"Ekman&#39;s research inspired the television drama series Lie to Me, starring the fictional Dr Cal Lightman."},"39":{"answer":"NOT GIVEN","explanation":"He mentions poker players to illustrate games of deception, but never says he worked with them.","evidence":"This means that an actor or a poker player isn't a true liar. They are supposed to deceive you, it's part of the game","passageTarget":"Ekman defines a &#39;true lie&#39; as requiring deliberate intent to deceive without notification, focusing strictly on high-stakes deception."},"40":{"answer":"YES","explanation":"Paragraph 3: 'prefers to focus on the kinds of lies where the liar would be in grave trouble if they were found out'.","evidence":"He prefers to focus on the kinds of lies where the liar would be in grave trouble if they were found out","passageTarget":"Ekman&#39;s research inspired the television drama series Lie to Me, starring the fictional Dr Cal Lightman."}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
+
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
+    return;
+  }
+
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
+      }
+    }
+    hideHighlightPopup();
+  }, 15);
+}
+
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
+
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (range) {
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== document.body) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = accepted.map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
+        </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+               Show in Passage
+            </button>
+          </div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>
