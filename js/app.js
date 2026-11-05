@@ -263,6 +263,11 @@
 
   function hideAllViews() {
     closeMobileMenu();
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      isPlayingPassageAudio = false;
+      updateAudioBtnUI(false);
+    }
     const viewIds = [
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
@@ -430,7 +435,156 @@
   }
 
   // --- Reading Skills Interactive Reader Screen ---
+  let isPlayingPassageAudio = false;
+
+  function togglePassageAudio(passageId) {
+    if (!('speechSynthesis' in window)) {
+      showReaderToast('Speech synthesis is not supported in this browser.');
+      return;
+    }
+
+    if (isPlayingPassageAudio) {
+      window.speechSynthesis.cancel();
+      isPlayingPassageAudio = false;
+      updateAudioBtnUI(false);
+      return;
+    }
+
+    const passage = state.currentReadingPassage;
+    if (!passage) return;
+
+    window.speechSynthesis.cancel();
+
+    // Prepare full text
+    const fullText = passage.title + '. ' + passage.paragraphs.map(p => p.text).join(' ');
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.93; // Comfortable learning speed
+    utterance.pitch = 1.0;
+
+    const voices = window.speechSynthesis.getVoices();
+    const engVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Daniel') || v.name.includes('en-GB') || v.name.includes('en-US')));
+    if (engVoice) utterance.voice = engVoice;
+
+    utterance.onstart = function() {
+      isPlayingPassageAudio = true;
+      updateAudioBtnUI(true);
+    };
+
+    utterance.onend = function() {
+      isPlayingPassageAudio = false;
+      updateAudioBtnUI(false);
+    };
+
+    utterance.onerror = function() {
+      isPlayingPassageAudio = false;
+      updateAudioBtnUI(false);
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function updateAudioBtnUI(isPlaying) {
+    const btn = document.getElementById('r-tts-btn');
+    const label = document.getElementById('r-audio-btn-label');
+    if (!btn || !label) return;
+    if (isPlaying) {
+      btn.classList.add('r-playing');
+      label.textContent = 'Pause Narration';
+    } else {
+      btn.classList.remove('r-playing');
+      label.textContent = 'Listen to Passage';
+    }
+  }
+
+  function copyPassageText() {
+    const passage = state.currentReadingPassage;
+    if (!passage) return;
+    const textToCopy = passage.title + '\n\n' + passage.paragraphs.map(p => (p.label ? p.label + ':\n' : '') + p.text).join('\n\n');
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      showReaderToast('Passage copied to clipboard!');
+    }).catch(() => {
+      showReaderToast('Could not copy passage text.');
+    });
+  }
+
+  function showReaderToast(message) {
+    let toast = document.getElementById('r-floating-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'r-floating-toast';
+      toast.className = 'r-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+
+  function updateConsolidatedNotesReview(passageId) {
+    const passage = state.currentReadingPassage;
+    if (!passage || passage.id !== passageId) return;
+
+    const container = document.getElementById('consolidated-notes-container');
+    const badge = document.getElementById('consolidated-notes-badge');
+    if (!container) return;
+
+    let userNotesCount = 0;
+    const notesList = passage.paragraphs.map((para, idx) => {
+      const key = `ielts_reading_notes_${passage.id}_${para.id}`;
+      const note = (localStorage.getItem(key) || '').trim();
+      if (note) userNotesCount++;
+      return { label: para.label || `Paragraph ${idx + 1}`, note };
+    }).filter(item => item.note);
+
+    if (badge) badge.textContent = `${userNotesCount} Notes Saved`;
+
+    if (notesList.length > 0) {
+      container.innerHTML = `
+        <div class="r-saved-notes-grid">
+          ${notesList.map(item => `
+            <div class="r-saved-note-item">
+              <span class="r-saved-note-label">${escapeHtml(item.label)}</span>
+              <div class="r-saved-note-text">${escapeHtml(item.note)}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="r-empty-notes-prompt">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <p>You haven't typed any notes for this passage yet. Use the <strong>"Paragraph Notes"</strong> box under any paragraph above to jot down difficult vocabulary or collocations—they will be neatly consolidated here!</p>
+        </div>
+      `;
+    }
+  }
+
+  function saveParaNote(passageId, paraId, text) {
+    const key = `ielts_reading_notes_${passageId}_${paraId}`;
+    localStorage.setItem(key, text);
+
+    const statusEl = document.getElementById(`note-status-${paraId}`);
+    if (statusEl) {
+      statusEl.textContent = 'Saving...';
+      statusEl.style.color = '#eab308';
+      clearTimeout(statusEl._timer);
+      statusEl._timer = setTimeout(() => {
+        statusEl.textContent = '✓ Saved';
+        statusEl.style.color = '#10b981';
+      }, 400);
+    }
+
+    updateConsolidatedNotesReview(passageId);
+  }
+
   function renderReaderPassage(passageId) {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    isPlayingPassageAudio = false;
+
     const list = (typeof READING_SKILLS_PASSAGES !== 'undefined') ? READING_SKILLS_PASSAGES : (state.readingPassages || []);
     const passage = list.find(p => p.id === passageId);
     if (!passage) return;
@@ -442,188 +596,232 @@
     if (passage.level === 'hard') badgeClass = 'reading-badge-hard';
     if (dom.readerHeaderBadge) {
       dom.readerHeaderBadge.className = `reading-badge ${badgeClass}`;
-      dom.readerHeaderBadge.textContent = passage.levelLabel;
+      dom.readerHeaderBadge.textContent = passage.levelLabel || (passage.level ? passage.level.toUpperCase() : 'EASY');
     }
 
+    // Collect all saved notes for this passage
+    let userNotesCount = 0;
+    const userNotesList = passage.paragraphs.map((para, idx) => {
+      const storageKey = `ielts_reading_notes_${passage.id}_${para.id}`;
+      const note = (localStorage.getItem(storageKey) || '').trim();
+      if (note) userNotesCount++;
+      return { label: para.label || `Paragraph ${idx + 1}`, note: note };
+    }).filter(item => item.note);
+
+    const currentIndex = list.findIndex(p => p.id === passage.id);
+    const prevPassage = currentIndex > 0 ? list[currentIndex - 1] : null;
+    const nextPassage = currentIndex < list.length - 1 ? list[currentIndex + 1] : null;
+
     let html = `
-      <div class="reader-title-card">
-        <h1 class="reader-main-title">${escapeHtml(passage.title)}</h1>
-        <div class="reader-meta-bar">
-          <span class="meta-pill">Topic: ${escapeHtml(passage.topic)}</span>
-          <span class="meta-pill">${passage.estimatedMinutes} mins read</span>
-          <span class="meta-pill"> ${passage.wordCount} words</span>
-          <span class="meta-pill" style="color:var(--success); font-weight:700;"> Select any word to Highlight &amp; Copy</span>
+      <!-- 1. Hero Card -->
+      <div class="r-hero-card">
+        <div class="r-hero-badges">
+          <span class="r-badge r-badge-${passage.level || 'easy'}">
+            ${escapeHtml(passage.levelLabel || (passage.level ? passage.level.toUpperCase() : 'EASY'))}
+          </span>
+          <span class="r-topic-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            ${escapeHtml(passage.topic || 'Academic IELTS')}
+          </span>
+          <span class="r-stat-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~${passage.estimatedMinutes || 4} Mins Read
+          </span>
+          <span class="r-stat-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            ${passage.wordCount || 325} Words (Academic)
+          </span>
+        </div>
+
+        <h1 class="r-hero-title">${escapeHtml(passage.title)}</h1>
+
+        <div class="r-hero-toolbar">
+          <button class="r-tool-btn r-audio-btn" id="r-tts-btn" onclick="window.ieltsApp.togglePassageAudio('${passage.id}')" title="Listen to clear pronunciation">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <span id="r-audio-btn-label">Listen to Passage</span>
+          </button>
+
+          <button class="r-tool-btn" onclick="window.ieltsApp.copyPassageText()" title="Copy entire passage">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy Passage</span>
+          </button>
+
+          <button class="r-tool-btn" onclick="document.getElementById('study-hub').scrollIntoView({behavior:'smooth'})" title="Jump to Summary &amp; Vocab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 12-4 4-4-4"/><path d="M12 8v8"/></svg>
+            <span>Jump to Vocab &amp; Summary</span>
+          </button>
+        </div>
+
+        <div class="r-hero-tip">
+          💡 <strong>IELTS Reader Tip:</strong> Read paragraph by paragraph. Note down unfamiliar collocations or words in the box below each paragraph—they are automatically saved and summarized at the bottom!
         </div>
       </div>
     `;
 
-    // Render each paragraph with ONLY its parallel note-taking box (NO summary beside paragraph)
-    passage.paragraphs.forEach(para => {
+    // 2. Editorial Paragraph Cards
+    passage.paragraphs.forEach((para, idx) => {
       const storageKey = `ielts_reading_notes_${passage.id}_${para.id}`;
       const savedNote = localStorage.getItem(storageKey) || '';
+      const paraWc = para.text.trim().split(/\s+/).filter(Boolean).length;
 
       html += `
-        <div class="reader-para-row" id="reader-para-${para.id}">
-          <div class="reader-para-text-col">
-            <span class="reader-para-label">${escapeHtml(para.label || '')}</span>
-            <p class="passage-paragraph">${formatParagraphText(para.text)}</p>
+        <article class="r-para-card" id="r-para-${para.id}">
+          <div class="r-para-header">
+            <div class="r-para-badge-wrap">
+              <span class="r-para-num-pill">${escapeHtml(para.label || `PARAGRAPH ${idx + 1}`)}</span>
+              <span class="r-para-wc-pill">${paraWc} words</span>
+            </div>
+            <span style="font-size:0.8rem; color:#64748b; font-weight:500;">Academic Reading Drill</span>
           </div>
 
-          <div class="reader-para-notes-col">
-            <div class="para-note-header">
-              <span class="para-note-title"> Vocab &amp; Notes</span>
-              <span class="para-note-status" id="note-status-${para.id}">Saved </span>
-            </div>
-            <textarea class="para-note-textarea" 
-                      id="note-input-${para.id}"
-                      placeholder="Type hard vocabularies &amp; notes here..." 
-                      oninput="window.ieltsApp.saveParaNote('${passage.id}', '${para.id}', this.value)">${escapeHtml(savedNote)}</textarea>
-            <div class="para-note-tip"> Auto-saved to your browser. Review notes below.</div>
+          <div class="r-para-text-body">
+            <p class="r-para-text">${formatParagraphText(para.text)}</p>
           </div>
-        </div>
+
+          <div class="r-para-note-drawer" id="r-note-drawer-${para.id}">
+            <div class="r-note-drawer-header">
+              <div class="r-note-drawer-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                <span>My Notes &amp; Difficult Vocab (${escapeHtml(para.label || `Paragraph ${idx + 1}`)})</span>
+              </div>
+              <span class="r-note-autosave-badge" id="note-status-${para.id}">✓ Saved</span>
+            </div>
+            <textarea class="r-note-textarea"
+                      id="note-input-${para.id}"
+                      placeholder="Type hard vocabularies, Bengali meanings, or main ideas here... (Auto-saves to browser)"
+                      oninput="window.ieltsApp.saveParaNote('${passage.id}', '${para.id}', this.value)">${escapeHtml(savedNote)}</textarea>
+          </div>
+        </article>
       `;
     });
 
-    // COMPREHENSIVE STUDY & SUMMARY CENTER AT THE END OF THE PASSAGE:
-    // 1. Paragraph-by-Paragraph Summaries in Simple A1-A2 English
-    // 2. Full Passage Core Takeaway (1-2 lines)
-    // 3. Key Academic Vocabulary & Meanings
-    // 4. Consolidated Saved Notes for this passage
-    // 5. Navigation between Passages
-
-    // Collect all saved notes for this passage
-    let userNotesCount = 0;
-    const userNotesList = passage.paragraphs.map(para => {
-      const storageKey = `ielts_reading_notes_${passage.id}_${para.id}`;
-      const note = localStorage.getItem(storageKey) || '';
-      if (note.trim()) userNotesCount++;
-      return { label: para.label || `Paragraph ${para.id}`, note: note.trim() };
-    }).filter(item => item.note);
-
-    const currentIndex = state.readingPassages.findIndex(p => p.id === passage.id);
-    const prevPassage = currentIndex > 0 ? state.readingPassages[currentIndex - 1] : null;
-    const nextPassage = currentIndex < state.readingPassages.length - 1 ? state.readingPassages[currentIndex + 1] : null;
-
+    // 3. Comprehensive Study & Analysis Hub
     html += `
-      <div class="passage-study-center">
-        <!-- 1. Paragraph-by-Paragraph Summaries List (at the end of passage) -->
-        <div class="study-section-card">
-          <div class="study-section-header">
-            <div class="study-section-title">
-              <span> Paragraph-by-Paragraph Summaries</span>
+      <section class="r-study-hub" id="study-hub">
+        <div class="r-hub-header">
+          <div class="r-hub-title-box">
+            <span class="r-hub-icon">🎓</span>
+            <div>
+              <h2 class="r-hub-title">Comprehensive Study &amp; Analysis Hub</h2>
+              <p class="r-hub-subtitle">Simplified paragraph summaries, core meaning, and band 8+ academic vocabulary.</p>
             </div>
-            <span class="study-section-subtitle">Simplified A1-A2 Plain English (1–2 Lines Each)</span>
+          </div>
+        </div>
+
+        <!-- Card 1: Paragraph-by-Paragraph Summaries -->
+        <div class="r-hub-card">
+          <div class="r-hub-card-header">
+            <div class="r-card-title-group">
+              <span class="r-card-icon">📋</span>
+              <h3 class="r-card-title">Paragraph-by-Paragraph Summaries</h3>
+            </div>
+            <span class="r-card-badge">Simplified A1–A2 Plain English</span>
           </div>
 
-          <div class="para-summaries-list">
+          <div class="r-summary-timeline">
             ${passage.paragraphs.map((p, idx) => `
-              <div class="para-summary-row">
-                <div class="para-summary-badge">${escapeHtml(p.label || `Paragraph ${idx + 1}`)}</div>
-                <div class="para-summary-text">${escapeHtml(p.paraSummaryA1 || 'No summary available.')}</div>
+              <div class="r-summary-item r-summary-item-${(idx % 3) + 1}">
+                <div class="r-summary-pill">${escapeHtml(p.label || `Paragraph ${idx + 1}`)}</div>
+                <p class="r-summary-text">${escapeHtml(p.paraSummaryA1 || 'No summary available.')}</p>
               </div>
             `).join('')}
           </div>
         </div>
 
-        <!-- 2. Full Passage Core Summary -->
-        <div class="study-section-card">
-          <div class="study-section-header">
-            <div class="study-section-title">
-              <span> Full Passage Core Takeaway</span>
+        <!-- Card 2: Full Passage Core Takeaway -->
+        <div class="r-hub-card r-takeaway-card">
+          <div class="r-hub-card-header">
+            <div class="r-card-title-group">
+              <span class="r-card-icon">🎯</span>
+              <h3 class="r-card-title">Full Passage Core Takeaway</h3>
             </div>
-            <span class="study-section-subtitle">A1–A2 Master Meaning</span>
+            <span class="r-card-badge r-badge-takeaway">Master Meaning in 1–2 Lines</span>
           </div>
 
-          <div class="core-summary-box">
-            ${escapeHtml(passage.overallSummaryA1 || '')}
+          <div class="r-takeaway-content">
+            <p class="r-takeaway-text">${escapeHtml(passage.overallSummaryA1 || '')}</p>
           </div>
         </div>
 
-        <!-- 3. Key Academic Vocabulary & Definitions -->
+        <!-- Card 3: Key Academic Vocabulary & Definitions -->
         ${passage.keyVocab && passage.keyVocab.length > 0 ? `
-          <div class="study-section-card">
-            <div class="study-section-header">
-              <div class="study-section-title">
-                <span> Key Academic Vocabulary &amp; Definitions</span>
+          <div class="r-hub-card">
+            <div class="r-hub-card-header">
+              <div class="r-card-title-group">
+                <span class="r-card-icon">📚</span>
+                <h3 class="r-card-title">Key Academic Vocabulary &amp; Definitions</h3>
               </div>
-              <span class="study-section-subtitle">${passage.keyVocab.length} Essential Words</span>
+              <span class="r-card-badge">${passage.keyVocab.length} Essential Words</span>
             </div>
 
-            <div class="vocab-grid">
+            <div class="r-vocab-grid">
               ${passage.keyVocab.map(v => `
-                <div class="vocab-item">
-                  <div class="vocab-word">${escapeHtml(v.word)}</div>
-                  <div class="vocab-meaning">${escapeHtml(v.meaning)}</div>
+                <div class="r-vocab-item">
+                  <div class="r-vocab-head">
+                    <span class="r-vocab-word">${escapeHtml(v.word)}</span>
+                  </div>
+                  <div class="r-vocab-meaning">${escapeHtml(v.meaning)}</div>
                 </div>
               `).join('')}
             </div>
           </div>
         ` : ''}
 
-        <!-- 4. Consolidated Saved Notes Review -->
-        <div class="study-section-card">
-          <div class="study-section-header">
-            <div class="study-section-title">
-              <span> My Saved Vocabulary Notes (${userNotesCount})</span>
+        <!-- Card 4: Consolidated Saved Notes Review -->
+        <div class="r-hub-card">
+          <div class="r-hub-card-header">
+            <div class="r-card-title-group">
+              <span class="r-card-icon">📝</span>
+              <h3 class="r-card-title">My Saved Vocabulary Notes</h3>
             </div>
-            <span class="study-section-subtitle">Review all your notes for this passage in one place</span>
+            <span class="r-card-badge" id="consolidated-notes-badge">${userNotesCount} Notes Saved</span>
           </div>
 
-          ${userNotesList.length > 0 ? `
-            <div class="my-notes-review-grid" id="consolidated-notes-container">
-              ${userNotesList.map(item => `
-                <div class="my-note-review-item">
-                  <div class="my-note-review-label">${escapeHtml(item.label)}</div>
-                  <div class="my-note-review-content">${escapeHtml(item.note)}</div>
-                </div>
-              `).join('')}
-            </div>
-          ` : `
-            <p style="color:var(--text-muted); font-size:0.92rem; margin:0; font-style:italic;">
-              You haven't typed any notes for this passage yet. Use the <strong> Vocab &amp; Notes</strong> box beside any paragraph to save difficult words—they will be consolidated right here for quick revision!
-            </p>
-          `}
+          <div id="consolidated-notes-container">
+            ${userNotesList.length > 0 ? `
+              <div class="r-saved-notes-grid">
+                ${userNotesList.map(item => `
+                  <div class="r-saved-note-item">
+                    <span class="r-saved-note-label">${escapeHtml(item.label)}</span>
+                    <div class="r-saved-note-text">${escapeHtml(item.note)}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `
+              <div class="r-empty-notes-prompt">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <p>You haven't typed any notes for this passage yet. Use the <strong>"Paragraph Notes"</strong> box under any paragraph above to jot down difficult vocabulary or collocations—they will be neatly consolidated here!</p>
+              </div>
+            `}
+          </div>
         </div>
 
-        <!-- Bottom Navigation Between Passages -->
-        <div class="reader-bottom-nav">
+        <!-- Card 5: Bottom Navigation Between Passages -->
+        <div class="r-nav-footer">
           ${prevPassage ? `
-            <button class="btn-secondary" onclick="window.ieltsApp.openReadingPassage('${prevPassage.id}')">
-              ← Previous: ${escapeHtml(prevPassage.title.substring(0, 26))}...
+            <button class="r-nav-btn" onclick="window.ieltsApp.openReadingPassage('${prevPassage.id}')">
+              <span class="r-nav-dir">← Previous Drill</span>
+              <span class="r-nav-title">${escapeHtml(prevPassage.title.length > 32 ? prevPassage.title.substring(0, 30) + '...' : prevPassage.title)}</span>
             </button>
-          ` : `<div></div>`}
+          ` : `<div class="r-nav-placeholder"></div>`}
 
-          <button class="btn-primary" onclick="window.ieltsApp.showReadingSkillsSelection();">
-             Back to All 30 Passages
+          <button class="r-nav-btn r-nav-all" onclick="window.ieltsApp.showReadingSkillsSelection();">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>All 30 Passages</span>
           </button>
 
           ${nextPassage ? `
-            <button class="btn-secondary" onclick="window.ieltsApp.openReadingPassage('${nextPassage.id}')">
-              Next: ${escapeHtml(nextPassage.title.substring(0, 26))}... →
+            <button class="r-nav-btn" onclick="window.ieltsApp.openReadingPassage('${nextPassage.id}')">
+              <span class="r-nav-dir">Next Drill →</span>
+              <span class="r-nav-title">${escapeHtml(nextPassage.title.length > 32 ? nextPassage.title.substring(0, 30) + '...' : nextPassage.title)}</span>
             </button>
-          ` : `<div></div>`}
+          ` : `<div class="r-nav-placeholder"></div>`}
         </div>
-      </div>
+      </section>
     `;
 
     dom.readerBody.innerHTML = html;
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function saveParaNote(passageId, paraId, text) {
-    const key = `ielts_reading_notes_${passageId}_${paraId}`;
-    localStorage.setItem(key, text);
-
-    const statusEl = document.getElementById(`note-status-${paraId}`);
-    if (statusEl) {
-      statusEl.textContent = 'Saving...';
-      statusEl.style.color = 'var(--accent-color)';
-      clearTimeout(statusEl._timer);
-      statusEl._timer = setTimeout(() => {
-        statusEl.textContent = 'Saved ';
-        statusEl.style.color = 'var(--success)';
-      }, 500);
-    }
   }
 
   // --- 60-Day IELTS Routine & Roadmap (Moktadir's IELTS School Framework) ---
@@ -4448,6 +4646,9 @@
     clearAllWritingHighlights,
     copySelectedText,
     saveParaNote,
+    togglePassageAudio,
+    copyPassageText,
+    showReaderToast,
     cycleFontSize,
     cycleTheme,
     submitTest,
