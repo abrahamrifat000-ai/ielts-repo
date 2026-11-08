@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130" width="520" height="130">
+  <!-- Shield icon group -->
+  <g transform="translate(10, 5)">
+    <!-- Book base -->
+    <ellipse cx="60" cy="108" rx="52" ry="10" fill="#c0392b" opacity="0.9"/>
+    <path d="M10 95 Q60 85 110 95 L110 112 Q60 100 10 112 Z" fill="#c0392b"/>
+    <path d="M10 95 Q60 82 110 95" fill="none" stroke="white" stroke-width="2"/>
+    <!-- Book pages left -->
+    <path d="M10 72 Q35 65 60 72 L60 112 Q35 105 10 112 Z" fill="white" opacity="0.95"/>
+    <!-- Book pages right -->
+    <path d="M60 72 Q85 65 110 72 L110 112 Q85 105 60 112 Z" fill="white" opacity="0.9"/>
+    <!-- Book spine -->
+    <line x1="60" y1="72" x2="60" y2="112" stroke="#c0392b" stroke-width="3"/>
+    <!-- Book lines on pages -->
+    <line x1="18" y1="82" x2="52" y2="79" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="18" y1="89" x2="52" y2="86" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="18" y1="96" x2="52" y2="93" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="68" y1="79" x2="102" y2="82" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="68" y1="86" x2="102" y2="89" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="68" y1="93" x2="102" y2="96" stroke="#ccc" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Shield -->
+    <path d="M25 10 L60 5 L95 10 L95 55 Q95 85 60 95 Q25 85 25 55 Z" 
+          fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M32 15 L60 11 L88 15 L88 55 Q88 80 60 89 Q32 80 32 55 Z" 
+          fill="rgba(255,255,255,0.08)" stroke="none"/>
+    
+    <!-- W letter in shield -->
+    <path d="M38 30 L48 65 L60 45 L72 65 L82 30" 
+          fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Red arrow -->
+    <path d="M52 55 L75 20" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="75,20 68,28 80,30" fill="#c0392b"/>
+    
+    <!-- Star sparkle -->
+    <path d="M60 12 L62 17 L67 17 L63 20 L65 25 L60 22 L55 25 L57 20 L53 17 L58 17 Z" 
+          fill="white" opacity="0.9"/>
+  </g>
+  
+  <!-- Vertical divider -->
+  <line x1="135" y1="20" x2="135" y2="110" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  
+  <!-- IELTS text -->
+  <text x="148" y="72" 
+        font-family="'Montserrat','Arial Black',sans-serif" 
+        font-weight="800" 
+        font-size="48" 
+        fill="white" 
+        letter-spacing="2">IELTS</text>
+  
+  <!-- Warrior text -->
+  <text x="148" y="105" 
+        font-family="'Montserrat','Arial Black',sans-serif" 
+        font-weight="700" 
+        font-size="30" 
+        fill="#e74c3c" 
+        letter-spacing="1">Warrior</text>
+  
+  <!-- Tagline -->
+  <text x="148" y="122" 
+        font-family="'Montserrat','Arial',sans-serif" 
+        font-weight="400" 
+        font-size="11" 
+        fill="rgba(255,255,255,0.65)" 
+        letter-spacing="2">— Study Smart. Score Higher. —</text>
+</svg>

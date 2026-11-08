@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Tanvir",
+    "rating": 5,
+    "text": "Amazing platform!",
+    "date": "2026-11-08",
+    "color": "#10b981"
+  },
+  {
+    "id": 1,
+    "name": "Imran",
+    "rating": 5,
+    "text": "Delivered the authentic Cambridge test feel. Boosted my Reading score to 7.5!",
+    "date": "2026-11-05",
+    "color": "#f59e0b"
+  },
+  {
+    "id": 2,
+    "name": "Mitu",
+    "rating": 5,
+    "text": "Great interface! The 60-day vocabulary routine with phrasal verbs is gold.",
+    "date": "2026-11-06",
+    "color": "#ec4899"
+  },
+  {
+    "id": 3,
+    "name": "Rafiq H.",
+    "rating": 5,
+    "text": "The Band 9 Writing Task 1 & 2 models with examiner rationale are unbeatable.",
+    "date": "2026-11-06",
+    "color": "#3b82f6"
+  },
+  {
+    "id": 4,
+    "name": "Sadia",
+    "rating": 5,
+    "text": "Timed Reading simulator with instant band calculation saved my exam prep.",
+    "date": "2026-11-07",
+    "color": "#10b981"
+  },
+  {
+    "id": 5,
+    "name": "Tanvir A.",
+    "rating": 4,
+    "text": "Smooth UI and distraction-free essay reader. Highly recommended for IELTS warriors!",
+    "date": "2026-11-07",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 6,
+    "name": "Farhana",
+    "rating": 5,
+    "text": "Engnovate & Mini-IELTS practice cards make daily drills so easy to access.",
+    "date": "2026-11-08",
+    "color": "#f97316"
+  },
+  {
+    "id": 7,
+    "name": "Nabil",
+    "rating": 5,
+    "text": "From Band 6.0 to 7.0 in Writing! TheLiz models and vocabulary breakdown worked.",
+    "date": "2026-11-08",
+    "color": "#14b8a6"
+  }
+]

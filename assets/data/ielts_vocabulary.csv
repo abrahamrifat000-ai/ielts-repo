@@ -1,0 +1,601 @@
+﻿No,Topic,Word,Part of Speech,Synonym 1 (A2–B1),Synonym 2 (B2–C1),Meaning (A1–A2 simple English),Example sentence
+1,Education & Learning,curriculum,n,course plan,course content,the list of subjects a school teaches,The school changed its curriculum to include coding.
+2,Education & Learning,literacy,n,reading skill,reading and writing ability,the ability to read and write,Literacy rates have risen in rural areas.
+3,Education & Learning,tuition,n,school fees,teaching fees,money you pay to be taught,Tuition at private universities is very high.
+4,Education & Learning,enrol,v,sign up,register,to put your name on a course,She enrolled in an evening English class.
+5,Education & Learning,dropout,n,quitter,early leaver,a student who leaves school before finishing,The dropout rate is high in poor areas.
+6,Education & Learning,scholarship,n,grant,bursary,money given to a student to study,He won a scholarship to study in Canada.
+7,Education & Learning,compulsory,adj,required,mandatory,something you must do by law or rule,Education is compulsory until the age of sixteen.
+8,Education & Learning,vocational,adj,job-related,career-focused,about training for a specific job,Vocational courses teach practical skills like plumbing.
+9,Education & Learning,assessment,n,test,evaluation,a way of checking what a student knows,Continuous assessment reduces exam stress.
+10,Education & Learning,plagiarism,n,copying,academic theft,using another person's work as your own,Plagiarism can get a student expelled.
+11,Education & Learning,comprehension,n,understanding,grasp,the ability to understand something,Her reading comprehension improved a lot.
+12,Education & Learning,discipline,n,control,order,rules that make people behave well,Good discipline helps the class stay calm.
+13,Education & Learning,mentor,n,guide,adviser,an experienced person who helps a new one,My mentor taught me how to write essays.
+14,Education & Learning,tutorial,n,small class,seminar,a short lesson for a small group,The tutorial helped me solve the maths problem.
+15,Education & Learning,graduate,n,degree holder,alumnus,a person who has finished university,Many graduates struggle to find jobs.
+16,Education & Learning,lecture,n,talk,presentation,a long talk given to students,The lecture on climate change lasted two hours.
+17,Education & Learning,thesis,n,long essay,dissertation,a long piece of writing for a degree,She is writing her thesis on solar energy.
+18,Education & Learning,pedagogy,n,teaching method,instructional approach,the way or art of teaching,Modern pedagogy focuses on student discussion.
+19,Education & Learning,rote,adj,by heart,mechanical,"learned by repeating, not by understanding",Rote learning is not always effective.
+20,Education & Learning,aptitude,n,talent,natural ability,a natural skill to do something well,He has an aptitude for languages.
+21,Education & Learning,extracurricular,adj,after-school,non-academic,done outside normal lessons,Extracurricular clubs build teamwork.
+22,Education & Learning,module,n,unit,course component,one part of a longer course,I passed the grammar module with a high mark.
+23,Education & Learning,peer,n,classmate,equal,a person of the same age or level,Peer pressure affects teenage choices.
+24,Education & Learning,cram,v,study fast,swot,to study a lot in a short time,He crammed all night before the exam.
+25,Education & Learning,diploma,n,certificate,qualification,a paper that shows you finished a course,She earned a diploma in nursing.
+26,Education & Learning,illiterate,adj,unable to read,uneducated,not able to read or write,Millions of adults remain illiterate.
+27,Education & Learning,faculty,n,teaching staff,academic staff,the teachers at a university,The faculty supports new research projects.
+28,Education & Learning,remedial,adj,catch-up,corrective,meant to help weaker students improve,Remedial classes help slow learners.
+29,Education & Learning,proficiency,n,skill,competence,a high level of skill,Proficiency in English is required for this course.
+30,Education & Learning,stimulate,v,encourage,inspire,to make someone more interested or active,Games can stimulate children's curiosity.
+31,Environment & Climate,deforestation,n,tree cutting,forest clearance,cutting down many trees in a large area,Deforestation destroys the homes of animals.
+32,Environment & Climate,emissions,n,gas release,discharge,gases sent into the air,Car emissions cause serious air pollution.
+33,Environment & Climate,biodiversity,n,variety of life,ecological diversity,the many different plants and animals in a place,The rainforest has incredible biodiversity.
+34,Environment & Climate,sustainable,adj,long-lasting,environmentally sound,able to continue without harming nature,We need sustainable farming methods.
+35,Environment & Climate,renewable,adj,reusable,replenishable,"can be used again and again, like wind or sun",Renewable energy is getting cheaper every year.
+36,Environment & Climate,conservation,n,protection,preservation,looking after nature so it is not lost,Wildlife conservation saves rare animals.
+37,Environment & Climate,habitat,n,natural home,living environment,the place where an animal or plant lives,Pandas are losing their natural habitat.
+38,Environment & Climate,extinction,n,dying out,disappearance,when a type of animal or plant no longer exists,Many species face extinction.
+39,Environment & Climate,pollutant,n,harmful substance,contaminant,something that makes air or water dirty,Factories release pollutants into rivers.
+40,Environment & Climate,drought,n,dry period,water shortage,a long time with very little rain,The drought destroyed the farmers' crops.
+41,Environment & Climate,erosion,n,wearing away,soil loss,when wind or water slowly removes soil or rock,Coastal erosion threatens many villages.
+42,Environment & Climate,ecosystem,n,natural system,biological community,"plants, animals and nature living together",Pollution can damage the whole ecosystem.
+43,Environment & Climate,contamination,n,pollution,tainting,making something dirty or unsafe,Water contamination caused many illnesses.
+44,Environment & Climate,landfill,n,rubbish dump,waste site,a place where rubbish is buried,Plastic in landfill takes hundreds of years to break down.
+45,Environment & Climate,offset,v,balance,compensate for,to cancel something bad with something good,Planting trees can offset carbon emissions.
+46,Environment & Climate,degrade,v,damage,deteriorate,to become worse in quality,Chemicals degrade the quality of soil.
+47,Environment & Climate,depletion,n,using up,exhaustion,when a resource is almost finished,Oil depletion worries many experts.
+48,Environment & Climate,endangered,adj,at risk,threatened,in danger of dying out,The tiger is an endangered animal.
+49,Environment & Climate,inundate,v,flood,swamp,to cover with a lot of water,Heavy rain inundated the whole town.
+50,Environment & Climate,glacier,n,river of ice,ice mass,a huge slow-moving mass of ice,Glaciers are melting because of global warming.
+51,Environment & Climate,biodegradable,adj,rots naturally,decomposable,can be broken down naturally by nature,Biodegradable bags are better for the planet.
+52,Environment & Climate,mitigate,v,reduce,lessen,to make something less bad,Trees help mitigate the effects of heat.
+53,Environment & Climate,toxic,adj,poisonous,hazardous,containing poison that can harm living things,Toxic waste must be stored safely.
+54,Environment & Climate,scarcity,n,shortage,lack,when there is not enough of something,Water scarcity affects millions of people.
+55,Environment & Climate,ecological,adj,environmental,nature-related,connected to nature and living things,The oil spill was an ecological disaster.
+56,Environment & Climate,preserve,v,protect,safeguard,to keep something safe from harm,We must preserve our ancient forests.
+57,Environment & Climate,exploit,v,use unfairly,overuse,to use a resource too much for gain,Companies exploit natural resources for profit.
+58,Environment & Climate,catastrophe,n,disaster,calamity,a sudden event that causes great damage,The flood was a catastrophe for the region.
+59,Environment & Climate,reforestation,n,replanting,afforestation,planting trees again in a cut forest,Reforestation can restore damaged land.
+60,Environment & Climate,poach,v,hunt illegally,trap unlawfully,to catch or kill animals illegally,Elephants are poached for their tusks.
+61,Technology & Innovation,automation,n,machine control,mechanisation,using machines instead of people,Automation has replaced many factory jobs.
+62,Technology & Innovation,algorithm,n,set of rules,computational procedure,steps a computer follows to solve a problem,The algorithm suggests videos you may like.
+63,Technology & Innovation,innovation,n,new idea,invention,a new way of doing something,Innovation drives economic growth.
+64,Technology & Innovation,revolutionise,v,change completely,transform,to change something in a very big way,The internet revolutionised communication.
+65,Technology & Innovation,breakthrough,n,big discovery,major advance,an important new discovery or success,Scientists announced a breakthrough in cancer research.
+66,Technology & Innovation,encrypt,v,code,scramble,to change data into a secret code,Banks encrypt customer information.
+67,Technology & Innovation,surveillance,n,watching,monitoring,careful watching of people or places,CCTV surveillance has increased in cities.
+68,Technology & Innovation,gadget,n,device,appliance,a small useful machine,He bought the latest gadget for his kitchen.
+69,Technology & Innovation,reliance,n,dependence,overdependence,needing something too much,Our reliance on phones is growing.
+70,Technology & Innovation,virtual,adj,online,computer-generated,"existing on a computer, not in real life",Virtual classrooms allow students to study from home.
+71,Technology & Innovation,simulate,v,copy,imitate,to make something that looks and acts real,Pilots use machines that simulate real flights.
+72,Technology & Innovation,prototype,n,first model,trial version,the first model of a new product,The company tested the prototype last month.
+73,Technology & Innovation,integrate,v,combine,incorporate,to join things so they work together,Schools integrate tablets into daily lessons.
+74,Technology & Innovation,malfunction,v,break down,fail to operate,to stop working properly,The machine malfunctioned during the test.
+75,Technology & Innovation,connectivity,n,network access,online link,the ability to connect to the internet,Poor connectivity makes online study difficult.
+76,Technology & Innovation,interface,n,screen layout,user environment,the way a person uses a computer or app,"The app has a simple, friendly interface."
+77,Technology & Innovation,hack,v,break into,infiltrate,to enter a computer system without permission,Criminals hacked the company's database.
+78,Technology & Innovation,disruptive,adj,changing,game-changing,causing a big change in how things work,Disruptive technology can end old industries.
+79,Technology & Innovation,pioneer,n,first user,trailblazer,a person who does something new first,He was a pioneer of electric cars.
+80,Technology & Innovation,streamline,v,simplify,rationalise,to make a process faster and easier,The new software streamlined our work.
+81,Technology & Innovation,wearable,adj,worn on the body,body-worn,"a device you can put on, like a watch",Wearable devices track your heart rate.
+82,Technology & Innovation,obsolete,adj,out of date,outmoded,no longer used because something newer exists,Typewriters are now obsolete.
+83,Technology & Innovation,bandwidth,n,internet capacity,data capacity,the amount of data that can pass online,Video calls need high bandwidth.
+84,Technology & Innovation,ubiquitous,adj,everywhere,omnipresent,seen or found in every place,Smartphones are ubiquitous in modern life.
+85,Technology & Innovation,sophisticated,adj,advanced,state-of-the-art,complex and very well designed,Hospitals use sophisticated scanning equipment.
+86,Technology & Innovation,digitise,v,convert to digital,computerise,to change into computer form,Libraries are digitising old books.
+87,Technology & Innovation,intrusive,adj,unwelcome,invasive,coming into your private life without permission,Some apps are intrusive and collect too much data.
+88,Technology & Innovation,tamper,v,interfere,meddle,to touch or change something wrongly,Someone tampered with the voting machine.
+89,Technology & Innovation,retrieve,v,get back,recover,to find and bring back information,You can retrieve deleted files from the cloud.
+90,Technology & Innovation,versatile,adj,flexible,adaptable,able to be used in many ways,A tablet is a versatile learning tool.
+91,Health & Lifestyle,obesity,n,being very overweight,excess weight,a condition of being too fat for good health,Childhood obesity is rising in many countries.
+92,Health & Lifestyle,sedentary,adj,inactive,stationary,spending a lot of time sitting,A sedentary lifestyle harms your heart.
+93,Health & Lifestyle,epidemic,n,widespread illness,outbreak of disease,a disease that spreads quickly to many people,The flu epidemic closed several schools.
+94,Health & Lifestyle,immunity,n,protection,resistance,the body's power to fight disease,Vaccines give children immunity to serious diseases.
+95,Health & Lifestyle,chronic,adj,long-term,persistent,lasting for a long time,Chronic back pain made work difficult.
+96,Health & Lifestyle,nutrition,n,food value,nourishment,the food your body needs to stay healthy,Good nutrition helps children grow strong.
+97,Health & Lifestyle,malnutrition,n,poor diet,undernourishment,a lack of enough healthy food,Malnutrition affects millions of children.
+98,Health & Lifestyle,therapy,n,treatment,medical care,a way of treating an illness or problem,Physical therapy helped him walk again.
+99,Health & Lifestyle,diagnosis,n,finding the illness,medical assessment,a doctor's decision about what illness you have,Early diagnosis saves lives.
+100,Health & Lifestyle,symptom,n,sign of illness,indicator,a change in your body that shows you are ill,A high fever is a common symptom of flu.
+101,Health & Lifestyle,preventive,adj,protective,precautionary,done to stop something bad from happening,Preventive care is cheaper than treatment.
+102,Health & Lifestyle,longevity,n,long life,life span,living for a long time,Diet and exercise improve longevity.
+103,Health & Lifestyle,wellbeing,n,good health,contentment,"being healthy, happy and comfortable",Sleep is important for mental wellbeing.
+104,Health & Lifestyle,addiction,n,dependence,compulsion,being unable to stop doing or using something,Phone addiction is common among teenagers.
+105,Health & Lifestyle,hygiene,n,cleanliness,sanitary habits,keeping yourself and things clean,Good hygiene stops germs from spreading.
+106,Health & Lifestyle,vaccinate,v,inject,immunise,to give medicine that protects from disease,Doctors vaccinate babies against measles.
+107,Health & Lifestyle,deficiency,n,lack,shortage,not having enough of something the body needs,Vitamin D deficiency can weaken bones.
+108,Health & Lifestyle,ailment,n,illness,disorder,a minor illness,Many common ailments disappear without medicine.
+109,Health & Lifestyle,remedy,n,cure,treatment,something that makes an illness better,Honey is an old remedy for a sore throat.
+110,Health & Lifestyle,rehabilitation,n,recovery,recuperation,the process of getting healthy again after illness,Rehabilitation takes months after a serious injury.
+111,Health & Lifestyle,outbreak,n,sudden spread,eruption,the sudden start of a disease or problem,An outbreak of cholera hit the village.
+112,Health & Lifestyle,contagious,adj,catching,transmissible,able to pass from one person to another,Measles is highly contagious.
+113,Health & Lifestyle,debilitating,adj,weakening,crippling,making a person very weak,She suffers from a debilitating illness.
+114,Health & Lifestyle,holistic,adj,whole-body,integrated,"looking at the whole person, not one part",A holistic approach treats body and mind.
+115,Health & Lifestyle,sanitation,n,clean systems,public hygiene,clean water and safe toilets for people,Poor sanitation spreads disease.
+116,Health & Lifestyle,fatigue,n,tiredness,exhaustion,a feeling of being very tired,Long working hours cause fatigue.
+117,Health & Lifestyle,resilience,n,toughness,fortitude,the power to recover quickly from problems,Regular exercise builds mental resilience.
+118,Health & Lifestyle,ageing,adj,getting old,senior,becoming older as time passes,An ageing population needs more hospitals.
+119,Health & Lifestyle,nourish,v,feed,sustain,to give food that helps growth and health,Fruit and vegetables nourish the body.
+120,Health & Lifestyle,alleviate,v,ease,relieve,to make pain or a problem less serious,Painkillers alleviate the pain.
+121,Work & Careers,workforce,n,staff,labour force,all the people who work in a company or country,The country has a young and skilled workforce.
+122,Work & Careers,redundancy,n,job loss,layoff,losing your job because it is no longer needed,Thousands faced redundancy after the factory closed.
+123,Work & Careers,remuneration,n,pay,compensation,money you get for your work,The remuneration includes a salary and health care.
+124,Work & Careers,dismiss,v,sack,terminate,to tell someone to leave their job,He was dismissed for being late too often.
+125,Work & Careers,unemployment,n,joblessness,lack of work,not having a job,Youth unemployment is a serious problem.
+126,Work & Careers,freelance,adj,self-employed,independent,"working for yourself, not for one company",She works as a freelance designer.
+127,Work & Careers,productivity,n,output,efficiency,how much work is done in a set time,Short breaks can improve productivity.
+128,Work & Careers,incentive,n,reward,inducement,something that makes you want to work harder,A bonus is a strong incentive for staff.
+129,Work & Careers,overtime,n,extra hours,additional hours,time worked after normal working hours,Nurses often do overtime during busy periods.
+130,Work & Careers,recruit,v,hire,enlist,to find and employ new people,The firm plans to recruit fifty engineers.
+131,Work & Careers,applicant,n,candidate,job seeker,a person who asks for a job,Each applicant must send a CV.
+132,Work & Careers,workload,n,amount of work,work pressure,the amount of work you have to do,A heavy workload causes stress.
+133,Work & Careers,burnout,n,total exhaustion,mental collapse,being very tired and stressed from too much work,Teachers can suffer burnout without enough rest.
+134,Work & Careers,retire,v,stop working,step down,to stop working because of age,Most people retire at sixty-five.
+135,Work & Careers,internship,n,work placement,trainee position,a short job to gain experience,An internship gave her valuable experience.
+136,Work & Careers,hierarchy,n,ranking,chain of command,a system with people at different levels,The company has a strict hierarchy.
+137,Work & Careers,delegate,v,hand over,assign,to give some work to another person,Good managers delegate tasks to their team.
+138,Work & Careers,appraisal,n,review,performance evaluation,a check of how well someone works,He received a positive annual appraisal.
+139,Work & Careers,labour,n,hard work,manual work,"work, especially physical work",Cheap labour attracts foreign companies.
+140,Work & Careers,vacancy,n,open job,job opening,a job that is free for someone to take,There is a vacancy in our sales department.
+141,Work & Careers,diligent,adj,hard-working,conscientious,working carefully and with effort,A diligent student always finishes homework.
+142,Work & Careers,ambitious,adj,determined,aspiring,wanting very much to succeed,She is an ambitious young lawyer.
+143,Work & Careers,supervise,v,manage,oversee,to watch and guide other people's work,A teacher supervises the exam room.
+144,Work & Careers,profession,n,career,occupation,a job that needs special training,Medicine is a respected profession.
+145,Work & Careers,entrepreneur,n,business owner,self-starter,a person who starts their own business,The young entrepreneur opened three cafes.
+146,Work & Careers,stagnate,v,stop growing,languish,to stay the same without progress,His career stagnated after ten years in one post.
+147,Work & Careers,commute,v,travel to work,journey daily,to travel regularly between home and work,Many people commute two hours each day.
+148,Work & Careers,wage,n,hourly pay,earnings,"money paid for work, often each week",The minimum wage was raised this year.
+149,Work & Careers,perk,n,extra benefit,fringe benefit,a special extra thing you get from a job,Free lunch is a nice perk of the job.
+150,Work & Careers,tenure,n,time in a job,period of office,the time you hold a job or position,Her tenure as manager lasted eight years.
+151,Economy & Business,inflation,n,price rise,rising prices,when prices go up over time,High inflation makes daily life expensive.
+152,Economy & Business,recession,n,economic slump,downturn in trade,a time when a country's economy gets weaker,The recession left many people jobless.
+153,Economy & Business,revenue,n,income,turnover,the money a company receives,The shop's revenue doubled this year.
+154,Economy & Business,consumer,n,buyer,end user,a person who buys goods or services,Consumers are spending less on luxury items.
+155,Economy & Business,capital,n,money for business,financial resources,money used to start or run a business,He needed capital to open a restaurant.
+156,Economy & Business,investment,n,money put in,financial stake,money put into something to earn more,Investment in railways boosted growth.
+157,Economy & Business,tariff,n,import tax,customs duty,a tax on goods from other countries,The government raised tariffs on steel.
+158,Economy & Business,subsidy,n,state support,financial aid,money the government gives to help a business,Farmers receive a subsidy for fertiliser.
+159,Economy & Business,monopoly,n,sole control,exclusive control,when one company controls all of a market,The firm has a monopoly on train travel.
+160,Economy & Business,bankrupt,adj,broke,insolvent,unable to pay what you owe,The company went bankrupt last year.
+161,Economy & Business,deficit,n,shortfall,negative balance,when you spend more than you earn,The country has a large budget deficit.
+162,Economy & Business,affluent,adj,rich,well-off,having a lot of money,Affluent families live in the northern suburbs.
+163,Economy & Business,impoverished,adj,very poor,destitute,having very little money,Impoverished villages lack clean water.
+164,Economy & Business,inequality,n,unfairness,disparity,a difference in wealth or chances,Income inequality is growing worldwide.
+165,Economy & Business,thrive,v,do well,flourish,to grow strong and be successful,Small businesses thrive in tourist areas.
+166,Economy & Business,boom,n,fast growth,upsurge,a time of fast economic growth,The oil boom made the town rich.
+167,Economy & Business,downturn,n,decline,slump,a fall in business or the economy,Sales fell during the economic downturn.
+168,Economy & Business,expenditure,n,spending,outlay,the amount of money spent,Government expenditure on health has increased.
+169,Economy & Business,commodity,n,trade product,raw material,a product that is bought and sold,Oil is a valuable commodity.
+170,Economy & Business,outsource,v,send work abroad,contract out,to pay another company to do some work,Many firms outsource customer service to Asia.
+171,Economy & Business,merger,n,joining of companies,amalgamation,when two companies become one,The merger created a huge bank.
+172,Economy & Business,shareholder,n,stock owner,investor,a person who owns part of a company,Shareholders voted to approve the plan.
+173,Economy & Business,frugal,adj,careful with money,economical,spending very little money,My grandmother is frugal and never wastes food.
+174,Economy & Business,lucrative,adj,profitable,financially rewarding,making a lot of money,Software is a lucrative business.
+175,Economy & Business,currency,n,money,legal tender,the money used in a country,The local currency lost value against the dollar.
+176,Economy & Business,prosperity,n,wealth,affluence,a state of being rich and successful,Trade brought prosperity to the port city.
+177,Economy & Business,volatile,adj,unstable,erratic,changing quickly and unpredictably,Oil prices are very volatile.
+178,Economy & Business,fluctuate,v,go up and down,vary,to change often in level or amount,House prices fluctuate from year to year.
+179,Economy & Business,overheads,n,running costs,operating expenses,regular costs of running a business,High rent increases our overheads.
+180,Economy & Business,surplus,n,extra amount,excess,more than you need,The farm had a surplus of rice to sell.
+181,Society & Culture,heritage,n,tradition,legacy,old buildings and customs from the past,The old city is a world heritage site.
+182,Society & Culture,custom,n,habit,convention,a usual way of doing things in a group,It is a custom to remove shoes at the door.
+183,Society & Culture,diversity,n,variety,multiplicity,many different kinds of people or things,Cultural diversity makes the city exciting.
+184,Society & Culture,stereotype,n,fixed idea,generalisation,an unfair belief about a group of people,Stereotypes about older people are often wrong.
+185,Society & Culture,discrimination,n,unfair treatment,bias,treating people worse because of who they are,Discrimination at work is against the law.
+186,Society & Culture,prejudice,n,unfair opinion,preconception,a bad opinion formed without knowing the facts,Prejudice against foreigners still exists.
+187,Society & Culture,conformity,n,following rules,compliance,behaving like everyone else,Social conformity can stop creative thinking.
+188,Society & Culture,norm,n,usual standard,accepted standard,what is normal in a group or society,Working from home has become the norm.
+189,Society & Culture,taboo,n,forbidden subject,social prohibition,something people must not say or do,Talking about money is taboo in some cultures.
+190,Society & Culture,ritual,n,ceremony,rite,a set of actions done in the same way each time,The wedding ritual lasts three days.
+191,Society & Culture,multicultural,adj,of many cultures,culturally mixed,having people from many different cultures,London is a multicultural city.
+192,Society & Culture,assimilate,v,fit in,absorb,to become part of a new group or country,Immigrants slowly assimilate into local life.
+193,Society & Culture,ethnic,adj,racial,cultural-group,connected to a particular race or culture,Ethnic food festivals are popular here.
+194,Society & Culture,inclusive,adj,open to all,all-embracing,including all kinds of people,We want an inclusive and fair society.
+195,Society & Culture,marginalised,adj,left out,sidelined,treated as unimportant or kept at the edge,Marginalised groups need more support.
+196,Society & Culture,demographic,adj,population-related,statistical,about the make-up of a population,Demographic change affects school planning.
+197,Society & Culture,stigma,n,shame,social disgrace,a bad feeling society has about something,There is still a stigma around mental illness.
+198,Society & Culture,etiquette,n,good manners,social code,rules for polite behaviour,Business etiquette differs across countries.
+199,Society & Culture,indigenous,adj,native,aboriginal,belonging to a place from the earliest times,Indigenous people protect their land and language.
+200,Society & Culture,ancestry,n,family origin,lineage,the people in your family who lived long ago,She is proud of her Bengali ancestry.
+201,Society & Culture,folklore,n,traditional stories,popular legends,old stories and beliefs of a people,Village folklore is full of ghost stories.
+202,Society & Culture,cohesion,n,unity,togetherness,the feeling of being united as a group,Sport can build social cohesion.
+203,Society & Culture,welfare,n,state help,social security,help given to people in need,Welfare supports those who cannot work.
+204,Society & Culture,charity,n,aid group,benevolent organisation,an organisation that helps people in need,She gave her old clothes to a charity.
+205,Society & Culture,volunteer,v,offer to help,give time freely,to do work without being paid,Students volunteer at the local hospital.
+206,Society & Culture,solidarity,n,unity,mutual support,support between people with the same aims,Workers showed solidarity during the strike.
+207,Society & Culture,mainstream,adj,common,conventional,accepted by most people,Online shopping is now mainstream.
+208,Society & Culture,conservative,adj,traditional,cautious,liking old ways and not wanting change,Older generations are often more conservative.
+209,Society & Culture,ostracise,v,exclude,shun,to refuse to include someone in a group,The class ostracised the new student.
+210,Society & Culture,generational,adj,between age groups,inter-age,connected to a group of people born at a similar time,Generational differences cause family arguments.
+211,Government & Law,legislation,n,laws,statutes,laws made by a government,New legislation protects workers' rights.
+212,Government & Law,regulation,n,rule,control,an official rule that people must follow,Strict regulations control food safety.
+213,Government & Law,bureaucracy,n,official procedures,red tape,a system with many rules and forms,Bureaucracy slows down business permits.
+214,Government & Law,democracy,n,rule by the people,representative government,a system where people vote for leaders,Democracy gives citizens a voice.
+215,Government & Law,authority,n,power,command,the right to give orders and decide,Local authorities manage waste collection.
+216,Government & Law,sovereignty,n,independence,self-rule,a country's right to rule itself,The nation defended its sovereignty.
+217,Government & Law,corruption,n,dishonesty,malpractice,dishonest use of power for personal gain,Corruption harms public trust.
+218,Government & Law,propaganda,n,one-sided information,manipulative messaging,false or biased information that spreads an idea,War propaganda filled the newspapers.
+219,Government & Law,referendum,n,public vote,plebiscite,a vote by all people on one question,A referendum decided the country's future.
+220,Government & Law,taxation,n,paying tax,government levy,the system of collecting money from people,Higher taxation pays for public services.
+221,Government & Law,enforce,v,make people obey,implement,to make sure a rule is followed,Police enforce the speed limit.
+222,Government & Law,prohibit,v,ban,forbid,to say officially that something is not allowed,Smoking is prohibited in public buildings.
+223,Government & Law,abolish,v,end,do away with,to stop a rule or system completely,Many countries abolished the death penalty.
+224,Government & Law,amend,v,change,revise,to make small changes to a law or text,Parliament voted to amend the law.
+225,Government & Law,constitution,n,basic law,founding charter,the main set of rules of a country,The constitution protects free speech.
+226,Government & Law,jurisdiction,n,legal area,domain of authority,the area where a court or body has power,This case is outside the court's jurisdiction.
+227,Government & Law,parliament,n,law-making body,legislature,the group of people who make laws,Parliament debated the new education bill.
+228,Government & Law,ballot,n,vote,poll,the paper or act of voting,Citizens cast their ballot in secret.
+229,Government & Law,allocate,v,give out,apportion,to give an amount of money or time for a purpose,The government allocated funds to schools.
+230,Government & Law,enact,v,pass,ratify,to make a proposal into law,The new rule was enacted last spring.
+231,Government & Law,censorship,n,blocking information,suppression,stopping people from seeing or saying some things,Censorship limits press freedom.
+232,Government & Law,authoritarian,adj,strict,autocratic,demanding total obedience from people,An authoritarian leader controls the media.
+233,Government & Law,transparency,n,openness,clarity,being open so people can see what is happening,Transparency reduces corruption.
+234,Government & Law,accountability,n,responsibility,answerability,being responsible for your actions,Politicians must accept accountability.
+235,Government & Law,lobby,v,try to influence,campaign,to try to persuade a government to act,Groups lobby for stronger climate laws.
+236,Government & Law,mandate,n,official order,authority to act,the power to do something given by voters,The party won a clear mandate for reform.
+237,Government & Law,impose,v,force,enforce on,to make people accept a rule or tax,The state imposed a new tax on sugar.
+238,Government & Law,legitimate,adj,lawful,valid,allowed by law or fair and reasonable,He has a legitimate reason for complaint.
+239,Government & Law,exempt,adj,free from,excused,not having to follow a rule or pay,Students are exempt from this tax.
+240,Government & Law,administer,v,manage,run,to organise and control a system,The ministry administers the national exams.
+241,Crime & Justice,offender,n,lawbreaker,wrongdoer,a person who breaks the law,First-time offenders often get a lighter sentence.
+242,Crime & Justice,deter,v,put off,discourage,to make someone not want to do something,Cameras deter people from stealing.
+243,Crime & Justice,victim,n,injured person,casualty,a person who is hurt by a crime or accident,The victim gave evidence in court.
+244,Crime & Justice,convict,v,find guilty,pronounce guilty,to say officially that someone is guilty,He was convicted of fraud.
+245,Crime & Justice,verdict,n,court decision,judgement,the final decision of a court,The jury reached a verdict after two days.
+246,Crime & Justice,testimony,n,spoken evidence,sworn statement,what a witness says in court,Her testimony helped to free the man.
+247,Crime & Justice,fraud,n,cheating,deception,a crime of getting money by lying,Online fraud is increasing.
+248,Crime & Justice,burglary,n,house break-in,breaking and entering,stealing from a house or building,There was a burglary on our street last night.
+249,Crime & Justice,vandalism,n,damaging property,wilful destruction,breaking or spoiling things on purpose,Vandalism in the park costs the city a lot.
+250,Crime & Justice,juvenile,adj,young,underage,connected with young people,Juvenile crime is often linked to poverty.
+251,Crime & Justice,penalty,n,punishment,sanction,a punishment for breaking a rule or law,The penalty for littering is a heavy fine.
+252,Crime & Justice,trial,n,court case,hearing,a legal process to decide if someone is guilty,The trial lasted three weeks.
+253,Crime & Justice,evidence,n,proof,corroboration,facts that show something is true,There was no evidence against him.
+254,Crime & Justice,suspect,n,person accused,person under investigation,someone the police think did a crime,The police arrested a suspect.
+255,Crime & Justice,bail,n,temporary release money,security payment,money paid so a person can wait outside prison,He was released on bail until the trial.
+256,Crime & Justice,acquit,v,free,exonerate,to say officially that someone is not guilty,The court acquitted her of all charges.
+257,Crime & Justice,custody,n,police keeping,detention,being kept by the police or the state,The suspect remains in custody.
+258,Crime & Justice,inmate,n,prisoner,detainee,a person living in a prison,Inmates can learn new skills in jail.
+259,Crime & Justice,reoffend,v,commit crime again,relapse into crime,to break the law again after punishment,Many prisoners reoffend after release.
+260,Crime & Justice,deterrent,n,warning,disincentive,something that stops people doing wrong,Heavy fines act as a deterrent.
+261,Crime & Justice,perpetrator,n,criminal,culprit,the person who did a bad act,The perpetrator was never found.
+262,Crime & Justice,trafficking,n,illegal trade,illicit trading,buying and selling people or drugs illegally,Human trafficking is a global crime.
+263,Crime & Justice,smuggle,v,bring in secretly,run illegally,to take goods across a border illegally,They smuggled cigarettes into the country.
+264,Crime & Justice,imprison,v,jail,incarcerate,to put someone in prison,He was imprisoned for ten years.
+265,Crime & Justice,retribution,n,revenge,punishment in return,punishment for a wrong that was done,"Some people want retribution, not rehabilitation."
+266,Crime & Justice,witness,n,observer,eyewitness,a person who sees a crime happen,A witness saw the car leave the scene.
+267,Crime & Justice,plead,v,beg,appeal,to say in court if you are guilty or not,He pleaded guilty to theft.
+268,Crime & Justice,lenient,adj,gentle,soft,not strict when punishing,Some people say the courts are too lenient.
+269,Crime & Justice,harsh,adj,severe,stringent,very strict or cruel,The harsh sentence shocked many people.
+270,Crime & Justice,notorious,adj,famous for bad things,infamous,well known for something bad,The area is notorious for car theft.
+271,Media & Communication,broadcast,v,send out,transmit,to send a programme on TV or radio,The match will be broadcast live.
+272,Media & Communication,journalism,n,news writing,reporting,the work of writing news for media,Good journalism checks facts first.
+273,Media & Communication,headline,n,news title,main title,the title at the top of a news story,The headline shocked readers.
+274,Media & Communication,biased,adj,unfair,partial,favouring one side without being fair,The report was clearly biased.
+275,Media & Communication,sensational,adj,shocking,lurid,designed to shock or excite people,Sensational stories sell more newspapers.
+276,Media & Communication,circulation,n,number sold,distribution,the number of copies a paper sells,The newspaper has a circulation of one million.
+277,Media & Communication,tabloid,n,popular paper,gossip paper,a newspaper with short stories and big pictures,Tabloids often print celebrity gossip.
+278,Media & Communication,viral,adj,spreading fast,widely shared,spreading quickly online to many people,The video went viral overnight.
+279,Media & Communication,misinformation,n,wrong information,false information,information that is not true,Misinformation spreads fast on social media.
+280,Media & Communication,credible,adj,believable,trustworthy,able to be trusted or believed,Check that your sources are credible.
+281,Media & Communication,audience,n,viewers,spectators,the people who watch or listen,The show attracts a young audience.
+282,Media & Communication,endorse,v,support,back,to say publicly that you support something,A famous actor endorsed the product.
+283,Media & Communication,coverage,n,news reporting,media attention,the amount of news given to an event,The election received wide coverage.
+284,Media & Communication,editorial,n,opinion article,leader column,a newspaper article giving the paper's opinion,The editorial criticised the new tax.
+285,Media & Communication,documentary,n,factual film,non-fiction programme,a film that tells true facts about real life,The documentary explained global warming.
+286,Media & Communication,fabricate,v,make up,invent,to create false information to trick people,The reporter fabricated the quotes.
+287,Media & Communication,persuade,v,convince,win over,to make someone agree by giving reasons,Adverts try to persuade us to buy things.
+288,Media & Communication,controversial,adj,disputed,contentious,causing strong disagreement,The film is controversial in some countries.
+289,Media & Communication,platform,n,online site,digital forum,a website or app where people share content,Video platforms are popular with teenagers.
+290,Media & Communication,cyberbullying,n,online bullying,digital harassment,using the internet to hurt or scare someone,Cyberbullying can seriously harm young people.
+291,Media & Communication,outlet,n,news source,media channel,a company that publishes or broadcasts news,The story appeared in several news outlets.
+292,Media & Communication,mislead,v,trick,deceive,to make someone believe something false,The advert misled customers about the price.
+293,Media & Communication,gossip,n,rumour,idle talk,talk about other people's private lives,Celebrity gossip fills the magazines.
+294,Media & Communication,exaggerate,v,overstate,inflate,to say something is bigger or better than it is,Ads often exaggerate how good a product is.
+295,Media & Communication,publicise,v,advertise,promote,to tell the public about something,The charity publicised its event online.
+296,Media & Communication,interactive,adj,two-way,participatory,letting the user take part and respond,Interactive lessons keep students interested.
+297,Media & Communication,captivate,v,fascinate,enthral,to hold someone's attention completely,The speaker captivated the audience.
+298,Media & Communication,newsworthy,adj,worth reporting,of public interest,important enough to be in the news,The mayor's resignation was newsworthy.
+299,Media & Communication,disseminate,v,spread,circulate,to send information to many people,The charity disseminates health advice widely.
+300,Media & Communication,intrude,v,invade,encroach,to enter someone's private life without permission,Reporters intruded on the family's grief.
+301,Science & Research,hypothesis,n,idea to test,proposition,an idea that scientists test to see if it is true,Her hypothesis was proved correct.
+302,Science & Research,experiment,n,test,pilot study,a scientific test to find out something,The experiment lasted six months.
+303,Science & Research,methodology,n,research method,approach,the way a study is planned and done,The paper explains its methodology clearly.
+304,Science & Research,empirical,adj,based on observation,evidence-based,"based on real tests, not just ideas",Empirical evidence supports this claim.
+305,Science & Research,variable,n,changing factor,parameter,something in an experiment that can change,Temperature is the key variable here.
+306,Science & Research,correlation,n,link,connection,a relationship between two things,There is a correlation between sleep and grades.
+307,Science & Research,findings,n,results,outcomes,what a study discovers,The findings were published last month.
+308,Science & Research,sample,n,small group,subset,a small part used to represent the whole,The sample included 500 students.
+309,Science & Research,replicate,v,repeat,reproduce,to do an experiment again to check the result,Other labs could not replicate the result.
+310,Science & Research,genetic,adj,inherited,hereditary,connected to genes passed from parents,Genetic tests can find some diseases early.
+311,Science & Research,clone,v,copy,duplicate,to make an exact copy of a living thing,Scientists cloned a sheep in 1996.
+312,Science & Research,laboratory,n,science room,research facility,a room where scientists do experiments,The laboratory is open to students.
+313,Science & Research,conclusive,adj,final,decisive,proving something beyond doubt,The evidence was not conclusive.
+314,Science & Research,deduce,v,work out,infer,to reach a conclusion from facts,She deduced the cause from the data.
+315,Science & Research,scrutinise,v,examine closely,inspect,to look at something very carefully,Experts scrutinised the results for errors.
+316,Science & Research,validate,v,confirm,verify,to prove that something is correct,The second study validated the first one.
+317,Science & Research,quantify,v,measure,put a number on,to say exactly how much or how many,It is hard to quantify the benefits.
+318,Science & Research,anomaly,n,odd result,irregularity,something that is different from what is expected,The data showed one strange anomaly.
+319,Science & Research,phenomenon,n,natural event,occurrence,something that happens and is interesting,Rainbows are a natural phenomenon.
+320,Science & Research,evolve,v,develop,progress,to change slowly over a long time,Species evolve to survive in new places.
+321,Science & Research,mutation,n,gene change,genetic alteration,a change in the genes of a living thing,A mutation made the virus spread faster.
+322,Science & Research,theoretical,adj,idea-based,conceptual,"based on ideas, not real practice",This is only a theoretical solution.
+323,Science & Research,predict,v,forecast,anticipate,to say what will happen in the future,Scientists predict more storms in future.
+324,Science & Research,speculate,v,guess,conjecture,to guess without full facts,Experts speculate about the cause of the fire.
+325,Science & Research,discrepancy,n,difference,inconsistency,a difference between things that should match,There was a discrepancy between the two reports.
+326,Science & Research,criterion,n,standard,benchmark,a rule used to judge or decide something,Accuracy is the main criterion for success.
+327,Science & Research,formulate,v,develop,devise,to carefully create a plan or idea,They formulated a new theory of memory.
+328,Science & Research,rigorous,adj,very careful,meticulous,done with great care and detail,The study used rigorous testing methods.
+329,Science & Research,probe,v,investigate,explore,to ask and look carefully into something,Researchers probed the causes of the problem.
+330,Science & Research,breakdown,n,analysis,detailed account,a list that separates something into parts,The report gave a breakdown of costs.
+331,Transport & Urban Life,congestion,n,heavy traffic,overcrowding,too many vehicles on the road,Traffic congestion wastes time and fuel.
+332,Transport & Urban Life,commuter,n,daily traveller,season-ticket traveller,a person who travels to work every day,Commuters crowd the trains each morning.
+333,Transport & Urban Life,infrastructure,n,basic systems,public facilities,"roads, bridges and services a country needs",Good infrastructure helps the economy grow.
+334,Transport & Urban Life,pedestrian,n,walker,foot traveller,"a person who walks, not drives",Pedestrians use the zebra crossing.
+335,Transport & Urban Life,urbanisation,n,city growth,move to cities,the growth of towns and cities,Rapid urbanisation puts pressure on housing.
+336,Transport & Urban Life,suburb,n,outer area,commuter belt,an area at the edge of a city,They live in a quiet suburb.
+337,Transport & Urban Life,overcrowded,adj,too full,congested,having too many people in one place,The buses are overcrowded at five o'clock.
+338,Transport & Urban Life,skyscraper,n,tall building,high-rise,a very tall building in a city,The city is famous for its glass skyscrapers.
+339,Transport & Urban Life,gridlock,n,total traffic jam,standstill,when traffic cannot move at all,Gridlock stopped the whole city centre.
+340,Transport & Urban Life,carpool,v,share a car,ride-share,to travel with others in one car,Colleagues carpool to cut costs.
+341,Transport & Urban Life,slum,n,poor area,shanty town,a crowded area with very bad housing,Children in the slum have little clean water.
+342,Transport & Urban Life,gentrification,n,area becoming richer,urban upgrading,when rich people move into a poor area,Gentrification has pushed up local rents.
+343,Transport & Urban Life,megacity,n,huge city,giant metropolis,a city with more than ten million people,Dhaka is one of the world's biggest megacities.
+344,Transport & Urban Life,sprawl,n,spreading out,uncontrolled growth,a city growing outward without a plan,Urban sprawl takes over farmland.
+345,Transport & Urban Life,toll,n,road fee,charge,money paid to use a road or bridge,There is a toll on the new bridge.
+346,Transport & Urban Life,cyclist,n,bike rider,bicycle user,a person who rides a bicycle,Separate lanes keep cyclists safe.
+347,Transport & Urban Life,regenerate,v,rebuild,renew,to make a place new and better,The council regenerated the old docks.
+348,Transport & Urban Life,amenities,n,facilities,services,"useful things like shops, parks and schools",The area has good amenities for families.
+349,Transport & Urban Life,residential,adj,for housing,domestic,"used for people's homes, not business",This is a quiet residential street.
+350,Transport & Urban Life,relocate,v,move,resettle,to move to a different place,Many families relocated to the capital.
+351,Transport & Urban Life,accessibility,n,ease of reaching,availability,how easy a place is to reach or use,Ramps improve accessibility for wheelchair users.
+352,Transport & Urban Life,densely,adv,very closely,thickly,with many people or things close together,Bangladesh is a densely populated country.
+353,Transport & Urban Life,revitalise,v,bring back to life,rejuvenate,to give new energy to a place,New cafes revitalised the old market.
+354,Transport & Urban Life,rural,adj,countryside,agrarian,connected with the countryside,Rural schools often lack resources.
+355,Transport & Urban Life,metropolis,n,big city,conurbation,a very large and important city,The metropolis never sleeps.
+356,Transport & Urban Life,pavement,n,footpath,sidewalk,the path at the side of a road for walkers,Cars were parked on the pavement.
+357,Transport & Urban Life,tram,n,street train,light rail,an electric vehicle that runs on city rails,The tram is cheap and clean.
+358,Transport & Urban Life,bustling,adj,busy,lively,full of people and activity,The bustling market is open all day.
+359,Transport & Urban Life,dwelling,n,home,residence,a house or place to live,Many dwellings were damaged in the flood.
+360,Transport & Urban Life,shuttle,n,short-route service,regular link service,a bus or train that goes back and forth,A free shuttle runs to the airport.
+361,Family & Relationships,upbringing,n,childhood care,rearing,the way parents raise a child,Her strict upbringing taught her to be polite.
+362,Family & Relationships,sibling,n,brother or sister,close relative,a brother or a sister,My younger sibling shares my room.
+363,Family & Relationships,nurture,v,care for,bring up,to look after and help someone grow,Parents nurture their children with love.
+364,Family & Relationships,dependant,n,person you support,financial charge,a person who needs you to pay for them,He has three dependants to support.
+365,Family & Relationships,bond,n,close link,attachment,a strong connection between people,The bond between mother and baby is strong.
+366,Family & Relationships,guardian,n,protector,legal carer,a person who takes care of a child legally,His uncle became his legal guardian.
+367,Family & Relationships,nuclear,adj,small family,immediate-family,a family of just parents and children,Nuclear families are common in cities.
+368,Family & Relationships,divorce,n,marriage ending,legal separation,the legal end of a marriage,Divorce rates have risen in many countries.
+369,Family & Relationships,elderly,adj,old,aged,a polite word for old people,Elderly relatives often live with their children.
+370,Family & Relationships,offspring,n,children,descendants,the children of a person or animal,Parents want the best for their offspring.
+371,Family & Relationships,spouse,n,husband or wife,partner,a husband or wife,You may bring your spouse to the party.
+372,Family & Relationships,adolescence,n,teenage years,puberty,the time between childhood and adult life,Adolescence is a difficult stage of life.
+373,Family & Relationships,rebellious,adj,disobedient,defiant,not wanting to obey rules,Teenagers can be rebellious.
+374,Family & Relationships,overprotective,adj,too careful,smothering,trying to keep someone too safe,Overprotective parents stop kids learning.
+375,Family & Relationships,bereavement,n,loss of a loved one,grief after death,the sad time after a person dies,She took time off work after her bereavement.
+376,Family & Relationships,inherit,v,get from parents,come into,to receive money or traits from family,She inherited her mother's green eyes.
+377,Family & Relationships,household,n,people in a home,family unit,all the people living in one house,The average household has four members.
+378,Family & Relationships,orphan,n,child with no parents,parentless child,a child whose parents have died,The charity helps orphans find new homes.
+379,Family & Relationships,reconcile,v,make peace,patch up,to become friends again after a quarrel,The brothers reconciled after years of silence.
+380,Family & Relationships,affection,n,love,fondness,a gentle feeling of love,She showed great affection for her cat.
+381,Family & Relationships,estranged,adj,no longer close,alienated,not speaking to family or friends any more,He is estranged from his father.
+382,Family & Relationships,mutual,adj,shared,reciprocal,felt or done by both people,They share a mutual respect.
+383,Family & Relationships,loyalty,n,faithfulness,allegiance,staying true to a person or group,His loyalty to friends is well known.
+384,Family & Relationships,companionship,n,friendship,fellowship,the pleasant feeling of being with someone,Pets give elderly people companionship.
+385,Family & Relationships,pamper,v,spoil,indulge,to give too much comfort and attention,Grandparents love to pamper their grandchildren.
+386,Family & Relationships,infancy,n,babyhood,early childhood,the first years of a child's life,Many diseases are most dangerous in infancy.
+387,Family & Relationships,foster,v,look after,raise temporarily,to care for a child who is not yours for a time,They foster children who have no home.
+388,Family & Relationships,cherish,v,treasure,hold dear,to love and take care of something very much,I cherish the time with my grandparents.
+389,Family & Relationships,quarrel,n,argument,row,an angry talk between people,The couple had a quarrel over money.
+390,Family & Relationships,maternal,adj,motherly,mother-like,having the feelings of a mother,She has a strong maternal instinct.
+391,Food & Agriculture,harvest,n,crop gathering,yield collection,the time when crops are picked,The rice harvest was very good this year.
+392,Food & Agriculture,cultivate,v,grow,farm,to prepare land and grow crops,Farmers cultivate wheat in the north.
+393,Food & Agriculture,fertiliser,n,plant food,soil enhancer,a substance that helps plants grow,Too much fertiliser can pollute rivers.
+394,Food & Agriculture,pesticide,n,insect killer,crop chemical,a chemical used to kill insects on plants,Some pesticides harm bees.
+395,Food & Agriculture,yield,n,crop amount,output,the amount of crops a farm produces,New seeds increased the yield per hectare.
+396,Food & Agriculture,irrigation,n,watering land,water supply system,giving water to land so crops grow,Irrigation helps farms in dry regions.
+397,Food & Agriculture,livestock,n,farm animals,cattle and sheep,animals kept on a farm,The farmer has livestock like cows and goats.
+398,Food & Agriculture,organic,adj,chemical-free,naturally grown,grown without man-made chemicals,Organic vegetables are more expensive.
+399,Food & Agriculture,famine,n,food shortage,mass hunger,a time when many people have no food,Famine struck after the long drought.
+400,Food & Agriculture,staple,n,basic food,dietary mainstay,a main food that people eat all the time,Rice is the staple food of Bangladesh.
+401,Food & Agriculture,processed,adj,factory-made,manufactured,changed by a factory before you buy it,Processed food often contains a lot of salt.
+402,Food & Agriculture,additive,n,added substance,food chemical,something added to food to improve it,Some additives are used to keep colour.
+403,Food & Agriculture,cuisine,n,cooking style,national dishes,a style of cooking from a place,Thai cuisine is famous for its spice.
+404,Food & Agriculture,nutritious,adj,healthy,wholesome,containing things that are good for the body,Lentils are cheap and nutritious.
+405,Food & Agriculture,perishable,adj,goes bad quickly,short-lived,likely to go bad if not kept cool,Fish is a perishable product.
+406,Food & Agriculture,ripe,adj,ready to eat,mature,fully grown and ready to eat,Wait until the mangoes are ripe.
+407,Food & Agriculture,arable,adj,farmable,cultivable,good for growing crops,Arable land is shrinking in many countries.
+408,Food & Agriculture,subsistence,n,basic living,bare survival,having just enough food to stay alive,Many families live by subsistence farming.
+409,Food & Agriculture,preservative,n,food protector,keeping agent,a substance that stops food from going bad,This juice contains no preservatives.
+410,Food & Agriculture,dairy,n,milk products,milk foods,"products made from milk, like cheese",Dairy farms supply the city with milk.
+411,Food & Agriculture,fertile,adj,rich,productive,able to produce plenty of crops,The delta has very fertile soil.
+412,Food & Agriculture,overfishing,n,taking too many fish,excessive catching,catching so many fish that they run out,Overfishing is emptying the oceans.
+413,Food & Agriculture,appetite,n,desire to eat,hunger,the feeling of wanting to eat,Stress can reduce your appetite.
+414,Food & Agriculture,savour,v,enjoy slowly,relish,to enjoy a taste or feeling fully,She savoured every bite of the cake.
+415,Food & Agriculture,delicacy,n,special food,gourmet dish,a rare and delicious food,Hilsa fish is a famous delicacy.
+416,Food & Agriculture,ingredient,n,food part,component,one of the foods used to make a dish,Fresh ingredients make the soup taste better.
+417,Food & Agriculture,cereal,n,grain crop,grain product,"a grass crop like wheat, rice or corn",Cereals are the world's main food source.
+418,Food & Agriculture,famished,adj,very hungry,ravenous,extremely hungry,We were famished after the long walk.
+419,Food & Agriculture,barren,adj,empty of crops,infertile,not able to grow plants,Drought turned the fields barren.
+420,Food & Agriculture,nutrient,n,healthy substance,nourishing element,a substance in food that your body needs,Spinach is full of important nutrients.
+421,Travel & Tourism,itinerary,n,travel plan,schedule of a trip,a plan of places you will visit on a trip,Our itinerary includes five cities in ten days.
+422,Travel & Tourism,destination,n,place you travel to,end point,the place where you are going,Cox's Bazar is a popular holiday destination.
+423,Travel & Tourism,sightseeing,n,visiting places,touring,visiting famous places as a tourist,We spent the day sightseeing in Rome.
+424,Travel & Tourism,accommodation,n,place to stay,lodging,a room or building where you stay,Hotel accommodation is expensive in summer.
+425,Travel & Tourism,souvenir,n,memory gift,keepsake,something you buy to remember a trip,I bought a small souvenir for my mother.
+426,Travel & Tourism,backpacker,n,budget traveller,independent traveller,a person who travels cheaply with a bag,Backpackers often stay in cheap hostels.
+427,Travel & Tourism,excursion,n,short trip,outing,a short journey made for pleasure,We took an excursion to the island.
+428,Travel & Tourism,hospitality,n,welcome,generous treatment of guests,kind and generous treatment of visitors,Bengali hospitality is famous around the world.
+429,Travel & Tourism,landmark,n,famous building,prominent feature,a famous or easy-to-see place,The tower is the city's best-known landmark.
+430,Travel & Tourism,scenic,adj,beautiful to look at,picturesque views,having beautiful views of nature,We took the scenic route along the coast.
+431,Travel & Tourism,visa,n,entry permit,travel authorisation,an official paper to enter a country,You need a visa to visit that country.
+432,Travel & Tourism,resort,n,holiday place,tourist complex,a place where people go on holiday,The beach resort has three swimming pools.
+433,Travel & Tourism,cruise,n,sea holiday,ship voyage,a holiday on a big ship,They went on a two-week cruise.
+434,Travel & Tourism,expedition,n,long adventure,organised journey,a long trip for a special reason,The expedition climbed Mount Everest.
+435,Travel & Tourism,ecotourism,n,green travel,sustainable tourism,travel that protects nature and local people,Ecotourism supports local communities.
+436,Travel & Tourism,luggage,n,bags,baggage,the bags and cases you take on a trip,The airline lost my luggage.
+437,Travel & Tourism,voyage,n,sea journey,long trip,"a long journey, especially by sea",The voyage to America took weeks.
+438,Travel & Tourism,wander,v,walk around,roam,to walk slowly without a clear plan,We wandered through the old streets.
+439,Travel & Tourism,embark,v,go on board,set out,to start a journey or to get on a ship,They embarked on a long trip across Asia.
+440,Travel & Tourism,hostel,n,cheap lodging,budget accommodation,a cheap place to stay for travellers,A hostel bed costs ten dollars a night.
+441,Travel & Tourism,terminal,n,airport building,departure hall,the main building at an airport,Our flight leaves from Terminal Two.
+442,Travel & Tourism,immersion,n,deep involvement,total absorption,being fully involved in a new place or culture,Language immersion is the fastest way to learn.
+443,Travel & Tourism,authentic,adj,real,genuine,true and not copied,We ate authentic Italian pasta.
+444,Travel & Tourism,exotic,adj,unusual,foreign and exciting,from a faraway country and interesting,The market sells exotic fruits.
+445,Travel & Tourism,picturesque,adj,pretty,charming,so lovely that it looks like a picture,It is a picturesque village by a lake.
+446,Travel & Tourism,idyllic,adj,perfect,heavenly,very peaceful and beautiful,We spent an idyllic week by the sea.
+447,Travel & Tourism,venture,v,dare to go,brave a journey,to go somewhere that may be dangerous,They ventured into the jungle.
+448,Travel & Tourism,layover,n,stop between flights,transit stop,a short stop between two flights,We had a six-hour layover in Dubai.
+449,Travel & Tourism,getaway,n,short holiday,quick escape,a short break away from home,A weekend getaway helped me relax.
+450,Travel & Tourism,overseas,adv,abroad,in another country,in or to a foreign country,Many students study overseas.
+451,Arts & Creativity,masterpiece,n,great work,magnum opus,a work of art that is excellent,The Mona Lisa is a true masterpiece.
+452,Arts & Creativity,exhibition,n,art show,display,a public show of art or objects,The exhibition opens on Friday.
+453,Arts & Creativity,gallery,n,art museum,exhibition hall,a place where art is shown,We visited a gallery in the old town.
+454,Arts & Creativity,sculpture,n,statue,carved figure,"an art object made from stone, metal or wood",The sculpture stands in the main square.
+455,Arts & Creativity,portrait,n,picture of a person,likeness,a painting or photo of a person,She painted a portrait of her grandfather.
+456,Arts & Creativity,abstract,adj,not realistic,non-representational,"not showing real things, only shapes and colours",He prefers abstract art to realistic art.
+457,Arts & Creativity,canvas,n,painting cloth,artist's surface,a strong cloth that artists paint on,The artist covered the canvas in blue paint.
+458,Arts & Creativity,composer,n,music writer,songwriter,a person who writes music,Beethoven was a great composer.
+459,Arts & Creativity,genre,n,type,category,"a kind of art, music or writing",Her favourite film genre is comedy.
+460,Arts & Creativity,craftsmanship,n,skill,artistry,great skill in making things by hand,The furniture shows fine craftsmanship.
+461,Arts & Creativity,aesthetic,adj,about beauty,artistic,connected with beauty and art,The building has great aesthetic appeal.
+462,Arts & Creativity,imagination,n,creative thinking,inventiveness,the ability to think of new ideas,Children have a wonderful imagination.
+463,Arts & Creativity,ingenious,adj,clever,inventive,very clever and original,He found an ingenious way to save water.
+464,Arts & Creativity,rehearse,v,practise,prepare,to practise before a performance,The actors rehearsed the play for weeks.
+465,Arts & Creativity,applause,n,clapping,ovation,clapping hands to show you liked something,The crowd burst into applause.
+466,Arts & Creativity,improvise,v,make up on the spot,ad-lib,to create something without planning,The singer improvised a new verse.
+467,Arts & Creativity,critic,n,reviewer,commentator,a person who gives opinions on art or films,The critic gave the film five stars.
+468,Arts & Creativity,acclaimed,adj,praised,celebrated,praised by many people for being excellent,It is an acclaimed novel in many countries.
+469,Arts & Creativity,renowned,adj,famous,eminent,known by many people for something good,She is a renowned violinist.
+470,Arts & Creativity,eloquent,adj,well-spoken,articulate,able to speak or write clearly and strongly,He gave an eloquent speech.
+471,Arts & Creativity,vivid,adj,bright,graphic,"clear, bright and full of life",She gave a vivid description of the storm.
+472,Arts & Creativity,evoke,v,bring back,summon up,to bring a feeling or memory to mind,The smell of rain evokes childhood memories.
+473,Arts & Creativity,depict,v,show,portray,to show something in a picture or in words,The painting depicts a village market.
+474,Arts & Creativity,narrative,n,story,account,a story or the way it is told,The film has a powerful narrative.
+475,Arts & Creativity,fiction,n,made-up stories,imaginative writing,stories that are not true,He enjoys reading science fiction.
+476,Arts & Creativity,literary,adj,about books,bookish,connected with literature or writing,She won a famous literary prize.
+477,Arts & Creativity,novelist,n,book writer,fiction writer,a person who writes novels,The novelist wrote ten books.
+478,Arts & Creativity,orchestra,n,music group,symphony group,a large group of musicians,The orchestra played at the festival.
+479,Arts & Creativity,melody,n,tune,musical line,a pleasant series of musical notes,The melody stayed in my head all day.
+480,Arts & Creativity,ensemble,n,group,troupe,a small group that performs together,The dance ensemble toured five countries.
+481,Psychology & Behaviour,motivation,n,drive,inner push,the reason or energy that makes you do something,Strong motivation helps students keep studying.
+482,Psychology & Behaviour,anxiety,n,worry,unease,a feeling of fear about what may happen,Exam anxiety kept her awake at night.
+483,Psychology & Behaviour,empathy,n,understanding feelings,compassion,the ability to feel what another person feels,Doctors need empathy to help patients.
+484,Psychology & Behaviour,perception,n,view,impression,the way you see or understand something,Public perception of the police has improved.
+485,Psychology & Behaviour,cognitive,adj,thinking,mental,connected with thinking and learning,Cognitive skills develop in early childhood.
+486,Psychology & Behaviour,impulse,n,sudden urge,spur-of-the-moment desire,a sudden strong wish to do something,He bought the shoes on impulse.
+487,Psychology & Behaviour,instinct,n,natural feeling,inborn tendency,a natural way of acting without thinking,Birds migrate by instinct.
+488,Psychology & Behaviour,temperament,n,character,disposition,the natural way a person feels and behaves,The baby has a calm temperament.
+489,Psychology & Behaviour,trauma,n,deep shock,psychological injury,a very bad experience that causes long-term pain,The accident left her with trauma.
+490,Psychology & Behaviour,phobia,n,strong fear,irrational dread,a very strong fear of something,He has a phobia of heights.
+491,Psychology & Behaviour,obsession,n,fixation,preoccupation,thinking about one thing all the time,His obsession with football worries his parents.
+492,Psychology & Behaviour,subconscious,adj,hidden in the mind,unconscious,in the part of the mind you do not notice,Fears can stay in the subconscious mind.
+493,Psychology & Behaviour,intuition,n,gut feeling,sixth sense,knowing something without clear proof,My intuition told me not to trust him.
+494,Psychology & Behaviour,reluctant,adj,unwilling,hesitant,not wanting to do something,She was reluctant to speak in public.
+495,Psychology & Behaviour,assertive,adj,confident,forthright,"saying what you want in a clear, firm way",Be assertive but remain polite.
+496,Psychology & Behaviour,introvert,n,quiet person,reserved person,a person who likes being alone more than in groups,"As an introvert, he prefers reading to parties."
+497,Psychology & Behaviour,mindset,n,way of thinking,outlook,the attitude you have about things,A positive mindset helps you learn faster.
+498,Psychology & Behaviour,perseverance,n,never giving up,tenacity,continuing to try even when it is hard,Perseverance helped her pass the test.
+499,Psychology & Behaviour,procrastinate,v,delay,put things off,to keep waiting before doing something you should do,Students often procrastinate before exams.
+500,Psychology & Behaviour,gratification,n,pleasure,satisfaction,a feeling of happiness from getting something,Instant gratification is common in the digital age.
+501,Psychology & Behaviour,conscience,n,sense of right and wrong,moral compass,the inner voice that tells you right from wrong,His conscience would not let him lie.
+502,Psychology & Behaviour,vulnerable,adj,easily hurt,defenceless,easy to hurt or damage,Young children are vulnerable to infections.
+503,Psychology & Behaviour,cope,v,manage,deal with,to deal with a hard situation successfully,How do you cope with so much stress?
+504,Psychology & Behaviour,irrational,adj,not logical,unreasonable,not based on clear thinking,Fear of small spiders is often irrational.
+505,Psychology & Behaviour,nostalgia,n,longing for the past,wistfulness,a happy but sad feeling about the past,Old songs fill me with nostalgia.
+506,Psychology & Behaviour,apathy,n,lack of interest,indifference,not caring about anything,Voter apathy is a problem in many elections.
+507,Psychology & Behaviour,euphoria,n,extreme joy,elation,a feeling of great happiness,The team celebrated in euphoria.
+508,Psychology & Behaviour,optimistic,adj,hopeful,upbeat,expecting good things to happen,She is optimistic about her future.
+509,Psychology & Behaviour,pessimistic,adj,negative,gloomy,expecting bad things to happen,Don't be so pessimistic about the exam.
+510,Psychology & Behaviour,insecure,adj,not confident,self-doubting,not sure of yourself,Teenagers often feel insecure about their looks.
+511,Globalisation & Migration,globalisation,n,worldwide connection,international integration,the growth of links between countries,Globalisation has changed how we buy things.
+512,Globalisation & Migration,migrant,n,person who moves,itinerant worker,a person who moves to another place for work,Migrants often send money to their families.
+513,Globalisation & Migration,emigrate,v,leave a country,move abroad,to leave your own country to live in another,Many doctors emigrate to find better pay.
+514,Globalisation & Migration,refugee,n,person who flees,displaced person,a person who leaves a country to escape danger,The refugees crossed the border by night.
+515,Globalisation & Migration,asylum,n,safe protection,sanctuary,protection given to people running from danger,She applied for asylum in Sweden.
+516,Globalisation & Migration,diaspora,n,people living abroad,scattered community,people from one country living in other places,The Bangladeshi diaspora sends large remittances.
+517,Globalisation & Migration,multinational,adj,in many countries,worldwide,working in many countries,Multinational companies hire staff worldwide.
+518,Globalisation & Migration,interdependence,n,needing each other,mutual reliance,countries needing each other for goods and help,Global trade increases interdependence.
+519,Globalisation & Migration,remittance,n,money sent home,transfer of earnings,money that workers abroad send to family,Remittances support many rural families.
+520,Globalisation & Migration,xenophobia,n,fear of foreigners,hostility to outsiders,a strong dislike of people from other countries,Xenophobia can cause violence.
+521,Globalisation & Migration,citizenship,n,legal membership,nationality status,the right to belong to a country,He gained citizenship after five years.
+522,Globalisation & Migration,deport,v,send away,expel,to force a person to leave a country,The police deported illegal workers.
+523,Globalisation & Migration,homogeneous,adj,all the same,uniform,made up of similar parts or people,Japan has a fairly homogeneous population.
+524,Globalisation & Migration,cosmopolitan,adj,international,worldly,having people from many parts of the world,Dubai is a cosmopolitan city.
+525,Globalisation & Migration,displaced,adj,forced to leave home,uprooted,made to leave your home because of danger,Floods left thousands of people displaced.
+526,Globalisation & Migration,exodus,n,mass departure,large-scale exit,a time when many people leave a place together,The war caused a huge exodus from the city.
+527,Globalisation & Migration,expatriate,n,person living abroad,overseas resident,a person who lives outside their own country,The expatriate community has its own school.
+528,Globalisation & Migration,influx,n,large arrival,inflow,the arrival of a large number of people,The influx of tourists raised prices.
+529,Globalisation & Migration,homeland,n,native country,motherland,the country where you were born,He dreamed of returning to his homeland.
+530,Globalisation & Migration,persecution,n,cruel treatment,oppression,being treated very badly for your beliefs,Many fled religious persecution.
+531,Globalisation & Migration,exile,n,forced stay abroad,banishment,being made to live away from your own country,The leader lived in exile for ten years.
+532,Globalisation & Migration,uproot,v,force to leave,dislodge,to make someone leave their home,War uprooted millions of families.
+533,Globalisation & Migration,transnational,adj,crossing borders,cross-border,operating across several countries,Transnational crime is hard to stop.
+534,Globalisation & Migration,outflow,n,leaving,exit,the movement of people or money out of a place,The outflow of young people is hurting villages.
+535,Globalisation & Migration,borderless,adj,without limits,unrestricted,not stopped by country borders,The internet creates a borderless world.
+536,Globalisation & Migration,overshadow,v,make less important,eclipse,to make something seem less important,Global brands overshadow local shops.
+537,Globalisation & Migration,standardise,v,make the same,homogenise,to make things the same everywhere,Globalisation tends to standardise tastes.
+538,Globalisation & Migration,settler,n,new resident,colonist,a person who goes to live in a new place,Early settlers built homes by the river.
+539,Globalisation & Migration,naturalise,v,make a citizen,grant nationality,to give a person citizenship of a country,She was naturalised after ten years abroad.
+540,Globalisation & Migration,evacuate,v,move out,clear,to leave a dangerous place quickly,Residents were evacuated before the cyclone.
+541,"Change, Cause & Effect",consequence,n,result,outcome,something that happens because of an action,Pollution has serious consequences for health.
+542,"Change, Cause & Effect",trigger,v,cause,set off,to make something start suddenly,The news triggered a wave of protests.
+543,"Change, Cause & Effect",accelerate,v,speed up,quicken,to make something happen faster,Technology accelerates social change.
+544,"Change, Cause & Effect",escalate,v,get worse,intensify,to become more serious quickly,Tensions escalated during the meeting.
+545,"Change, Cause & Effect",diminish,v,get smaller,decrease,to become smaller or less important,Our hopes diminished as time passed.
+546,"Change, Cause & Effect",curb,v,limit,restrain,to control or stop something from growing,The law aims to curb illegal logging.
+547,"Change, Cause & Effect",hinder,v,slow down,impede,to make it harder for something to happen,Poor roads hinder trade.
+548,"Change, Cause & Effect",attribute,v,put down to,ascribe,to say that something is caused by something,He attributed his success to hard work.
+549,"Change, Cause & Effect",repercussion,n,bad effect,aftershock,"an indirect result, often bad",The scandal had serious repercussions.
+550,"Change, Cause & Effect",ramification,n,side effect,complication,a complicated result of an action,The ramifications of the decision are unclear.
+551,"Change, Cause & Effect",underlying,adj,hidden,fundamental,existing beneath the surface and not clearly seen,The underlying cause of the crisis is poverty.
+552,"Change, Cause & Effect",substantial,adj,large,considerable,"large in size, amount or importance",A substantial number of students failed.
+553,"Change, Cause & Effect",marginal,adj,very small,slight,very small and not important,There was a marginal improvement in results.
+554,"Change, Cause & Effect",negligible,adj,tiny,insignificant,so small that it does not matter,The cost of the repair was negligible.
+555,"Change, Cause & Effect",plummet,v,fall fast,nosedive,to fall very quickly and suddenly,House prices plummeted last year.
+556,"Change, Cause & Effect",soar,v,rise quickly,rocket,to go up very fast,Food prices soared after the floods.
+557,"Change, Cause & Effect",surge,n,sudden rise,upswing,a sudden strong increase,There was a surge in online shopping.
+558,"Change, Cause & Effect",dwindle,v,get smaller,taper off,to slowly become less or fewer,The village population has dwindled over time.
+559,"Change, Cause & Effect",stabilise,v,become steady,level out,to become firm and stop changing,Prices began to stabilise in June.
+560,"Change, Cause & Effect",transition,n,change over,shift,the process of changing from one state to another,The transition to clean energy will take decades.
+561,"Change, Cause & Effect",reshape,v,change the form,remodel,to change the shape or structure of something,Social media has reshaped politics.
+562,"Change, Cause & Effect",aggravate,v,make worse,compound,to make a problem or illness worse,Noise can aggravate stress.
+563,"Change, Cause & Effect",exacerbate,v,worsen,inflame,to make a bad situation worse,Poor planning exacerbated the traffic problem.
+564,"Change, Cause & Effect",precipitate,v,cause suddenly,bring about,to make something happen sooner or suddenly,The bank failure precipitated a crisis.
+565,"Change, Cause & Effect",inevitable,adj,certain,unavoidable,sure to happen and cannot be stopped,Change is inevitable in any society.
+566,"Change, Cause & Effect",plateau,n,level period,stable phase,a time when growth stops and stays flat,Sales reached a plateau in March.
+567,"Change, Cause & Effect",undermine,v,weaken,erode,to make something less strong little by little,Rumours undermined confidence in the bank.
+568,"Change, Cause & Effect",spark,v,start,kindle,to make something begin,The decision sparked a national debate.
+569,"Change, Cause & Effect",culminate,v,end in,climax,to reach a final point or result,Years of work culminated in a prize.
+570,"Change, Cause & Effect",ensue,v,follow,result,to happen after or because of something,A heated argument ensued.
+571,Argument & Evaluation,advocate,v,support strongly,champion,to publicly support an idea or plan,Experts advocate a ban on plastic bags.
+572,Argument & Evaluation,refute,v,prove wrong,rebut,to show that an idea is not true,Scientists refuted the old theory.
+573,Argument & Evaluation,concede,v,admit,acknowledge,"to accept that something is true, often reluctantly",I concede that the plan has some risks.
+574,Argument & Evaluation,assert,v,state firmly,maintain,to say something strongly as a fact,He asserted that the results were correct.
+575,Argument & Evaluation,contend,v,argue,claim,to say that something is true in a debate,Critics contend that the tax is unfair.
+576,Argument & Evaluation,justify,v,give reasons for,defend,to show that something is right or reasonable,Nothing can justify violence.
+577,Argument & Evaluation,dispute,v,disagree with,challenge,to say that something is not true or correct,Some experts dispute these figures.
+578,Argument & Evaluation,drawback,n,disadvantage,downside,a problem that makes something less good,The main drawback is the high cost.
+579,Argument & Evaluation,merit,n,good point,advantage,a good quality that deserves praise,The plan has several merits.
+580,Argument & Evaluation,viable,adj,workable,practicable,able to work well in real life,Solar power is now a viable option.
+581,Argument & Evaluation,feasible,adj,possible,achievable,possible and likely to be done,A new tunnel is not financially feasible.
+582,Argument & Evaluation,pragmatic,adj,practical,realistic,thinking about what really works,She took a pragmatic approach to the problem.
+583,Argument & Evaluation,detrimental,adj,harmful,damaging,causing harm or damage,Too much screen time is detrimental to sleep.
+584,Argument & Evaluation,beneficial,adj,helpful,advantageous,having a good effect,Regular exercise is beneficial to health.
+585,Argument & Evaluation,inadequate,adj,not enough,insufficient,not good enough or not enough,The funding was inadequate for the project.
+586,Argument & Evaluation,paramount,adj,most important,supreme,more important than anything else,Safety is paramount in construction.
+587,Argument & Evaluation,inherent,adj,built-in,intrinsic,a natural and permanent part of something,There are inherent risks in any investment.
+588,Argument & Evaluation,indispensable,adj,must-have,essential,so important that you cannot manage without it,The internet is indispensable for modern business.
+589,Argument & Evaluation,outweigh,v,be greater than,override,to be more important than something else,The benefits outweigh the costs.
+590,Argument & Evaluation,compelling,adj,convincing,persuasive,so strong that you must believe or agree,She made a compelling argument for change.
+591,Argument & Evaluation,plausible,adj,believable,reasonable,likely to be true,It is a plausible explanation for the delay.
+592,Argument & Evaluation,flawed,adj,faulty,imperfect,having a mistake or weakness,The study was seriously flawed.
+593,Argument & Evaluation,objective,adj,fair,impartial,"based on facts, not personal feelings",A judge must remain objective.
+594,Argument & Evaluation,dilemma,n,hard choice,quandary,a situation where you must choose between two bad options,She faced a dilemma between career and family.
+595,Argument & Evaluation,paradox,n,odd contradiction,apparent contradiction,something that seems strange because it has two opposite parts,It is a paradox that we feel lonely online.
+596,Argument & Evaluation,notion,n,idea,concept,an idea or belief about something,The notion of a free lunch is false.
+597,Argument & Evaluation,premise,n,starting idea,basic assumption,an idea that an argument is based on,The argument rests on a false premise.
+598,Argument & Evaluation,prevalent,adj,widespread,common,existing or common at a particular time,Obesity is prevalent among city children.
+599,Argument & Evaluation,crucial,adj,very important,pivotal,extremely important for success,Sleep is crucial for learning.
+600,Argument & Evaluation,subjective,adj,personal,opinion-based,"based on feelings and opinions, not facts",Taste in music is subjective.

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark green circle background -->
+  <circle cx="50" cy="50" r="50" fill="#0e332d"/>
+  
+  <!-- Shield shape (white outline) -->
+  <path d="M50 10 L72 22 L72 55 Q72 72 50 82 Q28 72 28 55 L28 22 Z" fill="#0e332d" stroke="white" stroke-width="3.5"/>
+  
+  <!-- Inner shield highlight -->
+  <path d="M50 14 L68 24 L68 54 Q68 69 50 78 Q32 69 32 54 L32 24 Z" fill="#0e332d"/>
+  
+  <!-- Star/sparkle (top center) -->
+  <path d="M50 19 L51.5 22.5 L55 22.5 L52.3 24.7 L53.5 28.5 L50 26.5 L46.5 28.5 L47.7 24.7 L45 22.5 L48.5 22.5 Z" fill="white"/>
+  
+  <!-- W letter -->
+  <path d="M35 36 L39 52 L43 42 L47 52 L51 36" fill="none" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 36 L55 52 L59 42 L63 52 L67 36" fill="none" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Red arrow (diagonal upward) -->
+  <path d="M44 54 L60 36" fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M54 33 L63 35 L61 44" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Open book (bottom) -->
+  <path d="M28 72 Q38 65 50 67 Q62 65 72 72 L72 80 Q62 73 50 75 Q38 73 28 80 Z" fill="white"/>
+  <path d="M50 67 L50 75" stroke="#0e332d" stroke-width="1.5"/>
+  <!-- Book red accent (bottom spine) -->
+  <path d="M32 79 Q41 74 50 76 Q59 74 68 79 L68 82 Q59 77 50 79 Q41 77 32 82 Z" fill="#dc2626"/>
+</svg>

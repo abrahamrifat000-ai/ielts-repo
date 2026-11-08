@@ -1,8175 +1,8356 @@
 // IELTS Vocabulary Builder Database - 60-Day Routine
-// Authentic Band 7.5 to 9.0 Lexical Resource
-// 600 Academic Words + 100 Phrasal Verbs (from User Resource) + 100 Idioms (from User Resource)
+// Fully updated with official authentic dataset:
+// 600 Academic Words (20 Topics x 30 words) + 180 Phrasal Verbs + 120 Idioms
 const VOCABULARY_DATA = [
   {
     "day": 1,
-    "theme": "Education Systems & Pedagogy",
+    "theme": "Education & Learning (Part 1)",
     "category": "Education",
     "words": [
       {
-        "word": "Pedagogy",
-        "pos": "noun",
-        "definition": "The method and practice of teaching academic subjects.",
+        "word": "curriculum",
+        "pos": "n",
+        "definition": "the list of subjects a school teaches",
         "synonyms": [
-          "methodology",
-          "instruction"
+          "course plan",
+          "course content"
         ],
-        "example": "Modern pedagogy prioritizes critical inquiry over passive listening."
+        "example": "The school changed its curriculum to include coding."
       },
       {
-        "word": "Curriculum",
-        "pos": "noun",
-        "definition": "The subjects comprising a course of study in an academic institution.",
+        "word": "literacy",
+        "pos": "n",
+        "definition": "the ability to read and write",
         "synonyms": [
-          "syllabus",
-          "coursework"
+          "reading skill",
+          "reading and writing ability"
         ],
-        "example": "The national curriculum was redesigned to enhance digital proficiency."
+        "example": "Literacy rates have risen in rural areas."
       },
       {
-        "word": "Inculcate",
-        "pos": "verb",
-        "definition": "Instill an attitude, idea, or habit through persistent instruction.",
+        "word": "tuition",
+        "pos": "n",
+        "definition": "money you pay to be taught",
         "synonyms": [
-          "instill",
-          "impart"
+          "school fees",
+          "teaching fees"
         ],
-        "example": "Educators strive to inculcate ethical conduct and civic pride in learners."
+        "example": "Tuition at private universities is very high."
       },
       {
-        "word": "Didactic",
+        "word": "enrol",
+        "pos": "v",
+        "definition": "to put your name on a course",
+        "synonyms": [
+          "sign up",
+          "register"
+        ],
+        "example": "She enrolled in an evening English class."
+      },
+      {
+        "word": "dropout",
+        "pos": "n",
+        "definition": "a student who leaves school before finishing",
+        "synonyms": [
+          "quitter",
+          "early leaver"
+        ],
+        "example": "The dropout rate is high in poor areas."
+      },
+      {
+        "word": "scholarship",
+        "pos": "n",
+        "definition": "money given to a student to study",
+        "synonyms": [
+          "grant",
+          "bursary"
+        ],
+        "example": "He won a scholarship to study in Canada."
+      },
+      {
+        "word": "compulsory",
         "pos": "adj",
-        "definition": "Intended to teach, particularly having moral instruction as an ulterior motive.",
+        "definition": "something you must do by law or rule",
         "synonyms": [
-          "instructive",
-          "educational"
+          "required",
+          "mandatory"
         ],
-        "example": "The novel serves a didactic purpose by highlighting the perils of unchecked greed."
+        "example": "Education is compulsory until the age of sixteen."
       },
       {
-        "word": "Rote",
-        "pos": "noun",
-        "definition": "Mechanical or habitual repetition used in learning.",
-        "synonyms": [
-          "memorization",
-          "repetition"
-        ],
-        "example": "Rote learning often fails to promote flexible problem-solving abilities."
-      },
-      {
-        "word": "Holistic",
+        "word": "vocational",
         "pos": "adj",
-        "definition": "Characterized by the treatment of the whole person rather than just parts.",
+        "definition": "about training for a specific job",
         "synonyms": [
-          "comprehensive",
-          "integrated"
+          "job-related",
+          "career-focused"
         ],
-        "example": "A holistic educational approach nurtures intellectual, emotional, and social capacities."
+        "example": "Vocational courses teach practical skills like plumbing."
       },
       {
-        "word": "Disseminate",
-        "pos": "verb",
-        "definition": "Spread information, knowledge, or ideas widely.",
+        "word": "assessment",
+        "pos": "n",
+        "definition": "a way of checking what a student knows",
         "synonyms": [
-          "distribute",
-          "circulate"
+          "test",
+          "evaluation"
         ],
-        "example": "Universities must disseminate scientific findings to the global community."
+        "example": "Continuous assessment reduces exam stress."
       },
       {
-        "word": "Facilitate",
-        "pos": "verb",
-        "definition": "Make an action, task, or process easier or less difficult.",
+        "word": "plagiarism",
+        "pos": "n",
+        "definition": "using another person's work as your own",
         "synonyms": [
-          "expedite",
-          "assist"
+          "copying",
+          "academic theft"
         ],
-        "example": "Collaborative group projects facilitate the development of interpersonal skills."
-      },
-      {
-        "word": "Exemplary",
-        "pos": "adj",
-        "definition": "Serving as a desirable model; representing the best of its kind.",
-        "synonyms": [
-          "outstanding",
-          "praiseworthy"
-        ],
-        "example": "The academy was commended for its exemplary academic achievements."
-      },
-      {
-        "word": "Discipline",
-        "pos": "noun",
-        "definition": "A distinct branch of knowledge studied in higher education.",
-        "synonyms": [
-          "field",
-          "domain"
-        ],
-        "example": "Computational linguistics is an increasingly vital academic discipline."
+        "example": "Plagiarism can get a student expelled."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "accord with",
-        "meaning": "agree with or correspond to",
-        "example": "The experimental results accord with established ecological theories."
+        "verb": "sort out",
+        "bestFor": "W/S",
+        "meaning": "to solve a problem or put things in order",
+        "example": "We need to sort out the traffic problem in the city."
       },
       {
-        "verb": "account for",
-        "meaning": "explain the cause or constitute a proportion",
-        "example": "Renewable power sources now account for over 35% of total generation."
+        "verb": "work out",
+        "bestFor": "W/S",
+        "meaning": "to find the answer or solve something by thinking",
+        "example": "Scientists are trying to work out what caused the disease."
       },
       {
-        "verb": "act on",
-        "meaning": "take action in response to information or advice",
-        "example": "Governments must act on scientific warnings regarding climate instability."
+        "verb": "figure out",
+        "bestFor": "S",
+        "meaning": "to understand something after thinking about it",
+        "example": "I finally figured out how the machine works."
       }
     ],
     "idioms": [
       {
-        "idiom": "A piece of cake",
-        "meaning": "Something that is remarkably easy to accomplish",
-        "example": "With rigorous preparation, understanding Task 1 charts became a piece of cake."
+        "idiom": "hit the books",
+        "meaning": "to study hard",
+        "example": "I have exams next week, so I need to hit the books tonight."
       },
       {
-        "idiom": "Once in a blue moon",
-        "meaning": "Occurring very rarely or almost never",
-        "example": "Breakthrough scientific discoveries of this magnitude happen only once in a blue moon."
+        "idiom": "burn the midnight oil",
+        "meaning": "to work or study very late at night",
+        "example": "She burned the midnight oil to finish her project."
       }
     ]
   },
   {
     "day": 2,
-    "theme": "Higher Education & Academic Research",
+    "theme": "Education & Learning (Part 2)",
     "category": "Education",
     "words": [
       {
-        "word": "Empirical",
+        "word": "comprehension",
+        "pos": "n",
+        "definition": "the ability to understand something",
+        "synonyms": [
+          "understanding",
+          "grasp"
+        ],
+        "example": "Her reading comprehension improved a lot."
+      },
+      {
+        "word": "discipline",
+        "pos": "n",
+        "definition": "rules that make people behave well",
+        "synonyms": [
+          "control",
+          "order"
+        ],
+        "example": "Good discipline helps the class stay calm."
+      },
+      {
+        "word": "mentor",
+        "pos": "n",
+        "definition": "an experienced person who helps a new one",
+        "synonyms": [
+          "guide",
+          "adviser"
+        ],
+        "example": "My mentor taught me how to write essays."
+      },
+      {
+        "word": "tutorial",
+        "pos": "n",
+        "definition": "a short lesson for a small group",
+        "synonyms": [
+          "small class",
+          "seminar"
+        ],
+        "example": "The tutorial helped me solve the maths problem."
+      },
+      {
+        "word": "graduate",
+        "pos": "n",
+        "definition": "a person who has finished university",
+        "synonyms": [
+          "degree holder",
+          "alumnus"
+        ],
+        "example": "Many graduates struggle to find jobs."
+      },
+      {
+        "word": "lecture",
+        "pos": "n",
+        "definition": "a long talk given to students",
+        "synonyms": [
+          "talk",
+          "presentation"
+        ],
+        "example": "The lecture on climate change lasted two hours."
+      },
+      {
+        "word": "thesis",
+        "pos": "n",
+        "definition": "a long piece of writing for a degree",
+        "synonyms": [
+          "long essay",
+          "dissertation"
+        ],
+        "example": "She is writing her thesis on solar energy."
+      },
+      {
+        "word": "pedagogy",
+        "pos": "n",
+        "definition": "the way or art of teaching",
+        "synonyms": [
+          "teaching method",
+          "instructional approach"
+        ],
+        "example": "Modern pedagogy focuses on student discussion."
+      },
+      {
+        "word": "rote",
         "pos": "adj",
-        "definition": "Based on, concerned with, or verifiable by observation rather than pure theory.",
+        "definition": "learned by repeating, not by understanding",
         "synonyms": [
-          "evidence-based",
-          "experimental"
+          "by heart",
+          "mechanical"
         ],
-        "example": "Empirical data from twenty clinical trials corroborated the researcher's conclusion."
+        "example": "Rote learning is not always effective."
       },
       {
-        "word": "Methodology",
-        "pos": "noun",
-        "definition": "A contextual framework and system of methods applied within a discipline.",
+        "word": "aptitude",
+        "pos": "n",
+        "definition": "a natural skill to do something well",
         "synonyms": [
-          "approach",
-          "framework"
+          "talent",
+          "natural ability"
         ],
-        "example": "A rigorous methodology ensures that research conclusions remain reproducible."
-      },
-      {
-        "word": "Synthesize",
-        "pos": "verb",
-        "definition": "Combine diverse components or data into a coherent, organized whole.",
-        "synonyms": [
-          "integrate",
-          "coalesce"
-        ],
-        "example": "The literature review requires scholars to synthesize competing scholarly viewpoints."
-      },
-      {
-        "word": "Postulate",
-        "pos": "verb",
-        "definition": "Suggest or assume the existence, fact, or truth of something as a premise.",
-        "synonyms": [
-          "hypothesize",
-          "posit"
-        ],
-        "example": "Astrophysicists postulate the existence of dark energy based on cosmic expansion."
-      },
-      {
-        "word": "Rigorous",
-        "pos": "adj",
-        "definition": "Extremely thorough, exhaustive, and adhering strictly to rules.",
-        "synonyms": [
-          "meticulous",
-          "stringent"
-        ],
-        "example": "Peer-reviewed publications mandate a rigorous examination of all statistical metrics."
-      },
-      {
-        "word": "Dissertation",
-        "pos": "noun",
-        "definition": "A formal written discourse submitted for an academic degree.",
-        "synonyms": [
-          "thesis",
-          "treatise"
-        ],
-        "example": "Her doctoral dissertation investigated the socioeconomic impact of microfinance loans."
-      },
-      {
-        "word": "Correlation",
-        "pos": "noun",
-        "definition": "A mutual, interdependent relationship or connection between two variables.",
-        "synonyms": [
-          "association",
-          "interrelation"
-        ],
-        "example": "Studies indicate a strong positive correlation between bilingualism and working memory."
-      },
-      {
-        "word": "Qualitative",
-        "pos": "adj",
-        "definition": "Pertaining to or measured by the quality or characteristics of a phenomenon.",
-        "synonyms": [
-          "interpretive",
-          "subjective"
-        ],
-        "example": "Qualitative interviews uncovered rich personal narratives among immigrant families."
-      },
-      {
-        "word": "Quantitative",
-        "pos": "adj",
-        "definition": "Relating to, measuring, or measurable by quantity, figures, or numerical data.",
-        "synonyms": [
-          "numerical",
-          "statistical"
-        ],
-        "example": "Quantitative analysis confirmed a 24 percent reduction in manufacturing defects."
-      },
-      {
-        "word": "Paradigm",
-        "pos": "noun",
-        "definition": "A distinct, overarching set of concepts or thought patterns.",
-        "synonyms": [
-          "framework",
-          "archetype"
-        ],
-        "example": "The transition to quantum computing represents a fundamental paradigm shift."
+        "example": "He has an aptitude for languages."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "add to",
-        "meaning": "increase or enhance the intensity of something",
-        "example": "Rising fuel levies add to the economic strain felt by working families."
+        "verb": "come up against",
+        "bestFor": "W",
+        "meaning": "to meet a problem or difficulty",
+        "example": "The project came up against strong public opposition."
       },
       {
-        "verb": "add up to",
-        "meaning": "total or result in an overall implication",
-        "example": "These incremental policy improvements add up to profound societal transformation."
+        "verb": "get over",
+        "bestFor": "W/S",
+        "meaning": "to feel better after a problem or illness",
+        "example": "It took her months to get over the shock."
       },
       {
-        "verb": "amount to",
-        "meaning": "be equivalent to or signify something substantial",
-        "example": "Refusing to enforce environmental codes amounts to gross civic negligence."
+        "verb": "get around",
+        "bestFor": "W",
+        "meaning": "to find a way to avoid a problem",
+        "example": "Companies get around the rules by hiring part-time staff."
       }
     ],
     "idioms": [
       {
-        "idiom": "Break the ice",
-        "meaning": "Initiate conversation in an awkward or formal social setting",
-        "example": "In Part 1 of the IELTS Speaking exam, the examiner asks friendly questions to break the ice."
+        "idiom": "learn the ropes",
+        "meaning": "to learn how a job is done",
+        "example": "It took me a month to learn the ropes at my new office."
       },
       {
-        "idiom": "Hit the nail on the head",
-        "meaning": "Identify or describe the precise truth of a situation",
-        "example": "The sociologist hit the nail on the head when attributing delinquency to youth disengagement."
+        "idiom": "get the hang of",
+        "meaning": "to start to understand how to do something",
+        "example": "I'm finally getting the hang of this software."
       }
     ]
   },
   {
     "day": 3,
-    "theme": "Language Acquisition & Multilingualism",
+    "theme": "Education & Learning (Part 3)",
     "category": "Education",
     "words": [
       {
-        "word": "Proficiency",
-        "pos": "noun",
-        "definition": "A high degree of competence, expertise, or operational skill.",
-        "synonyms": [
-          "fluency",
-          "capability"
-        ],
-        "example": "Reaching Band 8 necessitates an exceptional level of grammatical proficiency."
-      },
-      {
-        "word": "Articulate",
-        "pos": "verb",
-        "definition": "Express an idea or feeling with fluent, lucid precision.",
-        "synonyms": [
-          "enunciate",
-          "verbalize"
-        ],
-        "example": "The candidate was able to articulate subtle counterarguments during Part 3."
-      },
-      {
-        "word": "Eloquent",
+        "word": "extracurricular",
         "pos": "adj",
-        "definition": "Fluent or persuasive in spoken discourse or written exposition.",
+        "definition": "done outside normal lessons",
         "synonyms": [
-          "expressive",
-          "poignant"
+          "after-school",
+          "non-academic"
         ],
-        "example": "The diplomat delivered an eloquent keynote addressing global education gaps."
+        "example": "Extracurricular clubs build teamwork."
       },
       {
-        "word": "Nuance",
-        "pos": "noun",
-        "definition": "A subtle distinction or variation in meaning, tone, or expression.",
+        "word": "module",
+        "pos": "n",
+        "definition": "one part of a longer course",
         "synonyms": [
-          "subtlety",
-          "refinement"
+          "unit",
+          "course component"
         ],
-        "example": "Mastering idioms allows writers to capture delicate cultural nuances."
+        "example": "I passed the grammar module with a high mark."
       },
       {
-        "word": "Lexicon",
-        "pos": "noun",
-        "definition": "The complete vocabulary of a person, language, or branch of learning.",
+        "word": "peer",
+        "pos": "n",
+        "definition": "a person of the same age or level",
         "synonyms": [
-          "vocabulary",
-          "wordstock"
+          "classmate",
+          "equal"
         ],
-        "example": "Rapid technological innovation continuously introduces new terms into the English lexicon."
+        "example": "Peer pressure affects teenage choices."
       },
       {
-        "word": "Bilingualism",
-        "pos": "noun",
-        "definition": "The capacity to speak, comprehend, and write fluently in two languages.",
+        "word": "cram",
+        "pos": "v",
+        "definition": "to study a lot in a short time",
         "synonyms": [
-          "dual-literacy",
-          "multilingualism"
+          "study fast",
+          "swot"
         ],
-        "example": "Early childhood bilingualism strengthens executive cognitive functions."
+        "example": "He crammed all night before the exam."
       },
       {
-        "word": "Colloquial",
+        "word": "diploma",
+        "pos": "n",
+        "definition": "a paper that shows you finished a course",
+        "synonyms": [
+          "certificate",
+          "qualification"
+        ],
+        "example": "She earned a diploma in nursing."
+      },
+      {
+        "word": "illiterate",
         "pos": "adj",
-        "definition": "Used in ordinary or familiar conversation; not formal or literary.",
+        "definition": "not able to read or write",
         "synonyms": [
-          "conversational",
-          "informal"
+          "unable to read",
+          "uneducated"
         ],
-        "example": "While colloquial expressions are acceptable in speech, they should be avoided in Task 2."
+        "example": "Millions of adults remain illiterate."
       },
       {
-        "word": "Intelligible",
+        "word": "faculty",
+        "pos": "n",
+        "definition": "the teachers at a university",
+        "synonyms": [
+          "teaching staff",
+          "academic staff"
+        ],
+        "example": "The faculty supports new research projects."
+      },
+      {
+        "word": "remedial",
         "pos": "adj",
-        "definition": "Able to be understood with ease and clarity.",
+        "definition": "meant to help weaker students improve",
         "synonyms": [
-          "comprehensible",
-          "coherent"
+          "catch-up",
+          "corrective"
         ],
-        "example": "Clear sentence stress ensures that accented speech remains fully intelligible."
+        "example": "Remedial classes help slow learners."
       },
       {
-        "word": "Syntax",
-        "pos": "noun",
-        "definition": "The structural rules governing the arrangement of words in sentences.",
+        "word": "proficiency",
+        "pos": "n",
+        "definition": "a high level of skill",
         "synonyms": [
-          "sentence structure",
-          "grammatical order"
+          "skill",
+          "competence"
         ],
-        "example": "Complex sentence syntax demonstrates sophisticated syntactic flexibility."
+        "example": "Proficiency in English is required for this course."
       },
       {
-        "word": "Coherence",
-        "pos": "noun",
-        "definition": "The quality of logical consistency and seamless connection in discourse.",
+        "word": "stimulate",
+        "pos": "v",
+        "definition": "to make someone more interested or active",
         "synonyms": [
-          "logic",
-          "clarity"
+          "encourage",
+          "inspire"
         ],
-        "example": "The cohesive devices significantly enhanced the essay's overall coherence."
+        "example": "Games can stimulate children's curiosity."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "back up",
-        "meaning": "support a claim or argument with empirical proof",
-        "example": "Candidates must back up their thesis statements with relevant academic examples."
+        "verb": "iron out",
+        "bestFor": "W",
+        "meaning": "to remove small problems from a plan",
+        "example": "The two sides ironed out their differences."
       },
       {
-        "verb": "bear on",
-        "meaning": "be relevant to or have an influence upon",
-        "example": "Demographic aging patterns bear directly on national healthcare budgets."
+        "verb": "clear up",
+        "bestFor": "W/S",
+        "meaning": "to explain something or make it less confusing",
+        "example": "The minister tried to clear up the confusion."
       },
       {
-        "verb": "bear out",
-        "meaning": "confirm or substantiate as authentic or true",
-        "example": "Subsequent empirical fieldwork bore out the anthropologist's initial theory."
+        "verb": "make up for",
+        "bestFor": "W/S",
+        "meaning": "to give something good to balance something bad",
+        "example": "Her kindness made up for her mistake."
       }
     ],
     "idioms": [
       {
-        "idiom": "Under the weather",
-        "meaning": "Feeling slightly unwell, fatigued, or ill",
-        "example": "Although feeling under the weather, she managed to sit for the full 3-hour exam."
+        "idiom": "climb the corporate ladder",
+        "meaning": "to move up to better jobs in a company",
+        "example": "He worked hard to climb the corporate ladder."
       },
       {
-        "idiom": "Let the cat out of the bag",
-        "meaning": "Reveal a confidential secret unintentionally",
-        "example": "A leaked memo let the cat out of the bag regarding the upcoming corporate merger."
+        "idiom": "call it a day",
+        "meaning": "to stop working for today",
+        "example": "We were tired, so we called it a day."
       }
     ]
   },
   {
     "day": 4,
-    "theme": "Academic Assessment & Testing Standards",
-    "category": "Education",
+    "theme": "Environment & Climate (Part 1)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Erudite",
+        "word": "deforestation",
+        "pos": "n",
+        "definition": "cutting down many trees in a large area",
+        "synonyms": [
+          "tree cutting",
+          "forest clearance"
+        ],
+        "example": "Deforestation destroys the homes of animals."
+      },
+      {
+        "word": "emissions",
+        "pos": "n",
+        "definition": "gases sent into the air",
+        "synonyms": [
+          "gas release",
+          "discharge"
+        ],
+        "example": "Car emissions cause serious air pollution."
+      },
+      {
+        "word": "biodiversity",
+        "pos": "n",
+        "definition": "the many different plants and animals in a place",
+        "synonyms": [
+          "variety of life",
+          "ecological diversity"
+        ],
+        "example": "The rainforest has incredible biodiversity."
+      },
+      {
+        "word": "sustainable",
         "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "definition": "able to continue without harming nature",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "long-lasting",
+          "environmentally sound"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "We need sustainable farming methods."
       },
       {
-        "word": "Remedial",
+        "word": "renewable",
         "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "definition": "can be used again and again, like wind or sun",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "reusable",
+          "replenishable"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
+        "example": "Renewable energy is getting cheaper every year."
       },
       {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
+        "word": "conservation",
+        "pos": "n",
+        "definition": "looking after nature so it is not lost",
         "synonyms": [
-          "purist",
-          "dogmatist"
+          "protection",
+          "preservation"
         ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "Wildlife conservation saves rare animals."
       },
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "habitat",
+        "pos": "n",
+        "definition": "the place where an animal or plant lives",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "natural home",
+          "living environment"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "Pandas are losing their natural habitat."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "extinction",
+        "pos": "n",
+        "definition": "when a type of animal or plant no longer exists",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "dying out",
+          "disappearance"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "Many species face extinction."
       },
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
+        "word": "pollutant",
+        "pos": "n",
+        "definition": "something that makes air or water dirty",
         "synonyms": [
-          "normalization",
-          "uniformity"
+          "harmful substance",
+          "contaminant"
         ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
+        "example": "Factories release pollutants into rivers."
       },
       {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
+        "word": "drought",
+        "pos": "n",
+        "definition": "a long time with very little rain",
         "synonyms": [
-          "independence",
-          "self-determination"
+          "dry period",
+          "water shortage"
         ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
-      },
-      {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
-        "synonyms": [
-          "permanence",
-          "security"
-        ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
-      },
-      {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
-        "synonyms": [
-          "talent",
-          "knack"
-        ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
-      },
-      {
-        "word": "Cognitive",
-        "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
-        "synonyms": [
-          "mental",
-          "cerebral"
-        ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "The drought destroyed the farmers' crops."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "boil down to",
-        "meaning": "essentially mean or be reduced to the primary issue",
-        "example": "Urban transit challenges ultimately boil down to chronic underfunding."
+        "verb": "fall apart",
+        "bestFor": "W/S",
+        "meaning": "to break or fail completely",
+        "example": "The plan fell apart when funding stopped."
       },
       {
         "verb": "break down",
-        "meaning": "analyze by dividing into discrete constituent elements",
-        "example": "Let us break down the demographic chart by household income brackets."
+        "bestFor": "W/S",
+        "meaning": "to stop working or to fail",
+        "example": "Talks broke down after two days."
       },
       {
-        "verb": "bring about",
-        "meaning": "cause an event or structural shift to occur",
-        "example": "Technological innovation will bring about fundamental labor market changes."
+        "verb": "back out",
+        "bestFor": "S",
+        "meaning": "to decide not to do something you agreed to do",
+        "example": "The investor backed out at the last minute."
       }
     ],
     "idioms": [
       {
-        "idiom": "Spill the beans",
-        "meaning": "Disclose secret or sensitive information prematurely",
-        "example": "An anonymous whistleblower spilled the beans on corporate waste dumping practices."
+        "idiom": "cut corners",
+        "meaning": "to do something in a cheap or fast way, but not well",
+        "example": "Builders who cut corners put people in danger."
       },
       {
-        "idiom": "Bite the bullet",
-        "meaning": "Face a difficult, grim situation with courage and resolve",
-        "example": "Governments must bite the bullet and enact stringent, unpopular carbon tax measures."
+        "idiom": "go the extra mile",
+        "meaning": "to try harder than people expect",
+        "example": "Good teachers go the extra mile for their students."
       }
     ]
   },
   {
     "day": 5,
-    "theme": "Curriculum Modernization & STEM",
-    "category": "Education",
+    "theme": "Environment & Climate (Part 2)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "erosion",
+        "pos": "n",
+        "definition": "when wind or water slowly removes soil or rock",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "wearing away",
+          "soil loss"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "Coastal erosion threatens many villages."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "ecosystem",
+        "pos": "n",
+        "definition": "plants, animals and nature living together",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "natural system",
+          "biological community"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "Pollution can damage the whole ecosystem."
       },
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
+        "word": "contamination",
+        "pos": "n",
+        "definition": "making something dirty or unsafe",
         "synonyms": [
-          "normalization",
-          "uniformity"
+          "pollution",
+          "tainting"
         ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
+        "example": "Water contamination caused many illnesses."
       },
       {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
+        "word": "landfill",
+        "pos": "n",
+        "definition": "a place where rubbish is buried",
         "synonyms": [
-          "independence",
-          "self-determination"
+          "rubbish dump",
+          "waste site"
         ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
+        "example": "Plastic in landfill takes hundreds of years to break down."
       },
       {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
+        "word": "offset",
+        "pos": "v",
+        "definition": "to cancel something bad with something good",
         "synonyms": [
-          "permanence",
-          "security"
+          "balance",
+          "compensate for"
         ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
+        "example": "Planting trees can offset carbon emissions."
       },
       {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
+        "word": "degrade",
+        "pos": "v",
+        "definition": "to become worse in quality",
         "synonyms": [
-          "talent",
-          "knack"
+          "damage",
+          "deteriorate"
         ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
+        "example": "Chemicals degrade the quality of soil."
       },
       {
-        "word": "Cognitive",
+        "word": "depletion",
+        "pos": "n",
+        "definition": "when a resource is almost finished",
+        "synonyms": [
+          "using up",
+          "exhaustion"
+        ],
+        "example": "Oil depletion worries many experts."
+      },
+      {
+        "word": "endangered",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "in danger of dying out",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "at risk",
+          "threatened"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "The tiger is an endangered animal."
       },
       {
-        "word": "Erudite",
-        "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "word": "inundate",
+        "pos": "v",
+        "definition": "to cover with a lot of water",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "flood",
+          "swamp"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "Heavy rain inundated the whole town."
       },
       {
-        "word": "Remedial",
-        "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "word": "glacier",
+        "pos": "n",
+        "definition": "a huge slow-moving mass of ice",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "river of ice",
+          "ice mass"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
-      },
-      {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
-        "synonyms": [
-          "purist",
-          "dogmatist"
-        ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "Glaciers are melting because of global warming."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bring together",
-        "meaning": "combine or assemble diverse groups or viewpoints",
-        "example": "The symposium brought together leading climatologists from six continents."
+        "verb": "hold back",
+        "bestFor": "W",
+        "meaning": "to stop something from growing or moving forward",
+        "example": "Poor roads hold back economic growth."
       },
       {
-        "verb": "bring up",
-        "meaning": "raise an important topic or issue for discussion",
-        "example": "The delegate brought up the pressing question of equitable vaccine distribution."
+        "verb": "set back",
+        "bestFor": "W",
+        "meaning": "to delay something or make progress slower",
+        "example": "The storm set back the building work by a month."
       },
       {
-        "verb": "build on",
-        "meaning": "develop further from an established foundation",
-        "example": "Future medical research will build on the monumental mapping of the human genome."
+        "verb": "wipe out",
+        "bestFor": "W",
+        "meaning": "to destroy something completely",
+        "example": "The disease wiped out most of the crops."
       }
     ],
     "idioms": [
       {
-        "idiom": "Cut corners",
-        "meaning": "Perform a task cheaply, hastily, or below standard",
-        "example": "Building contractors who cut corners on fireproofing endanger thousands of residents."
+        "idiom": "think outside the box",
+        "meaning": "to think in a new and different way",
+        "example": "We need to think outside the box to solve this problem."
       },
       {
-        "idiom": "Go the extra mile",
-        "meaning": "Make a special additional effort beyond what is required",
-        "example": "Dedicated teachers routinely go the extra mile to support disadvantaged students."
+        "idiom": "pull an all-nighter",
+        "meaning": "to study or work all night without sleeping",
+        "example": "I pulled an all-nighter before my final exam."
       }
     ]
   },
   {
     "day": 6,
-    "theme": "Cognitive Intellect & Critical Thinking",
-    "category": "Education",
+    "theme": "Environment & Climate (Part 3)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
-        "synonyms": [
-          "independence",
-          "self-determination"
-        ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
-      },
-      {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
-        "synonyms": [
-          "permanence",
-          "security"
-        ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
-      },
-      {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
-        "synonyms": [
-          "talent",
-          "knack"
-        ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
-      },
-      {
-        "word": "Cognitive",
+        "word": "biodegradable",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "can be broken down naturally by nature",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "rots naturally",
+          "decomposable"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "Biodegradable bags are better for the planet."
       },
       {
-        "word": "Erudite",
+        "word": "mitigate",
+        "pos": "v",
+        "definition": "to make something less bad",
+        "synonyms": [
+          "reduce",
+          "lessen"
+        ],
+        "example": "Trees help mitigate the effects of heat."
+      },
+      {
+        "word": "toxic",
         "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "definition": "containing poison that can harm living things",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "poisonous",
+          "hazardous"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "Toxic waste must be stored safely."
       },
       {
-        "word": "Remedial",
+        "word": "scarcity",
+        "pos": "n",
+        "definition": "when there is not enough of something",
+        "synonyms": [
+          "shortage",
+          "lack"
+        ],
+        "example": "Water scarcity affects millions of people."
+      },
+      {
+        "word": "ecological",
         "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "definition": "connected to nature and living things",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "environmental",
+          "nature-related"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
+        "example": "The oil spill was an ecological disaster."
       },
       {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
+        "word": "preserve",
+        "pos": "v",
+        "definition": "to keep something safe from harm",
         "synonyms": [
-          "purist",
-          "dogmatist"
+          "protect",
+          "safeguard"
         ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "We must preserve our ancient forests."
       },
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "exploit",
+        "pos": "v",
+        "definition": "to use a resource too much for gain",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "use unfairly",
+          "overuse"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "Companies exploit natural resources for profit."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "catastrophe",
+        "pos": "n",
+        "definition": "a sudden event that causes great damage",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "disaster",
+          "calamity"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "The flood was a catastrophe for the region."
       },
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
+        "word": "reforestation",
+        "pos": "n",
+        "definition": "planting trees again in a cut forest",
         "synonyms": [
-          "normalization",
-          "uniformity"
+          "replanting",
+          "afforestation"
         ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
+        "example": "Reforestation can restore damaged land."
+      },
+      {
+        "word": "poach",
+        "pos": "v",
+        "definition": "to catch or kill animals illegally",
+        "synonyms": [
+          "hunt illegally",
+          "trap unlawfully"
+        ],
+        "example": "Elephants are poached for their tusks."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "build up",
-        "meaning": "increase gradually over a prolonged period",
-        "example": "Unchecked industrial activity allows toxic heavy metals to build up in waterways."
+        "verb": "rule out",
+        "bestFor": "W",
+        "meaning": "to say that something is not possible",
+        "example": "Police ruled out a robbery as the cause."
       },
       {
-        "verb": "carry on",
-        "meaning": "continue an activity without disruption",
-        "example": "Despite logistical hardships, the researchers carried on their Arctic expedition."
+        "verb": "turn down",
+        "bestFor": "W/S",
+        "meaning": "to say no to an offer or idea",
+        "example": "She turned down the job in Dubai."
       },
       {
-        "verb": "carry out",
-        "meaning": "perform, execute, or complete an experiment or task",
-        "example": "The laboratory team carried out an exhaustive double-blind trial."
+        "verb": "take on",
+        "bestFor": "W/S",
+        "meaning": "to accept a job or a problem",
+        "example": "The team took on a very difficult task."
       }
     ],
     "idioms": [
       {
-        "idiom": "In the same boat",
-        "meaning": "Sharing the identical difficult predicament or challenge",
-        "example": "All developing island nations are in the same boat concerning rising sea levels."
+        "idiom": "break the bank",
+        "meaning": "to cost too much money",
+        "example": "A small holiday won't break the bank."
       },
       {
-        "idiom": "A blessing in disguise",
-        "meaning": "An apparent misfortune that yields beneficial outcomes",
-        "example": "Being rejected by that firm was a blessing in disguise as it prompted him to start a business."
+        "idiom": "cost an arm and a leg",
+        "meaning": "to be very expensive",
+        "example": "Studying abroad costs an arm and a leg."
       }
     ]
   },
   {
     "day": 7,
-    "theme": "Lifelong Education & Adult Skills",
-    "category": "Education",
+    "theme": "Technology & Innovation (Part 1)",
+    "category": "Technology",
     "words": [
       {
-        "word": "Cognitive",
+        "word": "automation",
+        "pos": "n",
+        "definition": "using machines instead of people",
+        "synonyms": [
+          "machine control",
+          "mechanisation"
+        ],
+        "example": "Automation has replaced many factory jobs."
+      },
+      {
+        "word": "algorithm",
+        "pos": "n",
+        "definition": "steps a computer follows to solve a problem",
+        "synonyms": [
+          "set of rules",
+          "computational procedure"
+        ],
+        "example": "The algorithm suggests videos you may like."
+      },
+      {
+        "word": "innovation",
+        "pos": "n",
+        "definition": "a new way of doing something",
+        "synonyms": [
+          "new idea",
+          "invention"
+        ],
+        "example": "Innovation drives economic growth."
+      },
+      {
+        "word": "revolutionise",
+        "pos": "v",
+        "definition": "to change something in a very big way",
+        "synonyms": [
+          "change completely",
+          "transform"
+        ],
+        "example": "The internet revolutionised communication."
+      },
+      {
+        "word": "breakthrough",
+        "pos": "n",
+        "definition": "an important new discovery or success",
+        "synonyms": [
+          "big discovery",
+          "major advance"
+        ],
+        "example": "Scientists announced a breakthrough in cancer research."
+      },
+      {
+        "word": "encrypt",
+        "pos": "v",
+        "definition": "to change data into a secret code",
+        "synonyms": [
+          "code",
+          "scramble"
+        ],
+        "example": "Banks encrypt customer information."
+      },
+      {
+        "word": "surveillance",
+        "pos": "n",
+        "definition": "careful watching of people or places",
+        "synonyms": [
+          "watching",
+          "monitoring"
+        ],
+        "example": "CCTV surveillance has increased in cities."
+      },
+      {
+        "word": "gadget",
+        "pos": "n",
+        "definition": "a small useful machine",
+        "synonyms": [
+          "device",
+          "appliance"
+        ],
+        "example": "He bought the latest gadget for his kitchen."
+      },
+      {
+        "word": "reliance",
+        "pos": "n",
+        "definition": "needing something too much",
+        "synonyms": [
+          "dependence",
+          "overdependence"
+        ],
+        "example": "Our reliance on phones is growing."
+      },
+      {
+        "word": "virtual",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "existing on a computer, not in real life",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "online",
+          "computer-generated"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
-      },
-      {
-        "word": "Erudite",
-        "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
-        "synonyms": [
-          "scholarly",
-          "learned"
-        ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
-      },
-      {
-        "word": "Remedial",
-        "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
-        "synonyms": [
-          "corrective",
-          "compensatory"
-        ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
-      },
-      {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
-        "synonyms": [
-          "purist",
-          "dogmatist"
-        ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
-      },
-      {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
-        "synonyms": [
-          "absorption",
-          "incorporation"
-        ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
-      },
-      {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
-        "synonyms": [
-          "precondition",
-          "requirement"
-        ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
-      },
-      {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
-        "synonyms": [
-          "normalization",
-          "uniformity"
-        ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
-      },
-      {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
-        "synonyms": [
-          "independence",
-          "self-determination"
-        ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
-      },
-      {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
-        "synonyms": [
-          "permanence",
-          "security"
-        ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
-      },
-      {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
-        "synonyms": [
-          "talent",
-          "knack"
-        ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
+        "example": "Virtual classrooms allow students to study from home."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "check over",
-        "meaning": "inspect meticulously for errors or omissions",
-        "example": "Writers should carefully check over their Task 2 essays during the final 3 minutes."
+        "verb": "deal with",
+        "bestFor": "W/S",
+        "meaning": "to take action to solve a problem",
+        "example": "Governments must deal with climate change."
       },
       {
-        "verb": "come down to",
-        "meaning": "ultimately depend upon or be decided by a key factor",
-        "example": "Resolving poverty often comes down to guaranteeing equal education access."
+        "verb": "look into",
+        "bestFor": "W/S",
+        "meaning": "to study or check something carefully",
+        "example": "The committee will look into the complaint."
       },
       {
-        "verb": "come up with",
-        "meaning": "produce, formulate, or propose an innovative idea",
-        "example": "Architects must come up with sustainable bioclimatic urban building models."
+        "verb": "take off",
+        "bestFor": "W",
+        "meaning": "to become successful or popular quickly",
+        "example": "Online shopping really took off in the 2000s."
       }
     ],
     "idioms": [
       {
-        "idiom": "Beat around the bush",
-        "meaning": "Avoid speaking directly or discussing the central issue",
-        "example": "Academic writers must avoid beating around the bush and state their argument directly."
+        "idiom": "make ends meet",
+        "meaning": "to have just enough money to live",
+        "example": "Many families struggle to make ends meet."
       },
       {
-        "idiom": "Call it a day",
-        "meaning": "Cease working on an activity for the remaining time",
-        "example": "After five hours of intense reading practice, she wisely decided to call it a day."
+        "idiom": "tighten your belt",
+        "meaning": "to spend less money",
+        "example": "We had to tighten our belts after he lost his job."
       }
     ]
   },
   {
     "day": 8,
-    "theme": "EdTech, Distance Learning & E-Portals",
-    "category": "Education",
+    "theme": "Technology & Innovation (Part 2)",
+    "category": "Technology",
     "words": [
       {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
+        "word": "simulate",
+        "pos": "v",
+        "definition": "to make something that looks and acts real",
         "synonyms": [
-          "purist",
-          "dogmatist"
+          "copy",
+          "imitate"
         ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "Pilots use machines that simulate real flights."
       },
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "prototype",
+        "pos": "n",
+        "definition": "the first model of a new product",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "first model",
+          "trial version"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "The company tested the prototype last month."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "integrate",
+        "pos": "v",
+        "definition": "to join things so they work together",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "combine",
+          "incorporate"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "Schools integrate tablets into daily lessons."
       },
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
+        "word": "malfunction",
+        "pos": "v",
+        "definition": "to stop working properly",
         "synonyms": [
-          "normalization",
-          "uniformity"
+          "break down",
+          "fail to operate"
         ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
+        "example": "The machine malfunctioned during the test."
       },
       {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
+        "word": "connectivity",
+        "pos": "n",
+        "definition": "the ability to connect to the internet",
         "synonyms": [
-          "independence",
-          "self-determination"
+          "network access",
+          "online link"
         ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
+        "example": "Poor connectivity makes online study difficult."
       },
       {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
+        "word": "interface",
+        "pos": "n",
+        "definition": "the way a person uses a computer or app",
         "synonyms": [
-          "permanence",
-          "security"
+          "screen layout",
+          "user environment"
         ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
+        "example": "The app has a simple, friendly interface."
       },
       {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
+        "word": "hack",
+        "pos": "v",
+        "definition": "to enter a computer system without permission",
         "synonyms": [
-          "talent",
-          "knack"
+          "break into",
+          "infiltrate"
         ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
+        "example": "Criminals hacked the company's database."
       },
       {
-        "word": "Cognitive",
+        "word": "disruptive",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "causing a big change in how things work",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "changing",
+          "game-changing"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "Disruptive technology can end old industries."
       },
       {
-        "word": "Erudite",
-        "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "word": "pioneer",
+        "pos": "n",
+        "definition": "a person who does something new first",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "first user",
+          "trailblazer"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "He was a pioneer of electric cars."
       },
       {
-        "word": "Remedial",
-        "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "word": "streamline",
+        "pos": "v",
+        "definition": "to make a process faster and easier",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "simplify",
+          "rationalise"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
+        "example": "The new software streamlined our work."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "consist of",
-        "meaning": "be composed of or formed from specific parts",
-        "example": "The IELTS Academic exam consists of four distinct linguistic modules."
+        "verb": "catch on",
+        "bestFor": "W/S",
+        "meaning": "to become popular",
+        "example": "The idea of working from home has caught on."
       },
       {
-        "verb": "contribute to",
-        "meaning": "help cause or supply resources toward an outcome",
-        "example": "Sedentary leisure habits contribute to rising rates of cardiovascular disease."
+        "verb": "pick up",
+        "bestFor": "W/S",
+        "meaning": "to get better or to start to increase",
+        "example": "Sales picked up in the summer."
       },
       {
-        "verb": "count as",
-        "meaning": "be regarded or officially categorized as",
-        "example": "Internships completed during undergraduate years count as verifiable work experience."
+        "verb": "build up",
+        "bestFor": "W",
+        "meaning": "to slowly make or increase something",
+        "example": "The country is building up its energy supply."
       }
     ],
     "idioms": [
       {
-        "idiom": "Burn the midnight oil",
-        "meaning": "Work or study diligently late into the night",
-        "example": "Medical candidates frequently burn the midnight oil preparing for licensing exams."
+        "idiom": "pay through the nose",
+        "meaning": "to pay far too much money",
+        "example": "Tourists pay through the nose for water here."
       },
       {
-        "idiom": "Keep an eye on",
-        "meaning": "Monitor, oversee, or watch carefully over time",
-        "example": "Meteorologists keep an eye on Atlantic hurricane corridors during autumn."
+        "idiom": "in the red",
+        "meaning": "owing money to the bank",
+        "example": "The shop has been in the red for months."
       }
     ]
   },
   {
     "day": 9,
-    "theme": "Early Childhood Development & Play",
-    "category": "Education",
+    "theme": "Technology & Innovation (Part 3)",
+    "category": "Technology",
     "words": [
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
-        "synonyms": [
-          "normalization",
-          "uniformity"
-        ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
-      },
-      {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
-        "synonyms": [
-          "independence",
-          "self-determination"
-        ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
-      },
-      {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
-        "synonyms": [
-          "permanence",
-          "security"
-        ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
-      },
-      {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
-        "synonyms": [
-          "talent",
-          "knack"
-        ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
-      },
-      {
-        "word": "Cognitive",
+        "word": "wearable",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "a device you can put on, like a watch",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "worn on the body",
+          "body-worn"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "Wearable devices track your heart rate."
       },
       {
-        "word": "Erudite",
+        "word": "obsolete",
         "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "definition": "no longer used because something newer exists",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "out of date",
+          "outmoded"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "Typewriters are now obsolete."
       },
       {
-        "word": "Remedial",
+        "word": "bandwidth",
+        "pos": "n",
+        "definition": "the amount of data that can pass online",
+        "synonyms": [
+          "internet capacity",
+          "data capacity"
+        ],
+        "example": "Video calls need high bandwidth."
+      },
+      {
+        "word": "ubiquitous",
         "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "definition": "seen or found in every place",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "everywhere",
+          "omnipresent"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
+        "example": "Smartphones are ubiquitous in modern life."
       },
       {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
+        "word": "sophisticated",
+        "pos": "adj",
+        "definition": "complex and very well designed",
         "synonyms": [
-          "purist",
-          "dogmatist"
+          "advanced",
+          "state-of-the-art"
         ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "Hospitals use sophisticated scanning equipment."
       },
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "digitise",
+        "pos": "v",
+        "definition": "to change into computer form",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "convert to digital",
+          "computerise"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "Libraries are digitising old books."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "intrusive",
+        "pos": "adj",
+        "definition": "coming into your private life without permission",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "unwelcome",
+          "invasive"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "Some apps are intrusive and collect too much data."
+      },
+      {
+        "word": "tamper",
+        "pos": "v",
+        "definition": "to touch or change something wrongly",
+        "synonyms": [
+          "interfere",
+          "meddle"
+        ],
+        "example": "Someone tampered with the voting machine."
+      },
+      {
+        "word": "retrieve",
+        "pos": "v",
+        "definition": "to find and bring back information",
+        "synonyms": [
+          "get back",
+          "recover"
+        ],
+        "example": "You can retrieve deleted files from the cloud."
+      },
+      {
+        "word": "versatile",
+        "pos": "adj",
+        "definition": "able to be used in many ways",
+        "synonyms": [
+          "flexible",
+          "adaptable"
+        ],
+        "example": "A tablet is a versatile learning tool."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "deal with",
-        "meaning": "address, manage, or resolve a complex issue",
-        "example": "Urban planners must deal with traffic gridlock through expanded rail networks."
+        "verb": "phase out",
+        "bestFor": "W",
+        "meaning": "to stop using something slowly",
+        "example": "The city will phase out petrol cars by 2035."
       },
       {
-        "verb": "depart from",
-        "meaning": "deviate or vary from established conventions",
-        "example": "Modern pedagogical practices depart from rigid traditional rote memorization."
+        "verb": "die out",
+        "bestFor": "W",
+        "meaning": "to disappear completely",
+        "example": "Many local languages are dying out."
       },
       {
-        "verb": "depend on",
-        "meaning": "rely upon or be determined by contingency",
-        "example": "Economic prosperity depends on rule of law, open trade, and technological innovation."
+        "verb": "wear off",
+        "bestFor": "S",
+        "meaning": "to slowly stop having an effect",
+        "example": "The excitement wore off after a week."
       }
     ],
     "idioms": [
       {
-        "idiom": "Pass the buck",
-        "meaning": "Shift responsibility or blame onto another party",
-        "example": "Federal and local agencies must stop passing the buck regarding homelessness policy."
+        "idiom": "on a shoestring",
+        "meaning": "with very little money",
+        "example": "We travelled across Asia on a shoestring."
       },
       {
-        "idiom": "Think outside the box",
-        "meaning": "Approach a problem with unconventional, creative logic",
-        "example": "Engineers had to think outside the box to design solar panels that operate in low light."
+        "idiom": "splash out",
+        "meaning": "to spend a lot of money on something nice",
+        "example": "I splashed out on a new laptop."
       }
     ]
   },
   {
     "day": 10,
-    "theme": "Vocational Apprenticeship & Trades",
-    "category": "Education",
+    "theme": "Health & Lifestyle (Part 1)",
+    "category": "Health",
     "words": [
       {
-        "word": "Aptitude",
-        "pos": "noun",
-        "definition": "A natural ability to do something or learn.",
+        "word": "obesity",
+        "pos": "n",
+        "definition": "a condition of being too fat for good health",
         "synonyms": [
-          "talent",
-          "knack"
+          "being very overweight",
+          "excess weight"
         ],
-        "example": "The student demonstrated a natural aptitude for scientific investigation."
+        "example": "Childhood obesity is rising in many countries."
       },
       {
-        "word": "Cognitive",
+        "word": "sedentary",
         "pos": "adj",
-        "definition": "Relating to the mental processes of perception, memory, and judgment.",
+        "definition": "spending a lot of time sitting",
         "synonyms": [
-          "mental",
-          "cerebral"
+          "inactive",
+          "stationary"
         ],
-        "example": "Puzzles and memory games enhance cognitive agility in older adults."
+        "example": "A sedentary lifestyle harms your heart."
       },
       {
-        "word": "Erudite",
+        "word": "epidemic",
+        "pos": "n",
+        "definition": "a disease that spreads quickly to many people",
+        "synonyms": [
+          "widespread illness",
+          "outbreak of disease"
+        ],
+        "example": "The flu epidemic closed several schools."
+      },
+      {
+        "word": "immunity",
+        "pos": "n",
+        "definition": "the body's power to fight disease",
+        "synonyms": [
+          "protection",
+          "resistance"
+        ],
+        "example": "Vaccines give children immunity to serious diseases."
+      },
+      {
+        "word": "chronic",
         "pos": "adj",
-        "definition": "Having or showing great knowledge or learning.",
+        "definition": "lasting for a long time",
         "synonyms": [
-          "scholarly",
-          "learned"
+          "long-term",
+          "persistent"
         ],
-        "example": "The erudite speaker captivated the university audience with his historical insights."
+        "example": "Chronic back pain made work difficult."
       },
       {
-        "word": "Remedial",
-        "pos": "adj",
-        "definition": "Intended for children with learning difficulties.",
+        "word": "nutrition",
+        "pos": "n",
+        "definition": "the food your body needs to stay healthy",
         "synonyms": [
-          "corrective",
-          "compensatory"
+          "food value",
+          "nourishment"
         ],
-        "example": "Remedial classes were instituted to support pupils falling behind in mathematics."
+        "example": "Good nutrition helps children grow strong."
       },
       {
-        "word": "Pedant",
-        "pos": "noun",
-        "definition": "A person excessively concerned with minor rules or displaying academic learning.",
+        "word": "malnutrition",
+        "pos": "n",
+        "definition": "a lack of enough healthy food",
         "synonyms": [
-          "purist",
-          "dogmatist"
+          "poor diet",
+          "undernourishment"
         ],
-        "example": "Focusing too heavily on obscure punctuation can turn a writer into a pedant."
+        "example": "Malnutrition affects millions of children."
       },
       {
-        "word": "Assimilation",
-        "pos": "noun",
-        "definition": "The process of absorbing and integrating new information or culture.",
+        "word": "therapy",
+        "pos": "n",
+        "definition": "a way of treating an illness or problem",
         "synonyms": [
-          "absorption",
-          "incorporation"
+          "treatment",
+          "medical care"
         ],
-        "example": "Deep conceptual assimilation occurs when students teach concepts to their peers."
+        "example": "Physical therapy helped him walk again."
       },
       {
-        "word": "Prerequisite",
-        "pos": "noun",
-        "definition": "A thing that is required as a prior condition for something else.",
+        "word": "diagnosis",
+        "pos": "n",
+        "definition": "a doctor's decision about what illness you have",
         "synonyms": [
-          "precondition",
-          "requirement"
+          "finding the illness",
+          "medical assessment"
         ],
-        "example": "Introductory calculus is a strict prerequisite for theoretical mechanics."
+        "example": "Early diagnosis saves lives."
       },
       {
-        "word": "Standardization",
-        "pos": "noun",
-        "definition": "The process of implementing and developing technical standards.",
+        "word": "symptom",
+        "pos": "n",
+        "definition": "a change in your body that shows you are ill",
         "synonyms": [
-          "normalization",
-          "uniformity"
+          "sign of illness",
+          "indicator"
         ],
-        "example": "Standardization across exam boards ensures fair grading for all candidates."
-      },
-      {
-        "word": "Autonomy",
-        "pos": "noun",
-        "definition": "The capacity to make an informed, un-coerced decision.",
-        "synonyms": [
-          "independence",
-          "self-determination"
-        ],
-        "example": "University students must cultivate learning autonomy to manage complex workloads."
-      },
-      {
-        "word": "Tenure",
-        "pos": "noun",
-        "definition": "Permanent status given to an academic post.",
-        "synonyms": [
-          "permanence",
-          "security"
-        ],
-        "example": "Publishing original empirical research is essential for securing university tenure."
+        "example": "A high fever is a common symptom of flu."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "derive from",
-        "meaning": "originate, develop, or obtain from a source",
-        "example": "Many modern pharmaceuticals derive from active compounds found in rainforest flora."
+        "verb": "step up",
+        "bestFor": "W",
+        "meaning": "to increase effort or action",
+        "example": "The government stepped up its efforts to fight crime."
       },
       {
-        "verb": "differ from",
-        "meaning": "be unlike, dissimilar, or distinct in quality",
-        "example": "Formal academic prose differs markedly from everyday colloquial speech."
+        "verb": "scale back",
+        "bestFor": "W",
+        "meaning": "to make something smaller or less",
+        "example": "The firm scaled back production during the crisis."
       },
       {
-        "verb": "divide into",
-        "meaning": "separate or partition into smaller functional parts",
-        "example": "The statistical population was divided into three distinct age cohorts."
+        "verb": "slow down",
+        "bestFor": "W/S",
+        "meaning": "to become slower",
+        "example": "Economic growth slowed down last year."
       }
     ],
     "idioms": [
       {
-        "idiom": "Back to square one",
-        "meaning": "Return to the very beginning after an effort fails",
-        "example": "When the trial drug proved ineffective, chemists were sent back to square one."
+        "idiom": "worth every penny",
+        "meaning": "so good that the price is fair",
+        "example": "The course was expensive, but worth every penny."
       },
       {
-        "idiom": "Play it safe",
-        "meaning": "Take a cautious approach to minimize potential hazards",
-        "example": "While novice writers play it safe with simple sentences, high scorers vary their syntax."
+        "idiom": "money doesn't grow on trees",
+        "meaning": "money is not easy to get, so do not waste it",
+        "example": "Remember, money doesn't grow on trees."
       }
     ]
   },
   {
     "day": 11,
-    "theme": "Climate Change & Atmospheric Warming",
-    "category": "Environment",
+    "theme": "Health & Lifestyle (Part 2)",
+    "category": "Health",
     "words": [
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
-        "synonyms": [
-          "exhaustion",
-          "diminution"
-        ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
-      },
-      {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
-        "synonyms": [
-          "alleviate",
-          "attenuate"
-        ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
-      },
-      {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "preventive",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "done to stop something bad from happening",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "protective",
+          "precautionary"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "Preventive care is cheaper than treatment."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
+        "word": "longevity",
+        "pos": "n",
+        "definition": "living for a long time",
         "synonyms": [
-          "disaster",
-          "calamity"
+          "long life",
+          "life span"
         ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
+        "example": "Diet and exercise improve longevity."
       },
       {
-        "word": "Biodegradable",
-        "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "word": "wellbeing",
+        "pos": "n",
+        "definition": "being healthy, happy and comfortable",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "good health",
+          "contentment"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "Sleep is important for mental wellbeing."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "addiction",
+        "pos": "n",
+        "definition": "being unable to stop doing or using something",
         "synonyms": [
-          "biome",
-          "environment"
+          "dependence",
+          "compulsion"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "Phone addiction is common among teenagers."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "hygiene",
+        "pos": "n",
+        "definition": "keeping yourself and things clean",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "cleanliness",
+          "sanitary habits"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Good hygiene stops germs from spreading."
+      },
+      {
+        "word": "vaccinate",
+        "pos": "v",
+        "definition": "to give medicine that protects from disease",
+        "synonyms": [
+          "inject",
+          "immunise"
+        ],
+        "example": "Doctors vaccinate babies against measles."
+      },
+      {
+        "word": "deficiency",
+        "pos": "n",
+        "definition": "not having enough of something the body needs",
+        "synonyms": [
+          "lack",
+          "shortage"
+        ],
+        "example": "Vitamin D deficiency can weaken bones."
+      },
+      {
+        "word": "ailment",
+        "pos": "n",
+        "definition": "a minor illness",
+        "synonyms": [
+          "illness",
+          "disorder"
+        ],
+        "example": "Many common ailments disappear without medicine."
+      },
+      {
+        "word": "remedy",
+        "pos": "n",
+        "definition": "something that makes an illness better",
+        "synonyms": [
+          "cure",
+          "treatment"
+        ],
+        "example": "Honey is an old remedy for a sore throat."
+      },
+      {
+        "word": "rehabilitation",
+        "pos": "n",
+        "definition": "the process of getting healthy again after illness",
+        "synonyms": [
+          "recovery",
+          "recuperation"
+        ],
+        "example": "Rehabilitation takes months after a serious injury."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "draw on",
-        "meaning": "utilize or use existing knowledge or resources as support",
-        "example": "Essay writers should draw on historical precedents to illustrate their arguments."
+        "verb": "speed up",
+        "bestFor": "W/S",
+        "meaning": "to become faster",
+        "example": "New machines speed up the work."
       },
       {
-        "verb": "draw out",
-        "meaning": "elicit, extract, or extend information from someone",
-        "example": "Skilled interviewers know how to draw out insightful commentary from reticent subjects."
+        "verb": "level off",
+        "bestFor": "W",
+        "meaning": "to stop rising or falling and stay steady",
+        "example": "The number of users levelled off at five million."
       },
       {
-        "verb": "end up",
-        "meaning": "finally become or reach an eventual state or location",
-        "example": "Without strict recycling enforcement, vast volumes of plastic end up in marine trenches."
+        "verb": "drop off",
+        "bestFor": "W",
+        "meaning": "to become smaller in number or amount",
+        "example": "Visitor numbers dropped off in winter."
       }
     ],
     "idioms": [
       {
-        "idiom": "Draw a line in the sand",
-        "meaning": "Establish a clear, non-negotiable boundary or limit",
-        "example": "The international community drew a line in the sand against illegal whaling."
+        "idiom": "hit the jackpot",
+        "meaning": "to have great luck or success",
+        "example": "The company hit the jackpot with its new app."
       },
       {
-        "idiom": "Go with the flow",
-        "meaning": "Accept circumstances and adapt smoothly to events",
-        "example": "During spontaneous discussions, fluent speakers know when to simply go with the flow."
+        "idiom": "break new ground",
+        "meaning": "to do something that no one has done before",
+        "example": "The scientist broke new ground in cancer research."
       }
     ]
   },
   {
     "day": 12,
-    "theme": "Renewable Energy & Clean Tech",
-    "category": "Environment",
+    "theme": "Health & Lifestyle (Part 3)",
+    "category": "Health",
     "words": [
       {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
+        "word": "outbreak",
+        "pos": "n",
+        "definition": "the sudden start of a disease or problem",
         "synonyms": [
-          "preservation",
-          "protection"
+          "sudden spread",
+          "eruption"
         ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
+        "example": "An outbreak of cholera hit the village."
       },
       {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "contagious",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "able to pass from one person to another",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "catching",
+          "transmissible"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "Measles is highly contagious."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
-        "synonyms": [
-          "disaster",
-          "calamity"
-        ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
-      },
-      {
-        "word": "Biodegradable",
+        "word": "debilitating",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "making a person very weak",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "weakening",
+          "crippling"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "She suffers from a debilitating illness."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "holistic",
+        "pos": "adj",
+        "definition": "looking at the whole person, not one part",
         "synonyms": [
-          "biome",
-          "environment"
+          "whole-body",
+          "integrated"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "A holistic approach treats body and mind."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "sanitation",
+        "pos": "n",
+        "definition": "clean water and safe toilets for people",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "clean systems",
+          "public hygiene"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Poor sanitation spreads disease."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "fatigue",
+        "pos": "n",
+        "definition": "a feeling of being very tired",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "tiredness",
+          "exhaustion"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "Long working hours cause fatigue."
       },
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "resilience",
+        "pos": "n",
+        "definition": "the power to recover quickly from problems",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "toughness",
+          "fortitude"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
+        "example": "Regular exercise builds mental resilience."
       },
       {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
+        "word": "ageing",
+        "pos": "adj",
+        "definition": "becoming older as time passes",
         "synonyms": [
-          "rainfall",
-          "condensation"
+          "getting old",
+          "senior"
         ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
+        "example": "An ageing population needs more hospitals."
+      },
+      {
+        "word": "nourish",
+        "pos": "v",
+        "definition": "to give food that helps growth and health",
+        "synonyms": [
+          "feed",
+          "sustain"
+        ],
+        "example": "Fruit and vegetables nourish the body."
+      },
+      {
+        "word": "alleviate",
+        "pos": "v",
+        "definition": "to make pain or a problem less serious",
+        "synonyms": [
+          "ease",
+          "relieve"
+        ],
+        "example": "Painkillers alleviate the pain."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "fall into",
-        "meaning": "be categorized, classified, or divided into groups",
-        "example": "Task 2 writing questions generally fall into five distinct thematic types."
+        "verb": "move on",
+        "bestFor": "S",
+        "meaning": "to change to something new and leave the past",
+        "example": "It is time to move on to a new topic."
       },
       {
-        "verb": "feed back",
-        "meaning": "return evaluative information or effects to a system",
-        "example": "Sensor networks feed back real-time climate data into meteorological forecasting models."
+        "verb": "turn into",
+        "bestFor": "W/S",
+        "meaning": "to become something different",
+        "example": "The small shop turned into a big company."
       },
       {
-        "verb": "feed into",
-        "meaning": "contribute to or supply inputs to a larger process",
-        "example": "Primary education standards feed into secondary school academic performance."
+        "verb": "come about",
+        "bestFor": "W",
+        "meaning": "to happen or begin",
+        "example": "How did this change come about?"
       }
     ],
     "idioms": [
       {
-        "idiom": "Lay the groundwork",
-        "meaning": "Prepare the foundational basics for future endeavors",
-        "example": "Early childhood literacy lays the groundwork for lifelong intellectual achievement."
+        "idiom": "on the right track",
+        "meaning": "doing the correct thing to succeed",
+        "example": "You are on the right track with your studies."
       },
       {
-        "idiom": "Take it easy",
-        "meaning": "Relax and avoid exerting excessive stress or haste",
-        "example": "Candidates should take it easy the evening prior to the IELTS exam to ensure sound sleep."
+        "idiom": "back to square one",
+        "meaning": "back to the start after a failure",
+        "example": "The plan failed, so we're back to square one."
       }
     ]
   },
   {
     "day": 13,
-    "theme": "Wildlife Conservation & Endangered Species",
-    "category": "Environment",
+    "theme": "Work & Careers (Part 1)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
+        "word": "workforce",
+        "pos": "n",
+        "definition": "all the people who work in a company or country",
         "synonyms": [
-          "disaster",
-          "calamity"
+          "staff",
+          "labour force"
         ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
+        "example": "The country has a young and skilled workforce."
       },
       {
-        "word": "Biodegradable",
+        "word": "redundancy",
+        "pos": "n",
+        "definition": "losing your job because it is no longer needed",
+        "synonyms": [
+          "job loss",
+          "layoff"
+        ],
+        "example": "Thousands faced redundancy after the factory closed."
+      },
+      {
+        "word": "remuneration",
+        "pos": "n",
+        "definition": "money you get for your work",
+        "synonyms": [
+          "pay",
+          "compensation"
+        ],
+        "example": "The remuneration includes a salary and health care."
+      },
+      {
+        "word": "dismiss",
+        "pos": "v",
+        "definition": "to tell someone to leave their job",
+        "synonyms": [
+          "sack",
+          "terminate"
+        ],
+        "example": "He was dismissed for being late too often."
+      },
+      {
+        "word": "unemployment",
+        "pos": "n",
+        "definition": "not having a job",
+        "synonyms": [
+          "joblessness",
+          "lack of work"
+        ],
+        "example": "Youth unemployment is a serious problem."
+      },
+      {
+        "word": "freelance",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "working for yourself, not for one company",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "self-employed",
+          "independent"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "She works as a freelance designer."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "productivity",
+        "pos": "n",
+        "definition": "how much work is done in a set time",
         "synonyms": [
-          "biome",
-          "environment"
+          "output",
+          "efficiency"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "Short breaks can improve productivity."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "incentive",
+        "pos": "n",
+        "definition": "something that makes you want to work harder",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "reward",
+          "inducement"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "A bonus is a strong incentive for staff."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "overtime",
+        "pos": "n",
+        "definition": "time worked after normal working hours",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "extra hours",
+          "additional hours"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "Nurses often do overtime during busy periods."
       },
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "recruit",
+        "pos": "v",
+        "definition": "to find and employ new people",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "hire",
+          "enlist"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
-      },
-      {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
-        "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
-        "synonyms": [
-          "untenable",
-          "depleting"
-        ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "The firm plans to recruit fifty engineers."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "filter out",
-        "meaning": "remove unwanted, extraneous, or hazardous elements",
-        "example": "Advanced municipal filtration plants filter out microscopic microplastics from tap water."
+        "verb": "branch out",
+        "bestFor": "W/S",
+        "meaning": "to start doing something new or different",
+        "example": "The bakery branched out into coffee."
       },
       {
-        "verb": "fit into",
-        "meaning": "belong within or harmonize with a broader context",
-        "example": "New technological modules must fit into the overarching organizational infrastructure."
+        "verb": "shape up",
+        "bestFor": "S",
+        "meaning": "to improve or develop well",
+        "example": "The project is shaping up nicely."
       },
       {
-        "verb": "flow from",
-        "meaning": "arise or emerge as a natural consequence from a cause",
-        "example": "Enormous economic dividends flow from sustained public investment in clean energy."
+        "verb": "open up",
+        "bestFor": "W",
+        "meaning": "to make new chances or things possible",
+        "example": "The internet opened up new markets."
       }
     ],
     "idioms": [
       {
-        "idiom": "Hold your horses",
-        "meaning": "Exercise patience and wait before taking impulsive action",
-        "example": "Analysts urged investors to hold their horses before reacting to market volatility."
+        "idiom": "fall flat",
+        "meaning": "to fail to get the result you wanted",
+        "example": "His joke fell flat."
       },
       {
-        "idiom": "A double-edged sword",
-        "meaning": "Something having both advantageous and unfavorable facets",
-        "example": "Automation is a double-edged sword: it multiplies output while displacing manual roles."
+        "idiom": "come out on top",
+        "meaning": "to win or succeed in the end",
+        "example": "Despite problems, our team came out on top."
       }
     ]
   },
   {
     "day": 14,
-    "theme": "Pollution Hazards & Waste Management",
-    "category": "Environment",
+    "theme": "Work & Careers (Part 2)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "applicant",
+        "pos": "n",
+        "definition": "a person who asks for a job",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "candidate",
+          "job seeker"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Each applicant must send a CV."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "workload",
+        "pos": "n",
+        "definition": "the amount of work you have to do",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "amount of work",
+          "work pressure"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "A heavy workload causes stress."
       },
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "burnout",
+        "pos": "n",
+        "definition": "being very tired and stressed from too much work",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "total exhaustion",
+          "mental collapse"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
+        "example": "Teachers can suffer burnout without enough rest."
       },
       {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
+        "word": "retire",
+        "pos": "v",
+        "definition": "to stop working because of age",
         "synonyms": [
-          "rainfall",
-          "condensation"
+          "stop working",
+          "step down"
         ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
+        "example": "Most people retire at sixty-five."
       },
       {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
+        "word": "internship",
+        "pos": "n",
+        "definition": "a short job to gain experience",
         "synonyms": [
-          "preservation",
-          "protection"
+          "work placement",
+          "trainee position"
         ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
+        "example": "An internship gave her valuable experience."
       },
       {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
+        "word": "hierarchy",
+        "pos": "n",
+        "definition": "a system with people at different levels",
         "synonyms": [
-          "pollution",
-          "adulteration"
+          "ranking",
+          "chain of command"
         ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
+        "example": "The company has a strict hierarchy."
       },
       {
-        "word": "Unsustainable",
-        "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "word": "delegate",
+        "pos": "v",
+        "definition": "to give some work to another person",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "hand over",
+          "assign"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "Good managers delegate tasks to their team."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
+        "word": "appraisal",
+        "pos": "n",
+        "definition": "a check of how well someone works",
         "synonyms": [
-          "disaster",
-          "calamity"
+          "review",
+          "performance evaluation"
         ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
+        "example": "He received a positive annual appraisal."
       },
       {
-        "word": "Biodegradable",
-        "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "word": "labour",
+        "pos": "n",
+        "definition": "work, especially physical work",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "hard work",
+          "manual work"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "Cheap labour attracts foreign companies."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "vacancy",
+        "pos": "n",
+        "definition": "a job that is free for someone to take",
         "synonyms": [
-          "biome",
-          "environment"
+          "open job",
+          "job opening"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "There is a vacancy in our sales department."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "focus on",
-        "meaning": "concentrate attention or analytical effort upon",
-        "example": "The dissertation focuses on the correlation between diet and cognitive focus."
+        "verb": "kick off",
+        "bestFor": "S",
+        "meaning": "to start something",
+        "example": "The festival kicks off on Friday."
       },
       {
-        "verb": "follow up",
-        "meaning": "pursue further action or investigate ongoing results",
-        "example": "Epidemiologists will follow up on the long-term efficacy of the newly developed vaccine."
+        "verb": "point out",
+        "bestFor": "W/S",
+        "meaning": "to tell someone a fact they may not know",
+        "example": "The report points out that crime is falling."
       },
       {
-        "verb": "give rise to",
-        "meaning": "cause, generate, or produce new conditions",
-        "example": "Unchecked housing speculation has given rise to a severe suburban affordability crisis."
+        "verb": "bring up",
+        "bestFor": "W/S",
+        "meaning": "to start talking about a subject",
+        "example": "She brought up the issue at the meeting."
       }
     ],
     "idioms": [
       {
-        "idiom": "In hot water",
-        "meaning": "In serious trouble or facing severe disciplinary scrutiny",
-        "example": "The corporation landed in hot water after falsifying vehicle emission diagnostics."
+        "idiom": "a long shot",
+        "meaning": "something with little chance of success",
+        "example": "Getting that job is a long shot, but I'll try."
       },
       {
-        "idiom": "Jump on the bandwagon",
-        "meaning": "Join a widespread trend or popular activity",
-        "example": "Many universities jumped on the bandwagon of offering massive open online courses."
+        "idiom": "ahead of the game",
+        "meaning": "doing better than others",
+        "example": "Learning English early puts you ahead of the game."
       }
     ]
   },
   {
     "day": 15,
-    "theme": "Deforestation, Logging & Flora Preservation",
-    "category": "Environment",
+    "theme": "Work & Careers (Part 3)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "diligent",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "working carefully and with effort",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "hard-working",
+          "conscientious"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "A diligent student always finishes homework."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
-        "synonyms": [
-          "disaster",
-          "calamity"
-        ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
-      },
-      {
-        "word": "Biodegradable",
+        "word": "ambitious",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "wanting very much to succeed",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "determined",
+          "aspiring"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "She is an ambitious young lawyer."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "supervise",
+        "pos": "v",
+        "definition": "to watch and guide other people's work",
         "synonyms": [
-          "biome",
-          "environment"
+          "manage",
+          "oversee"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "A teacher supervises the exam room."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "profession",
+        "pos": "n",
+        "definition": "a job that needs special training",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "career",
+          "occupation"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Medicine is a respected profession."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "entrepreneur",
+        "pos": "n",
+        "definition": "a person who starts their own business",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "business owner",
+          "self-starter"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "The young entrepreneur opened three cafes."
       },
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "stagnate",
+        "pos": "v",
+        "definition": "to stay the same without progress",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "stop growing",
+          "languish"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
+        "example": "His career stagnated after ten years in one post."
+      },
+      {
+        "word": "commute",
+        "pos": "v",
+        "definition": "to travel regularly between home and work",
+        "synonyms": [
+          "travel to work",
+          "journey daily"
+        ],
+        "example": "Many people commute two hours each day."
+      },
+      {
+        "word": "wage",
+        "pos": "n",
+        "definition": "money paid for work, often each week",
+        "synonyms": [
+          "hourly pay",
+          "earnings"
+        ],
+        "example": "The minimum wage was raised this year."
+      },
+      {
+        "word": "perk",
+        "pos": "n",
+        "definition": "a special extra thing you get from a job",
+        "synonyms": [
+          "extra benefit",
+          "fringe benefit"
+        ],
+        "example": "Free lunch is a nice perk of the job."
+      },
+      {
+        "word": "tenure",
+        "pos": "n",
+        "definition": "the time you hold a job or position",
+        "synonyms": [
+          "time in a job",
+          "period of office"
+        ],
+        "example": "Her tenure as manager lasted eight years."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "go on",
-        "meaning": "continue, proceed, or happen sequentially",
-        "example": "The debate over artificial intelligence ethics is set to go on for decades."
+        "verb": "talk over",
+        "bestFor": "S",
+        "meaning": "to discuss something fully with someone",
+        "example": "Let's talk it over before we decide."
       },
       {
-        "verb": "go over",
-        "meaning": "review, examine, or study with close attention",
-        "example": "Students should systematically go over their mistakes following every mock test."
+        "verb": "back up",
+        "bestFor": "W",
+        "meaning": "to show that something is true with proof",
+        "example": "Statistics back up his argument."
       },
       {
-        "verb": "go through",
-        "meaning": "examine in detail or experience a arduous process",
-        "example": "All pharmaceuticals must go through rigorous, multi-phase clinical evaluations."
+        "verb": "spell out",
+        "bestFor": "W",
+        "meaning": "to explain something in a clear, full way",
+        "example": "The teacher spelled out the rules clearly."
       }
     ],
     "idioms": [
       {
-        "idiom": "Keep your fingers crossed",
-        "meaning": "Hope or wish intensely for good fortune or success",
-        "example": "After submitting her postgraduate scholarship portfolio, she kept her fingers crossed."
+        "idiom": "pave the way",
+        "meaning": "to make something easier for others in the future",
+        "example": "Her research paved the way for new medicines."
       },
       {
-        "idiom": "Make ends meet",
-        "meaning": "Earn sufficient money to cover basic living expenses",
-        "example": "Low-income urban families often struggle to make ends meet amidst soaring rents."
+        "idiom": "make it big",
+        "meaning": "to become very successful",
+        "example": "He moved to the city hoping to make it big."
       }
     ]
   },
   {
     "day": 16,
-    "theme": "Marine Ecosystems & Ocean Acidification",
-    "category": "Environment",
+    "theme": "Economy & Business (Part 1)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Unsustainable",
+        "word": "inflation",
+        "pos": "n",
+        "definition": "when prices go up over time",
+        "synonyms": [
+          "price rise",
+          "rising prices"
+        ],
+        "example": "High inflation makes daily life expensive."
+      },
+      {
+        "word": "recession",
+        "pos": "n",
+        "definition": "a time when a country's economy gets weaker",
+        "synonyms": [
+          "economic slump",
+          "downturn in trade"
+        ],
+        "example": "The recession left many people jobless."
+      },
+      {
+        "word": "revenue",
+        "pos": "n",
+        "definition": "the money a company receives",
+        "synonyms": [
+          "income",
+          "turnover"
+        ],
+        "example": "The shop's revenue doubled this year."
+      },
+      {
+        "word": "consumer",
+        "pos": "n",
+        "definition": "a person who buys goods or services",
+        "synonyms": [
+          "buyer",
+          "end user"
+        ],
+        "example": "Consumers are spending less on luxury items."
+      },
+      {
+        "word": "capital",
+        "pos": "n",
+        "definition": "money used to start or run a business",
+        "synonyms": [
+          "money for business",
+          "financial resources"
+        ],
+        "example": "He needed capital to open a restaurant."
+      },
+      {
+        "word": "investment",
+        "pos": "n",
+        "definition": "money put into something to earn more",
+        "synonyms": [
+          "money put in",
+          "financial stake"
+        ],
+        "example": "Investment in railways boosted growth."
+      },
+      {
+        "word": "tariff",
+        "pos": "n",
+        "definition": "a tax on goods from other countries",
+        "synonyms": [
+          "import tax",
+          "customs duty"
+        ],
+        "example": "The government raised tariffs on steel."
+      },
+      {
+        "word": "subsidy",
+        "pos": "n",
+        "definition": "money the government gives to help a business",
+        "synonyms": [
+          "state support",
+          "financial aid"
+        ],
+        "example": "Farmers receive a subsidy for fertiliser."
+      },
+      {
+        "word": "monopoly",
+        "pos": "n",
+        "definition": "when one company controls all of a market",
+        "synonyms": [
+          "sole control",
+          "exclusive control"
+        ],
+        "example": "The firm has a monopoly on train travel."
+      },
+      {
+        "word": "bankrupt",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "unable to pay what you owe",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "broke",
+          "insolvent"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
-      },
-      {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
-        "synonyms": [
-          "disaster",
-          "calamity"
-        ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
-      },
-      {
-        "word": "Biodegradable",
-        "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
-        "synonyms": [
-          "decomposable",
-          "perishable"
-        ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
-      },
-      {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
-        "synonyms": [
-          "biome",
-          "environment"
-        ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
-      },
-      {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
-        "synonyms": [
-          "discharges",
-          "effluents"
-        ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
-      },
-      {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
-        "synonyms": [
-          "exhaustion",
-          "diminution"
-        ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
-      },
-      {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
-        "synonyms": [
-          "alleviate",
-          "attenuate"
-        ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
-      },
-      {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
+        "example": "The company went bankrupt last year."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "grow out of",
-        "meaning": "develop or evolve naturally from early origins",
-        "example": "Modern computational algorithms grew out of mid-century mathematical logic."
+        "verb": "go on about",
+        "bestFor": "S",
+        "meaning": "to talk about something for too long",
+        "example": "He kept going on about his new car."
       },
       {
-        "verb": "hinge on",
-        "meaning": "depend entirely or decisively upon a single factor",
-        "example": "The viability of space colonization hinges on developing closed-loop life support."
+        "verb": "speak up",
+        "bestFor": "S",
+        "meaning": "to say your opinion loudly or clearly",
+        "example": "Please speak up so that everyone can hear."
       },
       {
-        "verb": "iron out",
-        "meaning": "resolve or eliminate minor difficulties or disputes",
-        "example": "Diplomats worked tirelessly through the night to iron out trade treaty details."
+        "verb": "play down",
+        "bestFor": "W",
+        "meaning": "to make something seem less important",
+        "example": "The company played down the risk of fire."
       }
     ],
     "idioms": [
       {
-        "idiom": "On cloud nine",
-        "meaning": "Extremely joyful, ecstatic, or delighted",
-        "example": "He was on cloud nine after opening his official IELTS results and seeing an overall Band 8.5."
+        "idiom": "over the moon",
+        "meaning": "extremely happy",
+        "example": "I was over the moon when I passed."
       },
       {
-        "idiom": "Save for a rainy day",
-        "meaning": "Conserve funds or resources for unforeseen emergencies",
-        "example": "Prudent fiscal policy requires governments to save budgetary surpluses for a rainy day."
+        "idiom": "on cloud nine",
+        "meaning": "very, very happy",
+        "example": "She's on cloud nine after the wedding."
       }
     ]
   },
   {
     "day": 17,
-    "theme": "Sustainable Agriculture & Organic Farming",
-    "category": "Environment",
+    "theme": "Economy & Business (Part 2)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "deficit",
+        "pos": "n",
+        "definition": "when you spend more than you earn",
         "synonyms": [
-          "biome",
-          "environment"
+          "shortfall",
+          "negative balance"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "The country has a large budget deficit."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
-        "synonyms": [
-          "discharges",
-          "effluents"
-        ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
-      },
-      {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
-        "synonyms": [
-          "exhaustion",
-          "diminution"
-        ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
-      },
-      {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
-        "synonyms": [
-          "alleviate",
-          "attenuate"
-        ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
-      },
-      {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "affluent",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "having a lot of money",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "rich",
+          "well-off"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "Affluent families live in the northern suburbs."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
-        "synonyms": [
-          "disaster",
-          "calamity"
-        ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
-      },
-      {
-        "word": "Biodegradable",
+        "word": "impoverished",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "having very little money",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "very poor",
+          "destitute"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "Impoverished villages lack clean water."
+      },
+      {
+        "word": "inequality",
+        "pos": "n",
+        "definition": "a difference in wealth or chances",
+        "synonyms": [
+          "unfairness",
+          "disparity"
+        ],
+        "example": "Income inequality is growing worldwide."
+      },
+      {
+        "word": "thrive",
+        "pos": "v",
+        "definition": "to grow strong and be successful",
+        "synonyms": [
+          "do well",
+          "flourish"
+        ],
+        "example": "Small businesses thrive in tourist areas."
+      },
+      {
+        "word": "boom",
+        "pos": "n",
+        "definition": "a time of fast economic growth",
+        "synonyms": [
+          "fast growth",
+          "upsurge"
+        ],
+        "example": "The oil boom made the town rich."
+      },
+      {
+        "word": "downturn",
+        "pos": "n",
+        "definition": "a fall in business or the economy",
+        "synonyms": [
+          "decline",
+          "slump"
+        ],
+        "example": "Sales fell during the economic downturn."
+      },
+      {
+        "word": "expenditure",
+        "pos": "n",
+        "definition": "the amount of money spent",
+        "synonyms": [
+          "spending",
+          "outlay"
+        ],
+        "example": "Government expenditure on health has increased."
+      },
+      {
+        "word": "commodity",
+        "pos": "n",
+        "definition": "a product that is bought and sold",
+        "synonyms": [
+          "trade product",
+          "raw material"
+        ],
+        "example": "Oil is a valuable commodity."
+      },
+      {
+        "word": "outsource",
+        "pos": "v",
+        "definition": "to pay another company to do some work",
+        "synonyms": [
+          "send work abroad",
+          "contract out"
+        ],
+        "example": "Many firms outsource customer service to Asia."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "jot down",
-        "meaning": "write down quickly or take concise notes",
-        "example": "Candidates should jot down a quick 3-minute essay plan before writing."
+        "verb": "come across",
+        "bestFor": "W/S",
+        "meaning": "to seem a certain way to others",
+        "example": "She comes across as a confident leader."
       },
       {
-        "verb": "lay out",
-        "meaning": "present, organize, or explain ideas systematically",
-        "example": "The introductory paragraph must lay out the author's primary thesis statement."
+        "verb": "stand for",
+        "bestFor": "W",
+        "meaning": "to represent or mean something",
+        "example": "The party stands for equal rights."
       },
       {
-        "verb": "accord with",
-        "meaning": "agree with or correspond to",
-        "example": "The experimental results accord with established ecological theories."
+        "verb": "get across",
+        "bestFor": "W",
+        "meaning": "to make people understand your idea",
+        "example": "The advert gets its message across quickly."
       }
     ],
     "idioms": [
       {
-        "idiom": "Let sleeping dogs lie",
-        "meaning": "Avoid stirring up past disputes or dormant problems",
-        "example": "Diplomats chose to let sleeping dogs lie regarding historical maritime demarcation lines."
+        "idiom": "down in the dumps",
+        "meaning": "sad",
+        "example": "He's been down in the dumps since he failed."
       },
       {
-        "idiom": "Turn a deaf ear",
-        "meaning": "Deliberately ignore or refuse to listen to counsel",
-        "example": "City councils must not turn a deaf ear to pedestrian safety petitions."
+        "idiom": "at the end of my rope",
+        "meaning": "having no more patience or strength",
+        "example": "I'm at the end of my rope with this noisy neighbour."
       }
     ]
   },
   {
     "day": 18,
-    "theme": "Natural Disasters & Meteorological Crises",
-    "category": "Environment",
+    "theme": "Economy & Business (Part 3)",
+    "category": "Economy",
     "words": [
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "merger",
+        "pos": "n",
+        "definition": "when two companies become one",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "joining of companies",
+          "amalgamation"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
+        "example": "The merger created a huge bank."
       },
       {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
+        "word": "shareholder",
+        "pos": "n",
+        "definition": "a person who owns part of a company",
         "synonyms": [
-          "rainfall",
-          "condensation"
+          "stock owner",
+          "investor"
         ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
+        "example": "Shareholders voted to approve the plan."
       },
       {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "frugal",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "spending very little money",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "careful with money",
+          "economical"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "My grandmother is frugal and never wastes food."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
-        "synonyms": [
-          "disaster",
-          "calamity"
-        ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
-      },
-      {
-        "word": "Biodegradable",
+        "word": "lucrative",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "making a lot of money",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "profitable",
+          "financially rewarding"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "Software is a lucrative business."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "currency",
+        "pos": "n",
+        "definition": "the money used in a country",
         "synonyms": [
-          "biome",
-          "environment"
+          "money",
+          "legal tender"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "The local currency lost value against the dollar."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "prosperity",
+        "pos": "n",
+        "definition": "a state of being rich and successful",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "wealth",
+          "affluence"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Trade brought prosperity to the port city."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "volatile",
+        "pos": "adj",
+        "definition": "changing quickly and unpredictably",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "unstable",
+          "erratic"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "Oil prices are very volatile."
+      },
+      {
+        "word": "fluctuate",
+        "pos": "v",
+        "definition": "to change often in level or amount",
+        "synonyms": [
+          "go up and down",
+          "vary"
+        ],
+        "example": "House prices fluctuate from year to year."
+      },
+      {
+        "word": "overheads",
+        "pos": "n",
+        "definition": "regular costs of running a business",
+        "synonyms": [
+          "running costs",
+          "operating expenses"
+        ],
+        "example": "High rent increases our overheads."
+      },
+      {
+        "word": "surplus",
+        "pos": "n",
+        "definition": "more than you need",
+        "synonyms": [
+          "extra amount",
+          "excess"
+        ],
+        "example": "The farm had a surplus of rice to sell."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "account for",
-        "meaning": "explain the cause or constitute a proportion",
-        "example": "Renewable power sources now account for over 35% of total generation."
+        "verb": "run through",
+        "bestFor": "S",
+        "meaning": "to repeat or check something quickly",
+        "example": "Let me run through the main points again."
       },
       {
-        "verb": "act on",
-        "meaning": "take action in response to information or advice",
-        "example": "Governments must act on scientific warnings regarding climate instability."
+        "verb": "sum up",
+        "bestFor": "W/S",
+        "meaning": "to give a short version of the main points",
+        "example": "To sum up, the plan has many benefits."
       },
       {
-        "verb": "add to",
-        "meaning": "increase or enhance the intensity of something",
-        "example": "Rising fuel levies add to the economic strain felt by working families."
+        "verb": "call for",
+        "bestFor": "W",
+        "meaning": "to ask strongly for something",
+        "example": "Experts call for stronger laws on pollution."
       }
     ],
     "idioms": [
       {
-        "idiom": "A wake-up call",
-        "meaning": "An alarming event that alerts people to take urgent action",
-        "example": "The catastrophic flash flood served as a sobering wake-up call for municipal authorities."
+        "idiom": "butterflies in my stomach",
+        "meaning": "a nervous feeling",
+        "example": "I had butterflies in my stomach before the speech."
       },
       {
-        "idiom": "Get down to business",
-        "meaning": "Commence serious, focused work without further delay",
-        "example": "After introductory greetings, the committee got down to business discussing the budget."
+        "idiom": "on edge",
+        "meaning": "nervous and worried",
+        "example": "Everyone was on edge before the results."
       }
     ]
   },
   {
     "day": 19,
-    "theme": "Urban Greenery & Eco-Architecture",
-    "category": "Environment",
+    "theme": "Society & Culture (Part 1)",
+    "category": "Society",
     "words": [
       {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
+        "word": "heritage",
+        "pos": "n",
+        "definition": "old buildings and customs from the past",
         "synonyms": [
-          "pollution",
-          "adulteration"
+          "tradition",
+          "legacy"
         ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
+        "example": "The old city is a world heritage site."
       },
       {
-        "word": "Unsustainable",
-        "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "word": "custom",
+        "pos": "n",
+        "definition": "a usual way of doing things in a group",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "habit",
+          "convention"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "It is a custom to remove shoes at the door."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
+        "word": "diversity",
+        "pos": "n",
+        "definition": "many different kinds of people or things",
         "synonyms": [
-          "disaster",
-          "calamity"
+          "variety",
+          "multiplicity"
         ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
+        "example": "Cultural diversity makes the city exciting."
       },
       {
-        "word": "Biodegradable",
-        "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "word": "stereotype",
+        "pos": "n",
+        "definition": "an unfair belief about a group of people",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "fixed idea",
+          "generalisation"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "Stereotypes about older people are often wrong."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "discrimination",
+        "pos": "n",
+        "definition": "treating people worse because of who they are",
         "synonyms": [
-          "biome",
-          "environment"
+          "unfair treatment",
+          "bias"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "Discrimination at work is against the law."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
+        "word": "prejudice",
+        "pos": "n",
+        "definition": "a bad opinion formed without knowing the facts",
         "synonyms": [
-          "discharges",
-          "effluents"
+          "unfair opinion",
+          "preconception"
         ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
+        "example": "Prejudice against foreigners still exists."
       },
       {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
+        "word": "conformity",
+        "pos": "n",
+        "definition": "behaving like everyone else",
         "synonyms": [
-          "exhaustion",
-          "diminution"
+          "following rules",
+          "compliance"
         ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
+        "example": "Social conformity can stop creative thinking."
       },
       {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
+        "word": "norm",
+        "pos": "n",
+        "definition": "what is normal in a group or society",
         "synonyms": [
-          "alleviate",
-          "attenuate"
+          "usual standard",
+          "accepted standard"
         ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
+        "example": "Working from home has become the norm."
       },
       {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
+        "word": "taboo",
+        "pos": "n",
+        "definition": "something people must not say or do",
         "synonyms": [
-          "rainfall",
-          "condensation"
+          "forbidden subject",
+          "social prohibition"
         ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
+        "example": "Talking about money is taboo in some cultures."
       },
       {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
+        "word": "ritual",
+        "pos": "n",
+        "definition": "a set of actions done in the same way each time",
         "synonyms": [
-          "preservation",
-          "protection"
+          "ceremony",
+          "rite"
         ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
+        "example": "The wedding ritual lasts three days."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "add up to",
-        "meaning": "total or result in an overall implication",
-        "example": "These incremental policy improvements add up to profound societal transformation."
+        "verb": "hint at",
+        "bestFor": "W",
+        "meaning": "to suggest something without saying it directly",
+        "example": "The results hint at a link between sleep and memory."
       },
       {
-        "verb": "amount to",
-        "meaning": "be equivalent to or signify something substantial",
-        "example": "Refusing to enforce environmental codes amounts to gross civic negligence."
+        "verb": "stand out",
+        "bestFor": "W/S",
+        "meaning": "to be easy to notice because it is different",
+        "example": "Her essay stood out because of its clear ideas."
       },
       {
-        "verb": "back up",
-        "meaning": "support a claim or argument with empirical proof",
-        "example": "Candidates must back up their thesis statements with relevant academic examples."
+        "verb": "stand up for",
+        "bestFor": "S",
+        "meaning": "to support someone or an idea strongly",
+        "example": "You should stand up for your beliefs."
       }
     ],
     "idioms": [
       {
-        "idiom": "Pull someone's leg",
-        "meaning": "Tease or joke with someone in a good-natured manner",
-        "example": "He was merely pulling her leg when he joked that the speaking exam had 10 parts."
+        "idiom": "blow off steam",
+        "meaning": "to get rid of anger or stress",
+        "example": "I play football to blow off steam."
       },
       {
-        "idiom": "A hard pill to swallow",
-        "meaning": "An unpleasant or difficult reality that must be accepted",
-        "example": "Accepting that fossil fuel extraction must decline rapidly was a hard pill to swallow."
+        "idiom": "keep your chin up",
+        "meaning": "to stay positive in a hard time",
+        "example": "Keep your chin up, things will get better."
       }
     ]
   },
   {
     "day": 20,
-    "theme": "Carbon Neutrality & Environmental Governance",
-    "category": "Environment",
+    "theme": "Society & Culture (Part 2)",
+    "category": "Society",
     "words": [
       {
-        "word": "Biodegradable",
+        "word": "multicultural",
         "pos": "adj",
-        "definition": "Capable of being decomposed by bacteria or other living organisms.",
+        "definition": "having people from many different cultures",
         "synonyms": [
-          "decomposable",
-          "perishable"
+          "of many cultures",
+          "culturally mixed"
         ],
-        "example": "Switching to biodegradable packaging significantly curtails marine landfill toxicity."
+        "example": "London is a multicultural city."
       },
       {
-        "word": "Ecosystem",
-        "pos": "noun",
-        "definition": "A biological community of interacting organisms and their environment.",
+        "word": "assimilate",
+        "pos": "v",
+        "definition": "to become part of a new group or country",
         "synonyms": [
-          "biome",
-          "environment"
+          "fit in",
+          "absorb"
         ],
-        "example": "Coral reefs represent one of the most fragile aquatic ecosystems on Earth."
+        "example": "Immigrants slowly assimilate into local life."
       },
       {
-        "word": "Emissions",
-        "pos": "noun",
-        "definition": "The production and discharge of something, especially gas or radiation.",
-        "synonyms": [
-          "discharges",
-          "effluents"
-        ],
-        "example": "Stringent regulations were enacted to curb vehicular carbon emissions."
-      },
-      {
-        "word": "Depletion",
-        "pos": "noun",
-        "definition": "Reduction in the number or quantity of something.",
-        "synonyms": [
-          "exhaustion",
-          "diminution"
-        ],
-        "example": "Overfishing has caused an alarming depletion of natural cod populations."
-      },
-      {
-        "word": "Mitigate",
-        "pos": "verb",
-        "definition": "Make less severe, serious, or painful.",
-        "synonyms": [
-          "alleviate",
-          "attenuate"
-        ],
-        "example": "Reforestation projects help mitigate the harsh consequences of global warming."
-      },
-      {
-        "word": "Precipitation",
-        "pos": "noun",
-        "definition": "Rain, snow, sleet, or hail that falls to or condenses on the ground.",
-        "synonyms": [
-          "rainfall",
-          "condensation"
-        ],
-        "example": "Arid regions experience minimal annual precipitation, complicating agriculture."
-      },
-      {
-        "word": "Conservation",
-        "pos": "noun",
-        "definition": "The action of conserving something, in particular nature or resources.",
-        "synonyms": [
-          "preservation",
-          "protection"
-        ],
-        "example": "Wildlife conservation requires sustained international funding and legal enforcement."
-      },
-      {
-        "word": "Contamination",
-        "pos": "noun",
-        "definition": "The action or state of making or being made impure by polluting.",
-        "synonyms": [
-          "pollution",
-          "adulteration"
-        ],
-        "example": "Industrial runoff resulted in chemical contamination of the local reservoir."
-      },
-      {
-        "word": "Unsustainable",
+        "word": "ethnic",
         "pos": "adj",
-        "definition": "Not able to be maintained at the current rate or level.",
+        "definition": "connected to a particular race or culture",
         "synonyms": [
-          "untenable",
-          "depleting"
+          "racial",
+          "cultural-group"
         ],
-        "example": "Current rates of fossil fuel extraction are fundamentally unsustainable."
+        "example": "Ethnic food festivals are popular here."
       },
       {
-        "word": "Catastrophe",
-        "pos": "noun",
-        "definition": "An event causing great and often sudden damage or suffering.",
+        "word": "inclusive",
+        "pos": "adj",
+        "definition": "including all kinds of people",
         "synonyms": [
-          "disaster",
-          "calamity"
+          "open to all",
+          "all-embracing"
         ],
-        "example": "Unchecked rising sea levels could trigger an unprecedented ecological catastrophe."
+        "example": "We want an inclusive and fair society."
+      },
+      {
+        "word": "marginalised",
+        "pos": "adj",
+        "definition": "treated as unimportant or kept at the edge",
+        "synonyms": [
+          "left out",
+          "sidelined"
+        ],
+        "example": "Marginalised groups need more support."
+      },
+      {
+        "word": "demographic",
+        "pos": "adj",
+        "definition": "about the make-up of a population",
+        "synonyms": [
+          "population-related",
+          "statistical"
+        ],
+        "example": "Demographic change affects school planning."
+      },
+      {
+        "word": "stigma",
+        "pos": "n",
+        "definition": "a bad feeling society has about something",
+        "synonyms": [
+          "shame",
+          "social disgrace"
+        ],
+        "example": "There is still a stigma around mental illness."
+      },
+      {
+        "word": "etiquette",
+        "pos": "n",
+        "definition": "rules for polite behaviour",
+        "synonyms": [
+          "good manners",
+          "social code"
+        ],
+        "example": "Business etiquette differs across countries."
+      },
+      {
+        "word": "indigenous",
+        "pos": "adj",
+        "definition": "belonging to a place from the earliest times",
+        "synonyms": [
+          "native",
+          "aboriginal"
+        ],
+        "example": "Indigenous people protect their land and language."
+      },
+      {
+        "word": "ancestry",
+        "pos": "n",
+        "definition": "the people in your family who lived long ago",
+        "synonyms": [
+          "family origin",
+          "lineage"
+        ],
+        "example": "She is proud of her Bengali ancestry."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bear on",
-        "meaning": "be relevant to or have an influence upon",
-        "example": "Demographic aging patterns bear directly on national healthcare budgets."
+        "verb": "own up",
+        "bestFor": "S",
+        "meaning": "to say that you did something wrong",
+        "example": "He owned up to breaking the window."
       },
       {
-        "verb": "bear out",
-        "meaning": "confirm or substantiate as authentic or true",
-        "example": "Subsequent empirical fieldwork bore out the anthropologist's initial theory."
+        "verb": "cut in",
+        "bestFor": "S",
+        "meaning": "to interrupt someone who is speaking",
+        "example": "Please do not cut in while I am talking."
       },
       {
-        "verb": "boil down to",
-        "meaning": "essentially mean or be reduced to the primary issue",
-        "example": "Urban transit challenges ultimately boil down to chronic underfunding."
+        "verb": "chime in",
+        "bestFor": "S",
+        "meaning": "to join a talk and add your opinion",
+        "example": "My friend chimed in with a good idea."
       }
     ],
     "idioms": [
       {
-        "idiom": "In a nutshell",
-        "meaning": "Expressed in very concise, brief, and clear terms",
-        "example": "In a nutshell, the report recommends shifting subsidies from oil toward wind and solar."
+        "idiom": "a weight off my shoulders",
+        "meaning": "a feeling of relief when a problem ends",
+        "example": "Finishing my thesis was a weight off my shoulders."
       },
       {
-        "idiom": "Actions speak louder than words",
-        "meaning": "What someone does conveys their true intent far better than speech",
-        "example": "Corporate commitments to green sustainability are empty unless actions speak louder than words."
+        "idiom": "bite my tongue",
+        "meaning": "to stop yourself from saying something angry",
+        "example": "I wanted to argue, but I bit my tongue."
       }
     ]
   },
   {
     "day": 21,
-    "theme": "Artificial Intelligence & Deep Learning",
-    "category": "Technology",
+    "theme": "Society & Culture (Part 3)",
+    "category": "Society",
     "words": [
       {
-        "word": "Ubiquitous",
+        "word": "folklore",
+        "pos": "n",
+        "definition": "old stories and beliefs of a people",
+        "synonyms": [
+          "traditional stories",
+          "popular legends"
+        ],
+        "example": "Village folklore is full of ghost stories."
+      },
+      {
+        "word": "cohesion",
+        "pos": "n",
+        "definition": "the feeling of being united as a group",
+        "synonyms": [
+          "unity",
+          "togetherness"
+        ],
+        "example": "Sport can build social cohesion."
+      },
+      {
+        "word": "welfare",
+        "pos": "n",
+        "definition": "help given to people in need",
+        "synonyms": [
+          "state help",
+          "social security"
+        ],
+        "example": "Welfare supports those who cannot work."
+      },
+      {
+        "word": "charity",
+        "pos": "n",
+        "definition": "an organisation that helps people in need",
+        "synonyms": [
+          "aid group",
+          "benevolent organisation"
+        ],
+        "example": "She gave her old clothes to a charity."
+      },
+      {
+        "word": "volunteer",
+        "pos": "v",
+        "definition": "to do work without being paid",
+        "synonyms": [
+          "offer to help",
+          "give time freely"
+        ],
+        "example": "Students volunteer at the local hospital."
+      },
+      {
+        "word": "solidarity",
+        "pos": "n",
+        "definition": "support between people with the same aims",
+        "synonyms": [
+          "unity",
+          "mutual support"
+        ],
+        "example": "Workers showed solidarity during the strike."
+      },
+      {
+        "word": "mainstream",
         "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "definition": "accepted by most people",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "common",
+          "conventional"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "Online shopping is now mainstream."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
-        "synonyms": [
-          "bionics",
-          "robotics"
-        ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
-      },
-      {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
-        "synonyms": [
-          "simulation",
-          "emulation"
-        ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
-      },
-      {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
-        "synonyms": [
-          "digital currency",
-          "tokens"
-        ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
-      },
-      {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
-        "synonyms": [
-          "nanotech",
-          "micro-compounds"
-        ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
-      },
-      {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
-        "synonyms": [
-          "advancement",
-          "innovation"
-        ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
-      },
-      {
-        "word": "Disruptive",
+        "word": "conservative",
         "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "definition": "liking old ways and not wanting change",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "traditional",
+          "cautious"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "Older generations are often more conservative."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "ostracise",
+        "pos": "v",
+        "definition": "to refuse to include someone in a group",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "exclude",
+          "shun"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "The class ostracised the new student."
       },
       {
-        "word": "Algorithmic",
+        "word": "generational",
         "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "definition": "connected to a group of people born at a similar time",
         "synonyms": [
-          "computational",
-          "procedural"
+          "between age groups",
+          "inter-age"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
-      },
-      {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
-        "synonyms": [
-          "antiquated",
-          "archaic"
-        ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "Generational differences cause family arguments."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "break down",
-        "meaning": "analyze by dividing into discrete constituent elements",
-        "example": "Let us break down the demographic chart by household income brackets."
+        "verb": "hand in",
+        "bestFor": "S",
+        "meaning": "to give your work to a teacher or boss",
+        "example": "Please hand in your essays by Monday."
       },
       {
-        "verb": "bring about",
-        "meaning": "cause an event or structural shift to occur",
-        "example": "Technological innovation will bring about fundamental labor market changes."
+        "verb": "hand out",
+        "bestFor": "S",
+        "meaning": "to give something to many people",
+        "example": "The teacher handed out the exam papers."
       },
       {
-        "verb": "bring together",
-        "meaning": "combine or assemble diverse groups or viewpoints",
-        "example": "The symposium brought together leading climatologists from six continents."
+        "verb": "look up",
+        "bestFor": "S",
+        "meaning": "to search for information in a book or online",
+        "example": "Look up the word in a dictionary."
       }
     ],
     "idioms": [
       {
-        "idiom": "At the end of the day",
-        "meaning": "Ultimately; when everything is considered in conclusion",
-        "example": "At the end of the day, individual commitment to daily practice determines IELTS success."
+        "idiom": "once in a blue moon",
+        "meaning": "very rarely",
+        "example": "I eat fast food once in a blue moon."
       },
       {
-        "idiom": "In the long run",
-        "meaning": "Over an extended subsequent duration; ultimately",
-        "example": "Investing in pediatric healthcare saves trillions of national revenue in the long run."
+        "idiom": "in the nick of time",
+        "meaning": "just before it is too late",
+        "example": "We caught the bus in the nick of time."
       }
     ]
   },
   {
     "day": 22,
-    "theme": "Social Media & Telecommunications",
-    "category": "Technology",
+    "theme": "Government & Law (Part 1)",
+    "category": "Society",
     "words": [
       {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
+        "word": "legislation",
+        "pos": "n",
+        "definition": "laws made by a government",
         "synonyms": [
-          "digital currency",
-          "tokens"
+          "laws",
+          "statutes"
         ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "New legislation protects workers' rights."
       },
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
+        "word": "regulation",
+        "pos": "n",
+        "definition": "an official rule that people must follow",
         "synonyms": [
-          "nanotech",
-          "micro-compounds"
+          "rule",
+          "control"
         ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
+        "example": "Strict regulations control food safety."
       },
       {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
+        "word": "bureaucracy",
+        "pos": "n",
+        "definition": "a system with many rules and forms",
         "synonyms": [
-          "advancement",
-          "innovation"
+          "official procedures",
+          "red tape"
         ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
+        "example": "Bureaucracy slows down business permits."
       },
       {
-        "word": "Disruptive",
-        "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "word": "democracy",
+        "pos": "n",
+        "definition": "a system where people vote for leaders",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "rule by the people",
+          "representative government"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "Democracy gives citizens a voice."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "authority",
+        "pos": "n",
+        "definition": "the right to give orders and decide",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "power",
+          "command"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "Local authorities manage waste collection."
       },
       {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "word": "sovereignty",
+        "pos": "n",
+        "definition": "a country's right to rule itself",
         "synonyms": [
-          "computational",
-          "procedural"
+          "independence",
+          "self-rule"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "The nation defended its sovereignty."
       },
       {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "word": "corruption",
+        "pos": "n",
+        "definition": "dishonest use of power for personal gain",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "dishonesty",
+          "malpractice"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "Corruption harms public trust."
       },
       {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "word": "propaganda",
+        "pos": "n",
+        "definition": "false or biased information that spreads an idea",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "one-sided information",
+          "manipulative messaging"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "War propaganda filled the newspapers."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
+        "word": "referendum",
+        "pos": "n",
+        "definition": "a vote by all people on one question",
         "synonyms": [
-          "bionics",
-          "robotics"
+          "public vote",
+          "plebiscite"
         ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
+        "example": "A referendum decided the country's future."
       },
       {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
+        "word": "taxation",
+        "pos": "n",
+        "definition": "the system of collecting money from people",
         "synonyms": [
-          "simulation",
-          "emulation"
+          "paying tax",
+          "government levy"
         ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
+        "example": "Higher taxation pays for public services."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bring up",
-        "meaning": "raise an important topic or issue for discussion",
-        "example": "The delegate brought up the pressing question of equitable vaccine distribution."
+        "verb": "catch up",
+        "bestFor": "S",
+        "meaning": "to reach the same level as others",
+        "example": "I missed a class, so I need to catch up."
       },
       {
-        "verb": "build on",
-        "meaning": "develop further from an established foundation",
-        "example": "Future medical research will build on the monumental mapping of the human genome."
+        "verb": "keep up with",
+        "bestFor": "W/S",
+        "meaning": "to stay at the same speed or level as others",
+        "example": "It is hard to keep up with new technology."
       },
       {
-        "verb": "build up",
-        "meaning": "increase gradually over a prolonged period",
-        "example": "Unchecked industrial activity allows toxic heavy metals to build up in waterways."
+        "verb": "fall behind",
+        "bestFor": "W/S",
+        "meaning": "to be slower than others",
+        "example": "Some students fall behind in maths."
       }
     ],
     "idioms": [
       {
-        "idiom": "Keep your chin up",
-        "meaning": "Remain optimistic and resilient during adversity",
-        "example": "IELTS aspirants must keep their chin up even if their initial practice scores are disappointing."
+        "idiom": "around the clock",
+        "meaning": "all day and all night",
+        "example": "Doctors work around the clock during emergencies."
       },
       {
-        "idiom": "Rule of thumb",
-        "meaning": "A broadly accurate practical guideline derived from experience",
-        "example": "As a general rule of thumb, Task 2 essays should allocate approximately 40 minutes."
+        "idiom": "at the drop of a hat",
+        "meaning": "immediately, without waiting",
+        "example": "She'd travel at the drop of a hat."
       }
     ]
   },
   {
     "day": 23,
-    "theme": "Cybersecurity, Encryption & Privacy",
-    "category": "Technology",
+    "theme": "Government & Law (Part 2)",
+    "category": "Society",
     "words": [
       {
-        "word": "Disruptive",
-        "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "word": "enforce",
+        "pos": "v",
+        "definition": "to make sure a rule is followed",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "make people obey",
+          "implement"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "Police enforce the speed limit."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "prohibit",
+        "pos": "v",
+        "definition": "to say officially that something is not allowed",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "ban",
+          "forbid"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "Smoking is prohibited in public buildings."
       },
       {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "word": "abolish",
+        "pos": "v",
+        "definition": "to stop a rule or system completely",
         "synonyms": [
-          "computational",
-          "procedural"
+          "end",
+          "do away with"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "Many countries abolished the death penalty."
       },
       {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "word": "amend",
+        "pos": "v",
+        "definition": "to make small changes to a law or text",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "change",
+          "revise"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "Parliament voted to amend the law."
       },
       {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "word": "constitution",
+        "pos": "n",
+        "definition": "the main set of rules of a country",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "basic law",
+          "founding charter"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "The constitution protects free speech."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
+        "word": "jurisdiction",
+        "pos": "n",
+        "definition": "the area where a court or body has power",
         "synonyms": [
-          "bionics",
-          "robotics"
+          "legal area",
+          "domain of authority"
         ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
+        "example": "This case is outside the court's jurisdiction."
       },
       {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
+        "word": "parliament",
+        "pos": "n",
+        "definition": "the group of people who make laws",
         "synonyms": [
-          "simulation",
-          "emulation"
+          "law-making body",
+          "legislature"
         ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
+        "example": "Parliament debated the new education bill."
       },
       {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
+        "word": "ballot",
+        "pos": "n",
+        "definition": "the paper or act of voting",
         "synonyms": [
-          "digital currency",
-          "tokens"
+          "vote",
+          "poll"
         ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "Citizens cast their ballot in secret."
       },
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
+        "word": "allocate",
+        "pos": "v",
+        "definition": "to give an amount of money or time for a purpose",
         "synonyms": [
-          "nanotech",
-          "micro-compounds"
+          "give out",
+          "apportion"
         ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
+        "example": "The government allocated funds to schools."
       },
       {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
+        "word": "enact",
+        "pos": "v",
+        "definition": "to make a proposal into law",
         "synonyms": [
-          "advancement",
-          "innovation"
+          "pass",
+          "ratify"
         ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
+        "example": "The new rule was enacted last spring."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "carry on",
-        "meaning": "continue an activity without disruption",
-        "example": "Despite logistical hardships, the researchers carried on their Arctic expedition."
+        "verb": "drop out",
+        "bestFor": "W/S",
+        "meaning": "to leave school or a course before finishing",
+        "example": "He dropped out of university after one year."
       },
       {
-        "verb": "carry out",
-        "meaning": "perform, execute, or complete an experiment or task",
-        "example": "The laboratory team carried out an exhaustive double-blind trial."
+        "verb": "sign up",
+        "bestFor": "S",
+        "meaning": "to put your name on a list to join something",
+        "example": "I signed up for a French course."
       },
       {
-        "verb": "check over",
-        "meaning": "inspect meticulously for errors or omissions",
-        "example": "Writers should carefully check over their Task 2 essays during the final 3 minutes."
+        "verb": "take up",
+        "bestFor": "W/S",
+        "meaning": "to start a new hobby or activity",
+        "example": "She took up painting last year."
       }
     ],
     "idioms": [
       {
-        "idiom": "The sky's the limit",
-        "meaning": "There are virtually no bounds or restrictions on potential",
-        "example": "With bilingual fluency and high technological literacy, the sky is the limit for youth."
+        "idiom": "behind the times",
+        "meaning": "old-fashioned",
+        "example": "My grandfather's phone is a bit behind the times."
       },
       {
-        "idiom": "A piece of cake",
-        "meaning": "Something that is remarkably easy to accomplish",
-        "example": "With rigorous preparation, understanding Task 1 charts became a piece of cake."
+        "idiom": "in the long run",
+        "meaning": "after a long time, in the end",
+        "example": "Saving money pays off in the long run."
       }
     ]
   },
   {
     "day": 24,
-    "theme": "Biotechnology & Genome Sequencing",
-    "category": "Technology",
+    "theme": "Government & Law (Part 3)",
+    "category": "Society",
     "words": [
       {
-        "word": "Obsolete",
+        "word": "censorship",
+        "pos": "n",
+        "definition": "stopping people from seeing or saying some things",
+        "synonyms": [
+          "blocking information",
+          "suppression"
+        ],
+        "example": "Censorship limits press freedom."
+      },
+      {
+        "word": "authoritarian",
         "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "definition": "demanding total obedience from people",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "strict",
+          "autocratic"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "An authoritarian leader controls the media."
       },
       {
-        "word": "Ubiquitous",
+        "word": "transparency",
+        "pos": "n",
+        "definition": "being open so people can see what is happening",
+        "synonyms": [
+          "openness",
+          "clarity"
+        ],
+        "example": "Transparency reduces corruption."
+      },
+      {
+        "word": "accountability",
+        "pos": "n",
+        "definition": "being responsible for your actions",
+        "synonyms": [
+          "responsibility",
+          "answerability"
+        ],
+        "example": "Politicians must accept accountability."
+      },
+      {
+        "word": "lobby",
+        "pos": "v",
+        "definition": "to try to persuade a government to act",
+        "synonyms": [
+          "try to influence",
+          "campaign"
+        ],
+        "example": "Groups lobby for stronger climate laws."
+      },
+      {
+        "word": "mandate",
+        "pos": "n",
+        "definition": "the power to do something given by voters",
+        "synonyms": [
+          "official order",
+          "authority to act"
+        ],
+        "example": "The party won a clear mandate for reform."
+      },
+      {
+        "word": "impose",
+        "pos": "v",
+        "definition": "to make people accept a rule or tax",
+        "synonyms": [
+          "force",
+          "enforce on"
+        ],
+        "example": "The state imposed a new tax on sugar."
+      },
+      {
+        "word": "legitimate",
         "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "definition": "allowed by law or fair and reasonable",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "lawful",
+          "valid"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "He has a legitimate reason for complaint."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
-        "synonyms": [
-          "bionics",
-          "robotics"
-        ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
-      },
-      {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
-        "synonyms": [
-          "simulation",
-          "emulation"
-        ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
-      },
-      {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
-        "synonyms": [
-          "digital currency",
-          "tokens"
-        ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
-      },
-      {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
-        "synonyms": [
-          "nanotech",
-          "micro-compounds"
-        ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
-      },
-      {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
-        "synonyms": [
-          "advancement",
-          "innovation"
-        ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
-      },
-      {
-        "word": "Disruptive",
+        "word": "exempt",
         "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "definition": "not having to follow a rule or pay",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "free from",
+          "excused"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "Students are exempt from this tax."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "administer",
+        "pos": "v",
+        "definition": "to organise and control a system",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "manage",
+          "run"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
-      },
-      {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
-        "synonyms": [
-          "computational",
-          "procedural"
-        ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "The ministry administers the national exams."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "come down to",
-        "meaning": "ultimately depend upon or be decided by a key factor",
-        "example": "Resolving poverty often comes down to guaranteeing equal education access."
+        "verb": "go over",
+        "bestFor": "S",
+        "meaning": "to check or read something again carefully",
+        "example": "Let's go over the answers together."
       },
       {
-        "verb": "come up with",
-        "meaning": "produce, formulate, or propose an innovative idea",
-        "example": "Architects must come up with sustainable bioclimatic urban building models."
+        "verb": "brush up on",
+        "bestFor": "S",
+        "meaning": "to improve a skill you already have",
+        "example": "I need to brush up on my grammar."
       },
       {
-        "verb": "consist of",
-        "meaning": "be composed of or formed from specific parts",
-        "example": "The IELTS Academic exam consists of four distinct linguistic modules."
+        "verb": "pass on",
+        "bestFor": "W/S",
+        "meaning": "to give something to another person",
+        "example": "Please pass on my thanks to your parents."
       }
     ],
     "idioms": [
       {
-        "idiom": "Once in a blue moon",
-        "meaning": "Occurring very rarely or almost never",
-        "example": "Breakthrough scientific discoveries of this magnitude happen only once in a blue moon."
+        "idiom": "on the spur of the moment",
+        "meaning": "suddenly, without planning",
+        "example": "We booked the trip on the spur of the moment."
       },
       {
-        "idiom": "Break the ice",
-        "meaning": "Initiate conversation in an awkward or formal social setting",
-        "example": "In Part 1 of the IELTS Speaking exam, the examiner asks friendly questions to break the ice."
+        "idiom": "bide my time",
+        "meaning": "to wait patiently for the right moment",
+        "example": "I'm biding my time before I ask for a raise."
       }
     ]
   },
   {
     "day": 25,
-    "theme": "Space Science & Planetary Exploration",
-    "category": "Technology",
+    "theme": "Crime & Justice (Part 1)",
+    "category": "Society",
     "words": [
       {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
+        "word": "offender",
+        "pos": "n",
+        "definition": "a person who breaks the law",
         "synonyms": [
-          "simulation",
-          "emulation"
+          "lawbreaker",
+          "wrongdoer"
         ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
+        "example": "First-time offenders often get a lighter sentence."
       },
       {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
+        "word": "deter",
+        "pos": "v",
+        "definition": "to make someone not want to do something",
         "synonyms": [
-          "digital currency",
-          "tokens"
+          "put off",
+          "discourage"
         ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "Cameras deter people from stealing."
       },
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
+        "word": "victim",
+        "pos": "n",
+        "definition": "a person who is hurt by a crime or accident",
         "synonyms": [
-          "nanotech",
-          "micro-compounds"
+          "injured person",
+          "casualty"
         ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
+        "example": "The victim gave evidence in court."
       },
       {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
+        "word": "convict",
+        "pos": "v",
+        "definition": "to say officially that someone is guilty",
         "synonyms": [
-          "advancement",
-          "innovation"
+          "find guilty",
+          "pronounce guilty"
         ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
+        "example": "He was convicted of fraud."
       },
       {
-        "word": "Disruptive",
+        "word": "verdict",
+        "pos": "n",
+        "definition": "the final decision of a court",
+        "synonyms": [
+          "court decision",
+          "judgement"
+        ],
+        "example": "The jury reached a verdict after two days."
+      },
+      {
+        "word": "testimony",
+        "pos": "n",
+        "definition": "what a witness says in court",
+        "synonyms": [
+          "spoken evidence",
+          "sworn statement"
+        ],
+        "example": "Her testimony helped to free the man."
+      },
+      {
+        "word": "fraud",
+        "pos": "n",
+        "definition": "a crime of getting money by lying",
+        "synonyms": [
+          "cheating",
+          "deception"
+        ],
+        "example": "Online fraud is increasing."
+      },
+      {
+        "word": "burglary",
+        "pos": "n",
+        "definition": "stealing from a house or building",
+        "synonyms": [
+          "house break-in",
+          "breaking and entering"
+        ],
+        "example": "There was a burglary on our street last night."
+      },
+      {
+        "word": "vandalism",
+        "pos": "n",
+        "definition": "breaking or spoiling things on purpose",
+        "synonyms": [
+          "damaging property",
+          "wilful destruction"
+        ],
+        "example": "Vandalism in the park costs the city a lot."
+      },
+      {
+        "word": "juvenile",
         "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "definition": "connected with young people",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "young",
+          "underage"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
-      },
-      {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
-        "synonyms": [
-          "mechanization",
-          "computerization"
-        ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
-      },
-      {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
-        "synonyms": [
-          "computational",
-          "procedural"
-        ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
-      },
-      {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
-        "synonyms": [
-          "antiquated",
-          "archaic"
-        ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
-      },
-      {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
-        "synonyms": [
-          "omnipresent",
-          "pervasive"
-        ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
-      },
-      {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
-        "synonyms": [
-          "bionics",
-          "robotics"
-        ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
+        "example": "Juvenile crime is often linked to poverty."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "contribute to",
-        "meaning": "help cause or supply resources toward an outcome",
-        "example": "Sedentary leisure habits contribute to rising rates of cardiovascular disease."
+        "verb": "work on",
+        "bestFor": "W/S",
+        "meaning": "to spend time improving or making something",
+        "example": "I am working on my writing skills."
       },
       {
-        "verb": "count as",
-        "meaning": "be regarded or officially categorized as",
-        "example": "Internships completed during undergraduate years count as verifiable work experience."
+        "verb": "mark down",
+        "bestFor": "W",
+        "meaning": "to give a lower score or price",
+        "example": "Students are marked down for spelling mistakes."
       },
       {
-        "verb": "deal with",
-        "meaning": "address, manage, or resolve a complex issue",
-        "example": "Urban planners must deal with traffic gridlock through expanded rail networks."
+        "verb": "cut back",
+        "bestFor": "W",
+        "meaning": "to use or spend less",
+        "example": "The school cut back on printing costs."
       }
     ],
     "idioms": [
       {
-        "idiom": "Hit the nail on the head",
-        "meaning": "Identify or describe the precise truth of a situation",
-        "example": "The sociologist hit the nail on the head when attributing delinquency to youth disengagement."
+        "idiom": "kill time",
+        "meaning": "to do something while waiting",
+        "example": "I played games to kill time at the airport."
       },
       {
-        "idiom": "Under the weather",
-        "meaning": "Feeling slightly unwell, fatigued, or ill",
-        "example": "Although feeling under the weather, she managed to sit for the full 3-hour exam."
+        "idiom": "at the eleventh hour",
+        "meaning": "at the last possible moment",
+        "example": "They finished the report at the eleventh hour."
       }
     ]
   },
   {
     "day": 26,
-    "theme": "Internet of Things & Connected Living",
-    "category": "Technology",
+    "theme": "Crime & Justice (Part 2)",
+    "category": "Society",
     "words": [
       {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
+        "word": "penalty",
+        "pos": "n",
+        "definition": "a punishment for breaking a rule or law",
         "synonyms": [
-          "advancement",
-          "innovation"
+          "punishment",
+          "sanction"
         ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
+        "example": "The penalty for littering is a heavy fine."
       },
       {
-        "word": "Disruptive",
-        "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "word": "trial",
+        "pos": "n",
+        "definition": "a legal process to decide if someone is guilty",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "court case",
+          "hearing"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "The trial lasted three weeks."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "evidence",
+        "pos": "n",
+        "definition": "facts that show something is true",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "proof",
+          "corroboration"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "There was no evidence against him."
       },
       {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "word": "suspect",
+        "pos": "n",
+        "definition": "someone the police think did a crime",
         "synonyms": [
-          "computational",
-          "procedural"
+          "person accused",
+          "person under investigation"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "The police arrested a suspect."
       },
       {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "word": "bail",
+        "pos": "n",
+        "definition": "money paid so a person can wait outside prison",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "temporary release money",
+          "security payment"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "He was released on bail until the trial."
       },
       {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "word": "acquit",
+        "pos": "v",
+        "definition": "to say officially that someone is not guilty",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "free",
+          "exonerate"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "The court acquitted her of all charges."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
+        "word": "custody",
+        "pos": "n",
+        "definition": "being kept by the police or the state",
         "synonyms": [
-          "bionics",
-          "robotics"
+          "police keeping",
+          "detention"
         ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
+        "example": "The suspect remains in custody."
       },
       {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
+        "word": "inmate",
+        "pos": "n",
+        "definition": "a person living in a prison",
         "synonyms": [
-          "simulation",
-          "emulation"
+          "prisoner",
+          "detainee"
         ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
+        "example": "Inmates can learn new skills in jail."
       },
       {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
+        "word": "reoffend",
+        "pos": "v",
+        "definition": "to break the law again after punishment",
         "synonyms": [
-          "digital currency",
-          "tokens"
+          "commit crime again",
+          "relapse into crime"
         ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "Many prisoners reoffend after release."
       },
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
+        "word": "deterrent",
+        "pos": "n",
+        "definition": "something that stops people doing wrong",
         "synonyms": [
-          "nanotech",
-          "micro-compounds"
+          "warning",
+          "disincentive"
         ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
+        "example": "Heavy fines act as a deterrent."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "depart from",
-        "meaning": "deviate or vary from established conventions",
-        "example": "Modern pedagogical practices depart from rigid traditional rote memorization."
+        "verb": "fill in",
+        "bestFor": "S",
+        "meaning": "to write information on a form",
+        "example": "Please fill in this application form."
       },
       {
-        "verb": "depend on",
-        "meaning": "rely upon or be determined by contingency",
-        "example": "Economic prosperity depends on rule of law, open trade, and technological innovation."
+        "verb": "put off",
+        "bestFor": "W/S",
+        "meaning": "to delay something to a later time",
+        "example": "Don't put off your homework until tomorrow."
       },
       {
-        "verb": "derive from",
-        "meaning": "originate, develop, or obtain from a source",
-        "example": "Many modern pharmaceuticals derive from active compounds found in rainforest flora."
+        "verb": "put forward",
+        "bestFor": "W",
+        "meaning": "to suggest an idea or plan for discussion",
+        "example": "She put forward a new proposal."
       }
     ],
     "idioms": [
       {
-        "idiom": "Let the cat out of the bag",
-        "meaning": "Reveal a confidential secret unintentionally",
-        "example": "A leaked memo let the cat out of the bag regarding the upcoming corporate merger."
+        "idiom": "a piece of cake",
+        "meaning": "very easy",
+        "example": "The test was a piece of cake."
       },
       {
-        "idiom": "Spill the beans",
-        "meaning": "Disclose secret or sensitive information prematurely",
-        "example": "An anonymous whistleblower spilled the beans on corporate waste dumping practices."
+        "idiom": "a tough nut to crack",
+        "meaning": "a hard problem to solve",
+        "example": "Traffic jams are a tough nut to crack."
       }
     ]
   },
   {
     "day": 27,
-    "theme": "Disruptive Innovations & Tech Obsolescence",
-    "category": "Technology",
+    "theme": "Crime & Justice (Part 3)",
+    "category": "Society",
     "words": [
       {
-        "word": "Algorithmic",
+        "word": "perpetrator",
+        "pos": "n",
+        "definition": "the person who did a bad act",
+        "synonyms": [
+          "criminal",
+          "culprit"
+        ],
+        "example": "The perpetrator was never found."
+      },
+      {
+        "word": "trafficking",
+        "pos": "n",
+        "definition": "buying and selling people or drugs illegally",
+        "synonyms": [
+          "illegal trade",
+          "illicit trading"
+        ],
+        "example": "Human trafficking is a global crime."
+      },
+      {
+        "word": "smuggle",
+        "pos": "v",
+        "definition": "to take goods across a border illegally",
+        "synonyms": [
+          "bring in secretly",
+          "run illegally"
+        ],
+        "example": "They smuggled cigarettes into the country."
+      },
+      {
+        "word": "imprison",
+        "pos": "v",
+        "definition": "to put someone in prison",
+        "synonyms": [
+          "jail",
+          "incarcerate"
+        ],
+        "example": "He was imprisoned for ten years."
+      },
+      {
+        "word": "retribution",
+        "pos": "n",
+        "definition": "punishment for a wrong that was done",
+        "synonyms": [
+          "revenge",
+          "punishment in return"
+        ],
+        "example": "Some people want retribution, not rehabilitation."
+      },
+      {
+        "word": "witness",
+        "pos": "n",
+        "definition": "a person who sees a crime happen",
+        "synonyms": [
+          "observer",
+          "eyewitness"
+        ],
+        "example": "A witness saw the car leave the scene."
+      },
+      {
+        "word": "plead",
+        "pos": "v",
+        "definition": "to say in court if you are guilty or not",
+        "synonyms": [
+          "beg",
+          "appeal"
+        ],
+        "example": "He pleaded guilty to theft."
+      },
+      {
+        "word": "lenient",
         "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "definition": "not strict when punishing",
         "synonyms": [
-          "computational",
-          "procedural"
+          "gentle",
+          "soft"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "Some people say the courts are too lenient."
       },
       {
-        "word": "Obsolete",
+        "word": "harsh",
         "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "definition": "very strict or cruel",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "severe",
+          "stringent"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "The harsh sentence shocked many people."
       },
       {
-        "word": "Ubiquitous",
+        "word": "notorious",
         "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "definition": "well known for something bad",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "famous for bad things",
+          "infamous"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
-      },
-      {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
-        "synonyms": [
-          "bionics",
-          "robotics"
-        ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
-      },
-      {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
-        "synonyms": [
-          "simulation",
-          "emulation"
-        ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
-      },
-      {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
-        "synonyms": [
-          "digital currency",
-          "tokens"
-        ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
-      },
-      {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
-        "synonyms": [
-          "nanotech",
-          "micro-compounds"
-        ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
-      },
-      {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
-        "synonyms": [
-          "advancement",
-          "innovation"
-        ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
-      },
-      {
-        "word": "Disruptive",
-        "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
-        "synonyms": [
-          "revolutionary",
-          "transformative"
-        ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
-      },
-      {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
-        "synonyms": [
-          "mechanization",
-          "computerization"
-        ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "The area is notorious for car theft."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "differ from",
-        "meaning": "be unlike, dissimilar, or distinct in quality",
-        "example": "Formal academic prose differs markedly from everyday colloquial speech."
+        "verb": "turn in",
+        "bestFor": "S",
+        "meaning": "to give work to a teacher or manager",
+        "example": "Turn in your reports by Friday."
       },
       {
-        "verb": "divide into",
-        "meaning": "separate or partition into smaller functional parts",
-        "example": "The statistical population was divided into three distinct age cohorts."
+        "verb": "write up",
+        "bestFor": "W/S",
+        "meaning": "to write a full report of something",
+        "example": "Scientists wrote up their results in a paper."
       },
       {
-        "verb": "draw on",
-        "meaning": "utilize or use existing knowledge or resources as support",
-        "example": "Essay writers should draw on historical precedents to illustrate their arguments."
+        "verb": "cut down",
+        "bestFor": "W/S",
+        "meaning": "to make something smaller in amount",
+        "example": "Factories must cut down on waste."
       }
     ],
     "idioms": [
       {
-        "idiom": "Bite the bullet",
-        "meaning": "Face a difficult, grim situation with courage and resolve",
-        "example": "Governments must bite the bullet and enact stringent, unpopular carbon tax measures."
+        "idiom": "an uphill battle",
+        "meaning": "a very hard struggle",
+        "example": "Learning a new language can be an uphill battle."
       },
       {
-        "idiom": "Cut corners",
-        "meaning": "Perform a task cheaply, hastily, or below standard",
-        "example": "Building contractors who cut corners on fireproofing endanger thousands of residents."
+        "idiom": "easier said than done",
+        "meaning": "harder to do than to talk about",
+        "example": "Quitting sugar is easier said than done."
       }
     ]
   },
   {
     "day": 28,
-    "theme": "Algorithmic Ethics & Digital Bias",
+    "theme": "Media & Communication (Part 1)",
     "category": "Technology",
     "words": [
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
+        "word": "broadcast",
+        "pos": "v",
+        "definition": "to send a programme on TV or radio",
         "synonyms": [
-          "bionics",
-          "robotics"
+          "send out",
+          "transmit"
         ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
+        "example": "The match will be broadcast live."
       },
       {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
+        "word": "journalism",
+        "pos": "n",
+        "definition": "the work of writing news for media",
         "synonyms": [
-          "simulation",
-          "emulation"
+          "news writing",
+          "reporting"
         ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
+        "example": "Good journalism checks facts first."
       },
       {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
+        "word": "headline",
+        "pos": "n",
+        "definition": "the title at the top of a news story",
         "synonyms": [
-          "digital currency",
-          "tokens"
+          "news title",
+          "main title"
         ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "The headline shocked readers."
       },
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
-        "synonyms": [
-          "nanotech",
-          "micro-compounds"
-        ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
-      },
-      {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
-        "synonyms": [
-          "advancement",
-          "innovation"
-        ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
-      },
-      {
-        "word": "Disruptive",
+        "word": "biased",
         "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "definition": "favouring one side without being fair",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "unfair",
+          "partial"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "The report was clearly biased."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
-        "synonyms": [
-          "mechanization",
-          "computerization"
-        ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
-      },
-      {
-        "word": "Algorithmic",
+        "word": "sensational",
         "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "definition": "designed to shock or excite people",
         "synonyms": [
-          "computational",
-          "procedural"
+          "shocking",
+          "lurid"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "Sensational stories sell more newspapers."
       },
       {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "word": "circulation",
+        "pos": "n",
+        "definition": "the number of copies a paper sells",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "number sold",
+          "distribution"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "The newspaper has a circulation of one million."
       },
       {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "word": "tabloid",
+        "pos": "n",
+        "definition": "a newspaper with short stories and big pictures",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "popular paper",
+          "gossip paper"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "Tabloids often print celebrity gossip."
+      },
+      {
+        "word": "viral",
+        "pos": "adj",
+        "definition": "spreading quickly online to many people",
+        "synonyms": [
+          "spreading fast",
+          "widely shared"
+        ],
+        "example": "The video went viral overnight."
+      },
+      {
+        "word": "misinformation",
+        "pos": "n",
+        "definition": "information that is not true",
+        "synonyms": [
+          "wrong information",
+          "false information"
+        ],
+        "example": "Misinformation spreads fast on social media."
+      },
+      {
+        "word": "credible",
+        "pos": "adj",
+        "definition": "able to be trusted or believed",
+        "synonyms": [
+          "believable",
+          "trustworthy"
+        ],
+        "example": "Check that your sources are credible."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "draw out",
-        "meaning": "elicit, extract, or extend information from someone",
-        "example": "Skilled interviewers know how to draw out insightful commentary from reticent subjects."
+        "verb": "take over",
+        "bestFor": "W",
+        "meaning": "to start to control a company or job",
+        "example": "A large firm took over the local bank."
       },
       {
-        "verb": "end up",
-        "meaning": "finally become or reach an eventual state or location",
-        "example": "Without strict recycling enforcement, vast volumes of plastic end up in marine trenches."
+        "verb": "buy out",
+        "bestFor": "W",
+        "meaning": "to buy all of a company so you own it",
+        "example": "The founder bought out his partners."
       },
       {
-        "verb": "fall into",
-        "meaning": "be categorized, classified, or divided into groups",
-        "example": "Task 2 writing questions generally fall into five distinct thematic types."
+        "verb": "pay off",
+        "bestFor": "W/S",
+        "meaning": "to give good results or to finish paying a debt",
+        "example": "Her hard work finally paid off."
       }
     ],
     "idioms": [
       {
-        "idiom": "Go the extra mile",
-        "meaning": "Make a special additional effort beyond what is required",
-        "example": "Dedicated teachers routinely go the extra mile to support disadvantaged students."
+        "idiom": "hit a brick wall",
+        "meaning": "to meet a problem that stops progress",
+        "example": "Our project hit a brick wall when funding ended."
       },
       {
-        "idiom": "In the same boat",
-        "meaning": "Sharing the identical difficult predicament or challenge",
-        "example": "All developing island nations are in the same boat concerning rising sea levels."
+        "idiom": "walk on eggshells",
+        "meaning": "to be very careful not to upset someone",
+        "example": "I walk on eggshells when my boss is angry."
       }
     ]
   },
   {
     "day": 29,
-    "theme": "Industrial Automation & Robotics",
+    "theme": "Media & Communication (Part 2)",
     "category": "Technology",
     "words": [
       {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
+        "word": "audience",
+        "pos": "n",
+        "definition": "the people who watch or listen",
         "synonyms": [
-          "nanotech",
-          "micro-compounds"
+          "viewers",
+          "spectators"
         ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
+        "example": "The show attracts a young audience."
       },
       {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
+        "word": "endorse",
+        "pos": "v",
+        "definition": "to say publicly that you support something",
         "synonyms": [
-          "advancement",
-          "innovation"
+          "support",
+          "back"
         ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
+        "example": "A famous actor endorsed the product."
       },
       {
-        "word": "Disruptive",
+        "word": "coverage",
+        "pos": "n",
+        "definition": "the amount of news given to an event",
+        "synonyms": [
+          "news reporting",
+          "media attention"
+        ],
+        "example": "The election received wide coverage."
+      },
+      {
+        "word": "editorial",
+        "pos": "n",
+        "definition": "a newspaper article giving the paper's opinion",
+        "synonyms": [
+          "opinion article",
+          "leader column"
+        ],
+        "example": "The editorial criticised the new tax."
+      },
+      {
+        "word": "documentary",
+        "pos": "n",
+        "definition": "a film that tells true facts about real life",
+        "synonyms": [
+          "factual film",
+          "non-fiction programme"
+        ],
+        "example": "The documentary explained global warming."
+      },
+      {
+        "word": "fabricate",
+        "pos": "v",
+        "definition": "to create false information to trick people",
+        "synonyms": [
+          "make up",
+          "invent"
+        ],
+        "example": "The reporter fabricated the quotes."
+      },
+      {
+        "word": "persuade",
+        "pos": "v",
+        "definition": "to make someone agree by giving reasons",
+        "synonyms": [
+          "convince",
+          "win over"
+        ],
+        "example": "Adverts try to persuade us to buy things."
+      },
+      {
+        "word": "controversial",
         "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
+        "definition": "causing strong disagreement",
         "synonyms": [
-          "revolutionary",
-          "transformative"
+          "disputed",
+          "contentious"
         ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "The film is controversial in some countries."
       },
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "platform",
+        "pos": "n",
+        "definition": "a website or app where people share content",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "online site",
+          "digital forum"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "Video platforms are popular with teenagers."
       },
       {
-        "word": "Algorithmic",
-        "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "word": "cyberbullying",
+        "pos": "n",
+        "definition": "using the internet to hurt or scare someone",
         "synonyms": [
-          "computational",
-          "procedural"
+          "online bullying",
+          "digital harassment"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
-      },
-      {
-        "word": "Obsolete",
-        "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
-        "synonyms": [
-          "antiquated",
-          "archaic"
-        ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
-      },
-      {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
-        "synonyms": [
-          "omnipresent",
-          "pervasive"
-        ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
-      },
-      {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
-        "synonyms": [
-          "bionics",
-          "robotics"
-        ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
-      },
-      {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
-        "synonyms": [
-          "simulation",
-          "emulation"
-        ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
-      },
-      {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
-        "synonyms": [
-          "digital currency",
-          "tokens"
-        ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
+        "example": "Cyberbullying can seriously harm young people."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "feed back",
-        "meaning": "return evaluative information or effects to a system",
-        "example": "Sensor networks feed back real-time climate data into meteorological forecasting models."
+        "verb": "bring in",
+        "bestFor": "W",
+        "meaning": "to earn or make money",
+        "example": "The new shop brings in a lot of money."
       },
       {
-        "verb": "feed into",
-        "meaning": "contribute to or supply inputs to a larger process",
-        "example": "Primary education standards feed into secondary school academic performance."
+        "verb": "sell out",
+        "bestFor": "S",
+        "meaning": "to sell all of something",
+        "example": "Tickets sold out in two hours."
       },
       {
-        "verb": "filter out",
-        "meaning": "remove unwanted, extraneous, or hazardous elements",
-        "example": "Advanced municipal filtration plants filter out microscopic microplastics from tap water."
+        "verb": "cash in on",
+        "bestFor": "W",
+        "meaning": "to use a chance to make money",
+        "example": "Shops cash in on holiday shopping."
       }
     ],
     "idioms": [
       {
-        "idiom": "A blessing in disguise",
-        "meaning": "An apparent misfortune that yields beneficial outcomes",
-        "example": "Being rejected by that firm was a blessing in disguise as it prompted him to start a business."
+        "idiom": "bite off more than you can chew",
+        "meaning": "to try to do too much",
+        "example": "He bit off more than he could chew with three jobs."
       },
       {
-        "idiom": "Beat around the bush",
-        "meaning": "Avoid speaking directly or discussing the central issue",
-        "example": "Academic writers must avoid beating around the bush and state their argument directly."
+        "idiom": "the tip of the iceberg",
+        "meaning": "a small part of a much bigger problem",
+        "example": "These complaints are only the tip of the iceberg."
       }
     ]
   },
   {
     "day": 30,
-    "theme": "Nanotechnology & Smart Biomaterials",
+    "theme": "Media & Communication (Part 3)",
     "category": "Technology",
     "words": [
       {
-        "word": "Automation",
-        "pos": "noun",
-        "definition": "The use of largely automatic equipment in a manufacturing system.",
+        "word": "outlet",
+        "pos": "n",
+        "definition": "a company that publishes or broadcasts news",
         "synonyms": [
-          "mechanization",
-          "computerization"
+          "news source",
+          "media channel"
         ],
-        "example": "Factory automation has augmented productivity while displacing manual roles."
+        "example": "The story appeared in several news outlets."
       },
       {
-        "word": "Algorithmic",
+        "word": "mislead",
+        "pos": "v",
+        "definition": "to make someone believe something false",
+        "synonyms": [
+          "trick",
+          "deceive"
+        ],
+        "example": "The advert misled customers about the price."
+      },
+      {
+        "word": "gossip",
+        "pos": "n",
+        "definition": "talk about other people's private lives",
+        "synonyms": [
+          "rumour",
+          "idle talk"
+        ],
+        "example": "Celebrity gossip fills the magazines."
+      },
+      {
+        "word": "exaggerate",
+        "pos": "v",
+        "definition": "to say something is bigger or better than it is",
+        "synonyms": [
+          "overstate",
+          "inflate"
+        ],
+        "example": "Ads often exaggerate how good a product is."
+      },
+      {
+        "word": "publicise",
+        "pos": "v",
+        "definition": "to tell the public about something",
+        "synonyms": [
+          "advertise",
+          "promote"
+        ],
+        "example": "The charity publicised its event online."
+      },
+      {
+        "word": "interactive",
         "pos": "adj",
-        "definition": "Relating to or using a process or set of rules to solve problems.",
+        "definition": "letting the user take part and respond",
         "synonyms": [
-          "computational",
-          "procedural"
+          "two-way",
+          "participatory"
         ],
-        "example": "Modern search engines employ sophisticated algorithmic filtering."
+        "example": "Interactive lessons keep students interested."
       },
       {
-        "word": "Obsolete",
+        "word": "captivate",
+        "pos": "v",
+        "definition": "to hold someone's attention completely",
+        "synonyms": [
+          "fascinate",
+          "enthral"
+        ],
+        "example": "The speaker captivated the audience."
+      },
+      {
+        "word": "newsworthy",
         "pos": "adj",
-        "definition": "No longer produced or used; out of date.",
+        "definition": "important enough to be in the news",
         "synonyms": [
-          "antiquated",
-          "archaic"
+          "worth reporting",
+          "of public interest"
         ],
-        "example": "Floppy disks and cassette tapes became completely obsolete within a decade."
+        "example": "The mayor's resignation was newsworthy."
       },
       {
-        "word": "Ubiquitous",
-        "pos": "adj",
-        "definition": "Present, appearing, or found everywhere.",
+        "word": "disseminate",
+        "pos": "v",
+        "definition": "to send information to many people",
         "synonyms": [
-          "omnipresent",
-          "pervasive"
+          "spread",
+          "circulate"
         ],
-        "example": "Smartphones have become ubiquitous across all demographics of modern society."
+        "example": "The charity disseminates health advice widely."
       },
       {
-        "word": "Cybernetics",
-        "pos": "noun",
-        "definition": "The science of communications and automatic control systems.",
+        "word": "intrude",
+        "pos": "v",
+        "definition": "to enter someone's private life without permission",
         "synonyms": [
-          "bionics",
-          "robotics"
+          "invade",
+          "encroach"
         ],
-        "example": "Pioneering work in cybernetics laid the foundation for modern prosthetic limbs."
-      },
-      {
-        "word": "Virtualization",
-        "pos": "noun",
-        "definition": "The creation of a virtual rather than actual version of something.",
-        "synonyms": [
-          "simulation",
-          "emulation"
-        ],
-        "example": "Server virtualization optimizes cloud infrastructure and reduces power overheads."
-      },
-      {
-        "word": "Cryptocurrency",
-        "pos": "noun",
-        "definition": "A digital currency in which transactions are verified by cryptography.",
-        "synonyms": [
-          "digital currency",
-          "tokens"
-        ],
-        "example": "Financial analysts vigorously debate the future viability of decentralized cryptocurrency."
-      },
-      {
-        "word": "Nanomaterials",
-        "pos": "noun",
-        "definition": "Materials with nanoscale dimensions exhibiting novel properties.",
-        "synonyms": [
-          "nanotech",
-          "micro-compounds"
-        ],
-        "example": "Nanomaterials are revolutionizing medical drug delivery and battery efficiency."
-      },
-      {
-        "word": "Breakthrough",
-        "pos": "noun",
-        "definition": "A sudden, dramatic, and important discovery or development.",
-        "synonyms": [
-          "advancement",
-          "innovation"
-        ],
-        "example": "CRISPR gene editing represents an monumental medical breakthrough."
-      },
-      {
-        "word": "Disruptive",
-        "pos": "adj",
-        "definition": "Innovations that create new markets by displacing existing market leaders.",
-        "synonyms": [
-          "revolutionary",
-          "transformative"
-        ],
-        "example": "Ride-sharing apps were disruptive to traditional urban taxi industries."
+        "example": "Reporters intruded on the family's grief."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "fit into",
-        "meaning": "belong within or harmonize with a broader context",
-        "example": "New technological modules must fit into the overarching organizational infrastructure."
+        "verb": "shut down",
+        "bestFor": "W/S",
+        "meaning": "to close a business or stop a machine",
+        "example": "The factory shut down last year."
       },
       {
-        "verb": "flow from",
-        "meaning": "arise or emerge as a natural consequence from a cause",
-        "example": "Enormous economic dividends flow from sustained public investment in clean energy."
+        "verb": "lay off",
+        "bestFor": "W",
+        "meaning": "to stop employing workers because there is not enough work",
+        "example": "The firm laid off 200 workers."
       },
       {
-        "verb": "focus on",
-        "meaning": "concentrate attention or analytical effort upon",
-        "example": "The dissertation focuses on the correlation between diet and cognitive focus."
+        "verb": "bail out",
+        "bestFor": "W",
+        "meaning": "to save a company from money problems",
+        "example": "The government bailed out the airline."
       }
     ],
     "idioms": [
       {
-        "idiom": "Call it a day",
-        "meaning": "Cease working on an activity for the remaining time",
-        "example": "After five hours of intense reading practice, she wisely decided to call it a day."
+        "idiom": "out of my depth",
+        "meaning": "in a situation that is too hard for me",
+        "example": "I felt out of my depth in the advanced class."
       },
       {
-        "idiom": "Burn the midnight oil",
-        "meaning": "Work or study diligently late into the night",
-        "example": "Medical candidates frequently burn the midnight oil preparing for licensing exams."
+        "idiom": "a double-edged sword",
+        "meaning": "something with good and bad results",
+        "example": "Social media is a double-edged sword."
       }
     ]
   },
   {
     "day": 31,
-    "theme": "Urbanization, Density & Megacities",
-    "category": "Society",
+    "theme": "Science & Research (Part 1)",
+    "category": "Education",
     "words": [
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "hypothesis",
+        "pos": "n",
+        "definition": "an idea that scientists test to see if it is true",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "idea to test",
+          "proposition"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "Her hypothesis was proved correct."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "experiment",
+        "pos": "n",
+        "definition": "a scientific test to find out something",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "test",
+          "pilot study"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "The experiment lasted six months."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "methodology",
+        "pos": "n",
+        "definition": "the way a study is planned and done",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "research method",
+          "approach"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "The paper explains its methodology clearly."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "empirical",
+        "pos": "adj",
+        "definition": "based on real tests, not just ideas",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "based on observation",
+          "evidence-based"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Empirical evidence supports this claim."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "variable",
+        "pos": "n",
+        "definition": "something in an experiment that can change",
         "synonyms": [
-          "altruism",
-          "charity"
+          "changing factor",
+          "parameter"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Temperature is the key variable here."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "correlation",
+        "pos": "n",
+        "definition": "a relationship between two things",
         "synonyms": [
-          "isolation",
-          "division"
+          "link",
+          "connection"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "There is a correlation between sleep and grades."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "findings",
+        "pos": "n",
+        "definition": "what a study discovers",
         "synonyms": [
-          "administration",
-          "red tape"
+          "results",
+          "outcomes"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "The findings were published last month."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "sample",
+        "pos": "n",
+        "definition": "a small part used to represent the whole",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "small group",
+          "subset"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "The sample included 500 students."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "replicate",
+        "pos": "v",
+        "definition": "to do an experiment again to check the result",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "repeat",
+          "reproduce"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Other labs could not replicate the result."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "genetic",
+        "pos": "adj",
+        "definition": "connected to genes passed from parents",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "inherited",
+          "hereditary"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "Genetic tests can find some diseases early."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "follow up",
-        "meaning": "pursue further action or investigate ongoing results",
-        "example": "Epidemiologists will follow up on the long-term efficacy of the newly developed vaccine."
+        "verb": "rely on",
+        "bestFor": "W/S",
+        "meaning": "to need and trust someone or something",
+        "example": "Many families rely on farming for income."
       },
       {
-        "verb": "give rise to",
-        "meaning": "cause, generate, or produce new conditions",
-        "example": "Unchecked housing speculation has given rise to a severe suburban affordability crisis."
+        "verb": "chip in",
+        "bestFor": "S",
+        "meaning": "to give a small part of the money or help",
+        "example": "We all chipped in to buy her a gift."
       },
       {
-        "verb": "go on",
-        "meaning": "continue, proceed, or happen sequentially",
-        "example": "The debate over artificial intelligence ethics is set to go on for decades."
+        "verb": "draw up",
+        "bestFor": "W",
+        "meaning": "to prepare a plan or document",
+        "example": "Lawyers drew up a new contract."
       }
     ],
     "idioms": [
       {
-        "idiom": "Keep an eye on",
-        "meaning": "Monitor, oversee, or watch carefully over time",
-        "example": "Meteorologists keep an eye on Atlantic hurricane corridors during autumn."
+        "idiom": "get on like a house on fire",
+        "meaning": "to become very good friends quickly",
+        "example": "We got on like a house on fire."
       },
       {
-        "idiom": "Pass the buck",
-        "meaning": "Shift responsibility or blame onto another party",
-        "example": "Federal and local agencies must stop passing the buck regarding homelessness policy."
+        "idiom": "hit it off",
+        "meaning": "to quickly like each other",
+        "example": "We hit it off at the first meeting."
       }
     ]
   },
   {
     "day": 32,
-    "theme": "Demographic Shifts & Aging Societies",
-    "category": "Society",
+    "theme": "Science & Research (Part 2)",
+    "category": "Education",
     "words": [
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "clone",
+        "pos": "v",
+        "definition": "to make an exact copy of a living thing",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "copy",
+          "duplicate"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Scientists cloned a sheep in 1996."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "laboratory",
+        "pos": "n",
+        "definition": "a room where scientists do experiments",
         "synonyms": [
-          "altruism",
-          "charity"
+          "science room",
+          "research facility"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "The laboratory is open to students."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "conclusive",
+        "pos": "adj",
+        "definition": "proving something beyond doubt",
         "synonyms": [
-          "isolation",
-          "division"
+          "final",
+          "decisive"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "The evidence was not conclusive."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "deduce",
+        "pos": "v",
+        "definition": "to reach a conclusion from facts",
         "synonyms": [
-          "administration",
-          "red tape"
+          "work out",
+          "infer"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "She deduced the cause from the data."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "scrutinise",
+        "pos": "v",
+        "definition": "to look at something very carefully",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "examine closely",
+          "inspect"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "Experts scrutinised the results for errors."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "validate",
+        "pos": "v",
+        "definition": "to prove that something is correct",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "confirm",
+          "verify"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "The second study validated the first one."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "quantify",
+        "pos": "v",
+        "definition": "to say exactly how much or how many",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "measure",
+          "put a number on"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "It is hard to quantify the benefits."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "anomaly",
+        "pos": "n",
+        "definition": "something that is different from what is expected",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "odd result",
+          "irregularity"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "The data showed one strange anomaly."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "phenomenon",
+        "pos": "n",
+        "definition": "something that happens and is interesting",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "natural event",
+          "occurrence"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "Rainbows are a natural phenomenon."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "evolve",
+        "pos": "v",
+        "definition": "to change slowly over a long time",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "develop",
+          "progress"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "Species evolve to survive in new places."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "go over",
-        "meaning": "review, examine, or study with close attention",
-        "example": "Students should systematically go over their mistakes following every mock test."
+        "verb": "hold up",
+        "bestFor": "W",
+        "meaning": "to delay something or to stay strong",
+        "example": "Bad weather held up the delivery."
       },
       {
-        "verb": "go through",
-        "meaning": "examine in detail or experience a arduous process",
-        "example": "All pharmaceuticals must go through rigorous, multi-phase clinical evaluations."
+        "verb": "rake in",
+        "bestFor": "S",
+        "meaning": "to earn a lot of money easily",
+        "example": "The company is raking in profits."
       },
       {
-        "verb": "grow out of",
-        "meaning": "develop or evolve naturally from early origins",
-        "example": "Modern computational algorithms grew out of mid-century mathematical logic."
+        "verb": "fork out",
+        "bestFor": "S",
+        "meaning": "to pay a lot of money for something",
+        "example": "I had to fork out a lot for repairs."
       }
     ],
     "idioms": [
       {
-        "idiom": "Think outside the box",
-        "meaning": "Approach a problem with unconventional, creative logic",
-        "example": "Engineers had to think outside the box to design solar panels that operate in low light."
+        "idiom": "break the ice",
+        "meaning": "to make people feel relaxed at a first meeting",
+        "example": "A joke can break the ice at parties."
       },
       {
-        "idiom": "Back to square one",
-        "meaning": "Return to the very beginning after an effort fails",
-        "example": "When the trial drug proved ineffective, chemists were sent back to square one."
+        "idiom": "see eye to eye",
+        "meaning": "to agree with someone",
+        "example": "My parents and I don't always see eye to eye."
       }
     ]
   },
   {
     "day": 33,
-    "theme": "Cultural Globalization & Heritage Loss",
-    "category": "Society",
+    "theme": "Science & Research (Part 3)",
+    "category": "Education",
     "words": [
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "mutation",
+        "pos": "n",
+        "definition": "a change in the genes of a living thing",
         "synonyms": [
-          "administration",
-          "red tape"
+          "gene change",
+          "genetic alteration"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "A mutation made the virus spread faster."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "theoretical",
+        "pos": "adj",
+        "definition": "based on ideas, not real practice",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "idea-based",
+          "conceptual"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "This is only a theoretical solution."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "predict",
+        "pos": "v",
+        "definition": "to say what will happen in the future",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "forecast",
+          "anticipate"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Scientists predict more storms in future."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "speculate",
+        "pos": "v",
+        "definition": "to guess without full facts",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "guess",
+          "conjecture"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "Experts speculate about the cause of the fire."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "discrepancy",
+        "pos": "n",
+        "definition": "a difference between things that should match",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "difference",
+          "inconsistency"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "There was a discrepancy between the two reports."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "criterion",
+        "pos": "n",
+        "definition": "a rule used to judge or decide something",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "standard",
+          "benchmark"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "Accuracy is the main criterion for success."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "formulate",
+        "pos": "v",
+        "definition": "to carefully create a plan or idea",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "develop",
+          "devise"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "They formulated a new theory of memory."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "rigorous",
+        "pos": "adj",
+        "definition": "done with great care and detail",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "very careful",
+          "meticulous"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "The study used rigorous testing methods."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "probe",
+        "pos": "v",
+        "definition": "to ask and look carefully into something",
         "synonyms": [
-          "altruism",
-          "charity"
+          "investigate",
+          "explore"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Researchers probed the causes of the problem."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "breakdown",
+        "pos": "n",
+        "definition": "a list that separates something into parts",
         "synonyms": [
-          "isolation",
-          "division"
+          "analysis",
+          "detailed account"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "The report gave a breakdown of costs."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "hinge on",
-        "meaning": "depend entirely or decisively upon a single factor",
-        "example": "The viability of space colonization hinges on developing closed-loop life support."
+        "verb": "run out of",
+        "bestFor": "W/S",
+        "meaning": "to have no more of something left",
+        "example": "The shop ran out of bread by noon."
       },
       {
-        "verb": "iron out",
-        "meaning": "resolve or eliminate minor difficulties or disputes",
-        "example": "Diplomats worked tirelessly through the night to iron out trade treaty details."
+        "verb": "tie up",
+        "bestFor": "W",
+        "meaning": "to use money or time so it cannot be used for other things",
+        "example": "Too much money is tied up in property."
       },
       {
-        "verb": "jot down",
-        "meaning": "write down quickly or take concise notes",
-        "example": "Candidates should jot down a quick 3-minute essay plan before writing."
+        "verb": "scale up",
+        "bestFor": "W",
+        "meaning": "to make something bigger",
+        "example": "They plan to scale up production next year."
       }
     ],
     "idioms": [
       {
-        "idiom": "Play it safe",
-        "meaning": "Take a cautious approach to minimize potential hazards",
-        "example": "While novice writers play it safe with simple sentences, high scorers vary their syntax."
+        "idiom": "a shoulder to cry on",
+        "meaning": "someone who listens when you are sad",
+        "example": "My sister was a shoulder to cry on."
       },
       {
-        "idiom": "Draw a line in the sand",
-        "meaning": "Establish a clear, non-negotiable boundary or limit",
-        "example": "The international community drew a line in the sand against illegal whaling."
+        "idiom": "burn bridges",
+        "meaning": "to ruin a relationship so you cannot repair it",
+        "example": "Don't burn bridges when you leave a job."
       }
     ]
   },
   {
     "day": 34,
-    "theme": "Socioeconomic Inequality & Poverty",
+    "theme": "Transport & Urban Life (Part 1)",
     "category": "Society",
     "words": [
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "congestion",
+        "pos": "n",
+        "definition": "too many vehicles on the road",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "heavy traffic",
+          "overcrowding"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "Traffic congestion wastes time and fuel."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "commuter",
+        "pos": "n",
+        "definition": "a person who travels to work every day",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "daily traveller",
+          "season-ticket traveller"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "Commuters crowd the trains each morning."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "infrastructure",
+        "pos": "n",
+        "definition": "roads, bridges and services a country needs",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "basic systems",
+          "public facilities"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "Good infrastructure helps the economy grow."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "pedestrian",
+        "pos": "n",
+        "definition": "a person who walks, not drives",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "walker",
+          "foot traveller"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "Pedestrians use the zebra crossing."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "urbanisation",
+        "pos": "n",
+        "definition": "the growth of towns and cities",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "city growth",
+          "move to cities"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Rapid urbanisation puts pressure on housing."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "suburb",
+        "pos": "n",
+        "definition": "an area at the edge of a city",
         "synonyms": [
-          "altruism",
-          "charity"
+          "outer area",
+          "commuter belt"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "They live in a quiet suburb."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "overcrowded",
+        "pos": "adj",
+        "definition": "having too many people in one place",
         "synonyms": [
-          "isolation",
-          "division"
+          "too full",
+          "congested"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "The buses are overcrowded at five o'clock."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "skyscraper",
+        "pos": "n",
+        "definition": "a very tall building in a city",
         "synonyms": [
-          "administration",
-          "red tape"
+          "tall building",
+          "high-rise"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "The city is famous for its glass skyscrapers."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "gridlock",
+        "pos": "n",
+        "definition": "when traffic cannot move at all",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "total traffic jam",
+          "standstill"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "Gridlock stopped the whole city centre."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "carpool",
+        "pos": "v",
+        "definition": "to travel with others in one car",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "share a car",
+          "ride-share"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Colleagues carpool to cut costs."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "lay out",
-        "meaning": "present, organize, or explain ideas systematically",
-        "example": "The introductory paragraph must lay out the author's primary thesis statement."
+        "verb": "write off",
+        "bestFor": "W",
+        "meaning": "to accept that money is lost",
+        "example": "The bank wrote off the bad debts."
       },
       {
-        "verb": "accord with",
-        "meaning": "agree with or correspond to",
-        "example": "The experimental results accord with established ecological theories."
+        "verb": "think over",
+        "bestFor": "S",
+        "meaning": "to think about something carefully before deciding",
+        "example": "Let me think it over for a day."
       },
       {
-        "verb": "account for",
-        "meaning": "explain the cause or constitute a proportion",
-        "example": "Renewable power sources now account for over 35% of total generation."
+        "verb": "mull over",
+        "bestFor": "W/S",
+        "meaning": "to think about something for a long time",
+        "example": "He mulled over the offer for a week."
       }
     ],
     "idioms": [
       {
-        "idiom": "Go with the flow",
-        "meaning": "Accept circumstances and adapt smoothly to events",
-        "example": "During spontaneous discussions, fluent speakers know when to simply go with the flow."
+        "idiom": "the apple of my eye",
+        "meaning": "a person you love very much",
+        "example": "My daughter is the apple of my eye."
       },
       {
-        "idiom": "Lay the groundwork",
-        "meaning": "Prepare the foundational basics for future endeavors",
-        "example": "Early childhood literacy lays the groundwork for lifelong intellectual achievement."
+        "idiom": "the black sheep",
+        "meaning": "the member of a family who is different or disliked",
+        "example": "He's the black sheep of the family."
       }
     ]
   },
   {
     "day": 35,
-    "theme": "Crime Deterrence & Rehabilitation",
+    "theme": "Transport & Urban Life (Part 2)",
     "category": "Society",
     "words": [
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "slum",
+        "pos": "n",
+        "definition": "a crowded area with very bad housing",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "poor area",
+          "shanty town"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "Children in the slum have little clean water."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "gentrification",
+        "pos": "n",
+        "definition": "when rich people move into a poor area",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "area becoming richer",
+          "urban upgrading"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Gentrification has pushed up local rents."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "megacity",
+        "pos": "n",
+        "definition": "a city with more than ten million people",
         "synonyms": [
-          "altruism",
-          "charity"
+          "huge city",
+          "giant metropolis"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Dhaka is one of the world's biggest megacities."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "sprawl",
+        "pos": "n",
+        "definition": "a city growing outward without a plan",
         "synonyms": [
-          "isolation",
-          "division"
+          "spreading out",
+          "uncontrolled growth"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "Urban sprawl takes over farmland."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "toll",
+        "pos": "n",
+        "definition": "money paid to use a road or bridge",
         "synonyms": [
-          "administration",
-          "red tape"
+          "road fee",
+          "charge"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "There is a toll on the new bridge."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "cyclist",
+        "pos": "n",
+        "definition": "a person who rides a bicycle",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "bike rider",
+          "bicycle user"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "Separate lanes keep cyclists safe."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "regenerate",
+        "pos": "v",
+        "definition": "to make a place new and better",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "rebuild",
+          "renew"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "The council regenerated the old docks."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "amenities",
+        "pos": "n",
+        "definition": "useful things like shops, parks and schools",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "facilities",
+          "services"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "The area has good amenities for families."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "residential",
+        "pos": "adj",
+        "definition": "used for people's homes, not business",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "for housing",
+          "domestic"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "This is a quiet residential street."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "relocate",
+        "pos": "v",
+        "definition": "to move to a different place",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "move",
+          "resettle"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "Many families relocated to the capital."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "act on",
-        "meaning": "take action in response to information or advice",
-        "example": "Governments must act on scientific warnings regarding climate instability."
+        "verb": "come up with",
+        "bestFor": "W/S",
+        "meaning": "to think of an idea or a plan",
+        "example": "Students came up with a clever solution."
       },
       {
-        "verb": "add to",
-        "meaning": "increase or enhance the intensity of something",
-        "example": "Rising fuel levies add to the economic strain felt by working families."
+        "verb": "dream up",
+        "bestFor": "S",
+        "meaning": "to invent an idea, often a strange one",
+        "example": "Who dreamed up this crazy plan?"
       },
       {
-        "verb": "add up to",
-        "meaning": "total or result in an overall implication",
-        "example": "These incremental policy improvements add up to profound societal transformation."
+        "verb": "make out",
+        "bestFor": "S",
+        "meaning": "to see or understand with difficulty",
+        "example": "I could not make out what he was saying."
       }
     ],
     "idioms": [
       {
-        "idiom": "Take it easy",
-        "meaning": "Relax and avoid exerting excessive stress or haste",
-        "example": "Candidates should take it easy the evening prior to the IELTS exam to ensure sound sleep."
+        "idiom": "fair-weather friend",
+        "meaning": "a friend who is only there in good times",
+        "example": "A fair-weather friend disappears when you need help."
       },
       {
-        "idiom": "Hold your horses",
-        "meaning": "Exercise patience and wait before taking impulsive action",
-        "example": "Analysts urged investors to hold their horses before reacting to market volatility."
+        "idiom": "rub someone up the wrong way",
+        "meaning": "to annoy someone without meaning to",
+        "example": "His loud voice rubs me up the wrong way."
       }
     ]
   },
   {
     "day": 36,
-    "theme": "Nuclear & Extended Family Dynamics",
+    "theme": "Transport & Urban Life (Part 3)",
     "category": "Society",
     "words": [
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "accessibility",
+        "pos": "n",
+        "definition": "how easy a place is to reach or use",
         "synonyms": [
-          "isolation",
-          "division"
+          "ease of reaching",
+          "availability"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "Ramps improve accessibility for wheelchair users."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "densely",
+        "pos": "adv",
+        "definition": "with many people or things close together",
         "synonyms": [
-          "administration",
-          "red tape"
+          "very closely",
+          "thickly"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "Bangladesh is a densely populated country."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "revitalise",
+        "pos": "v",
+        "definition": "to give new energy to a place",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "bring back to life",
+          "rejuvenate"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "New cafes revitalised the old market."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "rural",
+        "pos": "adj",
+        "definition": "connected with the countryside",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "countryside",
+          "agrarian"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Rural schools often lack resources."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "metropolis",
+        "pos": "n",
+        "definition": "a very large and important city",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "big city",
+          "conurbation"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "The metropolis never sleeps."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "pavement",
+        "pos": "n",
+        "definition": "the path at the side of a road for walkers",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "footpath",
+          "sidewalk"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "Cars were parked on the pavement."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "tram",
+        "pos": "n",
+        "definition": "an electric vehicle that runs on city rails",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "street train",
+          "light rail"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "The tram is cheap and clean."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "bustling",
+        "pos": "adj",
+        "definition": "full of people and activity",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "busy",
+          "lively"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "The bustling market is open all day."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "dwelling",
+        "pos": "n",
+        "definition": "a house or place to live",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "home",
+          "residence"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Many dwellings were damaged in the flood."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "shuttle",
+        "pos": "n",
+        "definition": "a bus or train that goes back and forth",
         "synonyms": [
-          "altruism",
-          "charity"
+          "short-route service",
+          "regular link service"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "A free shuttle runs to the airport."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "amount to",
-        "meaning": "be equivalent to or signify something substantial",
-        "example": "Refusing to enforce environmental codes amounts to gross civic negligence."
+        "verb": "give up",
+        "bestFor": "W/S",
+        "meaning": "to stop trying or stop a habit",
+        "example": "She never gives up on her dreams."
       },
       {
-        "verb": "back up",
-        "meaning": "support a claim or argument with empirical proof",
-        "example": "Candidates must back up their thesis statements with relevant academic examples."
+        "verb": "hold on to",
+        "bestFor": "W/S",
+        "meaning": "to keep something and not let go",
+        "example": "Try to hold on to your good habits."
       },
       {
-        "verb": "bear on",
-        "meaning": "be relevant to or have an influence upon",
-        "example": "Demographic aging patterns bear directly on national healthcare budgets."
+        "verb": "look back on",
+        "bestFor": "S",
+        "meaning": "to think about the past",
+        "example": "I look back on my school days with joy."
       }
     ],
     "idioms": [
       {
-        "idiom": "A double-edged sword",
-        "meaning": "Something having both advantageous and unfavorable facets",
-        "example": "Automation is a double-edged sword: it multiplies output while displacing manual roles."
+        "idiom": "beat around the bush",
+        "meaning": "to avoid saying the main thing",
+        "example": "Stop beating around the bush and tell me."
       },
       {
-        "idiom": "In hot water",
-        "meaning": "In serious trouble or facing severe disciplinary scrutiny",
-        "example": "The corporation landed in hot water after falsifying vehicle emission diagnostics."
+        "idiom": "speak your mind",
+        "meaning": "to say exactly what you think",
+        "example": "I like people who speak their minds."
       }
     ]
   },
   {
     "day": 37,
-    "theme": "Mass Transit & Smart Transportation",
+    "theme": "Family & Relationships (Part 1)",
     "category": "Society",
     "words": [
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "upbringing",
+        "pos": "n",
+        "definition": "the way parents raise a child",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "childhood care",
+          "rearing"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Her strict upbringing taught her to be polite."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "sibling",
+        "pos": "n",
+        "definition": "a brother or a sister",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "brother or sister",
+          "close relative"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "My younger sibling shares my room."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "nurture",
+        "pos": "v",
+        "definition": "to look after and help someone grow",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "care for",
+          "bring up"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "Parents nurture their children with love."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "dependant",
+        "pos": "n",
+        "definition": "a person who needs you to pay for them",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "person you support",
+          "financial charge"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "He has three dependants to support."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "bond",
+        "pos": "n",
+        "definition": "a strong connection between people",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "close link",
+          "attachment"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "The bond between mother and baby is strong."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "guardian",
+        "pos": "n",
+        "definition": "a person who takes care of a child legally",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "protector",
+          "legal carer"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "His uncle became his legal guardian."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "nuclear",
+        "pos": "adj",
+        "definition": "a family of just parents and children",
         "synonyms": [
-          "altruism",
-          "charity"
+          "small family",
+          "immediate-family"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Nuclear families are common in cities."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "divorce",
+        "pos": "n",
+        "definition": "the legal end of a marriage",
         "synonyms": [
-          "isolation",
-          "division"
+          "marriage ending",
+          "legal separation"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "Divorce rates have risen in many countries."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "elderly",
+        "pos": "adj",
+        "definition": "a polite word for old people",
         "synonyms": [
-          "administration",
-          "red tape"
+          "old",
+          "aged"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "Elderly relatives often live with their children."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "offspring",
+        "pos": "n",
+        "definition": "the children of a person or animal",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "children",
+          "descendants"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "Parents want the best for their offspring."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bear out",
-        "meaning": "confirm or substantiate as authentic or true",
-        "example": "Subsequent empirical fieldwork bore out the anthropologist's initial theory."
+        "verb": "dwell on",
+        "bestFor": "S",
+        "meaning": "to think or talk about something too much",
+        "example": "Don't dwell on your mistakes."
       },
       {
-        "verb": "boil down to",
-        "meaning": "essentially mean or be reduced to the primary issue",
-        "example": "Urban transit challenges ultimately boil down to chronic underfunding."
+        "verb": "count on",
+        "bestFor": "S",
+        "meaning": "to trust someone to help you",
+        "example": "You can count on me."
       },
       {
-        "verb": "break down",
-        "meaning": "analyze by dividing into discrete constituent elements",
-        "example": "Let us break down the demographic chart by household income brackets."
+        "verb": "settle on",
+        "bestFor": "S",
+        "meaning": "to finally choose something",
+        "example": "We settled on a small hotel near the beach."
       }
     ],
     "idioms": [
       {
-        "idiom": "Jump on the bandwagon",
-        "meaning": "Join a widespread trend or popular activity",
-        "example": "Many universities jumped on the bandwagon of offering massive open online courses."
+        "idiom": "spill the beans",
+        "meaning": "to tell a secret",
+        "example": "Don't spill the beans about the party."
       },
       {
-        "idiom": "Keep your fingers crossed",
-        "meaning": "Hope or wish intensely for good fortune or success",
-        "example": "After submitting her postgraduate scholarship portfolio, she kept her fingers crossed."
+        "idiom": "let the cat out of the bag",
+        "meaning": "to tell a secret by mistake",
+        "example": "He let the cat out of the bag about my gift."
       }
     ]
   },
   {
     "day": 38,
-    "theme": "Mass Media, Journalism & Censorship",
+    "theme": "Family & Relationships (Part 2)",
     "category": "Society",
     "words": [
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "spouse",
+        "pos": "n",
+        "definition": "a husband or wife",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "husband or wife",
+          "partner"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "You may bring your spouse to the party."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "adolescence",
+        "pos": "n",
+        "definition": "the time between childhood and adult life",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "teenage years",
+          "puberty"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "Adolescence is a difficult stage of life."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "rebellious",
+        "pos": "adj",
+        "definition": "not wanting to obey rules",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "disobedient",
+          "defiant"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "Teenagers can be rebellious."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "overprotective",
+        "pos": "adj",
+        "definition": "trying to keep someone too safe",
         "synonyms": [
-          "altruism",
-          "charity"
+          "too careful",
+          "smothering"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Overprotective parents stop kids learning."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "bereavement",
+        "pos": "n",
+        "definition": "the sad time after a person dies",
         "synonyms": [
-          "isolation",
-          "division"
+          "loss of a loved one",
+          "grief after death"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "She took time off work after her bereavement."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "inherit",
+        "pos": "v",
+        "definition": "to receive money or traits from family",
         "synonyms": [
-          "administration",
-          "red tape"
+          "get from parents",
+          "come into"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "She inherited her mother's green eyes."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "household",
+        "pos": "n",
+        "definition": "all the people living in one house",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "people in a home",
+          "family unit"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "The average household has four members."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "orphan",
+        "pos": "n",
+        "definition": "a child whose parents have died",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "child with no parents",
+          "parentless child"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "The charity helps orphans find new homes."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "reconcile",
+        "pos": "v",
+        "definition": "to become friends again after a quarrel",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "make peace",
+          "patch up"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "The brothers reconciled after years of silence."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "affection",
+        "pos": "n",
+        "definition": "a gentle feeling of love",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "love",
+          "fondness"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "She showed great affection for her cat."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bring about",
-        "meaning": "cause an event or structural shift to occur",
-        "example": "Technological innovation will bring about fundamental labor market changes."
+        "verb": "opt for",
+        "bestFor": "W/S",
+        "meaning": "to choose one thing instead of another",
+        "example": "Many people opt for online banking."
       },
       {
-        "verb": "bring together",
-        "meaning": "combine or assemble diverse groups or viewpoints",
-        "example": "The symposium brought together leading climatologists from six continents."
+        "verb": "decide on",
+        "bestFor": "S",
+        "meaning": "to choose something after thinking",
+        "example": "They decided on a new name for the shop."
       },
       {
-        "verb": "bring up",
-        "meaning": "raise an important topic or issue for discussion",
-        "example": "The delegate brought up the pressing question of equitable vaccine distribution."
+        "verb": "narrow down",
+        "bestFor": "W/S",
+        "meaning": "to reduce the number of choices",
+        "example": "We narrowed down the list to three names."
       }
     ],
     "idioms": [
       {
-        "idiom": "Make ends meet",
-        "meaning": "Earn sufficient money to cover basic living expenses",
-        "example": "Low-income urban families often struggle to make ends meet amidst soaring rents."
+        "idiom": "read between the lines",
+        "meaning": "to understand what is not said directly",
+        "example": "If you read between the lines, he is unhappy."
       },
       {
-        "idiom": "On cloud nine",
-        "meaning": "Extremely joyful, ecstatic, or delighted",
-        "example": "He was on cloud nine after opening his official IELTS results and seeing an overall Band 8.5."
+        "idiom": "hit the nail on the head",
+        "meaning": "to say exactly the right thing",
+        "example": "You hit the nail on the head with that comment."
       }
     ]
   },
   {
     "day": 39,
-    "theme": "Consumerist Culture & Fast Fashion",
+    "theme": "Family & Relationships (Part 3)",
     "category": "Society",
     "words": [
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "estranged",
+        "pos": "adj",
+        "definition": "not speaking to family or friends any more",
         "synonyms": [
-          "altruism",
-          "charity"
+          "no longer close",
+          "alienated"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "He is estranged from his father."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "mutual",
+        "pos": "adj",
+        "definition": "felt or done by both people",
         "synonyms": [
-          "isolation",
-          "division"
+          "shared",
+          "reciprocal"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "They share a mutual respect."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "loyalty",
+        "pos": "n",
+        "definition": "staying true to a person or group",
         "synonyms": [
-          "administration",
-          "red tape"
+          "faithfulness",
+          "allegiance"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "His loyalty to friends is well known."
       },
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "companionship",
+        "pos": "n",
+        "definition": "the pleasant feeling of being with someone",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "friendship",
+          "fellowship"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "Pets give elderly people companionship."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "pamper",
+        "pos": "v",
+        "definition": "to give too much comfort and attention",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "spoil",
+          "indulge"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Grandparents love to pamper their grandchildren."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "infancy",
+        "pos": "n",
+        "definition": "the first years of a child's life",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "babyhood",
+          "early childhood"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "Many diseases are most dangerous in infancy."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "foster",
+        "pos": "v",
+        "definition": "to care for a child who is not yours for a time",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "look after",
+          "raise temporarily"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "They foster children who have no home."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "cherish",
+        "pos": "v",
+        "definition": "to love and take care of something very much",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "treasure",
+          "hold dear"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "I cherish the time with my grandparents."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "quarrel",
+        "pos": "n",
+        "definition": "an angry talk between people",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "argument",
+          "row"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "The couple had a quarrel over money."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "maternal",
+        "pos": "adj",
+        "definition": "having the feelings of a mother",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "motherly",
+          "mother-like"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "She has a strong maternal instinct."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "build on",
-        "meaning": "develop further from an established foundation",
-        "example": "Future medical research will build on the monumental mapping of the human genome."
+        "verb": "weigh up",
+        "bestFor": "W/S",
+        "meaning": "to think about good and bad points before choosing",
+        "example": "You should weigh up the pros and cons."
       },
       {
-        "verb": "build up",
-        "meaning": "increase gradually over a prolonged period",
-        "example": "Unchecked industrial activity allows toxic heavy metals to build up in waterways."
+        "verb": "factor in",
+        "bestFor": "W",
+        "meaning": "to include something when you plan or calculate",
+        "example": "Factor in the cost of travel."
       },
       {
-        "verb": "carry on",
-        "meaning": "continue an activity without disruption",
-        "example": "Despite logistical hardships, the researchers carried on their Arctic expedition."
+        "verb": "talk into",
+        "bestFor": "S",
+        "meaning": "to persuade someone to do something",
+        "example": "My friend talked me into joining the gym."
       }
     ],
     "idioms": [
       {
-        "idiom": "Save for a rainy day",
-        "meaning": "Conserve funds or resources for unforeseen emergencies",
-        "example": "Prudent fiscal policy requires governments to save budgetary surpluses for a rainy day."
+        "idiom": "put my foot in it",
+        "meaning": "to say something embarrassing by mistake",
+        "example": "I put my foot in it by asking about her job."
       },
       {
-        "idiom": "Let sleeping dogs lie",
-        "meaning": "Avoid stirring up past disputes or dormant problems",
-        "example": "Diplomats chose to let sleeping dogs lie regarding historical maritime demarcation lines."
+        "idiom": "on the same page",
+        "meaning": "agreeing and understanding the same thing",
+        "example": "Let's make sure we're all on the same page."
       }
     ]
   },
   {
     "day": 40,
-    "theme": "Civic Activism, NGOs & Volunteering",
-    "category": "Society",
+    "theme": "Food & Agriculture (Part 1)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Urbanization",
-        "pos": "noun",
-        "definition": "The process of making an area more urban; population movement into cities.",
+        "word": "harvest",
+        "pos": "n",
+        "definition": "the time when crops are picked",
         "synonyms": [
-          "city development",
-          "urban sprawl"
+          "crop gathering",
+          "yield collection"
         ],
-        "example": "Rapid urbanization has strained municipal transportation and sewage systems."
+        "example": "The rice harvest was very good this year."
       },
       {
-        "word": "Demographics",
-        "pos": "noun",
-        "definition": "Statistical data relating to the population and particular groups.",
+        "word": "cultivate",
+        "pos": "v",
+        "definition": "to prepare land and grow crops",
         "synonyms": [
-          "population statistics",
-          "census data"
+          "grow",
+          "farm"
         ],
-        "example": "Shifting demographics indicate that several nations face shrinking working-age populations."
+        "example": "Farmers cultivate wheat in the north."
       },
       {
-        "word": "Disparity",
-        "pos": "noun",
-        "definition": "A great difference or noticeable inequality between two or more groups.",
+        "word": "fertiliser",
+        "pos": "n",
+        "definition": "a substance that helps plants grow",
         "synonyms": [
-          "inbalance",
-          "incongruity"
+          "plant food",
+          "soil enhancer"
         ],
-        "example": "The economic disparity between affluent and marginalized sectors continues to widen."
+        "example": "Too much fertiliser can pollute rivers."
       },
       {
-        "word": "Homogeneity",
-        "pos": "noun",
-        "definition": "The quality or state of all the constituents being of the same kind.",
+        "word": "pesticide",
+        "pos": "n",
+        "definition": "a chemical used to kill insects on plants",
         "synonyms": [
-          "uniformity",
-          "similarity"
+          "insect killer",
+          "crop chemical"
         ],
-        "example": "Globalization can occasionally threaten indigenous cultural homogeneity."
+        "example": "Some pesticides harm bees."
       },
       {
-        "word": "Stratification",
-        "pos": "noun",
-        "definition": "The arrangement or classification of something into different groups.",
+        "word": "yield",
+        "pos": "n",
+        "definition": "the amount of crops a farm produces",
         "synonyms": [
-          "social grading",
-          "categorization"
+          "crop amount",
+          "output"
         ],
-        "example": "Rigid social stratification stifles upward mobility for talented working-class youth."
+        "example": "New seeds increased the yield per hectare."
       },
       {
-        "word": "Gentrification",
-        "pos": "noun",
-        "definition": "The transformation of poor neighborhoods by wealthier residents moving in.",
+        "word": "irrigation",
+        "pos": "n",
+        "definition": "giving water to land so crops grow",
         "synonyms": [
-          "urban renewal",
-          "redevelopment"
+          "watering land",
+          "water supply system"
         ],
-        "example": "Gentrification often escalates rent, displacing long-standing local communities."
+        "example": "Irrigation helps farms in dry regions."
       },
       {
-        "word": "Infrastructure",
-        "pos": "noun",
-        "definition": "The basic physical and organizational structures needed for operation.",
+        "word": "livestock",
+        "pos": "n",
+        "definition": "animals kept on a farm",
         "synonyms": [
-          "framework",
-          "public utilities"
+          "farm animals",
+          "cattle and sheep"
         ],
-        "example": "Governments must invest aggressively in bridge and rail infrastructure."
+        "example": "The farmer has livestock like cows and goats."
       },
       {
-        "word": "Philanthropy",
-        "pos": "noun",
-        "definition": "The desire to promote the welfare of others, expressed through donation.",
+        "word": "organic",
+        "pos": "adj",
+        "definition": "grown without man-made chemicals",
         "synonyms": [
-          "altruism",
-          "charity"
+          "chemical-free",
+          "naturally grown"
         ],
-        "example": "Billionaires often channel substantial fortunes into educational philanthropy."
+        "example": "Organic vegetables are more expensive."
       },
       {
-        "word": "Segregation",
-        "pos": "noun",
-        "definition": "The action or state of setting someone or something apart from others.",
+        "word": "famine",
+        "pos": "n",
+        "definition": "a time when many people have no food",
         "synonyms": [
-          "isolation",
-          "division"
+          "food shortage",
+          "mass hunger"
         ],
-        "example": "Equitable housing policies are necessary to combat deep residential segregation."
+        "example": "Famine struck after the long drought."
       },
       {
-        "word": "Bureaucracy",
-        "pos": "noun",
-        "definition": "A system of government in which most decisions are taken by state officials.",
+        "word": "staple",
+        "pos": "n",
+        "definition": "a main food that people eat all the time",
         "synonyms": [
-          "administration",
-          "red tape"
+          "basic food",
+          "dietary mainstay"
         ],
-        "example": "Excessive administrative bureaucracy often deters innovative business startups."
+        "example": "Rice is the staple food of Bangladesh."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "carry out",
-        "meaning": "perform, execute, or complete an experiment or task",
-        "example": "The laboratory team carried out an exhaustive double-blind trial."
+        "verb": "put down to",
+        "bestFor": "W",
+        "meaning": "to say that something is caused by something else",
+        "example": "The delay was put down to bad weather."
       },
       {
-        "verb": "check over",
-        "meaning": "inspect meticulously for errors or omissions",
-        "example": "Writers should carefully check over their Task 2 essays during the final 3 minutes."
+        "verb": "see through",
+        "bestFor": "S",
+        "meaning": "to understand the truth behind a lie",
+        "example": "I saw through his excuse at once."
       },
       {
-        "verb": "come down to",
-        "meaning": "ultimately depend upon or be decided by a key factor",
-        "example": "Resolving poverty often comes down to guaranteeing equal education access."
+        "verb": "take in",
+        "bestFor": "S",
+        "meaning": "to understand or remember new information",
+        "example": "I could not take in all the facts."
       }
     ],
     "idioms": [
       {
-        "idiom": "Turn a deaf ear",
-        "meaning": "Deliberately ignore or refuse to listen to counsel",
-        "example": "City councils must not turn a deaf ear to pedestrian safety petitions."
+        "idiom": "take it with a pinch of salt",
+        "meaning": "to not completely believe something",
+        "example": "Take his stories with a pinch of salt."
       },
       {
-        "idiom": "A wake-up call",
-        "meaning": "An alarming event that alerts people to take urgent action",
-        "example": "The catastrophic flash flood served as a sobering wake-up call for municipal authorities."
+        "idiom": "get it off my chest",
+        "meaning": "to tell someone what worries you",
+        "example": "I needed to get it off my chest."
       }
     ]
   },
   {
     "day": 41,
-    "theme": "Sedentary Behavior & Physical Inactivity",
-    "category": "Health",
+    "theme": "Food & Agriculture (Part 2)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Holistic",
+        "word": "processed",
         "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "definition": "changed by a factory before you buy it",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "factory-made",
+          "manufactured"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "Processed food often contains a lot of salt."
       },
       {
-        "word": "Therapeutic",
+        "word": "additive",
+        "pos": "n",
+        "definition": "something added to food to improve it",
+        "synonyms": [
+          "added substance",
+          "food chemical"
+        ],
+        "example": "Some additives are used to keep colour."
+      },
+      {
+        "word": "cuisine",
+        "pos": "n",
+        "definition": "a style of cooking from a place",
+        "synonyms": [
+          "cooking style",
+          "national dishes"
+        ],
+        "example": "Thai cuisine is famous for its spice."
+      },
+      {
+        "word": "nutritious",
         "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "definition": "containing things that are good for the body",
         "synonyms": [
-          "curative",
-          "remedial"
+          "healthy",
+          "wholesome"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "Lentils are cheap and nutritious."
       },
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
-      },
-      {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
-      },
-      {
-        "word": "Chronic",
+        "word": "perishable",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "likely to go bad if not kept cool",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "goes bad quickly",
+          "short-lived"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "Fish is a perishable product."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
-        "synonyms": [
-          "immunization",
-          "vaccination"
-        ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
-      },
-      {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
-        "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
-        ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
-      },
-      {
-        "word": "Sedentary",
+        "word": "ripe",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "fully grown and ready to eat",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "ready to eat",
+          "mature"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "Wait until the mangoes are ripe."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
-        "synonyms": [
-          "incidence",
-          "pervasiveness"
-        ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
+        "word": "arable",
         "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "definition": "good for growing crops",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "farmable",
+          "cultivable"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "Arable land is shrinking in many countries."
+      },
+      {
+        "word": "subsistence",
+        "pos": "n",
+        "definition": "having just enough food to stay alive",
+        "synonyms": [
+          "basic living",
+          "bare survival"
+        ],
+        "example": "Many families live by subsistence farming."
+      },
+      {
+        "word": "preservative",
+        "pos": "n",
+        "definition": "a substance that stops food from going bad",
+        "synonyms": [
+          "food protector",
+          "keeping agent"
+        ],
+        "example": "This juice contains no preservatives."
+      },
+      {
+        "word": "dairy",
+        "pos": "n",
+        "definition": "products made from milk, like cheese",
+        "synonyms": [
+          "milk products",
+          "milk foods"
+        ],
+        "example": "Dairy farms supply the city with milk."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "come up with",
-        "meaning": "produce, formulate, or propose an innovative idea",
-        "example": "Architects must come up with sustainable bioclimatic urban building models."
+        "verb": "cut out",
+        "bestFor": "W/S",
+        "meaning": "to stop eating or doing something",
+        "example": "He cut out sugar from his diet."
       },
       {
-        "verb": "consist of",
-        "meaning": "be composed of or formed from specific parts",
-        "example": "The IELTS Academic exam consists of four distinct linguistic modules."
+        "verb": "wear out",
+        "bestFor": "S",
+        "meaning": "to become very tired or too old to use",
+        "example": "Long shifts wear nurses out."
       },
       {
-        "verb": "contribute to",
-        "meaning": "help cause or supply resources toward an outcome",
-        "example": "Sedentary leisure habits contribute to rising rates of cardiovascular disease."
+        "verb": "come down with",
+        "bestFor": "S",
+        "meaning": "to start to have an illness",
+        "example": "I came down with a cold last week."
       }
     ],
     "idioms": [
       {
-        "idiom": "Get down to business",
-        "meaning": "Commence serious, focused work without further delay",
-        "example": "After introductory greetings, the committee got down to business discussing the budget."
+        "idiom": "under the weather",
+        "meaning": "a little bit ill",
+        "example": "I'm feeling a bit under the weather today."
       },
       {
-        "idiom": "Pull someone's leg",
-        "meaning": "Tease or joke with someone in a good-natured manner",
-        "example": "He was merely pulling her leg when he joked that the speaking exam had 10 parts."
+        "idiom": "fit as a fiddle",
+        "meaning": "very healthy",
+        "example": "My grandfather is eighty and fit as a fiddle."
       }
     ]
   },
   {
     "day": 42,
-    "theme": "Psychological Wellbeing & Burnout",
-    "category": "Health",
+    "theme": "Food & Agriculture (Part 3)",
+    "category": "Environment",
     "words": [
       {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
-      },
-      {
-        "word": "Chronic",
+        "word": "fertile",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "able to produce plenty of crops",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "rich",
+          "productive"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "The delta has very fertile soil."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "overfishing",
+        "pos": "n",
+        "definition": "catching so many fish that they run out",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "taking too many fish",
+          "excessive catching"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "Overfishing is emptying the oceans."
       },
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "appetite",
+        "pos": "n",
+        "definition": "the feeling of wanting to eat",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "desire to eat",
+          "hunger"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "Stress can reduce your appetite."
       },
       {
-        "word": "Sedentary",
+        "word": "savour",
+        "pos": "v",
+        "definition": "to enjoy a taste or feeling fully",
+        "synonyms": [
+          "enjoy slowly",
+          "relish"
+        ],
+        "example": "She savoured every bite of the cake."
+      },
+      {
+        "word": "delicacy",
+        "pos": "n",
+        "definition": "a rare and delicious food",
+        "synonyms": [
+          "special food",
+          "gourmet dish"
+        ],
+        "example": "Hilsa fish is a famous delicacy."
+      },
+      {
+        "word": "ingredient",
+        "pos": "n",
+        "definition": "one of the foods used to make a dish",
+        "synonyms": [
+          "food part",
+          "component"
+        ],
+        "example": "Fresh ingredients make the soup taste better."
+      },
+      {
+        "word": "cereal",
+        "pos": "n",
+        "definition": "a grass crop like wheat, rice or corn",
+        "synonyms": [
+          "grain crop",
+          "grain product"
+        ],
+        "example": "Cereals are the world's main food source."
+      },
+      {
+        "word": "famished",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "extremely hungry",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "very hungry",
+          "ravenous"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "We were famished after the long walk."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
-        "synonyms": [
-          "incidence",
-          "pervasiveness"
-        ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
+        "word": "barren",
         "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "definition": "not able to grow plants",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "empty of crops",
+          "infertile"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "Drought turned the fields barren."
       },
       {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "word": "nutrient",
+        "pos": "n",
+        "definition": "a substance in food that your body needs",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "healthy substance",
+          "nourishing element"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
-      },
-      {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
-        "synonyms": [
-          "curative",
-          "remedial"
-        ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
-      },
-      {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
+        "example": "Spinach is full of important nutrients."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "count as",
-        "meaning": "be regarded or officially categorized as",
-        "example": "Internships completed during undergraduate years count as verifiable work experience."
+        "verb": "pass out",
+        "bestFor": "S",
+        "meaning": "to suddenly fall asleep or lose consciousness",
+        "example": "He passed out in the heat."
       },
       {
-        "verb": "deal with",
-        "meaning": "address, manage, or resolve a complex issue",
-        "example": "Urban planners must deal with traffic gridlock through expanded rail networks."
+        "verb": "black out",
+        "bestFor": "S",
+        "meaning": "to lose consciousness for a short time",
+        "example": "She blacked out for a few seconds."
       },
       {
-        "verb": "depart from",
-        "meaning": "deviate or vary from established conventions",
-        "example": "Modern pedagogical practices depart from rigid traditional rote memorization."
+        "verb": "stay up",
+        "bestFor": "S",
+        "meaning": "to not go to bed at the normal time",
+        "example": "Teenagers often stay up late."
       }
     ],
     "idioms": [
       {
-        "idiom": "A hard pill to swallow",
-        "meaning": "An unpleasant or difficult reality that must be accepted",
-        "example": "Accepting that fossil fuel extraction must decline rapidly was a hard pill to swallow."
+        "idiom": "back on my feet",
+        "meaning": "well again after an illness or problem",
+        "example": "I'm back on my feet after the flu."
       },
       {
-        "idiom": "In a nutshell",
-        "meaning": "Expressed in very concise, brief, and clear terms",
-        "example": "In a nutshell, the report recommends shifting subsidies from oil toward wind and solar."
+        "idiom": "burn the candle at both ends",
+        "meaning": "to work and play too much without rest",
+        "example": "Don't burn the candle at both ends or you'll get ill."
       }
     ]
   },
   {
     "day": 43,
-    "theme": "Nutritional Science & Processed Foods",
-    "category": "Health",
+    "theme": "Travel & Tourism (Part 1)",
+    "category": "Society",
     "words": [
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "itinerary",
+        "pos": "n",
+        "definition": "a plan of places you will visit on a trip",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "travel plan",
+          "schedule of a trip"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "Our itinerary includes five cities in ten days."
       },
       {
-        "word": "Sedentary",
+        "word": "destination",
+        "pos": "n",
+        "definition": "the place where you are going",
+        "synonyms": [
+          "place you travel to",
+          "end point"
+        ],
+        "example": "Cox's Bazar is a popular holiday destination."
+      },
+      {
+        "word": "sightseeing",
+        "pos": "n",
+        "definition": "visiting famous places as a tourist",
+        "synonyms": [
+          "visiting places",
+          "touring"
+        ],
+        "example": "We spent the day sightseeing in Rome."
+      },
+      {
+        "word": "accommodation",
+        "pos": "n",
+        "definition": "a room or building where you stay",
+        "synonyms": [
+          "place to stay",
+          "lodging"
+        ],
+        "example": "Hotel accommodation is expensive in summer."
+      },
+      {
+        "word": "souvenir",
+        "pos": "n",
+        "definition": "something you buy to remember a trip",
+        "synonyms": [
+          "memory gift",
+          "keepsake"
+        ],
+        "example": "I bought a small souvenir for my mother."
+      },
+      {
+        "word": "backpacker",
+        "pos": "n",
+        "definition": "a person who travels cheaply with a bag",
+        "synonyms": [
+          "budget traveller",
+          "independent traveller"
+        ],
+        "example": "Backpackers often stay in cheap hostels."
+      },
+      {
+        "word": "excursion",
+        "pos": "n",
+        "definition": "a short journey made for pleasure",
+        "synonyms": [
+          "short trip",
+          "outing"
+        ],
+        "example": "We took an excursion to the island."
+      },
+      {
+        "word": "hospitality",
+        "pos": "n",
+        "definition": "kind and generous treatment of visitors",
+        "synonyms": [
+          "welcome",
+          "generous treatment of guests"
+        ],
+        "example": "Bengali hospitality is famous around the world."
+      },
+      {
+        "word": "landmark",
+        "pos": "n",
+        "definition": "a famous or easy-to-see place",
+        "synonyms": [
+          "famous building",
+          "prominent feature"
+        ],
+        "example": "The tower is the city's best-known landmark."
+      },
+      {
+        "word": "scenic",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "having beautiful views of nature",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "beautiful to look at",
+          "picturesque views"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
-      },
-      {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
-        "synonyms": [
-          "incidence",
-          "pervasiveness"
-        ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
-        "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
-        "synonyms": [
-          "harmful",
-          "injurious"
-        ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
-      },
-      {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
-        "synonyms": [
-          "comprehensive",
-          "integrative"
-        ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
-      },
-      {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
-        "synonyms": [
-          "curative",
-          "remedial"
-        ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
-      },
-      {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
-      },
-      {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
-      },
-      {
-        "word": "Chronic",
-        "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
-        "synonyms": [
-          "persistent",
-          "long-standing"
-        ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
-      },
-      {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
-        "synonyms": [
-          "immunization",
-          "vaccination"
-        ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "We took the scenic route along the coast."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "depend on",
-        "meaning": "rely upon or be determined by contingency",
-        "example": "Economic prosperity depends on rule of law, open trade, and technological innovation."
+        "verb": "wind down",
+        "bestFor": "S",
+        "meaning": "to relax after a busy time",
+        "example": "I read a book to wind down after work."
       },
       {
-        "verb": "derive from",
-        "meaning": "originate, develop, or obtain from a source",
-        "example": "Many modern pharmaceuticals derive from active compounds found in rainforest flora."
+        "verb": "burn out",
+        "bestFor": "W/S",
+        "meaning": "to become very tired from too much work",
+        "example": "Doctors can burn out without proper rest."
       },
       {
-        "verb": "differ from",
-        "meaning": "be unlike, dissimilar, or distinct in quality",
-        "example": "Formal academic prose differs markedly from everyday colloquial speech."
+        "verb": "lie in",
+        "bestFor": "S",
+        "meaning": "to stay in bed later than usual",
+        "example": "I like to lie in on Sundays."
       }
     ],
     "idioms": [
       {
-        "idiom": "Actions speak louder than words",
-        "meaning": "What someone does conveys their true intent far better than speech",
-        "example": "Corporate commitments to green sustainability are empty unless actions speak louder than words."
+        "idiom": "couch potato",
+        "meaning": "a person who sits and watches TV a lot",
+        "example": "He became a couch potato during the winter."
       },
       {
-        "idiom": "At the end of the day",
-        "meaning": "Ultimately; when everything is considered in conclusion",
-        "example": "At the end of the day, individual commitment to daily practice determines IELTS success."
+        "idiom": "a breath of fresh air",
+        "meaning": "something new and refreshing",
+        "example": "The new teacher is a breath of fresh air."
       }
     ]
   },
   {
     "day": 44,
-    "theme": "Epidemiology, Contagion & Public Hygiene",
-    "category": "Health",
+    "theme": "Travel & Tourism (Part 2)",
+    "category": "Society",
     "words": [
       {
-        "word": "Detrimental",
-        "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "word": "visa",
+        "pos": "n",
+        "definition": "an official paper to enter a country",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "entry permit",
+          "travel authorisation"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "You need a visa to visit that country."
       },
       {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "word": "resort",
+        "pos": "n",
+        "definition": "a place where people go on holiday",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "holiday place",
+          "tourist complex"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "The beach resort has three swimming pools."
       },
       {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "word": "cruise",
+        "pos": "n",
+        "definition": "a holiday on a big ship",
         "synonyms": [
-          "curative",
-          "remedial"
+          "sea holiday",
+          "ship voyage"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "They went on a two-week cruise."
       },
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
+        "word": "expedition",
+        "pos": "n",
+        "definition": "a long trip for a special reason",
         "synonyms": [
-          "nourishment",
-          "sustenance"
+          "long adventure",
+          "organised journey"
         ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
+        "example": "The expedition climbed Mount Everest."
       },
       {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
+        "word": "ecotourism",
+        "pos": "n",
+        "definition": "travel that protects nature and local people",
         "synonyms": [
-          "cleanliness",
-          "sanitation"
+          "green travel",
+          "sustainable tourism"
         ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
+        "example": "Ecotourism supports local communities."
       },
       {
-        "word": "Chronic",
-        "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "word": "luggage",
+        "pos": "n",
+        "definition": "the bags and cases you take on a trip",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "bags",
+          "baggage"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "The airline lost my luggage."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "voyage",
+        "pos": "n",
+        "definition": "a long journey, especially by sea",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "sea journey",
+          "long trip"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "The voyage to America took weeks."
       },
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "wander",
+        "pos": "v",
+        "definition": "to walk slowly without a clear plan",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "walk around",
+          "roam"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "We wandered through the old streets."
       },
       {
-        "word": "Sedentary",
-        "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "word": "embark",
+        "pos": "v",
+        "definition": "to start a journey or to get on a ship",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "go on board",
+          "set out"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "They embarked on a long trip across Asia."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
+        "word": "hostel",
+        "pos": "n",
+        "definition": "a cheap place to stay for travellers",
         "synonyms": [
-          "incidence",
-          "pervasiveness"
+          "cheap lodging",
+          "budget accommodation"
         ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
+        "example": "A hostel bed costs ten dollars a night."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "divide into",
-        "meaning": "separate or partition into smaller functional parts",
-        "example": "The statistical population was divided into three distinct age cohorts."
+        "verb": "eat out",
+        "bestFor": "S",
+        "meaning": "to eat at a restaurant",
+        "example": "We eat out once a week."
       },
       {
-        "verb": "draw on",
-        "meaning": "utilize or use existing knowledge or resources as support",
-        "example": "Essay writers should draw on historical precedents to illustrate their arguments."
+        "verb": "warm up",
+        "bestFor": "S",
+        "meaning": "to do light exercise before sport",
+        "example": "Players warm up before the match."
       },
       {
-        "verb": "draw out",
-        "meaning": "elicit, extract, or extend information from someone",
-        "example": "Skilled interviewers know how to draw out insightful commentary from reticent subjects."
+        "verb": "cool down",
+        "bestFor": "S",
+        "meaning": "to become calm or less hot",
+        "example": "Take a break and cool down."
       }
     ],
     "idioms": [
       {
-        "idiom": "In the long run",
-        "meaning": "Over an extended subsequent duration; ultimately",
-        "example": "Investing in pediatric healthcare saves trillions of national revenue in the long run."
+        "idiom": "as right as rain",
+        "meaning": "completely well again",
+        "example": "After some sleep, you'll be as right as rain."
       },
       {
-        "idiom": "Keep your chin up",
-        "meaning": "Remain optimistic and resilient during adversity",
-        "example": "IELTS aspirants must keep their chin up even if their initial practice scores are disappointing."
+        "idiom": "early bird",
+        "meaning": "a person who gets up early",
+        "example": "I'm an early bird and I walk before sunrise."
       }
     ]
   },
   {
     "day": 45,
-    "theme": "Preventative Screening & Early Detection",
-    "category": "Health",
+    "theme": "Travel & Tourism (Part 3)",
+    "category": "Society",
     "words": [
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
+        "word": "terminal",
+        "pos": "n",
+        "definition": "the main building at an airport",
         "synonyms": [
-          "nourishment",
-          "sustenance"
+          "airport building",
+          "departure hall"
         ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
+        "example": "Our flight leaves from Terminal Two."
       },
       {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
+        "word": "immersion",
+        "pos": "n",
+        "definition": "being fully involved in a new place or culture",
         "synonyms": [
-          "cleanliness",
-          "sanitation"
+          "deep involvement",
+          "total absorption"
         ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
+        "example": "Language immersion is the fastest way to learn."
       },
       {
-        "word": "Chronic",
+        "word": "authentic",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "true and not copied",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "real",
+          "genuine"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "We ate authentic Italian pasta."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
-        "synonyms": [
-          "immunization",
-          "vaccination"
-        ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
-      },
-      {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
-        "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
-        ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
-      },
-      {
-        "word": "Sedentary",
+        "word": "exotic",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "from a faraway country and interesting",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "unusual",
+          "foreign and exciting"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "The market sells exotic fruits."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
-        "synonyms": [
-          "incidence",
-          "pervasiveness"
-        ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
+        "word": "picturesque",
         "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "definition": "so lovely that it looks like a picture",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "pretty",
+          "charming"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "It is a picturesque village by a lake."
       },
       {
-        "word": "Holistic",
+        "word": "idyllic",
         "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "definition": "very peaceful and beautiful",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "perfect",
+          "heavenly"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "We spent an idyllic week by the sea."
       },
       {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "word": "venture",
+        "pos": "v",
+        "definition": "to go somewhere that may be dangerous",
         "synonyms": [
-          "curative",
-          "remedial"
+          "dare to go",
+          "brave a journey"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "They ventured into the jungle."
+      },
+      {
+        "word": "layover",
+        "pos": "n",
+        "definition": "a short stop between two flights",
+        "synonyms": [
+          "stop between flights",
+          "transit stop"
+        ],
+        "example": "We had a six-hour layover in Dubai."
+      },
+      {
+        "word": "getaway",
+        "pos": "n",
+        "definition": "a short break away from home",
+        "synonyms": [
+          "short holiday",
+          "quick escape"
+        ],
+        "example": "A weekend getaway helped me relax."
+      },
+      {
+        "word": "overseas",
+        "pos": "adv",
+        "definition": "in or to a foreign country",
+        "synonyms": [
+          "abroad",
+          "in another country"
+        ],
+        "example": "Many students study overseas."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "end up",
-        "meaning": "finally become or reach an eventual state or location",
-        "example": "Without strict recycling enforcement, vast volumes of plastic end up in marine trenches."
+        "verb": "slim down",
+        "bestFor": "S",
+        "meaning": "to lose weight",
+        "example": "He slimmed down by walking daily."
       },
       {
-        "verb": "fall into",
-        "meaning": "be categorized, classified, or divided into groups",
-        "example": "Task 2 writing questions generally fall into five distinct thematic types."
+        "verb": "tone up",
+        "bestFor": "S",
+        "meaning": "to make the body firm with exercise",
+        "example": "She is doing yoga to tone up."
       },
       {
-        "verb": "feed back",
-        "meaning": "return evaluative information or effects to a system",
-        "example": "Sensor networks feed back real-time climate data into meteorological forecasting models."
+        "verb": "check up on",
+        "bestFor": "S",
+        "meaning": "to make sure someone is well or doing right",
+        "example": "The nurse checks up on the patients each hour."
       }
     ],
     "idioms": [
       {
-        "idiom": "Rule of thumb",
-        "meaning": "A broadly accurate practical guideline derived from experience",
-        "example": "As a general rule of thumb, Task 2 essays should allocate approximately 40 minutes."
+        "idiom": "night owl",
+        "meaning": "a person who stays awake late at night",
+        "example": "My brother is a night owl who studies at midnight."
       },
       {
-        "idiom": "The sky's the limit",
-        "meaning": "There are virtually no bounds or restrictions on potential",
-        "example": "With bilingual fluency and high technological literacy, the sky is the limit for youth."
+        "idiom": "feel run down",
+        "meaning": "to feel tired and weak",
+        "example": "I feel run down after the busy week."
       }
     ]
   },
   {
     "day": 46,
-    "theme": "Pharmaceutical Breakthroughs & Vaccines",
-    "category": "Health",
+    "theme": "Arts & Creativity (Part 1)",
+    "category": "Society",
     "words": [
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "masterpiece",
+        "pos": "n",
+        "definition": "a work of art that is excellent",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "great work",
+          "magnum opus"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "The Mona Lisa is a true masterpiece."
       },
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "exhibition",
+        "pos": "n",
+        "definition": "a public show of art or objects",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "art show",
+          "display"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "The exhibition opens on Friday."
       },
       {
-        "word": "Sedentary",
+        "word": "gallery",
+        "pos": "n",
+        "definition": "a place where art is shown",
+        "synonyms": [
+          "art museum",
+          "exhibition hall"
+        ],
+        "example": "We visited a gallery in the old town."
+      },
+      {
+        "word": "sculpture",
+        "pos": "n",
+        "definition": "an art object made from stone, metal or wood",
+        "synonyms": [
+          "statue",
+          "carved figure"
+        ],
+        "example": "The sculpture stands in the main square."
+      },
+      {
+        "word": "portrait",
+        "pos": "n",
+        "definition": "a painting or photo of a person",
+        "synonyms": [
+          "picture of a person",
+          "likeness"
+        ],
+        "example": "She painted a portrait of her grandfather."
+      },
+      {
+        "word": "abstract",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "not showing real things, only shapes and colours",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "not realistic",
+          "non-representational"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "He prefers abstract art to realistic art."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
+        "word": "canvas",
+        "pos": "n",
+        "definition": "a strong cloth that artists paint on",
         "synonyms": [
-          "incidence",
-          "pervasiveness"
+          "painting cloth",
+          "artist's surface"
         ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
+        "example": "The artist covered the canvas in blue paint."
       },
       {
-        "word": "Detrimental",
-        "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "word": "composer",
+        "pos": "n",
+        "definition": "a person who writes music",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "music writer",
+          "songwriter"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "Beethoven was a great composer."
       },
       {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "word": "genre",
+        "pos": "n",
+        "definition": "a kind of art, music or writing",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "type",
+          "category"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "Her favourite film genre is comedy."
       },
       {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "word": "craftsmanship",
+        "pos": "n",
+        "definition": "great skill in making things by hand",
         "synonyms": [
-          "curative",
-          "remedial"
+          "skill",
+          "artistry"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
-      },
-      {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
-      },
-      {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
-      },
-      {
-        "word": "Chronic",
-        "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
-        "synonyms": [
-          "persistent",
-          "long-standing"
-        ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "The furniture shows fine craftsmanship."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "feed into",
-        "meaning": "contribute to or supply inputs to a larger process",
-        "example": "Primary education standards feed into secondary school academic performance."
+        "verb": "shake off",
+        "bestFor": "S",
+        "meaning": "to get rid of an illness or feeling",
+        "example": "I can't shake off this cough."
       },
       {
-        "verb": "filter out",
-        "meaning": "remove unwanted, extraneous, or hazardous elements",
-        "example": "Advanced municipal filtration plants filter out microscopic microplastics from tap water."
+        "verb": "pull through",
+        "bestFor": "S",
+        "meaning": "to get better after a serious illness",
+        "example": "The doctors said he will pull through."
       },
       {
-        "verb": "fit into",
-        "meaning": "belong within or harmonize with a broader context",
-        "example": "New technological modules must fit into the overarching organizational infrastructure."
+        "verb": "break out",
+        "bestFor": "W",
+        "meaning": "to start suddenly, like a disease or fire",
+        "example": "A fire broke out in the market."
       }
     ],
     "idioms": [
       {
-        "idiom": "A piece of cake",
-        "meaning": "Something that is remarkably easy to accomplish",
-        "example": "With rigorous preparation, understanding Task 1 charts became a piece of cake."
+        "idiom": "on the fence",
+        "meaning": "not able to decide between two choices",
+        "example": "I'm on the fence about studying abroad."
       },
       {
-        "idiom": "Once in a blue moon",
-        "meaning": "Occurring very rarely or almost never",
-        "example": "Breakthrough scientific discoveries of this magnitude happen only once in a blue moon."
+        "idiom": "take the plunge",
+        "meaning": "to do something big after thinking about it",
+        "example": "They finally took the plunge and bought a house."
       }
     ]
   },
   {
     "day": 47,
-    "theme": "Work-Life Equilibrium & Sleep Hygiene",
-    "category": "Health",
+    "theme": "Arts & Creativity (Part 2)",
+    "category": "Society",
     "words": [
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
-        "synonyms": [
-          "incidence",
-          "pervasiveness"
-        ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
+        "word": "aesthetic",
         "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "definition": "connected with beauty and art",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "about beauty",
+          "artistic"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "The building has great aesthetic appeal."
       },
       {
-        "word": "Holistic",
+        "word": "imagination",
+        "pos": "n",
+        "definition": "the ability to think of new ideas",
+        "synonyms": [
+          "creative thinking",
+          "inventiveness"
+        ],
+        "example": "Children have a wonderful imagination."
+      },
+      {
+        "word": "ingenious",
         "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "definition": "very clever and original",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "clever",
+          "inventive"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "He found an ingenious way to save water."
       },
       {
-        "word": "Therapeutic",
+        "word": "rehearse",
+        "pos": "v",
+        "definition": "to practise before a performance",
+        "synonyms": [
+          "practise",
+          "prepare"
+        ],
+        "example": "The actors rehearsed the play for weeks."
+      },
+      {
+        "word": "applause",
+        "pos": "n",
+        "definition": "clapping hands to show you liked something",
+        "synonyms": [
+          "clapping",
+          "ovation"
+        ],
+        "example": "The crowd burst into applause."
+      },
+      {
+        "word": "improvise",
+        "pos": "v",
+        "definition": "to create something without planning",
+        "synonyms": [
+          "make up on the spot",
+          "ad-lib"
+        ],
+        "example": "The singer improvised a new verse."
+      },
+      {
+        "word": "critic",
+        "pos": "n",
+        "definition": "a person who gives opinions on art or films",
+        "synonyms": [
+          "reviewer",
+          "commentator"
+        ],
+        "example": "The critic gave the film five stars."
+      },
+      {
+        "word": "acclaimed",
         "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "definition": "praised by many people for being excellent",
         "synonyms": [
-          "curative",
-          "remedial"
+          "praised",
+          "celebrated"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "It is an acclaimed novel in many countries."
       },
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
-      },
-      {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
-      },
-      {
-        "word": "Chronic",
+        "word": "renowned",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "known by many people for something good",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "famous",
+          "eminent"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "She is a renowned violinist."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
-        "synonyms": [
-          "immunization",
-          "vaccination"
-        ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
-      },
-      {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
-        "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
-        ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
-      },
-      {
-        "word": "Sedentary",
+        "word": "eloquent",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "able to speak or write clearly and strongly",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "well-spoken",
+          "articulate"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "He gave an eloquent speech."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "flow from",
-        "meaning": "arise or emerge as a natural consequence from a cause",
-        "example": "Enormous economic dividends flow from sustained public investment in clean energy."
+        "verb": "die down",
+        "bestFor": "S",
+        "meaning": "to become weaker or quieter",
+        "example": "The storm slowly died down."
       },
       {
-        "verb": "focus on",
-        "meaning": "concentrate attention or analytical effort upon",
-        "example": "The dissertation focuses on the correlation between diet and cognitive focus."
+        "verb": "keep off",
+        "bestFor": "S",
+        "meaning": "to not eat, drink or touch something",
+        "example": "Keep off sugary drinks to stay healthy."
       },
       {
-        "verb": "follow up",
-        "meaning": "pursue further action or investigate ongoing results",
-        "example": "Epidemiologists will follow up on the long-term efficacy of the newly developed vaccine."
+        "verb": "get along with",
+        "bestFor": "S",
+        "meaning": "to have a friendly relationship with someone",
+        "example": "I get along with all my classmates."
       }
     ],
     "idioms": [
       {
-        "idiom": "Break the ice",
-        "meaning": "Initiate conversation in an awkward or formal social setting",
-        "example": "In Part 1 of the IELTS Speaking exam, the examiner asks friendly questions to break the ice."
+        "idiom": "play it by ear",
+        "meaning": "to decide what to do as things happen",
+        "example": "We have no plan, so let's play it by ear."
       },
       {
-        "idiom": "Hit the nail on the head",
-        "meaning": "Identify or describe the precise truth of a situation",
-        "example": "The sociologist hit the nail on the head when attributing delinquency to youth disengagement."
+        "idiom": "jump the gun",
+        "meaning": "to do something too early",
+        "example": "Don't jump the gun and tell her before it's sure."
       }
     ]
   },
   {
     "day": 48,
-    "theme": "Chemical Dependency & Substance Control",
-    "category": "Health",
+    "theme": "Arts & Creativity (Part 3)",
+    "category": "Society",
     "words": [
       {
-        "word": "Therapeutic",
+        "word": "vivid",
         "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "definition": "clear, bright and full of life",
         "synonyms": [
-          "curative",
-          "remedial"
+          "bright",
+          "graphic"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "She gave a vivid description of the storm."
       },
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
+        "word": "evoke",
+        "pos": "v",
+        "definition": "to bring a feeling or memory to mind",
         "synonyms": [
-          "nourishment",
-          "sustenance"
+          "bring back",
+          "summon up"
         ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
+        "example": "The smell of rain evokes childhood memories."
       },
       {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
+        "word": "depict",
+        "pos": "v",
+        "definition": "to show something in a picture or in words",
         "synonyms": [
-          "cleanliness",
-          "sanitation"
+          "show",
+          "portray"
         ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
+        "example": "The painting depicts a village market."
       },
       {
-        "word": "Chronic",
+        "word": "narrative",
+        "pos": "n",
+        "definition": "a story or the way it is told",
+        "synonyms": [
+          "story",
+          "account"
+        ],
+        "example": "The film has a powerful narrative."
+      },
+      {
+        "word": "fiction",
+        "pos": "n",
+        "definition": "stories that are not true",
+        "synonyms": [
+          "made-up stories",
+          "imaginative writing"
+        ],
+        "example": "He enjoys reading science fiction."
+      },
+      {
+        "word": "literary",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "connected with literature or writing",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "about books",
+          "bookish"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "She won a famous literary prize."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "novelist",
+        "pos": "n",
+        "definition": "a person who writes novels",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "book writer",
+          "fiction writer"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "The novelist wrote ten books."
       },
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "orchestra",
+        "pos": "n",
+        "definition": "a large group of musicians",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "music group",
+          "symphony group"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "The orchestra played at the festival."
       },
       {
-        "word": "Sedentary",
-        "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "word": "melody",
+        "pos": "n",
+        "definition": "a pleasant series of musical notes",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "tune",
+          "musical line"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "The melody stayed in my head all day."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
+        "word": "ensemble",
+        "pos": "n",
+        "definition": "a small group that performs together",
         "synonyms": [
-          "incidence",
-          "pervasiveness"
+          "group",
+          "troupe"
         ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
-      },
-      {
-        "word": "Detrimental",
-        "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
-        "synonyms": [
-          "harmful",
-          "injurious"
-        ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
-      },
-      {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
-        "synonyms": [
-          "comprehensive",
-          "integrative"
-        ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "The dance ensemble toured five countries."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "give rise to",
-        "meaning": "cause, generate, or produce new conditions",
-        "example": "Unchecked housing speculation has given rise to a severe suburban affordability crisis."
+        "verb": "fall out with",
+        "bestFor": "S",
+        "meaning": "to have an argument and stop being friends",
+        "example": "He fell out with his brother over money."
       },
       {
-        "verb": "go on",
-        "meaning": "continue, proceed, or happen sequentially",
-        "example": "The debate over artificial intelligence ethics is set to go on for decades."
+        "verb": "make up with",
+        "bestFor": "S",
+        "meaning": "to become friends again after an argument",
+        "example": "She made up with her friend."
       },
       {
-        "verb": "go over",
-        "meaning": "review, examine, or study with close attention",
-        "example": "Students should systematically go over their mistakes following every mock test."
+        "verb": "look up to",
+        "bestFor": "W/S",
+        "meaning": "to respect and admire someone",
+        "example": "Children look up to their parents."
       }
     ],
     "idioms": [
       {
-        "idiom": "Under the weather",
-        "meaning": "Feeling slightly unwell, fatigued, or ill",
-        "example": "Although feeling under the weather, she managed to sit for the full 3-hour exam."
+        "idiom": "play it safe",
+        "meaning": "to avoid risks",
+        "example": "I played it safe and took the bus."
       },
       {
-        "idiom": "Let the cat out of the bag",
-        "meaning": "Reveal a confidential secret unintentionally",
-        "example": "A leaked memo let the cat out of the bag regarding the upcoming corporate merger."
+        "idiom": "in two minds",
+        "meaning": "not sure what to choose",
+        "example": "I'm in two minds about changing jobs."
       }
     ]
   },
   {
     "day": 49,
-    "theme": "Bioethics & Human Clinical Trials",
+    "theme": "Psychology & Behaviour (Part 1)",
     "category": "Health",
     "words": [
       {
-        "word": "Chronic",
+        "word": "motivation",
+        "pos": "n",
+        "definition": "the reason or energy that makes you do something",
+        "synonyms": [
+          "drive",
+          "inner push"
+        ],
+        "example": "Strong motivation helps students keep studying."
+      },
+      {
+        "word": "anxiety",
+        "pos": "n",
+        "definition": "a feeling of fear about what may happen",
+        "synonyms": [
+          "worry",
+          "unease"
+        ],
+        "example": "Exam anxiety kept her awake at night."
+      },
+      {
+        "word": "empathy",
+        "pos": "n",
+        "definition": "the ability to feel what another person feels",
+        "synonyms": [
+          "understanding feelings",
+          "compassion"
+        ],
+        "example": "Doctors need empathy to help patients."
+      },
+      {
+        "word": "perception",
+        "pos": "n",
+        "definition": "the way you see or understand something",
+        "synonyms": [
+          "view",
+          "impression"
+        ],
+        "example": "Public perception of the police has improved."
+      },
+      {
+        "word": "cognitive",
         "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "definition": "connected with thinking and learning",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "thinking",
+          "mental"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "Cognitive skills develop in early childhood."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "impulse",
+        "pos": "n",
+        "definition": "a sudden strong wish to do something",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "sudden urge",
+          "spur-of-the-moment desire"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
+        "example": "He bought the shoes on impulse."
       },
       {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
+        "word": "instinct",
+        "pos": "n",
+        "definition": "a natural way of acting without thinking",
         "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
+          "natural feeling",
+          "inborn tendency"
         ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "Birds migrate by instinct."
       },
       {
-        "word": "Sedentary",
-        "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "word": "temperament",
+        "pos": "n",
+        "definition": "the natural way a person feels and behaves",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "character",
+          "disposition"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "The baby has a calm temperament."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
+        "word": "trauma",
+        "pos": "n",
+        "definition": "a very bad experience that causes long-term pain",
         "synonyms": [
-          "incidence",
-          "pervasiveness"
+          "deep shock",
+          "psychological injury"
         ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
+        "example": "The accident left her with trauma."
       },
       {
-        "word": "Detrimental",
-        "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "word": "phobia",
+        "pos": "n",
+        "definition": "a very strong fear of something",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "strong fear",
+          "irrational dread"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
-      },
-      {
-        "word": "Holistic",
-        "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
-        "synonyms": [
-          "comprehensive",
-          "integrative"
-        ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
-      },
-      {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
-        "synonyms": [
-          "curative",
-          "remedial"
-        ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
-      },
-      {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
-        "synonyms": [
-          "nourishment",
-          "sustenance"
-        ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
-      },
-      {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
-        "synonyms": [
-          "cleanliness",
-          "sanitation"
-        ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
+        "example": "He has a phobia of heights."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "go through",
-        "meaning": "examine in detail or experience a arduous process",
-        "example": "All pharmaceuticals must go through rigorous, multi-phase clinical evaluations."
+        "verb": "look down on",
+        "bestFor": "W/S",
+        "meaning": "to think you are better than someone",
+        "example": "Do not look down on people who are poor."
       },
       {
-        "verb": "grow out of",
-        "meaning": "develop or evolve naturally from early origins",
-        "example": "Modern computational algorithms grew out of mid-century mathematical logic."
+        "verb": "grow up",
+        "bestFor": "W/S",
+        "meaning": "to change from a child to an adult",
+        "example": "He grew up in a small village."
       },
       {
-        "verb": "hinge on",
-        "meaning": "depend entirely or decisively upon a single factor",
-        "example": "The viability of space colonization hinges on developing closed-loop life support."
+        "verb": "take after",
+        "bestFor": "S",
+        "meaning": "to look or act like an older family member",
+        "example": "She takes after her mother."
       }
     ],
     "idioms": [
       {
-        "idiom": "Spill the beans",
-        "meaning": "Disclose secret or sensitive information prematurely",
-        "example": "An anonymous whistleblower spilled the beans on corporate waste dumping practices."
+        "idiom": "cross that bridge when I come to it",
+        "meaning": "to deal with a problem only if it happens",
+        "example": "I'll cross that bridge when I come to it."
       },
       {
-        "idiom": "Bite the bullet",
-        "meaning": "Face a difficult, grim situation with courage and resolve",
-        "example": "Governments must bite the bullet and enact stringent, unpopular carbon tax measures."
+        "idiom": "call the shots",
+        "meaning": "to be the one who decides",
+        "example": "The manager calls the shots in our office."
       }
     ]
   },
   {
     "day": 50,
-    "theme": "Global Sanitation & Healthcare Access",
+    "theme": "Psychology & Behaviour (Part 2)",
     "category": "Health",
     "words": [
       {
-        "word": "Sedentary",
+        "word": "obsession",
+        "pos": "n",
+        "definition": "thinking about one thing all the time",
+        "synonyms": [
+          "fixation",
+          "preoccupation"
+        ],
+        "example": "His obsession with football worries his parents."
+      },
+      {
+        "word": "subconscious",
         "pos": "adj",
-        "definition": "Tending to spend much time seated; somewhat inactive physically.",
+        "definition": "in the part of the mind you do not notice",
         "synonyms": [
-          "inactive",
-          "desk-bound"
+          "hidden in the mind",
+          "unconscious"
         ],
-        "example": "A sedentary lifestyle is clinically recognized as a major risk factor for heart disease."
+        "example": "Fears can stay in the subconscious mind."
       },
       {
-        "word": "Prevalence",
-        "pos": "noun",
-        "definition": "The fact or condition of being widespread or common in a population.",
+        "word": "intuition",
+        "pos": "n",
+        "definition": "knowing something without clear proof",
         "synonyms": [
-          "incidence",
-          "pervasiveness"
+          "gut feeling",
+          "sixth sense"
         ],
-        "example": "The rising prevalence of childhood obesity demands stringent dietary interventions."
+        "example": "My intuition told me not to trust him."
       },
       {
-        "word": "Detrimental",
+        "word": "reluctant",
         "pos": "adj",
-        "definition": "Tending to cause harm or damage to health or well-being.",
+        "definition": "not wanting to do something",
         "synonyms": [
-          "harmful",
-          "injurious"
+          "unwilling",
+          "hesitant"
         ],
-        "example": "Chronic sleep deprivation exerts a deeply detrimental effect on cognitive focus."
+        "example": "She was reluctant to speak in public."
       },
       {
-        "word": "Holistic",
+        "word": "assertive",
         "pos": "adj",
-        "definition": "Emphasizing the organic or functional relation between parts and the whole.",
+        "definition": "saying what you want in a clear, firm way",
         "synonyms": [
-          "comprehensive",
-          "integrative"
+          "confident",
+          "forthright"
         ],
-        "example": "Holistic health models integrate mental equilibrium with physical fitness."
+        "example": "Be assertive but remain polite."
       },
       {
-        "word": "Therapeutic",
-        "pos": "adj",
-        "definition": "Relating to the healing of disease or relaxation.",
+        "word": "introvert",
+        "pos": "n",
+        "definition": "a person who likes being alone more than in groups",
         "synonyms": [
-          "curative",
-          "remedial"
+          "quiet person",
+          "reserved person"
         ],
-        "example": "Regular aerobic exercise delivers marked therapeutic benefits for depressive disorders."
+        "example": "As an introvert, he prefers reading to parties."
       },
       {
-        "word": "Nutrient",
-        "pos": "noun",
-        "definition": "A substance that provides nourishment essential for growth and maintenance.",
+        "word": "mindset",
+        "pos": "n",
+        "definition": "the attitude you have about things",
         "synonyms": [
-          "nourishment",
-          "sustenance"
+          "way of thinking",
+          "outlook"
         ],
-        "example": "Leafy green vegetables are rich in essential vitamins and micronutrients."
+        "example": "A positive mindset helps you learn faster."
       },
       {
-        "word": "Hygiene",
-        "pos": "noun",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease.",
+        "word": "perseverance",
+        "pos": "n",
+        "definition": "continuing to try even when it is hard",
         "synonyms": [
-          "cleanliness",
-          "sanitation"
+          "never giving up",
+          "tenacity"
         ],
-        "example": "Public hygiene initiatives have dramatically lowered infant mortality worldwide."
+        "example": "Perseverance helped her pass the test."
       },
       {
-        "word": "Chronic",
-        "pos": "adj",
-        "definition": "Persisting for a long time or constantly recurring.",
+        "word": "procrastinate",
+        "pos": "v",
+        "definition": "to keep waiting before doing something you should do",
         "synonyms": [
-          "persistent",
-          "long-standing"
+          "delay",
+          "put things off"
         ],
-        "example": "Managing chronic pain requires multimodal physiotherapy and psychological support."
+        "example": "Students often procrastinate before exams."
       },
       {
-        "word": "Inoculation",
-        "pos": "noun",
-        "definition": "The action of inoculating or of being inoculated; vaccination.",
+        "word": "gratification",
+        "pos": "n",
+        "definition": "a feeling of happiness from getting something",
         "synonyms": [
-          "immunization",
-          "vaccination"
+          "pleasure",
+          "satisfaction"
         ],
-        "example": "Mass inoculation campaigns successfully eradicated smallpox across the globe."
-      },
-      {
-        "word": "Endorphins",
-        "pos": "noun",
-        "definition": "Neurochemicals that inhibit pain and trigger feelings of pleasure.",
-        "synonyms": [
-          "neurotransmitters",
-          "feel-good hormones"
-        ],
-        "example": "Vigorous jogging prompts the brain to release stress-relieving endorphins."
+        "example": "Instant gratification is common in the digital age."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "iron out",
-        "meaning": "resolve or eliminate minor difficulties or disputes",
-        "example": "Diplomats worked tirelessly through the night to iron out trade treaty details."
+        "verb": "let down",
+        "bestFor": "S",
+        "meaning": "to disappoint someone",
+        "example": "I don't want to let my team down."
       },
       {
-        "verb": "jot down",
-        "meaning": "write down quickly or take concise notes",
-        "example": "Candidates should jot down a quick 3-minute essay plan before writing."
+        "verb": "turn up",
+        "bestFor": "S",
+        "meaning": "to arrive or appear",
+        "example": "Only ten people turned up to the meeting."
       },
       {
-        "verb": "lay out",
-        "meaning": "present, organize, or explain ideas systematically",
-        "example": "The introductory paragraph must lay out the author's primary thesis statement."
+        "verb": "show off",
+        "bestFor": "S",
+        "meaning": "to try to make people notice how good you are",
+        "example": "He likes to show off his new phone."
       }
     ],
     "idioms": [
       {
-        "idiom": "Cut corners",
-        "meaning": "Perform a task cheaply, hastily, or below standard",
-        "example": "Building contractors who cut corners on fireproofing endanger thousands of residents."
+        "idiom": "a leap of faith",
+        "meaning": "trying something without being sure it will work",
+        "example": "Starting my own business was a leap of faith."
       },
       {
-        "idiom": "Go the extra mile",
-        "meaning": "Make a special additional effort beyond what is required",
-        "example": "Dedicated teachers routinely go the extra mile to support disadvantaged students."
+        "idiom": "back to the drawing board",
+        "meaning": "to start planning again after a failure",
+        "example": "The test failed, so it's back to the drawing board."
       }
     ]
   },
   {
     "day": 51,
-    "theme": "Macroeconomic Growth & GDP Drivers",
-    "category": "Economy",
+    "theme": "Psychology & Behaviour (Part 3)",
+    "category": "Health",
     "words": [
       {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
+        "word": "conscience",
+        "pos": "n",
+        "definition": "the inner voice that tells you right from wrong",
         "synonyms": [
-          "distribution",
-          "allotment"
+          "sense of right and wrong",
+          "moral compass"
         ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
+        "example": "His conscience would not let him lie."
       },
       {
-        "word": "Lucrative",
+        "word": "vulnerable",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "easy to hurt or damage",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "easily hurt",
+          "defenceless"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "Young children are vulnerable to infections."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
+        "word": "cope",
+        "pos": "v",
+        "definition": "to deal with a hard situation successfully",
         "synonyms": [
-          "trade",
-          "business"
+          "manage",
+          "deal with"
         ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
+        "example": "How do you cope with so much stress?"
       },
       {
-        "word": "Fiscal",
+        "word": "irrational",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "not based on clear thinking",
         "synonyms": [
-          "monetary",
-          "financial"
+          "not logical",
+          "unreasonable"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "Fear of small spiders is often irrational."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "nostalgia",
+        "pos": "n",
+        "definition": "a happy but sad feeling about the past",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "longing for the past",
+          "wistfulness"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "Old songs fill me with nostalgia."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "apathy",
+        "pos": "n",
+        "definition": "not caring about anything",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "lack of interest",
+          "indifference"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "Voter apathy is a problem in many elections."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "euphoria",
+        "pos": "n",
+        "definition": "a feeling of great happiness",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "extreme joy",
+          "elation"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
+        "example": "The team celebrated in euphoria."
       },
       {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
+        "word": "optimistic",
+        "pos": "adj",
+        "definition": "expecting good things to happen",
         "synonyms": [
-          "affluence",
-          "wealth"
+          "hopeful",
+          "upbeat"
         ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
+        "example": "She is optimistic about her future."
       },
       {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
+        "word": "pessimistic",
+        "pos": "adj",
+        "definition": "expecting bad things to happen",
         "synonyms": [
-          "price hike",
-          "currency devaluation"
+          "negative",
+          "gloomy"
         ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
+        "example": "Don't be so pessimistic about the exam."
       },
       {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
+        "word": "insecure",
+        "pos": "adj",
+        "definition": "not sure of yourself",
         "synonyms": [
-          "downturn",
-          "slump"
+          "not confident",
+          "self-doubting"
         ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
+        "example": "Teenagers often feel insecure about their looks."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "accord with",
-        "meaning": "agree with or correspond to",
-        "example": "The experimental results accord with established ecological theories."
+        "verb": "stand by",
+        "bestFor": "W/S",
+        "meaning": "to stay loyal and help someone in trouble",
+        "example": "Friends stand by you in hard times."
       },
       {
-        "verb": "account for",
-        "meaning": "explain the cause or constitute a proportion",
-        "example": "Renewable power sources now account for over 35% of total generation."
+        "verb": "break up",
+        "bestFor": "S",
+        "meaning": "to end a relationship",
+        "example": "The couple broke up last month."
       },
       {
-        "verb": "act on",
-        "meaning": "take action in response to information or advice",
-        "example": "Governments must act on scientific warnings regarding climate instability."
+        "verb": "split up",
+        "bestFor": "S",
+        "meaning": "to separate from a partner",
+        "example": "His parents split up when he was ten."
       }
     ],
     "idioms": [
       {
-        "idiom": "In the same boat",
-        "meaning": "Sharing the identical difficult predicament or challenge",
-        "example": "All developing island nations are in the same boat concerning rising sea levels."
+        "idiom": "off the beaten track",
+        "meaning": "far from popular places",
+        "example": "We found a quiet village off the beaten track."
       },
       {
-        "idiom": "A blessing in disguise",
-        "meaning": "An apparent misfortune that yields beneficial outcomes",
-        "example": "Being rejected by that firm was a blessing in disguise as it prompted him to start a business."
+        "idiom": "hit the road",
+        "meaning": "to start a journey",
+        "example": "We hit the road at five in the morning."
       }
     ]
   },
   {
     "day": 52,
-    "theme": "Labor Dynamics & the Gig Economy",
+    "theme": "Globalisation & Migration (Part 1)",
     "category": "Economy",
     "words": [
       {
-        "word": "Fiscal",
+        "word": "globalisation",
+        "pos": "n",
+        "definition": "the growth of links between countries",
+        "synonyms": [
+          "worldwide connection",
+          "international integration"
+        ],
+        "example": "Globalisation has changed how we buy things."
+      },
+      {
+        "word": "migrant",
+        "pos": "n",
+        "definition": "a person who moves to another place for work",
+        "synonyms": [
+          "person who moves",
+          "itinerant worker"
+        ],
+        "example": "Migrants often send money to their families."
+      },
+      {
+        "word": "emigrate",
+        "pos": "v",
+        "definition": "to leave your own country to live in another",
+        "synonyms": [
+          "leave a country",
+          "move abroad"
+        ],
+        "example": "Many doctors emigrate to find better pay."
+      },
+      {
+        "word": "refugee",
+        "pos": "n",
+        "definition": "a person who leaves a country to escape danger",
+        "synonyms": [
+          "person who flees",
+          "displaced person"
+        ],
+        "example": "The refugees crossed the border by night."
+      },
+      {
+        "word": "asylum",
+        "pos": "n",
+        "definition": "protection given to people running from danger",
+        "synonyms": [
+          "safe protection",
+          "sanctuary"
+        ],
+        "example": "She applied for asylum in Sweden."
+      },
+      {
+        "word": "diaspora",
+        "pos": "n",
+        "definition": "people from one country living in other places",
+        "synonyms": [
+          "people living abroad",
+          "scattered community"
+        ],
+        "example": "The Bangladeshi diaspora sends large remittances."
+      },
+      {
+        "word": "multinational",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "working in many countries",
         "synonyms": [
-          "monetary",
-          "financial"
+          "in many countries",
+          "worldwide"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "Multinational companies hire staff worldwide."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "interdependence",
+        "pos": "n",
+        "definition": "countries needing each other for goods and help",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "needing each other",
+          "mutual reliance"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "Global trade increases interdependence."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "remittance",
+        "pos": "n",
+        "definition": "money that workers abroad send to family",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "money sent home",
+          "transfer of earnings"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "Remittances support many rural families."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "xenophobia",
+        "pos": "n",
+        "definition": "a strong dislike of people from other countries",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "fear of foreigners",
+          "hostility to outsiders"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
-      },
-      {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
-      },
-      {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
-      },
-      {
-        "word": "Lucrative",
-        "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
-        "synonyms": [
-          "profitable",
-          "gainful"
-        ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
-      },
-      {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
+        "example": "Xenophobia can cause violence."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "add to",
-        "meaning": "increase or enhance the intensity of something",
-        "example": "Rising fuel levies add to the economic strain felt by working families."
+        "verb": "settle down",
+        "bestFor": "S",
+        "meaning": "to start a quiet life in one place",
+        "example": "They plan to settle down and buy a house."
       },
       {
-        "verb": "add up to",
-        "meaning": "total or result in an overall implication",
-        "example": "These incremental policy improvements add up to profound societal transformation."
+        "verb": "get together",
+        "bestFor": "S",
+        "meaning": "to meet and spend time with others",
+        "example": "Our family gets together every Eid."
       },
       {
-        "verb": "amount to",
-        "meaning": "be equivalent to or signify something substantial",
-        "example": "Refusing to enforce environmental codes amounts to gross civic negligence."
+        "verb": "drop by",
+        "bestFor": "S",
+        "meaning": "to visit someone for a short time",
+        "example": "Please drop by anytime."
       }
     ],
     "idioms": [
       {
-        "idiom": "Beat around the bush",
-        "meaning": "Avoid speaking directly or discussing the central issue",
-        "example": "Academic writers must avoid beating around the bush and state their argument directly."
+        "idiom": "a home away from home",
+        "meaning": "a place where you feel comfortable like at home",
+        "example": "The café is a home away from home for me."
       },
       {
-        "idiom": "Call it a day",
-        "meaning": "Cease working on an activity for the remaining time",
-        "example": "After five hours of intense reading practice, she wisely decided to call it a day."
+        "idiom": "rain cats and dogs",
+        "meaning": "to rain very heavily",
+        "example": "It rained cats and dogs on our wedding day."
       }
     ]
   },
   {
     "day": 53,
-    "theme": "International Trade, Tariffs & Globalization",
+    "theme": "Globalisation & Migration (Part 2)",
     "category": "Economy",
     "words": [
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "citizenship",
+        "pos": "n",
+        "definition": "the right to belong to a country",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "legal membership",
+          "nationality status"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
+        "example": "He gained citizenship after five years."
       },
       {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
+        "word": "deport",
+        "pos": "v",
+        "definition": "to force a person to leave a country",
         "synonyms": [
-          "affluence",
-          "wealth"
+          "send away",
+          "expel"
         ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
+        "example": "The police deported illegal workers."
       },
       {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
-      },
-      {
-        "word": "Lucrative",
+        "word": "homogeneous",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "made up of similar parts or people",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "all the same",
+          "uniform"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "Japan has a fairly homogeneous population."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
-      },
-      {
-        "word": "Fiscal",
+        "word": "cosmopolitan",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "having people from many parts of the world",
         "synonyms": [
-          "monetary",
-          "financial"
+          "international",
+          "worldly"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "Dubai is a cosmopolitan city."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "displaced",
+        "pos": "adj",
+        "definition": "made to leave your home because of danger",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "forced to leave home",
+          "uprooted"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "Floods left thousands of people displaced."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "exodus",
+        "pos": "n",
+        "definition": "a time when many people leave a place together",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "mass departure",
+          "large-scale exit"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "The war caused a huge exodus from the city."
+      },
+      {
+        "word": "expatriate",
+        "pos": "n",
+        "definition": "a person who lives outside their own country",
+        "synonyms": [
+          "person living abroad",
+          "overseas resident"
+        ],
+        "example": "The expatriate community has its own school."
+      },
+      {
+        "word": "influx",
+        "pos": "n",
+        "definition": "the arrival of a large number of people",
+        "synonyms": [
+          "large arrival",
+          "inflow"
+        ],
+        "example": "The influx of tourists raised prices."
+      },
+      {
+        "word": "homeland",
+        "pos": "n",
+        "definition": "the country where you were born",
+        "synonyms": [
+          "native country",
+          "motherland"
+        ],
+        "example": "He dreamed of returning to his homeland."
+      },
+      {
+        "word": "persecution",
+        "pos": "n",
+        "definition": "being treated very badly for your beliefs",
+        "synonyms": [
+          "cruel treatment",
+          "oppression"
+        ],
+        "example": "Many fled religious persecution."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "back up",
-        "meaning": "support a claim or argument with empirical proof",
-        "example": "Candidates must back up their thesis statements with relevant academic examples."
+        "verb": "confide in",
+        "bestFor": "S",
+        "meaning": "to tell someone your secrets",
+        "example": "She confided in her sister."
       },
       {
-        "verb": "bear on",
-        "meaning": "be relevant to or have an influence upon",
-        "example": "Demographic aging patterns bear directly on national healthcare budgets."
+        "verb": "fall for",
+        "bestFor": "S",
+        "meaning": "to start to love someone",
+        "example": "He fell for her at first sight."
       },
       {
-        "verb": "bear out",
-        "meaning": "confirm or substantiate as authentic or true",
-        "example": "Subsequent empirical fieldwork bore out the anthropologist's initial theory."
+        "verb": "get on with",
+        "bestFor": "S",
+        "meaning": "to have a good relationship with someone",
+        "example": "I get on well with my neighbours."
       }
     ],
     "idioms": [
       {
-        "idiom": "Burn the midnight oil",
-        "meaning": "Work or study diligently late into the night",
-        "example": "Medical candidates frequently burn the midnight oil preparing for licensing exams."
+        "idiom": "every cloud has a silver lining",
+        "meaning": "every bad thing has something good in it",
+        "example": "I lost my job, but every cloud has a silver lining."
       },
       {
-        "idiom": "Keep an eye on",
-        "meaning": "Monitor, oversee, or watch carefully over time",
-        "example": "Meteorologists keep an eye on Atlantic hurricane corridors during autumn."
+        "idiom": "the calm before the storm",
+        "meaning": "a quiet time before trouble",
+        "example": "The silence was the calm before the storm."
       }
     ]
   },
   {
     "day": 54,
-    "theme": "Inflation, Purchasing Power & Living Costs",
+    "theme": "Globalisation & Migration (Part 3)",
     "category": "Economy",
     "words": [
       {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
+        "word": "exile",
+        "pos": "n",
+        "definition": "being made to live away from your own country",
         "synonyms": [
-          "downturn",
-          "slump"
+          "forced stay abroad",
+          "banishment"
         ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
+        "example": "The leader lived in exile for ten years."
       },
       {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
+        "word": "uproot",
+        "pos": "v",
+        "definition": "to make someone leave their home",
         "synonyms": [
-          "distribution",
-          "allotment"
+          "force to leave",
+          "dislodge"
         ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
+        "example": "War uprooted millions of families."
       },
       {
-        "word": "Lucrative",
+        "word": "transnational",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "operating across several countries",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "crossing borders",
+          "cross-border"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "Transnational crime is hard to stop."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
+        "word": "outflow",
+        "pos": "n",
+        "definition": "the movement of people or money out of a place",
         "synonyms": [
-          "trade",
-          "business"
+          "leaving",
+          "exit"
         ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
+        "example": "The outflow of young people is hurting villages."
       },
       {
-        "word": "Fiscal",
+        "word": "borderless",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "not stopped by country borders",
         "synonyms": [
-          "monetary",
-          "financial"
+          "without limits",
+          "unrestricted"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "The internet creates a borderless world."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "overshadow",
+        "pos": "v",
+        "definition": "to make something seem less important",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "make less important",
+          "eclipse"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "Global brands overshadow local shops."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "standardise",
+        "pos": "v",
+        "definition": "to make things the same everywhere",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "make the same",
+          "homogenise"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "Globalisation tends to standardise tastes."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "settler",
+        "pos": "n",
+        "definition": "a person who goes to live in a new place",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "new resident",
+          "colonist"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
+        "example": "Early settlers built homes by the river."
       },
       {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
+        "word": "naturalise",
+        "pos": "v",
+        "definition": "to give a person citizenship of a country",
         "synonyms": [
-          "affluence",
-          "wealth"
+          "make a citizen",
+          "grant nationality"
         ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
+        "example": "She was naturalised after ten years abroad."
       },
       {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
+        "word": "evacuate",
+        "pos": "v",
+        "definition": "to leave a dangerous place quickly",
         "synonyms": [
-          "price hike",
-          "currency devaluation"
+          "move out",
+          "clear"
         ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
+        "example": "Residents were evacuated before the cyclone."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "boil down to",
-        "meaning": "essentially mean or be reduced to the primary issue",
-        "example": "Urban transit challenges ultimately boil down to chronic underfunding."
+        "verb": "cheer up",
+        "bestFor": "S",
+        "meaning": "to become happier or make someone happier",
+        "example": "A phone call from a friend cheered me up."
       },
       {
-        "verb": "break down",
-        "meaning": "analyze by dividing into discrete constituent elements",
-        "example": "Let us break down the demographic chart by household income brackets."
+        "verb": "run out",
+        "bestFor": "W",
+        "meaning": "to have no more of something",
+        "example": "The world's oil may run out one day."
       },
       {
-        "verb": "bring about",
-        "meaning": "cause an event or structural shift to occur",
-        "example": "Technological innovation will bring about fundamental labor market changes."
+        "verb": "use up",
+        "bestFor": "W/S",
+        "meaning": "to finish all of something",
+        "example": "We are using up natural resources too fast."
       }
     ],
     "idioms": [
       {
-        "idiom": "Pass the buck",
-        "meaning": "Shift responsibility or blame onto another party",
-        "example": "Federal and local agencies must stop passing the buck regarding homelessness policy."
+        "idiom": "in the middle of nowhere",
+        "meaning": "very far from towns or people",
+        "example": "Their farm is in the middle of nowhere."
       },
       {
-        "idiom": "Think outside the box",
-        "meaning": "Approach a problem with unconventional, creative logic",
-        "example": "Engineers had to think outside the box to design solar panels that operate in low light."
+        "idiom": "a fish out of water",
+        "meaning": "someone in a place where they feel uncomfortable",
+        "example": "I felt like a fish out of water at the party."
       }
     ]
   },
   {
     "day": 55,
-    "theme": "Corporate Ethics & Stakeholder Responsibility",
-    "category": "Economy",
+    "theme": "Change, Cause & Effect (Part 1)",
+    "category": "Education",
     "words": [
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
+        "word": "consequence",
+        "pos": "n",
+        "definition": "something that happens because of an action",
         "synonyms": [
-          "trade",
-          "business"
+          "result",
+          "outcome"
         ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
+        "example": "Pollution has serious consequences for health."
       },
       {
-        "word": "Fiscal",
-        "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "word": "trigger",
+        "pos": "v",
+        "definition": "to make something start suddenly",
         "synonyms": [
-          "monetary",
-          "financial"
+          "cause",
+          "set off"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "The news triggered a wave of protests."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "accelerate",
+        "pos": "v",
+        "definition": "to make something happen faster",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "speed up",
+          "quicken"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "Technology accelerates social change."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "escalate",
+        "pos": "v",
+        "definition": "to become more serious quickly",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "get worse",
+          "intensify"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "Tensions escalated during the meeting."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "diminish",
+        "pos": "v",
+        "definition": "to become smaller or less important",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "get smaller",
+          "decrease"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
+        "example": "Our hopes diminished as time passed."
       },
       {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
+        "word": "curb",
+        "pos": "v",
+        "definition": "to control or stop something from growing",
         "synonyms": [
-          "affluence",
-          "wealth"
+          "limit",
+          "restrain"
         ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
+        "example": "The law aims to curb illegal logging."
       },
       {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
+        "word": "hinder",
+        "pos": "v",
+        "definition": "to make it harder for something to happen",
         "synonyms": [
-          "price hike",
-          "currency devaluation"
+          "slow down",
+          "impede"
         ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
+        "example": "Poor roads hinder trade."
       },
       {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
+        "word": "attribute",
+        "pos": "v",
+        "definition": "to say that something is caused by something",
         "synonyms": [
-          "downturn",
-          "slump"
+          "put down to",
+          "ascribe"
         ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
+        "example": "He attributed his success to hard work."
       },
       {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
+        "word": "repercussion",
+        "pos": "n",
+        "definition": "an indirect result, often bad",
         "synonyms": [
-          "distribution",
-          "allotment"
+          "bad effect",
+          "aftershock"
         ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
+        "example": "The scandal had serious repercussions."
       },
       {
-        "word": "Lucrative",
-        "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "word": "ramification",
+        "pos": "n",
+        "definition": "a complicated result of an action",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "side effect",
+          "complication"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "The ramifications of the decision are unclear."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "bring together",
-        "meaning": "combine or assemble diverse groups or viewpoints",
-        "example": "The symposium brought together leading climatologists from six continents."
+        "verb": "dispose of",
+        "bestFor": "W",
+        "meaning": "to throw away or get rid of something",
+        "example": "Waste must be disposed of safely."
       },
       {
-        "verb": "bring up",
-        "meaning": "raise an important topic or issue for discussion",
-        "example": "The delegate brought up the pressing question of equitable vaccine distribution."
+        "verb": "clamp down on",
+        "bestFor": "W",
+        "meaning": "to act strongly to stop something bad",
+        "example": "Police clamped down on illegal parking."
       },
       {
-        "verb": "build on",
-        "meaning": "develop further from an established foundation",
-        "example": "Future medical research will build on the monumental mapping of the human genome."
+        "verb": "crack down on",
+        "bestFor": "W",
+        "meaning": "to take strict action against a crime or bad thing",
+        "example": "The city is cracking down on air pollution."
       }
     ],
     "idioms": [
       {
-        "idiom": "Back to square one",
-        "meaning": "Return to the very beginning after an effort fails",
-        "example": "When the trial drug proved ineffective, chemists were sent back to square one."
+        "idiom": "the best thing since sliced bread",
+        "meaning": "a very good new idea or thing",
+        "example": "They think the new phone is the best thing since sliced bread."
       },
       {
-        "idiom": "Play it safe",
-        "meaning": "Take a cautious approach to minimize potential hazards",
-        "example": "While novice writers play it safe with simple sentences, high scorers vary their syntax."
+        "idiom": "a bolt from the blue",
+        "meaning": "a sudden and unexpected surprise",
+        "example": "The news came like a bolt from the blue."
       }
     ]
   },
   {
     "day": 56,
-    "theme": "Ecotourism, Hospitality & Local Revenue",
-    "category": "Economy",
+    "theme": "Change, Cause & Effect (Part 2)",
+    "category": "Education",
     "words": [
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
-        "synonyms": [
-          "business owner",
-          "innovator"
-        ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
-      },
-      {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
-        "synonyms": [
-          "consequence",
-          "aftermath"
-        ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
-      },
-      {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
-      },
-      {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
-      },
-      {
-        "word": "Lucrative",
+        "word": "underlying",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "existing beneath the surface and not clearly seen",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "hidden",
+          "fundamental"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "The underlying cause of the crisis is poverty."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
-      },
-      {
-        "word": "Fiscal",
+        "word": "substantial",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "large in size, amount or importance",
         "synonyms": [
-          "monetary",
-          "financial"
+          "large",
+          "considerable"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "A substantial number of students failed."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "marginal",
+        "pos": "adj",
+        "definition": "very small and not important",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "very small",
+          "slight"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "There was a marginal improvement in results."
+      },
+      {
+        "word": "negligible",
+        "pos": "adj",
+        "definition": "so small that it does not matter",
+        "synonyms": [
+          "tiny",
+          "insignificant"
+        ],
+        "example": "The cost of the repair was negligible."
+      },
+      {
+        "word": "plummet",
+        "pos": "v",
+        "definition": "to fall very quickly and suddenly",
+        "synonyms": [
+          "fall fast",
+          "nosedive"
+        ],
+        "example": "House prices plummeted last year."
+      },
+      {
+        "word": "soar",
+        "pos": "v",
+        "definition": "to go up very fast",
+        "synonyms": [
+          "rise quickly",
+          "rocket"
+        ],
+        "example": "Food prices soared after the floods."
+      },
+      {
+        "word": "surge",
+        "pos": "n",
+        "definition": "a sudden strong increase",
+        "synonyms": [
+          "sudden rise",
+          "upswing"
+        ],
+        "example": "There was a surge in online shopping."
+      },
+      {
+        "word": "dwindle",
+        "pos": "v",
+        "definition": "to slowly become less or fewer",
+        "synonyms": [
+          "get smaller",
+          "taper off"
+        ],
+        "example": "The village population has dwindled over time."
+      },
+      {
+        "word": "stabilise",
+        "pos": "v",
+        "definition": "to become firm and stop changing",
+        "synonyms": [
+          "become steady",
+          "level out"
+        ],
+        "example": "Prices began to stabilise in June."
+      },
+      {
+        "word": "transition",
+        "pos": "n",
+        "definition": "the process of changing from one state to another",
+        "synonyms": [
+          "change over",
+          "shift"
+        ],
+        "example": "The transition to clean energy will take decades."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "build up",
-        "meaning": "increase gradually over a prolonged period",
-        "example": "Unchecked industrial activity allows toxic heavy metals to build up in waterways."
+        "verb": "speak out",
+        "bestFor": "W",
+        "meaning": "to say your opinion in public, often against something",
+        "example": "Citizens spoke out against the new tax."
       },
       {
-        "verb": "carry on",
-        "meaning": "continue an activity without disruption",
-        "example": "Despite logistical hardships, the researchers carried on their Arctic expedition."
+        "verb": "stand up to",
+        "bestFor": "W/S",
+        "meaning": "to defend yourself against someone strong",
+        "example": "Workers stood up to their employer."
       },
       {
-        "verb": "carry out",
-        "meaning": "perform, execute, or complete an experiment or task",
-        "example": "The laboratory team carried out an exhaustive double-blind trial."
+        "verb": "go through",
+        "bestFor": "W/S",
+        "meaning": "to experience something difficult",
+        "example": "The country is going through a hard time."
       }
     ],
     "idioms": [
       {
-        "idiom": "Draw a line in the sand",
-        "meaning": "Establish a clear, non-negotiable boundary or limit",
-        "example": "The international community drew a line in the sand against illegal whaling."
+        "idiom": "a drop in the ocean",
+        "meaning": "a very small amount compared to what is needed",
+        "example": "The donation was a drop in the ocean."
       },
       {
-        "idiom": "Go with the flow",
-        "meaning": "Accept circumstances and adapt smoothly to events",
-        "example": "During spontaneous discussions, fluent speakers know when to simply go with the flow."
+        "idiom": "the elephant in the room",
+        "meaning": "a big problem that nobody wants to talk about",
+        "example": "Poverty is the elephant in the room."
       }
     ]
   },
   {
     "day": 57,
-    "theme": "Startup Innovation & Venture Capital",
-    "category": "Economy",
+    "theme": "Change, Cause & Effect (Part 3)",
+    "category": "Education",
     "words": [
       {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
+        "word": "reshape",
+        "pos": "v",
+        "definition": "to change the shape or structure of something",
         "synonyms": [
-          "price hike",
-          "currency devaluation"
+          "change the form",
+          "remodel"
         ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
+        "example": "Social media has reshaped politics."
       },
       {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
+        "word": "aggravate",
+        "pos": "v",
+        "definition": "to make a problem or illness worse",
         "synonyms": [
-          "downturn",
-          "slump"
+          "make worse",
+          "compound"
         ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
+        "example": "Noise can aggravate stress."
       },
       {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
+        "word": "exacerbate",
+        "pos": "v",
+        "definition": "to make a bad situation worse",
         "synonyms": [
-          "distribution",
-          "allotment"
+          "worsen",
+          "inflame"
         ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
+        "example": "Poor planning exacerbated the traffic problem."
       },
       {
-        "word": "Lucrative",
+        "word": "precipitate",
+        "pos": "v",
+        "definition": "to make something happen sooner or suddenly",
+        "synonyms": [
+          "cause suddenly",
+          "bring about"
+        ],
+        "example": "The bank failure precipitated a crisis."
+      },
+      {
+        "word": "inevitable",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "sure to happen and cannot be stopped",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "certain",
+          "unavoidable"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "Change is inevitable in any society."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
+        "word": "plateau",
+        "pos": "n",
+        "definition": "a time when growth stops and stays flat",
         "synonyms": [
-          "trade",
-          "business"
+          "level period",
+          "stable phase"
         ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
+        "example": "Sales reached a plateau in March."
       },
       {
-        "word": "Fiscal",
-        "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "word": "undermine",
+        "pos": "v",
+        "definition": "to make something less strong little by little",
         "synonyms": [
-          "monetary",
-          "financial"
+          "weaken",
+          "erode"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "Rumours undermined confidence in the bank."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "spark",
+        "pos": "v",
+        "definition": "to make something begin",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "start",
+          "kindle"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "The decision sparked a national debate."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "culminate",
+        "pos": "v",
+        "definition": "to reach a final point or result",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "end in",
+          "climax"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "Years of work culminated in a prize."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "ensue",
+        "pos": "v",
+        "definition": "to happen after or because of something",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "follow",
+          "result"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
-      },
-      {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
+        "example": "A heated argument ensued."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "check over",
-        "meaning": "inspect meticulously for errors or omissions",
-        "example": "Writers should carefully check over their Task 2 essays during the final 3 minutes."
+        "verb": "bring down",
+        "bestFor": "W",
+        "meaning": "to make something lower or to defeat a leader",
+        "example": "Healthy habits can bring down health costs."
       },
       {
-        "verb": "come down to",
-        "meaning": "ultimately depend upon or be decided by a key factor",
-        "example": "Resolving poverty often comes down to guaranteeing equal education access."
+        "verb": "set off",
+        "bestFor": "W",
+        "meaning": "to cause something to begin",
+        "example": "The news set off a wave of protests."
       },
       {
-        "verb": "come up with",
-        "meaning": "produce, formulate, or propose an innovative idea",
-        "example": "Architects must come up with sustainable bioclimatic urban building models."
+        "verb": "pull down",
+        "bestFor": "W",
+        "meaning": "to destroy a building",
+        "example": "Old houses were pulled down to build a mall."
       }
     ],
     "idioms": [
       {
-        "idiom": "Lay the groundwork",
-        "meaning": "Prepare the foundational basics for future endeavors",
-        "example": "Early childhood literacy lays the groundwork for lifelong intellectual achievement."
+        "idiom": "the rat race",
+        "meaning": "the stressful competition of work life",
+        "example": "He left the rat race and moved to the countryside."
       },
       {
-        "idiom": "Take it easy",
-        "meaning": "Relax and avoid exerting excessive stress or haste",
-        "example": "Candidates should take it easy the evening prior to the IELTS exam to ensure sound sleep."
+        "idiom": "keep up with the Joneses",
+        "meaning": "to compete with neighbours by buying things",
+        "example": "Some people spend a lot to keep up with the Joneses."
       }
     ]
   },
   {
     "day": 58,
-    "theme": "National Fiscal Budgets & Taxation Policy",
-    "category": "Economy",
+    "theme": "Argument & Evaluation (Part 1)",
+    "category": "Education",
     "words": [
       {
-        "word": "Lucrative",
+        "word": "advocate",
+        "pos": "v",
+        "definition": "to publicly support an idea or plan",
+        "synonyms": [
+          "support strongly",
+          "champion"
+        ],
+        "example": "Experts advocate a ban on plastic bags."
+      },
+      {
+        "word": "refute",
+        "pos": "v",
+        "definition": "to show that an idea is not true",
+        "synonyms": [
+          "prove wrong",
+          "rebut"
+        ],
+        "example": "Scientists refuted the old theory."
+      },
+      {
+        "word": "concede",
+        "pos": "v",
+        "definition": "to accept that something is true, often reluctantly",
+        "synonyms": [
+          "admit",
+          "acknowledge"
+        ],
+        "example": "I concede that the plan has some risks."
+      },
+      {
+        "word": "assert",
+        "pos": "v",
+        "definition": "to say something strongly as a fact",
+        "synonyms": [
+          "state firmly",
+          "maintain"
+        ],
+        "example": "He asserted that the results were correct."
+      },
+      {
+        "word": "contend",
+        "pos": "v",
+        "definition": "to say that something is true in a debate",
+        "synonyms": [
+          "argue",
+          "claim"
+        ],
+        "example": "Critics contend that the tax is unfair."
+      },
+      {
+        "word": "justify",
+        "pos": "v",
+        "definition": "to show that something is right or reasonable",
+        "synonyms": [
+          "give reasons for",
+          "defend"
+        ],
+        "example": "Nothing can justify violence."
+      },
+      {
+        "word": "dispute",
+        "pos": "v",
+        "definition": "to say that something is not true or correct",
+        "synonyms": [
+          "disagree with",
+          "challenge"
+        ],
+        "example": "Some experts dispute these figures."
+      },
+      {
+        "word": "drawback",
+        "pos": "n",
+        "definition": "a problem that makes something less good",
+        "synonyms": [
+          "disadvantage",
+          "downside"
+        ],
+        "example": "The main drawback is the high cost."
+      },
+      {
+        "word": "merit",
+        "pos": "n",
+        "definition": "a good quality that deserves praise",
+        "synonyms": [
+          "good point",
+          "advantage"
+        ],
+        "example": "The plan has several merits."
+      },
+      {
+        "word": "viable",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "able to work well in real life",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "workable",
+          "practicable"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
-      },
-      {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
-      },
-      {
-        "word": "Fiscal",
-        "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
-        "synonyms": [
-          "monetary",
-          "financial"
-        ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
-      },
-      {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
-        "synonyms": [
-          "customs duty",
-          "import levy"
-        ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
-      },
-      {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
-        "synonyms": [
-          "business owner",
-          "innovator"
-        ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
-      },
-      {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
-        "synonyms": [
-          "consequence",
-          "aftermath"
-        ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
-      },
-      {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
-      },
-      {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
+        "example": "Solar power is now a viable option."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "consist of",
-        "meaning": "be composed of or formed from specific parts",
-        "example": "The IELTS Academic exam consists of four distinct linguistic modules."
+        "verb": "put out",
+        "bestFor": "S",
+        "meaning": "to stop a fire or a light",
+        "example": "Firefighters put out the fire quickly."
       },
       {
-        "verb": "contribute to",
-        "meaning": "help cause or supply resources toward an outcome",
-        "example": "Sedentary leisure habits contribute to rising rates of cardiovascular disease."
+        "verb": "give off",
+        "bestFor": "W",
+        "meaning": "to send out heat, light or gas",
+        "example": "Cars give off harmful gases."
       },
       {
-        "verb": "count as",
-        "meaning": "be regarded or officially categorized as",
-        "example": "Internships completed during undergraduate years count as verifiable work experience."
+        "verb": "cut off",
+        "bestFor": "W",
+        "meaning": "to stop the supply of something or block a place",
+        "example": "Floods cut off many villages."
       }
     ],
     "idioms": [
       {
-        "idiom": "Hold your horses",
-        "meaning": "Exercise patience and wait before taking impulsive action",
-        "example": "Analysts urged investors to hold their horses before reacting to market volatility."
+        "idiom": "a level playing field",
+        "meaning": "a fair situation where everyone has an equal chance",
+        "example": "Free education creates a level playing field."
       },
       {
-        "idiom": "A double-edged sword",
-        "meaning": "Something having both advantageous and unfavorable facets",
-        "example": "Automation is a double-edged sword: it multiplies output while displacing manual roles."
+        "idiom": "a vicious circle",
+        "meaning": "a bad situation that keeps repeating",
+        "example": "Poverty and poor health form a vicious circle."
       }
     ]
   },
   {
     "day": 59,
-    "theme": "Economic Migration & Brain Drain",
-    "category": "Economy",
+    "theme": "Argument & Evaluation (Part 2)",
+    "category": "Education",
     "words": [
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
-        "synonyms": [
-          "customs duty",
-          "import levy"
-        ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
-      },
-      {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
-        "synonyms": [
-          "business owner",
-          "innovator"
-        ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
-      },
-      {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
-        "synonyms": [
-          "consequence",
-          "aftermath"
-        ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
-      },
-      {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
-      },
-      {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
-      },
-      {
-        "word": "Lucrative",
+        "word": "feasible",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "possible and likely to be done",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "possible",
+          "achievable"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "A new tunnel is not financially feasible."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
-      },
-      {
-        "word": "Fiscal",
+        "word": "pragmatic",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "thinking about what really works",
         "synonyms": [
-          "monetary",
-          "financial"
+          "practical",
+          "realistic"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "She took a pragmatic approach to the problem."
+      },
+      {
+        "word": "detrimental",
+        "pos": "adj",
+        "definition": "causing harm or damage",
+        "synonyms": [
+          "harmful",
+          "damaging"
+        ],
+        "example": "Too much screen time is detrimental to sleep."
+      },
+      {
+        "word": "beneficial",
+        "pos": "adj",
+        "definition": "having a good effect",
+        "synonyms": [
+          "helpful",
+          "advantageous"
+        ],
+        "example": "Regular exercise is beneficial to health."
+      },
+      {
+        "word": "inadequate",
+        "pos": "adj",
+        "definition": "not good enough or not enough",
+        "synonyms": [
+          "not enough",
+          "insufficient"
+        ],
+        "example": "The funding was inadequate for the project."
+      },
+      {
+        "word": "paramount",
+        "pos": "adj",
+        "definition": "more important than anything else",
+        "synonyms": [
+          "most important",
+          "supreme"
+        ],
+        "example": "Safety is paramount in construction."
+      },
+      {
+        "word": "inherent",
+        "pos": "adj",
+        "definition": "a natural and permanent part of something",
+        "synonyms": [
+          "built-in",
+          "intrinsic"
+        ],
+        "example": "There are inherent risks in any investment."
+      },
+      {
+        "word": "indispensable",
+        "pos": "adj",
+        "definition": "so important that you cannot manage without it",
+        "synonyms": [
+          "must-have",
+          "essential"
+        ],
+        "example": "The internet is indispensable for modern business."
+      },
+      {
+        "word": "outweigh",
+        "pos": "v",
+        "definition": "to be more important than something else",
+        "synonyms": [
+          "be greater than",
+          "override"
+        ],
+        "example": "The benefits outweigh the costs."
+      },
+      {
+        "word": "compelling",
+        "pos": "adj",
+        "definition": "so strong that you must believe or agree",
+        "synonyms": [
+          "convincing",
+          "persuasive"
+        ],
+        "example": "She made a compelling argument for change."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "deal with",
-        "meaning": "address, manage, or resolve a complex issue",
-        "example": "Urban planners must deal with traffic gridlock through expanded rail networks."
+        "verb": "do away with",
+        "bestFor": "W",
+        "meaning": "to stop using or having something",
+        "example": "Some countries have done away with paper money."
       },
       {
-        "verb": "depart from",
-        "meaning": "deviate or vary from established conventions",
-        "example": "Modern pedagogical practices depart from rigid traditional rote memorization."
+        "verb": "turn out",
+        "bestFor": "W/S",
+        "meaning": "to end in a certain way",
+        "example": "The experiment turned out well."
       },
       {
-        "verb": "depend on",
-        "meaning": "rely upon or be determined by contingency",
-        "example": "Economic prosperity depends on rule of law, open trade, and technological innovation."
+        "verb": "end up",
+        "bestFor": "W/S",
+        "meaning": "to finally be in a place or situation",
+        "example": "Many graduates end up in jobs they dislike."
       }
     ],
     "idioms": [
       {
-        "idiom": "In hot water",
-        "meaning": "In serious trouble or facing severe disciplinary scrutiny",
-        "example": "The corporation landed in hot water after falsifying vehicle emission diagnostics."
+        "idiom": "the lesser of two evils",
+        "meaning": "the less bad of two bad choices",
+        "example": "Taking the bus was the lesser of two evils."
       },
       {
-        "idiom": "Jump on the bandwagon",
-        "meaning": "Join a widespread trend or popular activity",
-        "example": "Many universities jumped on the bandwagon of offering massive open online courses."
+        "idiom": "the writing on the wall",
+        "meaning": "a clear sign that something bad will happen",
+        "example": "The company saw the writing on the wall and cut costs."
       }
     ]
   },
   {
     "day": 60,
-    "theme": "Sustainable Development Goals & Global Aid",
-    "category": "Economy",
+    "theme": "Argument & Evaluation (Part 3)",
+    "category": "Education",
     "words": [
       {
-        "word": "Prosperity",
-        "pos": "noun",
-        "definition": "The state of being prosperous, flourishing, or financially successful.",
-        "synonyms": [
-          "affluence",
-          "wealth"
-        ],
-        "example": "National economic prosperity hinges on innovation, trade, and strong rule of law."
-      },
-      {
-        "word": "Inflation",
-        "pos": "noun",
-        "definition": "A general increase in prices and fall in the purchasing value of money.",
-        "synonyms": [
-          "price hike",
-          "currency devaluation"
-        ],
-        "example": "Central banks frequently increase interest rates to tame runaway inflation."
-      },
-      {
-        "word": "Recession",
-        "pos": "noun",
-        "definition": "A period of temporary economic decline during which trade and activity fall.",
-        "synonyms": [
-          "downturn",
-          "slump"
-        ],
-        "example": "The global banking crisis triggered a severe worldwide economic recession."
-      },
-      {
-        "word": "Allocation",
-        "pos": "noun",
-        "definition": "The action or process of distributing resources or duties.",
-        "synonyms": [
-          "distribution",
-          "allotment"
-        ],
-        "example": "Judicious resource allocation ensures that healthcare and schools receive ample funding."
-      },
-      {
-        "word": "Lucrative",
+        "word": "plausible",
         "pos": "adj",
-        "definition": "Producing a great deal of profit; commercially advantageous.",
+        "definition": "likely to be true",
         "synonyms": [
-          "profitable",
-          "gainful"
+          "believable",
+          "reasonable"
         ],
-        "example": "Renewable technology patents have proven to be an exceptionally lucrative investment."
+        "example": "It is a plausible explanation for the delay."
       },
       {
-        "word": "Commerce",
-        "pos": "noun",
-        "definition": "The activity of buying and selling, especially on a large scale.",
-        "synonyms": [
-          "trade",
-          "business"
-        ],
-        "example": "E-commerce platforms have permanently reshaped consumer shopping patterns."
-      },
-      {
-        "word": "Fiscal",
+        "word": "flawed",
         "pos": "adj",
-        "definition": "Relating to government revenue, especially taxes.",
+        "definition": "having a mistake or weakness",
         "synonyms": [
-          "monetary",
-          "financial"
+          "faulty",
+          "imperfect"
         ],
-        "example": "Responsible fiscal policy prevents national debt from ballooning uncontrollably."
+        "example": "The study was seriously flawed."
       },
       {
-        "word": "Tariff",
-        "pos": "noun",
-        "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+        "word": "objective",
+        "pos": "adj",
+        "definition": "based on facts, not personal feelings",
         "synonyms": [
-          "customs duty",
-          "import levy"
+          "fair",
+          "impartial"
         ],
-        "example": "Imposing high tariffs on steel often escalates trade tensions between nations."
+        "example": "A judge must remain objective."
       },
       {
-        "word": "Entrepreneur",
-        "pos": "noun",
-        "definition": "A person who organizes and operates a business, taking on financial risks.",
+        "word": "dilemma",
+        "pos": "n",
+        "definition": "a situation where you must choose between two bad options",
         "synonyms": [
-          "business owner",
-          "innovator"
+          "hard choice",
+          "quandary"
         ],
-        "example": "Ambitious young entrepreneurs drive high-tech innovation in digital services."
+        "example": "She faced a dilemma between career and family."
       },
       {
-        "word": "Repercussion",
-        "pos": "noun",
-        "definition": "An unintended consequence occurring some time after an event or action.",
+        "word": "paradox",
+        "pos": "n",
+        "definition": "something that seems strange because it has two opposite parts",
         "synonyms": [
-          "consequence",
-          "aftermath"
+          "odd contradiction",
+          "apparent contradiction"
         ],
-        "example": "Sudden fuel price spikes have harsh economic repercussions across all supply chains."
+        "example": "It is a paradox that we feel lonely online."
+      },
+      {
+        "word": "notion",
+        "pos": "n",
+        "definition": "an idea or belief about something",
+        "synonyms": [
+          "idea",
+          "concept"
+        ],
+        "example": "The notion of a free lunch is false."
+      },
+      {
+        "word": "premise",
+        "pos": "n",
+        "definition": "an idea that an argument is based on",
+        "synonyms": [
+          "starting idea",
+          "basic assumption"
+        ],
+        "example": "The argument rests on a false premise."
+      },
+      {
+        "word": "prevalent",
+        "pos": "adj",
+        "definition": "existing or common at a particular time",
+        "synonyms": [
+          "widespread",
+          "common"
+        ],
+        "example": "Obesity is prevalent among city children."
+      },
+      {
+        "word": "crucial",
+        "pos": "adj",
+        "definition": "extremely important for success",
+        "synonyms": [
+          "very important",
+          "pivotal"
+        ],
+        "example": "Sleep is crucial for learning."
+      },
+      {
+        "word": "subjective",
+        "pos": "adj",
+        "definition": "based on feelings and opinions, not facts",
+        "synonyms": [
+          "personal",
+          "opinion-based"
+        ],
+        "example": "Taste in music is subjective."
       }
     ],
     "phrasalVerbs": [
       {
-        "verb": "derive from",
-        "meaning": "originate, develop, or obtain from a source",
-        "example": "Many modern pharmaceuticals derive from active compounds found in rainforest flora."
+        "verb": "boil down to",
+        "bestFor": "W",
+        "meaning": "to be the main point of something",
+        "example": "The problem boils down to a lack of money."
       },
       {
-        "verb": "differ from",
-        "meaning": "be unlike, dissimilar, or distinct in quality",
-        "example": "Formal academic prose differs markedly from everyday colloquial speech."
+        "verb": "flare up",
+        "bestFor": "W",
+        "meaning": "to suddenly become worse or more violent",
+        "example": "Violence flared up again in the city."
       },
       {
-        "verb": "divide into",
-        "meaning": "separate or partition into smaller functional parts",
-        "example": "The statistical population was divided into three distinct age cohorts."
+        "verb": "stem from",
+        "bestFor": "W",
+        "meaning": "to come from or be caused by something",
+        "example": "Many health problems stem from poor diet."
       }
     ],
     "idioms": [
       {
-        "idiom": "Keep your fingers crossed",
-        "meaning": "Hope or wish intensely for good fortune or success",
-        "example": "After submitting her postgraduate scholarship portfolio, she kept her fingers crossed."
+        "idiom": "in the public eye",
+        "meaning": "well known and often seen by people",
+        "example": "Politicians live in the public eye."
       },
       {
-        "idiom": "Make ends meet",
-        "meaning": "Earn sufficient money to cover basic living expenses",
-        "example": "Low-income urban families often struggle to make ends meet amidst soaring rents."
+        "idiom": "word of mouth",
+        "meaning": "information passed by people talking",
+        "example": "Our shop grew through word of mouth."
       }
     ]
   }
 ];
 
+// Browser and Node.js Export compatibility
 if (typeof window !== 'undefined') {
   window.VOCABULARY_DATA = VOCABULARY_DATA;
 }
 if (typeof global !== 'undefined') {
   global.VOCABULARY_DATA = VOCABULARY_DATA;
 }
-if (typeof module !== 'undefined') {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = { VOCABULARY_DATA };
 }

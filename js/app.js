@@ -143,6 +143,8 @@
     setupTimer();
     setupHighlighter();
     setupGlobalEventListeners();
+    initFeedbackSection();
+    initAuth();
 
     showHomeView();
   }
@@ -193,6 +195,22 @@
         }
       }
     }, 50);
+  }
+
+  function showIeltsPracticeView() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('ielts-practice-view');
+    if (v) v.classList.add('active-view');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function showIeltsPractice() {
+    showIeltsPracticeView();
+  }
+
+  function showPracticePortals() {
+    showIeltsPracticeView();
   }
 
   function showHomeView() {
@@ -271,7 +289,7 @@
     const viewIds = [
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
-      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view'
+      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view'
     ];
     viewIds.forEach(id => {
       const el = document.getElementById(id);
@@ -3555,12 +3573,12 @@
             '<span>2 Idioms</span>' +
             '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">Band 7.5-9.0</span>' +
           '</div>' +
-          '<footer class="topic-foot">' +
+          '<div class="topic-foot">' +
             '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
               (isDone ? '✓ Completed' : 'Incomplete') +
             '</button>' +
             '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Explore &rarr;</a>' +
-          '</footer>' +
+          '</div>' +
         '</div>' +
       '</article>';
     });
@@ -4588,7 +4606,777 @@
   });
 
 
+  // =========================================================================
+  // COMMUNITY REACH & FEEDBACK SECTION (Image Replica & Supabase Engine)
+  // =========================================================================
+  const SUPABASE_CONFIG = {
+    url: 'https://ipumroknrrqhzvxtwxrz.supabase.co',
+    key: 'sb_publishable_LDzwcTQEn-36g-OWA9qKfg_00zg21hb'
+  };
+
+  let feedbackComments = [];
+  let isTickerPaused = false;
+  let currentVisitorCount = 14860;
+
+  const AVATAR_COLORS = [
+    '#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#8b5cf6',
+    '#f97316', '#14b8a6', '#6366f1', '#d97706', '#06b6d4'
+  ];
+
+  function getAvatarColor(name) {
+    if (!name) return AVATAR_COLORS[0];
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+  }
+
+  async function initFeedbackSection() {
+    const track = document.getElementById('feedback-ticker-track');
+    if (!track) return;
+
+    // 1. Try to fetch comments from Supabase cloud first
+    let loadedFromSupabase = false;
+    try {
+      const spResp = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/comments?select=*&order=id.desc`, {
+        headers: {
+          'apikey': SUPABASE_CONFIG.key,
+          'Authorization': `Bearer ${SUPABASE_CONFIG.key}`
+        }
+      });
+      if (spResp.ok) {
+        const spData = await spResp.json();
+        if (Array.isArray(spData) && spData.length > 0) {
+          feedbackComments = spData;
+          loadedFromSupabase = true;
+        }
+      }
+    } catch(err) {
+      console.log('Supabase sync info:', err.message);
+    }
+
+    // 2. Fallback to local server API /api/comments
+    if (!loadedFromSupabase) {
+      try {
+        const commResp = await fetch('/api/comments');
+        if (commResp.ok) {
+          const data = await commResp.json();
+          if (Array.isArray(data) && data.length > 0) {
+            feedbackComments = data;
+          }
+        }
+      } catch (e) {}
+    }
+
+    // 3. Fallback to localStorage or bundled community benchmarks
+    if (!feedbackComments || feedbackComments.length === 0) {
+      try {
+        const saved = localStorage.getItem('ielts_community_comments');
+        if (saved) {
+          feedbackComments = JSON.parse(saved);
+        }
+      } catch (err) {}
+    }
+
+    if (!feedbackComments || feedbackComments.length === 0) {
+      feedbackComments = [
+        { id: 1, name: "Imran", rating: 5, text: "Delivered the authentic Cambridge test feel. Boosted my Reading score to 7.5!", color: "#f59e0b" },
+        { id: 2, name: "Mitu", rating: 5, text: "Great interface! The 60-day vocabulary routine with phrasal verbs is gold.", color: "#ec4899" },
+        { id: 3, name: "Rafiq H.", rating: 5, text: "The Band 9 Writing Task 1 & 2 models with examiner rationale are unbeatable.", color: "#3b82f6" },
+        { id: 4, name: "Sadia", rating: 5, text: "Timed Reading simulator with instant band calculation saved my exam prep.", color: "#10b981" },
+        { id: 5, name: "Tanvir A.", rating: 4, text: "Smooth UI and distraction-free essay reader. Highly recommended for IELTS warriors!", color: "#8b5cf6" },
+        { id: 6, name: "Farhana", rating: 5, text: "Engnovate & Mini-IELTS practice cards make daily drills so easy to access.", color: "#f97316" },
+        { id: 7, name: "Nabil", rating: 5, text: "From Band 6.0 to 7.0 in Writing! The Liz models and vocabulary breakdown worked.", color: "#14b8a6" }
+      ];
+    }
+
+    // 4. Load visitor count
+    try {
+      const isNewSession = !sessionStorage.getItem('ielts_session_counted');
+      const reachResp = await fetch('/api/reach', {
+        method: isNewSession ? 'POST' : 'GET'
+      });
+      if (reachResp.ok) {
+        const data = await reachResp.json();
+        currentVisitorCount = data.count || 14860;
+      }
+      if (isNewSession) {
+        sessionStorage.setItem('ielts_session_counted', '1');
+      }
+    } catch (e) {
+      let localCount = parseInt(localStorage.getItem('ielts_visitor_count') || '14860', 10);
+      if (!sessionStorage.getItem('ielts_session_counted')) {
+        localCount += 1;
+        localStorage.setItem('ielts_visitor_count', localCount);
+        sessionStorage.setItem('ielts_session_counted', '1');
+      }
+      currentVisitorCount = localCount;
+    }
+
+    updateFeedbackMetrics();
+    renderFeedbackTicker();
+  }
+
+  function updateFeedbackMetrics() {
+    const commentCountEl = document.getElementById('metric-comment-count');
+    const avgRatingEl = document.getElementById('metric-avg-rating');
+    const visitorCountEl = document.getElementById('metric-visitor-count');
+
+    if (commentCountEl) {
+      commentCountEl.textContent = feedbackComments.length;
+    }
+    if (avgRatingEl) {
+      const sum = feedbackComments.reduce((acc, c) => acc + (Number(c.rating) || 5), 0);
+      const avg = feedbackComments.length ? (sum / feedbackComments.length).toFixed(1) : '5.0';
+      avgRatingEl.textContent = avg;
+    }
+    if (visitorCountEl) {
+      visitorCountEl.textContent = currentVisitorCount.toLocaleString('en-US');
+    }
+  }
+
+  function renderFeedbackTicker() {
+    const track = document.getElementById('feedback-ticker-track');
+    if (!track) return;
+
+    const pillsHtml = feedbackComments.map(c => {
+      const initial = (c.name || 'U').charAt(0).toUpperCase();
+      const color = c.color || getAvatarColor(c.name);
+      const rating = c.rating || 5;
+      return `<div class="feedback-comment-pill">
+        <span class="feedback-pill-avatar" style="background:${color}">${escapeHtml(initial)}</span>
+        <span class="feedback-pill-name">${escapeHtml(c.name)}</span>
+        <span class="feedback-pill-rating">★ ${rating}</span>
+        <span class="feedback-pill-text">${escapeHtml(c.text)}</span>
+      </div>`;
+    }).join('');
+
+    // Duplicate list 2 times to ensure seamless infinite marquee scrolling
+    track.innerHTML = pillsHtml + pillsHtml;
+  }
+
+  function toggleCommentTicker() {
+    const track = document.getElementById('feedback-ticker-track');
+    const textEl = document.getElementById('ticker-playback-text');
+    const iconEl = document.getElementById('ticker-playback-icon');
+    if (!track) return;
+
+    isTickerPaused = !isTickerPaused;
+    if (isTickerPaused) {
+      track.classList.add('paused');
+      if (textEl) textEl.textContent = 'Play';
+      if (iconEl) iconEl.textContent = '▶';
+    } else {
+      track.classList.remove('paused');
+      if (textEl) textEl.textContent = 'Pause';
+      if (iconEl) iconEl.textContent = '❚❚';
+    }
+  }
+
+  function setFeedbackRating(val) {
+    const ratingInput = document.getElementById('fb-rating');
+    if (ratingInput) ratingInput.value = val;
+
+    const stars = document.querySelectorAll('#feedback-star-picker .star-btn');
+    stars.forEach((s, idx) => {
+      if (idx < val) {
+        s.classList.add('active');
+      } else {
+        s.classList.remove('active');
+      }
+    });
+  }
+
+  function handleCommentCharCount(textarea) {
+    const countEl = document.getElementById('fb-char-count');
+    if (!countEl || !textarea) return;
+    const len = textarea.value.length;
+    countEl.textContent = len;
+    if (len >= 110) {
+      countEl.style.color = '#f59e0b';
+      countEl.style.fontWeight = '700';
+    } else {
+      countEl.style.color = '#cbd5e1';
+      countEl.style.fontWeight = 'normal';
+    }
+  }
+
+  async function submitFeedbackComment(e) {
+    if (e && e.preventDefault) e.preventDefault();
+
+    const nameInput = document.getElementById('fb-name');
+    const emailInput = document.getElementById('fb-email');
+    const ratingInput = document.getElementById('fb-rating');
+    const commentInput = document.getElementById('fb-comment');
+    const statusMsg = document.getElementById('fb-status-msg');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const rating = ratingInput ? parseInt(ratingInput.value, 10) || 5 : 5;
+    const text = commentInput ? commentInput.value.trim() : '';
+
+    if (!name || !text) {
+      alert('Please enter your name and comment.');
+      return;
+    }
+
+    const newComment = {
+      id: Date.now(),
+      name: name,
+      email: email,
+      rating: rating,
+      text: text,
+      date: new Date().toISOString().split('T')[0],
+      color: getAvatarColor(name)
+    };
+
+    feedbackComments.unshift(newComment);
+
+    try {
+      localStorage.setItem('ielts_community_comments', JSON.stringify(feedbackComments));
+    } catch(err){}
+
+    updateFeedbackMetrics();
+    renderFeedbackTicker();
+
+    // 1. Sync to Supabase Cloud Database
+    try {
+      fetch(`${SUPABASE_CONFIG.url}/rest/v1/comments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_CONFIG.key,
+          'Authorization': `Bearer ${SUPABASE_CONFIG.key}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          name: newComment.name,
+          email: newComment.email,
+          rating: newComment.rating,
+          text: newComment.text,
+          color: newComment.color
+        })
+      }).catch(function(err){ console.log('Supabase sync note:', err.message); });
+    } catch(err){}
+
+    // 2. Sync to local backend server
+    try {
+      fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newComment)
+      }).catch(function(err){ console.log('Comment post sync:', err); });
+    } catch(err){}
+
+    if (nameInput) nameInput.value = '';
+    if (emailInput) emailInput.value = '';
+    if (commentInput) commentInput.value = '';
+    const countEl = document.getElementById('fb-char-count');
+    if (countEl) countEl.textContent = '0';
+    setFeedbackRating(5);
+
+    if (statusMsg) {
+      statusMsg.className = 'feedback-status-msg success';
+      statusMsg.innerHTML = `&#10003; Thank you, <strong>${escapeHtml(name)}</strong>! Your review has been published.`;
+      statusMsg.style.display = 'block';
+      setTimeout(() => {
+        statusMsg.style.display = 'none';
+      }, 5000);
+    }
+  }
+
+
+  // =========================================================================
+  // SUPABASE AUTHENTICATION SYSTEM (Google OAuth + Email/Password + Password Reset)
+  // =========================================================================
+  let supabaseClient = null;
+  let currentUser = null;
+  let currentAuthMode = 'signin'; // 'signin', 'signup', 'forgot', 'update_password'
+
+  function getSupabaseClient() {
+    if (!supabaseClient) {
+      const sup = (typeof window !== 'undefined' && window.supabase) || (typeof supabase !== 'undefined' ? supabase : null);
+      if (sup && sup.createClient) {
+        try {
+          supabaseClient = sup.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.key, {
+            auth: {
+              persistSession: true,
+              autoRefreshToken: true,
+              detectSessionInUrl: true,
+              flowType: 'implicit'
+            }
+          });
+        } catch (e) {
+          console.warn('Supabase client init note:', e.message);
+        }
+      }
+    }
+    return supabaseClient;
+  }
+
+  async function initAuth() {
+    const sp = getSupabaseClient();
+    if (!sp) {
+      try {
+        const saved = localStorage.getItem('ielts_cached_user');
+        if (saved) {
+          currentUser = JSON.parse(saved);
+          renderNavAuthState();
+        }
+      } catch (e) {}
+      return;
+    }
+
+    try {
+      // 1. Check for password recovery or magic link tokens in hash
+      const hash = window.location.hash || '';
+      if (hash.includes('type=recovery') || hash.includes('type=magiclink')) {
+        setTimeout(() => {
+          openAuthModal('update_password');
+        }, 400);
+      }
+
+      // 2. Get existing session
+      const { data: { session }, error } = await sp.auth.getSession();
+      if (session && session.user) {
+        currentUser = session.user;
+        localStorage.setItem('ielts_cached_user', JSON.stringify({
+          id: currentUser.id,
+          email: currentUser.email,
+          user_metadata: currentUser.user_metadata
+        }));
+      } else {
+        currentUser = null;
+        localStorage.removeItem('ielts_cached_user');
+      }
+      renderNavAuthState();
+
+      // 3. Real-time auth state listener (OAuth redirects, logins, logouts, password recovery)
+      sp.auth.onAuthStateChange((event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          openAuthModal('update_password');
+          return;
+        }
+
+        if (session && session.user) {
+          currentUser = session.user;
+          localStorage.setItem('ielts_cached_user', JSON.stringify({
+            id: currentUser.id,
+            email: currentUser.email,
+            user_metadata: currentUser.user_metadata
+          }));
+          closeAuthModal();
+        } else if (event === 'SIGNED_OUT') {
+          currentUser = null;
+          localStorage.removeItem('ielts_cached_user');
+        }
+        renderNavAuthState();
+      });
+    } catch (err) {
+      console.warn('Auth init check:', err.message);
+    }
+  }
+
+  function renderNavAuthState() {
+    const slot = document.getElementById('nav-auth-slot');
+    if (!slot) return;
+
+    if (currentUser) {
+      const email = currentUser.email || 'Candidate';
+      const meta = currentUser.user_metadata || {};
+      const fullName = meta.full_name || meta.name || email.split('@')[0];
+      const avatarUrl = meta.avatar_url || meta.picture || '';
+      const initial = fullName.charAt(0).toUpperCase();
+
+      slot.innerHTML = `
+        <div class="nav-user-chip" id="nav-user-chip" title="${email}">
+          ${avatarUrl 
+            ? `<img class="nav-user-avatar" src="${avatarUrl}" alt="${fullName}" referrerpolicy="no-referrer">` 
+            : `<span class="nav-user-initial">${initial}</span>`}
+          <span class="nav-user-name">${fullName}</span>
+          <button type="button" class="nav-signout-btn" onclick="window.ieltsApp.signOut()" title="Sign Out">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      `;
+    } else {
+      slot.innerHTML = `
+        <button type="button" class="nav-auth-btn" id="nav-login-btn" onclick="window.ieltsApp.openAuthModal('signin');">
+          <svg class="nav-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Sign In</span>
+        </button>
+      `;
+    }
+  }
+
+  function openAuthModal(mode = 'signin') {
+    currentAuthMode = mode;
+    const modal = document.getElementById('auth-modal');
+    if (!modal) return;
+    updateAuthModalUI();
+    clearAuthStatus();
+    modal.classList.add('active');
+    modal.style.setProperty('display', 'flex', 'important');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      modal.style.setProperty('display', 'none', 'important');
+      document.body.style.overflow = '';
+      clearAuthStatus();
+    }
+    showHomeView();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function switchAuthTab(mode) {
+    currentAuthMode = mode;
+    updateAuthModalUI();
+    clearAuthStatus();
+  }
+
+  function toggleAuthMode() {
+    if (currentAuthMode === 'signin') {
+      switchAuthTab('signup');
+    } else {
+      switchAuthTab('signin');
+    }
+  }
+
+  function updateAuthModalUI() {
+    const isSignIn = currentAuthMode === 'signin';
+    const isSignUp = currentAuthMode === 'signup';
+    const isForgot = currentAuthMode === 'forgot';
+    const isUpdatePw = currentAuthMode === 'update_password';
+
+    const title = document.getElementById('auth-modal-title');
+    const subtitle = document.getElementById('auth-modal-subtitle');
+    const tabRow = document.getElementById('auth-tab-row');
+    const tabSignIn = document.getElementById('auth-tab-signin');
+    const tabSignUp = document.getElementById('auth-tab-signup');
+    const googleBtn = document.getElementById('auth-google-btn');
+    const divider = document.getElementById('auth-divider');
+    const nameField = document.getElementById('auth-name-field');
+    const emailField = document.getElementById('auth-email-field');
+    const pwField = document.getElementById('auth-pw-field');
+    const pwLabel = document.getElementById('auth-pw-label');
+    const submitBtn = document.getElementById('auth-submit-btn');
+    const togglePrompt = document.getElementById('auth-toggle-prompt');
+    const toggleAction = document.getElementById('auth-toggle-action');
+    const forgotLink = document.getElementById('auth-forgot-link');
+    const optionsRow = document.getElementById('auth-options-row');
+
+    // Section Visibilities
+    if (tabRow) tabRow.style.display = (isSignIn || isSignUp) ? 'flex' : 'none';
+    if (googleBtn) googleBtn.style.display = (isSignIn || isSignUp) ? 'flex' : 'none';
+    if (divider) divider.style.display = (isSignIn || isSignUp) ? 'flex' : 'none';
+    if (nameField) nameField.style.display = isSignUp ? 'block' : 'none';
+    if (emailField) emailField.style.display = isUpdatePw ? 'none' : 'block';
+    if (pwField) pwField.style.display = isForgot ? 'none' : 'block';
+    if (forgotLink) forgotLink.style.display = isSignIn ? 'inline-block' : 'none';
+    if (optionsRow) optionsRow.style.display = isSignIn ? 'flex' : 'none';
+
+    if (tabSignIn) tabSignIn.classList.toggle('active', isSignIn);
+    if (tabSignUp) tabSignUp.classList.toggle('active', isSignUp);
+
+    if (isSignIn) {
+      if (title) title.textContent = 'Login';
+      if (subtitle) subtitle.textContent = "Prepare & Practice with confidence";
+      if (pwLabel) pwLabel.textContent = 'Password';
+      if (submitBtn) submitBtn.innerHTML = '<span>Log In</span>';
+      if (togglePrompt) togglePrompt.textContent = "Don't have an account?";
+      if (toggleAction) {
+        toggleAction.textContent = 'Create an account';
+        toggleAction.onclick = () => switchAuthTab('signup');
+      }
+    } else if (isSignUp) {
+      if (title) title.textContent = 'Create Account';
+      if (subtitle) subtitle.textContent = 'Join IELTS Warrior to start your full Cambridge preparation.';
+      if (pwLabel) pwLabel.textContent = 'Create Password';
+      if (submitBtn) submitBtn.innerHTML = '<span>Create Account</span>';
+      if (togglePrompt) togglePrompt.textContent = 'Already have an account?';
+      if (toggleAction) {
+        toggleAction.textContent = 'Log In';
+        toggleAction.onclick = () => switchAuthTab('signin');
+      }
+    } else if (isForgot) {
+      if (title) title.textContent = 'Reset Password';
+      if (subtitle) subtitle.textContent = "Enter your registered email and we'll send you a password reset link.";
+      if (submitBtn) submitBtn.innerHTML = '<span>Send Password Reset Link</span>';
+      if (togglePrompt) togglePrompt.textContent = 'Remembered your password?';
+      if (toggleAction) {
+        toggleAction.textContent = 'Back to Log In';
+        toggleAction.onclick = () => switchAuthTab('signin');
+      }
+    } else if (isUpdatePw) {
+      if (title) title.textContent = 'Create New Password';
+      if (subtitle) subtitle.textContent = 'Enter your new password below to secure your account.';
+      if (pwLabel) pwLabel.textContent = 'New Password';
+      if (submitBtn) submitBtn.innerHTML = '<span>Save New Password</span>';
+      if (togglePrompt) togglePrompt.textContent = 'Need help?';
+      if (toggleAction) {
+        toggleAction.textContent = 'Back to Home';
+        toggleAction.onclick = () => closeAuthModal();
+      }
+    }
+  }
+
+  function setAuthStatus(msg, type = 'error') {
+    const el = document.getElementById('auth-status-msg');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'auth-status-msg ' + type;
+    el.style.display = 'block';
+  }
+
+  function clearAuthStatus() {
+    const el = document.getElementById('auth-status-msg');
+    if (el) {
+      el.textContent = '';
+      el.style.display = 'none';
+      el.className = 'auth-status-msg';
+    }
+  }
+
+  function togglePasswordVisibility(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.textContent = '🔒';
+    } else {
+      input.type = 'password';
+      btn.textContent = '👁';
+    }
+  }
+
+  async function signInWithGoogle() {
+    clearAuthStatus();
+    const sp = getSupabaseClient();
+    if (!sp) {
+      setAuthStatus('Authentication client is initializing. Please refresh and try again.', 'error');
+      return;
+    }
+
+    try {
+      setAuthStatus('Connecting to Google...', 'info');
+      const { data, error } = await sp.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin + window.location.pathname
+        }
+      });
+      if (error) {
+        setAuthStatus(error.message, 'error');
+        return;
+      }
+      // Guaranteed browser redirection to Google Consent
+      if (data && data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      setAuthStatus(err.message || 'Failed to connect to Google.', 'error');
+    }
+  }
+
+  async function handleAuthSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    clearAuthStatus();
+
+    const sp = getSupabaseClient();
+    if (!sp) {
+      setAuthStatus('Authentication client is initializing. Please refresh.', 'error');
+      return;
+    }
+
+    const emailEl = document.getElementById('auth-input-email');
+    const pwEl = document.getElementById('auth-input-password');
+    const nameEl = document.getElementById('auth-input-name');
+
+    const email = emailEl ? emailEl.value.trim() : '';
+    const password = pwEl ? pwEl.value : '';
+    const name = nameEl ? nameEl.value.trim() : '';
+
+    const submitBtn = document.getElementById('auth-submit-btn');
+
+    // Case 1: Forgot Password Mode
+    if (currentAuthMode === 'forgot') {
+      if (!email) {
+        setAuthStatus('Please enter your email address.', 'error');
+        if (emailEl) emailEl.focus();
+        return;
+      }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.classList.add('loading'); }
+      try {
+        const { data, error } = await sp.auth.resetPasswordForEmail(email, {
+          redirectTo: window.location.origin + window.location.pathname
+        });
+        if (error) {
+          setAuthStatus(error.message, 'error');
+        } else {
+          setAuthStatus('A password reset link has been sent to ' + email + '. Please check your inbox and spam folder.', 'success');
+        }
+      } catch (err) {
+        setAuthStatus(err.message || 'Failed to send reset link.', 'error');
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.classList.remove('loading'); }
+      }
+      return;
+    }
+
+    // Case 2: Update New Password Mode (from email recovery link)
+    if (currentAuthMode === 'update_password') {
+      if (!password || password.length < 6) {
+        setAuthStatus('Please enter a new password (at least 6 characters).', 'error');
+        if (pwEl) pwEl.focus();
+        return;
+      }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.classList.add('loading'); }
+      try {
+        const { data, error } = await sp.auth.updateUser({ password: password });
+        if (error) {
+          setAuthStatus(error.message, 'error');
+        } else {
+          setAuthStatus('Password updated successfully! Welcome back.', 'success');
+          setTimeout(() => {
+            closeAuthModal();
+            if (window.history && window.history.replaceState) {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
+          }, 1200);
+        }
+      } catch (err) {
+        setAuthStatus(err.message || 'Failed to update password.', 'error');
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.classList.remove('loading'); }
+      }
+      return;
+    }
+
+    // Case 3: Sign In or Sign Up Mode
+    if (!email) {
+      setAuthStatus('Please enter your email address.', 'error');
+      if (emailEl) emailEl.focus();
+      return;
+    }
+    if (!password) {
+      setAuthStatus('Please enter your password.', 'error');
+      if (pwEl) pwEl.focus();
+      return;
+    }
+    if (password.length < 6) {
+      setAuthStatus('Password must be at least 6 characters.', 'error');
+      if (pwEl) pwEl.focus();
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+    }
+
+    try {
+      if (currentAuthMode === 'signin') {
+        const { data, error } = await sp.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+        if (error) {
+          setAuthStatus(error.message || 'Invalid email or password.', 'error');
+        } else if (data && data.user) {
+          currentUser = data.user;
+          localStorage.setItem('ielts_cached_user', JSON.stringify({
+            id: currentUser.id,
+            email: currentUser.email,
+            user_metadata: currentUser.user_metadata
+          }));
+          renderNavAuthState();
+          setAuthStatus('Signed in successfully! Welcome back.', 'success');
+          setTimeout(() => {
+            closeAuthModal();
+          }, 800);
+        }
+      } else {
+        // Sign Up Mode
+        const { data, error } = await sp.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            data: {
+              full_name: name || email.split('@')[0]
+            }
+          }
+        });
+
+        if (error) {
+          setAuthStatus(error.message, 'error');
+        } else if (data && data.user) {
+          currentUser = data.user;
+          localStorage.setItem('ielts_cached_user', JSON.stringify({
+            id: currentUser.id,
+            email: currentUser.email,
+            user_metadata: currentUser.user_metadata
+          }));
+          renderNavAuthState();
+          setAuthStatus('Account created and signed in successfully! Welcome to IELTS Warrior.', 'success');
+          setTimeout(() => {
+            closeAuthModal();
+          }, 900);
+        }
+      }
+    } catch (err) {
+      setAuthStatus(err.message || 'Authentication error. Please try again.', 'error');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+      }
+    }
+  }
+
+  async function signOut() {
+    const sp = getSupabaseClient();
+    try {
+      if (sp) {
+        await sp.auth.signOut();
+      }
+    } catch (e) {
+      console.warn('Sign out note:', e.message);
+    }
+    currentUser = null;
+    localStorage.removeItem('ielts_cached_user');
+    renderNavAuthState();
+  }
+
+  function handleForgotPassword(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    switchAuthTab('forgot');
+  }
+
   window.ieltsApp = {
+    // Supabase Authentication
+    openAuthModal,
+    closeAuthModal,
+    switchAuthTab,
+    toggleAuthMode,
+    togglePasswordVisibility,
+    signInWithGoogle,
+    handleAuthSubmit,
+    signOut,
+    handleForgotPassword,
+
+    // Community Reach & Feedback
+    initFeedbackSection,
+    toggleCommentTicker,
+    setFeedbackRating,
+    handleCommentCharCount,
+    submitFeedbackComment,
+
     navigateToHomeSection,
     openYouTubeResourcesModal,
     closeYouTubeResourcesModal,
@@ -4600,6 +5388,9 @@
 
     // Navigation Views
     showHomeView,
+    showIeltsPracticeView,
+    showIeltsPractice,
+    showPracticePortals,
     showExamView,
     showReaderView,
     showWritingView,
