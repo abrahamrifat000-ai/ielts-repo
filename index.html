@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1794133990000">
+  <link rel="stylesheet" href="css/style.css?v=1794308436324">
   <link rel="icon" type="image/png" href="assets/images/ielts-warrior-favicon.png?v=7">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=7">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png?v=7">
@@ -281,22 +281,18 @@
        ======================================================================== -->
   <div id="ielts-practice-view" class="view-screen">
     <header class="reader-header">
-      <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
-        <div class="reader-header-left" style="display:flex; align-items:center; gap:16px;">
-          <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()" style="background:#0e332d; color:#fff; border:1px solid rgba(255,255,255,0.2); padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:6px;">
-            <span>&larr; Back to Home</span>
-          </button>
-          <span class="reading-badge" style="background:#0e332d; color:#f59e0b; border:1px solid #f59e0b; font-weight:700;">IELTS Online Practice</span>
-        </div>
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Online Practice Portals</h2>
       </div>
     </header>
 
-    <main class="wrap" style="padding: 48px 24px 80px;">
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
       <!-- Title Block -->
-      <div class="sec-head" style="text-align:center; max-width:760px; margin:0 auto 52px;">
+      <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 32px auto; padding:0 16px; display:block;">
         <span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; letter-spacing:1px; margin-bottom:14px; display:inline-block; padding:6px 18px; border-radius:999px; text-transform:uppercase; font-size:0.75rem;">ONLINE PRACTICE PORTALS</span>
-        <h2 style="font-family:var(--head); font-size:clamp(2rem, 3.8vw, 2.7rem); color:var(--green); font-weight:800; margin:0 0 14px;">IELTS Practice</h2>
-        <p style="color:var(--muted); font-size:1.05rem; line-height:1.6; margin:0;">Hand-picked world-class IELTS online practice platforms. Choose your target portal to practice full Cambridge-standard mock tests, sectional mini-tests, and interactive skill modules.</p>
+        <h2 style="font-size:2.05rem; font-weight:800; color:#0e332d; margin-bottom:12px;">IELTS Online Practice Portals</h2>
+        <p style="color:var(--muted); font-size:1.04rem; line-height:1.6; max-width:720px; margin:0 auto;">Hand-picked world-class IELTS online practice platforms. Choose your target portal to practice full Cambridge-standard mock tests, sectional mini-tests, and interactive skill modules.</p>
       </div>
 
       <!-- 3 Gradient Practice Cards Grid (Image 3 Replica) -->
@@ -432,17 +428,18 @@
       </div>
       <div class="header-actions">
         <div class="category-filter-bar" style="margin:0;">
-          <button class="cat-filter-btn active" id="btn-rs-all" onclick="window.ieltsApp.filterReadingSkillsCards('all')">All (30 Passages)</button>
-          <button class="cat-filter-btn" id="btn-rs-easy" onclick="window.ieltsApp.filterReadingSkillsCards('easy')">Easy (1–10)</button>
-          <button class="cat-filter-btn" id="btn-rs-medium" onclick="window.ieltsApp.filterReadingSkillsCards('medium')">Medium (11–20)</button>
-          <button class="cat-filter-btn" id="btn-rs-hard" onclick="window.ieltsApp.filterReadingSkillsCards('hard')">Hard (21–30)</button>
+          <button class="cat-filter-btn active" id="btn-rs-all" onclick="window.ieltsApp.filterReadingSkillsCards('all')">All (40 Passages)</button>
+          <button class="cat-filter-btn" id="btn-rs-initial" onclick="window.ieltsApp.filterReadingSkillsCards('initial')">🔵 Initial A2 (1–10)</button>
+          <button class="cat-filter-btn" id="btn-rs-easy" onclick="window.ieltsApp.filterReadingSkillsCards('easy')">🟢 Easy B1 (11–20)</button>
+          <button class="cat-filter-btn" id="btn-rs-medium" onclick="window.ieltsApp.filterReadingSkillsCards('medium')">🟡 Medium B2 (21–30)</button>
+          <button class="cat-filter-btn" id="btn-rs-hard" onclick="window.ieltsApp.filterReadingSkillsCards('hard')">🔴 Hard C1 (31–40)</button>
         </div>
       </div>
     </header>
 
     <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
       <div class="sec-head" style="text-align:center; max-width:820px; margin:36px auto 28px auto; padding:0 16px; display:block;">
-        <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin-bottom:10px;">30 Curated Reading Skill Passages</h2>
+        <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin-bottom:10px;">40 Curated Reading Skill Passages</h2>
         <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:700px; margin:0 auto;">Read passages with paragraph-by-paragraph vocabulary notes and 1–2 line A1–A2 simplified summaries at the end.</p>
       </div>
       <div class="editorial-practice-grid" id="reading-skills-selection-grid"></div>
@@ -1242,7 +1239,7 @@
     <header class="reader-header">
       <div class="reader-header-left">
         <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
-        <h2 id="grammar-header-title" style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Grammar Practice Lab</h2>
+        <h2 id="grammar-header-title" style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Grammar Mastery Hub</h2>
       </div>
       <div class="header-actions">
         <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('basic_grammar')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Parts of Speech Guide</button>
@@ -1251,81 +1248,70 @@
     </header>
 
     <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
-      <!-- Hero Banner Card -->
-      
-
-      <!-- TIER 1: TOPIC CARDS HUB -->
+      <!-- TIER 1: TOPIC CARDS HUB (VOCABULARY CARD STYLE) -->
       <div id="grammar-topics-hub">
         <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 28px auto; padding:0 16px; display:block;">
-          <h2 style="font-size:1.85rem; font-weight:800; color:#0e332d; margin:0 0 10px;">5 Essential IELTS Grammar Modules</h2>
+          <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin:0 0 10px;">8 Essential IELTS Grammar Topics</h2>
           <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
-            Select a grammar module below. Each topic contains <strong>10 structured exercises</strong> with <strong>20 practice questions each</strong> (200 questions per topic) including instant checking, answers, and in-depth grammatical explanations.
+            Master high-scoring grammatical structures for IELTS Band 7.5–9.0. Each module includes in-depth rules, formulas, common pitfalls, and 15 targeted gap-fill practice questions with instant checking and full explanations.
           </p>
         </div>
 
-        <div class="grammar-topic-cards-grid" id="grammar-topics-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;"></div>
+        <div class="topics-grid" id="grammar-topics-grid"></div>
       </div>
 
-      <!-- TIER 2: TOPIC EXERCISES VIEW (10 EXERCISE CARDS) -->
-      <div id="grammar-exercises-view" style="display:none;">
-        <div style="margin-bottom:20px;">
+      <!-- TIER 2: TOPIC STUDY & PRACTICE DETAIL VIEW -->
+      <div id="grammar-detail-view" style="display:none;">
+        <!-- Top Nav & Header -->
+        <div style="margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
           <button class="btn alt" onclick="window.ieltsApp.returnToGrammarTopics()" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
             <span>&larr; Back to All Grammar Topics</span>
           </button>
-        </div>
-
-        <div id="grammar-topic-banner-box" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px; margin-bottom:24px; box-shadow:0 2px 6px rgba(0,0,0,0.03);"></div>
-
-        <div class="sec-head" style="margin-bottom:18px;">
-          <div>
-            <h3 style="font-size:1.35rem; font-weight:800; color:#0f172a; margin:0 0 4px;">10 Topic Practice Exercises</h3>
-            <p style="color:#64748b; font-size:0.92rem; margin:0;">Each exercise contains 20 curated questions testing key exam patterns.</p>
-          </div>
-        </div>
-
-        <div id="grammar-exercises-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;"></div>
-      </div>
-
-      <!-- TIER 3: EXERCISE PRACTICE QUESTIONS VIEW (20 QUESTIONS) -->
-      <div id="grammar-practice-view" style="display:none;">
-        <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-          <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
-            <span>&larr; Back to Topic Exercises</span>
-          </button>
-          <div id="grammar-exercise-score-badge" style="background:#eff6ff; color:#1d4ed8; font-weight:800; font-size:0.95rem; padding:8px 18px; border-radius:20px; border:1.5px solid #bfdbfe;">
-            Answered: 0 / 20
-          </div>
-        </div>
-
-        <!-- Exercise Details Header -->
-        <div id="grammar-exercise-header-card" style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:12px; padding:18px 22px; margin-bottom:24px;"></div>
-
-        <!-- Post-Submission Results Banner (Hidden until Submitted) -->
-        <div id="grammar-results-banner" style="display:none;"></div>
-
-        <!-- 20 Questions Container (10 Drag & Drop + 10 Gap-Fill) -->
-        <div id="grammar-questions-list" style="display:flex; flex-direction:column; gap:22px;"></div>
-
-        <!-- Bottom Action & Submit Bar -->
-        <div id="grammar-submit-container" style="margin-top:36px; padding:24px; background:#ffffff; border:2px solid #e2e8f0; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-          <div>
-            <div id="grammar-submit-status-text" style="font-size:1.05rem; font-weight:800; color:#0f172a;">You have answered <span id="grammar-answered-count">0</span> of 20 questions</div>
-            <p style="margin:4px 0 0; font-size:0.88rem; color:#64748b;">Complete both Drag-and-Drop and Gap-Fill questions, then submit to check your final score and detailed explanations.</p>
-          </div>
-          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-            <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700;">Cancel</button>
-            <button class="btn main" id="grammar-submit-btn" onclick="window.ieltsApp.submitCurrentExercise()" style="padding:14px 32px; font-size:1.05rem; font-weight:900; background:#2563eb; border-color:#2563eb; box-shadow:0 6px 18px rgba(37,99,235,0.3);">
-              <span>Submit Exercise &amp; Check Results &rarr;</span>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <span id="grammar-topic-status-pill" style="font-size:0.82rem; font-weight:800; padding:6px 14px; border-radius:20px; background:#f1f5f9; color:#475569;">Incomplete</span>
+            <button class="btn main" id="grammar-topic-toggle-btn" onclick="window.ieltsApp.toggleCurrentTopicComplete()" style="font-size:0.85rem; font-weight:800; padding:7px 16px;">
+              Mark as Complete
             </button>
           </div>
         </div>
 
-        <!-- Review Mode Navigation Bar (Visible after submit) -->
-        <div id="grammar-review-nav-bar" style="display:none; margin-top:36px; padding:20px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
-          <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700;">&larr; Return to Exercises</button>
-          <div style="display:flex; gap:10px;">
-            <button class="btn alt" onclick="window.ieltsApp.retakeCurrentExercise()" style="font-weight:700;">Retake Exercise</button>
-            <button class="btn main" onclick="window.ieltsApp.goToNextExercise()" style="font-weight:700;">Next Exercise &rarr;</button>
+        <!-- Topic Banner Box -->
+        <div id="grammar-topic-banner-box" style="background:#fff; border:1.5px solid #e2e8f0; border-radius:18px; padding:28px; margin-bottom:28px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+          <!-- Injected dynamically: title, category tag, level, summary -->
+        </div>
+
+        <!-- Mode Navigation Tabs: Rules Guide vs Gap-Fill Practice -->
+        <div class="writing-mode-tabs" style="margin-bottom:28px; max-width:540px;">
+          <button class="mode-tab-btn active" id="btn-grammar-tab-rules" onclick="window.ieltsApp.switchGrammarTab('rules')">
+            <span>📘 Details &amp; Easy Rules</span>
+          </button>
+          <button class="mode-tab-btn" id="btn-grammar-tab-practice" onclick="window.ieltsApp.switchGrammarTab('practice')">
+            <span>✍️ Gap-Fill Practice (15 Qs)</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Rules & Details Guide -->
+        <div id="grammar-rules-tab-content">
+          <div id="grammar-rules-content-body"></div>
+        </div>
+
+        <!-- Tab 2: Gap-Fill Practice Questions -->
+        <div id="grammar-practice-tab-content" style="display:none;">
+          <div id="grammar-practice-score-card" style="display:none; margin-bottom:24px;"></div>
+          <div id="grammar-gap-questions-list" style="display:flex; flex-direction:column; gap:20px;"></div>
+
+          <!-- Bottom Action Bar -->
+          <div id="grammar-practice-submit-bar" style="margin-top:36px; padding:24px; background:#ffffff; border:2px solid #e2e8f0; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div id="grammar-practice-answered-text" style="font-size:1.05rem; font-weight:800; color:#0f172a;">You have answered <span id="grammar-gap-answered-count">0</span> of 15 questions</div>
+              <p style="margin:4px 0 0; font-size:0.88rem; color:#64748b;">Select an option for each sentence blank, then submit to check your score and detailed grammatical explanations.</p>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+              <button class="btn alt" onclick="window.ieltsApp.resetCurrentTopicPractice()" style="font-weight:700;">Reset Answers</button>
+              <button class="btn main" id="grammar-gap-submit-btn" onclick="window.ieltsApp.submitCurrentTopicPractice()" style="padding:14px 32px; font-size:1.05rem; font-weight:900; background:#0e332d; border-color:#0e332d; box-shadow:0 6px 18px rgba(14,51,45,0.25);">
+                <span>Submit &amp; Check Answers &rarr;</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1535,7 +1521,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/data.js?v=1793785505936"></script>
   <script src="js/crack_ielts_tests.js?v=1793785505936"></script>
-  <script src="js/reading_skills_data.js?v=1793785505936"></script>
+  <script src="js/reading_skills_data.js?v=1794304985929"></script>
   <script src="js/roadmap_data.js?v=1793785505936"></script>
   <script src="js/writing_data.js?v=1793785505936"></script>
   <script src="js/task1_figures.js?v=1793785505936"></script>
@@ -1543,8 +1529,8 @@
   <script src="js/shadowing_data.js?v=1793785505936"></script>
   <script src="js/media_data.js?v=1793785505936"></script>
   <script src="js/vocabulary_data.js?v=1793785505936"></script>
-  <script src="js/grammar_data.js?v=1793785505936"></script>
-  <script src="js/app.js?v=1794133990000"></script>
+  <script src="js/grammar_data.js?v=1794308436324"></script>
+  <script src="js/app.js?v=1794308436324"></script>
 
   <!-- ========================================================================
        YOUTUBE & WEB RESOURCES MODAL (7 TOP CURATED CHANNELS)

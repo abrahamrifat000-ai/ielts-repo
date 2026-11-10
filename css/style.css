@@ -6536,6 +6536,88 @@ header.top {
 }
 
 /* ==========================================================================
+   NEW GRAMMAR LAB: RULES & DETAILS CARDS STYLING
+   ========================================================================== */
+.grammar-rule-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.grammar-rule-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.grammar-rule-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.grammar-rule-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.grammar-formula-box {
+  background: #f8fafc;
+  border-left: 4px solid #0e332d;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 18px;
+  margin: 14px 0;
+  font-family: 'SF Mono', Menlo, Consolas, Monaco, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.grammar-examples-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.grammar-example-box {
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.grammar-example-box.wrong-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.grammar-example-box.correct-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.grammar-example-badge {
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
    VOCABULARY TOPICS ENHANCEMENTS
    ========================================================================== */
 .vocab-view-toggle-bar {
@@ -7084,6 +7166,56 @@ header.top {
 .reading-step-btn-start:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Reading card: actions row with two buttons */
+.reading-step-actions {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.reading-step-actions .reading-step-btn-start {
+  flex: 1 1 auto !important;
+  width: auto !important;
+}
+
+/* Complete button */
+.reading-step-btn-complete {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 10px 16px !important;
+  border-radius: 12px !important;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  border: 2px solid #16a34a !important;
+  background: #fff !important;
+  color: #16a34a !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.reading-step-btn-complete:hover {
+  background: #f0fdf4 !important;
+  transform: translateY(-1px) !important;
+}
+
+.reading-step-btn-complete.is-done {
+  background: #16a34a !important;
+  color: #fff !important;
+  border-color: #16a34a !important;
+  cursor: default !important;
+  opacity: 0.9 !important;
+}
+
+/* Complete card border highlight */
+.rs-card-complete {
+  border: 2px solid #16a34a !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12) !important;
 }
 
 /* ==========================================================================

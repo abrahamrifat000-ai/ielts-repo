@@ -3282,7 +3282,7 @@
     hideAllViews();
     const v = document.getElementById('reading-skills-selection-view');
     if (v) v.classList.add('active-view');
-    ['all','easy','medium','hard'].forEach(function(l) {
+    ['all','initial','easy','medium','hard'].forEach(function(l) {
       const btn = document.getElementById('btn-rs-' + l);
       if (btn) btn.classList.toggle('active', l === 'all');
     });
@@ -3291,7 +3291,7 @@
   }
 
   function filterReadingSkillsCards(level) {
-    ['all','easy','medium','hard'].forEach(function(l) {
+    ['all','initial','easy','medium','hard'].forEach(function(l) {
       const btn = document.getElementById('btn-rs-' + l);
       if (btn) btn.classList.toggle('active', l === level);
     });
@@ -3318,10 +3318,14 @@
       const c = stepColors[idx % stepColors.length];
       const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
       const lvl = (p.level || 'easy').toUpperCase();
+      const isComplete = localStorage.getItem('ielts_reading_complete_' + p.id) === '1';
+      const completeBtnHtml = isComplete
+        ? '<button class="reading-step-btn-complete is-done" onclick="event.stopPropagation();" disabled><span>✓ Completed</span></button>'
+        : '<button class="reading-step-btn-complete" onclick="event.stopPropagation(); window.ieltsApp.markPassageComplete(\'' + p.id + '\')"><span>Mark Complete</span></button>';
 
-      html += '<div class="reading-step-card reading-drill-card" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
+      html += '<div class="reading-step-card reading-drill-card' + (isComplete ? ' rs-card-complete' : '') + '" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
         '<div class="reading-step-left" style="background:' + c.bg + ';">' +
-          '<span class="reading-step-lbl">drill</span>' +
+          '<span class="reading-step-lbl">' + (p.level || 'drill') + '</span>' +
           '<span class="reading-step-num">' + numStr + '</span>' +
           '<div class="reading-step-perforation"></div>' +
         '</div>' +
@@ -3330,7 +3334,7 @@
             '<span>' + c.icon + '</span>' +
           '</div>' +
           '<div class="reading-step-header-tag" style="color:' + c.text + ';">' +
-            '<span>SKILL DRILL ' + numStr + ' &bull; ' + lvl + '</span>' +
+            '<span>SKILL DRILL ' + numStr + ' &bull; ' + (p.levelLabel || lvl) + '</span>' +
           '</div>' +
           '<h3 class="reading-step-title">' + escapeHtml(p.title) + '</h3>' +
           '<p class="reading-step-desc">' + escapeHtml((p.summary || p.lead || 'Practice reading comprehension, speed, paragraph notes and vocabulary building.').substring(0, 140)) + '...</p>' +
@@ -3340,8 +3344,10 @@
           '</div>' +
           '<div class="reading-step-actions">' +
             '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="event.stopPropagation(); window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
-              '<span>Read Passage &rarr;</span>' +
+              '<span>Read Passage</span>' +
+              '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
             '</button>' +
+            completeBtnHtml +
           '</div>' +
         '</div>' +
       '</div>';
@@ -3362,6 +3368,13 @@
 
   function openReadingPassage(passageId) {
     showReaderView(passageId);
+  }
+
+  function markPassageComplete(passageId) {
+    const key = 'ielts_reading_complete_' + passageId;
+    localStorage.setItem(key, '1');
+    renderReadingSkillsCards(state.currentDifficultyFilter || 'all');
+    showReaderToast('✓ Passage marked as complete!');
   }
 
   // ========================================================================
@@ -3814,21 +3827,63 @@
   state.grammarExerciseState = {};
   state.grammarSubmitted = false;
 
-    function getGrammarScores() {
+    function getCompletedGrammarTopics() {
     try {
-      const stored = localStorage.getItem('ielts_grammar_scores');
-      return stored ? JSON.parse(stored) : {};
-    } catch(e) {
-      return {};
+      const data = localStorage.getItem('ielts_grammar_completed_topics');
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
     }
   }
 
-  function saveGrammarScore(topicId, exNum, score, total) {
+  function saveCompletedGrammarTopic(topicId) {
     try {
-      const all = getGrammarScores();
-      all[topicId + '_ex_' + exNum] = { score: score, total: total, pct: Math.round((score / total) * 100) };
-      localStorage.setItem('ielts_grammar_scores', JSON.stringify(all));
-    } catch(e) {}
+      let list = getCompletedGrammarTopics();
+      if (!list.includes(topicId)) {
+        list.push(topicId);
+        localStorage.setItem('ielts_grammar_completed_topics', JSON.stringify(list));
+      }
+    } catch (e) {}
+  }
+
+  function removeCompletedGrammarTopic(topicId) {
+    try {
+      let list = getCompletedGrammarTopics();
+      list = list.filter(function(id) { return id !== topicId; });
+      localStorage.setItem('ielts_grammar_completed_topics', JSON.stringify(list));
+    } catch (e) {}
+  }
+
+  function toggleGrammarTopicComplete(topicId) {
+    const completed = getCompletedGrammarTopics();
+    if (completed.includes(topicId)) {
+      removeCompletedGrammarTopic(topicId);
+    } else {
+      saveCompletedGrammarTopic(topicId);
+    }
+    renderGrammarTopicsHub();
+    updateTopicDetailStatus(topicId);
+  }
+
+  function toggleCurrentTopicComplete() {
+    if (!state.currentGrammarTopicId) return;
+    toggleGrammarTopicComplete(state.currentGrammarTopicId);
+  }
+
+  function updateTopicDetailStatus(topicId) {
+    const completed = getCompletedGrammarTopics();
+    const isDone = completed.includes(topicId);
+    const pill = document.getElementById('grammar-topic-status-pill');
+    const btn = document.getElementById('grammar-topic-toggle-btn');
+    if (pill) {
+      pill.textContent = isDone ? '✓ Completed' : 'Incomplete';
+      pill.style.background = isDone ? '#dcfce7' : '#f1f5f9';
+      pill.style.color = isDone ? '#15803d' : '#475569';
+    }
+    if (btn) {
+      btn.textContent = isDone ? 'Mark as Incomplete' : '✓ Mark as Complete';
+      btn.className = isDone ? 'btn alt' : 'btn main';
+    }
   }
 
   function showGrammarView() {
@@ -3842,14 +3897,12 @@
 
   function returnToGrammarTopics() {
     const hub = document.getElementById('grammar-topics-hub');
-    const exView = document.getElementById('grammar-exercises-view');
-    const prView = document.getElementById('grammar-practice-view');
+    const detailView = document.getElementById('grammar-detail-view');
     const headerTitle = document.getElementById('grammar-header-title');
 
     if (hub) hub.style.display = 'block';
-    if (exView) exView.style.display = 'none';
-    if (prView) prView.style.display = 'none';
-    if (headerTitle) headerTitle.textContent = 'IELTS Grammar Practice Lab';
+    if (detailView) detailView.style.display = 'none';
+    if (headerTitle) headerTitle.textContent = 'IELTS Grammar Mastery Hub';
 
     renderGrammarTopicsHub();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3859,50 +3912,50 @@
     const grid = document.getElementById('grammar-topics-grid');
     if (!grid || typeof GRAMMAR_DATA === 'undefined') return;
 
-    const scores = getGrammarScores();
+    // Palette matching Vocabulary topic cards
+    const themePalettes = [
+      { c1: '#8b1a2b', c2: '#c0392b', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+      { c1: '#0f3d3a', c2: '#166e66', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>' },
+      { c1: '#b45309', c2: '#d97706', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>' },
+      { c1: '#1e3a8a', c2: '#2563eb', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
+      { c1: '#7f1d38', c2: '#9f2b48', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+      { c1: '#1b4332', c2: '#2d6a4f', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>' },
+      { c1: '#3730a3', c2: '#4f46e5', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>' },
+      { c1: '#9a3412', c2: '#ea580c', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>' }
+    ];
+
+    const completed = getCompletedGrammarTopics();
     let html = '';
 
-    (GRAMMAR_DATA.topics || []).forEach(function(topic) {
-      let completedExCount = 0;
-      let totalPoints = 0;
-      for (let i = 1; i <= 10; i++) {
-        const sc = scores[topic.id + '_ex_' + i];
-        if (sc) {
-          completedExCount++;
-          totalPoints += sc.score;
-        }
-      }
+    (GRAMMAR_DATA.topics || []).forEach(function(topic, idx) {
+      const p = themePalettes[idx % themePalettes.length];
+      const isDone = completed.includes(topic.id);
+      const numStr = (topic.number < 10 ? '0' : '') + topic.number;
 
-      const rulesList = (topic.rules || []).slice(0, 3).map(function(r) {
-        return '<li style="margin:4px 0;">' + escapeHtml(r) + '</li>';
-      }).join('');
-
-      html += '<div class="test-card" style="display:flex; flex-direction:column; justify-content:space-between; border:1.5px solid #e2e8f0; border-radius:16px; padding:24px; background:#ffffff; box-shadow:0 6px 18px rgba(0,0,0,0.04); transition:transform 0.2s, box-shadow 0.2s;" onmouseenter="this.style.transform=\'translateY(-3px)\'; this.style.boxShadow=\'0 14px 28px rgba(0,0,0,0.08)\';" onmouseleave="this.style.transform=\'translateY(0)\'; this.style.boxShadow=\'0 6px 18px rgba(0,0,0,0.04)\';">' +
-        '<div>' +
-          '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
-            '<span style="background:' + topic.color + '15; color:' + topic.color + '; font-size:0.8rem; font-weight:800; padding:4px 12px; border-radius:20px; border:1px solid ' + topic.color + '30;">' +
-              escapeHtml(topic.icon) + ' Module' +
-            '</span>' +
-            '<span style="font-size:0.82rem; font-weight:700; color:' + (completedExCount > 0 ? '#16a34a' : '#64748b') + ';">' +
-              (completedExCount > 0 ? completedExCount + '/10 Done (' + totalPoints + '/200 Pts)' : '10 Exercises') +
-            '</span>' +
+      // Matching Vocabulary Topic Card layout exactly
+      html += '<article class="topic-card ' + (isDone ? 'is-completed' : '') + '" id="grammar-card-' + topic.id + '" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';" onclick="window.ieltsApp.openGrammarTopic(\'' + topic.id + '\')">' +
+        '<header class="topic-head">' +
+          '<span class="topic-num">' + numStr + '</span>' +
+          '<h3 class="topic-title">Topic ' + numStr + '</h3>' +
+          '<span class="topic-icon">' + p.icon + '</span>' +
+        '</header>' +
+        '<div class="topic-body">' +
+          '<span class="topic-label">' + escapeHtml((topic.category || 'GRAMMAR').toUpperCase()) + '</span>' +
+          '<h4>' + escapeHtml(topic.title) + '</h4>' +
+          '<p class="keywords">' + escapeHtml(topic.summary) + '</p>' +
+          '<div class="tags">' +
+            '<span>' + (topic.rules ? topic.rules.length : 4) + ' Easy Rules</span>' +
+            '<span>' + (topic.questions ? topic.questions.length : 15) + ' Gap-Fill Qs</span>' +
+            '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">' + escapeHtml(topic.level || 'Band 7.0-9.0') + '</span>' +
           '</div>' +
-          '<h3 style="font-size:1.35rem; font-weight:800; color:#0f172a; margin:0 0 8px;">' + escapeHtml(topic.title) + '</h3>' +
-          '<p style="font-size:0.92rem; color:#475569; margin-bottom:14px; line-height:1.5;">' + escapeHtml(topic.subtitle) + '</p>' +
-          '<div style="background:#f8fafc; border-left:3px solid ' + topic.color + '; padding:10px 14px; border-radius:0 8px 8px 0; margin-bottom:18px;">' +
-            '<strong style="font-size:0.78rem; text-transform:uppercase; color:#64748b; display:block; margin-bottom:4px;">Core Rules Covered:</strong>' +
-            '<ul style="margin:0; padding-left:18px; font-size:0.84rem; color:#334155; line-height:1.45;">' +
-              rulesList +
-            '</ul>' +
+          '<div class="topic-foot">' +
+            '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); window.ieltsApp.toggleGrammarTopicComplete(\'' + topic.id + '\')">' +
+              (isDone ? '✓ Completed' : 'Incomplete') +
+            '</button>' +
+            '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openGrammarTopic(\'' + topic.id + '\')">Study &amp; Practice &rarr;</a>' +
           '</div>' +
         '</div>' +
-        '<div>' +
-          '<button class="btn main" style="width:100%; padding:12px; font-size:0.95rem; font-weight:800; background:' + topic.color + '; border-color:' + topic.color + '; display:flex; justify-content:space-between; align-items:center;" onclick="window.ieltsApp.openGrammarTopic(\'' + topic.id + '\')">' +
-            '<span>Open 10 Exercises (200 Questions)</span>' +
-            '<span>&rarr;</span>' +
-          '</button>' +
-        '</div>' +
-      '</div>';
+      '</article>';
     });
 
     grid.innerHTML = html;
@@ -3910,486 +3963,264 @@
 
   function openGrammarTopic(topicId) {
     state.currentGrammarTopicId = topicId;
+    state.grammarTopicAnswers = {};
+    state.grammarTopicSubmitted = false;
+
     if (typeof GRAMMAR_DATA === 'undefined') return;
-    const topic = GRAMMAR_DATA.topics.find(function(t) { return t.id === topicId; });
+    const topic = (GRAMMAR_DATA.topics || []).find(function(t) { return t.id === topicId; });
     if (!topic) return;
 
     const hub = document.getElementById('grammar-topics-hub');
-    const exView = document.getElementById('grammar-exercises-view');
-    const prView = document.getElementById('grammar-practice-view');
+    const detailView = document.getElementById('grammar-detail-view');
     const headerTitle = document.getElementById('grammar-header-title');
 
     if (hub) hub.style.display = 'none';
-    if (exView) exView.style.display = 'block';
-    if (prView) prView.style.display = 'none';
-    if (headerTitle) headerTitle.textContent = 'Topic: ' + topic.title;
+    if (detailView) detailView.style.display = 'block';
+    if (headerTitle) headerTitle.textContent = 'Topic ' + topic.number + ': ' + topic.title;
 
-    const topicTitleEl = document.getElementById('grammar-topic-title');
-    const topicDescEl = document.getElementById('grammar-topic-desc');
-    const topicExplEl = document.getElementById('grammar-topic-explanation');
-
-    if (topicTitleEl) topicTitleEl.textContent = topic.title;
-    if (topicDescEl) topicDescEl.textContent = topic.subtitle;
-
-    let rulesHtml = '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px 22px; margin-bottom:24px;">' +
-      '<h4 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin:0 0 10px; display:flex; align-items:center; gap:8px;">' +
-        'Key Grammar Rules &amp; Patterns' +
-      '</h4>' +
-      '<ul style="margin:0; padding-left:20px; line-height:1.65; color:#334155; font-size:0.92rem;">';
-    (topic.rules || []).forEach(function(r) {
-      rulesHtml += '<li style="margin:4px 0;">' + escapeHtml(r) + '</li>';
-    });
-    rulesHtml += '</ul></div>';
-    if (topicExplEl) topicExplEl.innerHTML = rulesHtml;
-
-    renderGrammarExercisesGrid(topic);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function renderGrammarExercisesGrid(topic) {
-    const grid = document.getElementById('grammar-exercises-grid');
-    if (!grid) return;
-
-    const scores = getGrammarScores();
-    let html = '';
-
-    (topic.exercises || []).forEach(function(ex) {
-      const key = topic.id + '_ex_' + ex.number;
-      const sc = scores[key];
-      const hasScore = !!sc;
-
-      let scoreBadge = '';
-      if (hasScore) {
-        const bg = sc.pct >= 80 ? '#dcfce7' : (sc.pct >= 60 ? '#fef3c7' : '#fee2e2');
-        const col = sc.pct >= 80 ? '#15803d' : (sc.pct >= 60 ? '#b45309' : '#b91c1c');
-        scoreBadge = '<span style="background:' + bg + '; color:' + col + '; font-weight:800; font-size:0.8rem; padding:4px 10px; border-radius:12px;">Score: ' + sc.score + '/20 (' + sc.pct + '%)</span>';
-      } else {
-        scoreBadge = '<span style="background:#f1f5f9; color:#64748b; font-weight:700; font-size:0.8rem; padding:4px 10px; border-radius:12px;">Not Attempted</span>';
-      }
-
-      html += '<div class="test-card" style="display:flex; flex-direction:column; justify-content:space-between; border:1px solid #e2e8f0; border-radius:14px; padding:20px; background:#ffffff; box-shadow:0 4px 10px rgba(0,0,0,0.03);">' +
-        '<div>' +
-          '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
-            '<span style="background:#eff6ff; color:#2563eb; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:4px;">Exercise ' + ex.number + '</span>' +
-            scoreBadge +
+    // Render Banner Box
+    const bannerBox = document.getElementById('grammar-topic-banner-box');
+    if (bannerBox) {
+      bannerBox.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">' +
+        '<div style="max-width:760px;">' +
+          '<div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">' +
+            '<span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; font-size:0.75rem; padding:4px 12px; border-radius:20px;">' + escapeHtml(topic.category) + '</span>' +
+            '<span style="font-size:0.85rem; font-weight:700; color:#2563eb;">' + escapeHtml(topic.level) + '</span>' +
           '</div>' +
-          '<h3 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 6px;">Exercise ' + ex.number + ' Practice Lab</h3>' +
-          '<p style="font-size:0.88rem; color:#475569; margin-bottom:12px; line-height:1.45;">20 Questions: <strong>10 Drag-and-Drop</strong> sentence builders + <strong>10 Gap-Fill</strong> multiple-choice items.</p>' +
-          '<div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;">' +
-            '<span style="background:#f8fafc; border:1px solid #e2e8f0; color:#334155; font-size:0.75rem; font-weight:600; padding:2px 8px; border-radius:4px;">10 Drag &amp; Drop</span>' +
-            '<span style="background:#f8fafc; border:1px solid #e2e8f0; color:#334155; font-size:0.75rem; font-weight:600; padding:2px 8px; border-radius:4px;">10 Gap-Fill</span>' +
-            '<span style="background:#f8fafc; border:1px solid #e2e8f0; color:#334155; font-size:0.75rem; font-weight:600; padding:2px 8px; border-radius:4px;">Full Explanations</span>' +
-          '</div>' +
-        '</div>' +
-        '<div>' +
-          '<button class="btn main" style="width:100%; padding:10px; font-weight:800; display:flex; justify-content:space-between; align-items:center;" onclick="window.ieltsApp.openGrammarExercise(\'' + topic.id + '\', ' + ex.number + ')">' +
-            '<span>' + (hasScore ? 'Review / Retake' : 'Start Exercise') + '</span>' +
-            '<span>&rarr;</span>' +
-          '</button>' +
-        '</div>' +
-      '</div>';
-    });
-
-    grid.innerHTML = html;
-  }
-
-  function returnToTopicExercises() {
-    openGrammarTopic(state.currentGrammarTopicId);
-  }
-
-  function openGrammarExercise(topicId, exNum) {
-    state.currentGrammarTopicId = topicId;
-    state.currentGrammarExerciseNum = exNum;
-    state.grammarExerciseState = {};
-    state.grammarSubmitted = false;
-
-    if (typeof GRAMMAR_DATA === 'undefined') return;
-    const topic = GRAMMAR_DATA.topics.find(function(t) { return t.id === topicId; });
-    if (!topic) return;
-    const ex = (topic.exercises || []).find(function(e) { return e.number === exNum; });
-    if (!ex) return;
-
-    const hub = document.getElementById('grammar-topics-hub');
-    const exView = document.getElementById('grammar-exercises-view');
-    const prView = document.getElementById('grammar-practice-view');
-    const headerTitle = document.getElementById('grammar-header-title');
-
-    if (hub) hub.style.display = 'none';
-    if (exView) exView.style.display = 'none';
-    if (prView) prView.style.display = 'block';
-    if (headerTitle) headerTitle.textContent = topic.title + ' — Ex ' + exNum;
-
-    const resultsBanner = document.getElementById('grammar-results-banner');
-    const submitContainer = document.getElementById('grammar-submit-container');
-    const reviewNavBar = document.getElementById('grammar-review-nav-bar');
-
-    if (resultsBanner) {
-      resultsBanner.style.display = 'none';
-      resultsBanner.innerHTML = '';
-    }
-    if (submitContainer) submitContainer.style.display = 'flex';
-    if (reviewNavBar) reviewNavBar.style.display = 'none';
-
-    const headerCard = document.getElementById('grammar-exercise-header-card');
-    if (headerCard) {
-      headerCard.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">' +
-        '<div>' +
-          '<div style="font-size:0.8rem; font-weight:800; color:' + topic.color + '; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">' +
-            escapeHtml(topic.title) + ' &bull; Module ' + ex.number +
-          '</div>' +
-          '<h3 style="font-size:1.35rem; font-weight:900; color:#0f172a; margin:0 0 6px;">Exercise ' + ex.number + ': Practice Questions</h3>' +
-          '<p style="margin:0; font-size:0.92rem; color:#64748b; line-height:1.45;">' +
-            'Complete all 20 questions (<strong>Part 1: Questions 1–10 Drag-and-Drop</strong>, <strong>Part 2: Questions 11–20 Gap-Fill</strong>), then click <em>Submit Exercise</em> to check your score and detailed explanations.' +
-          '</p>' +
+          '<h2 style="font-size:1.85rem; font-weight:900; color:#0f172a; margin:0 0 10px;">Topic ' + topic.number + ': ' + escapeHtml(topic.title) + '</h2>' +
+          '<p style="font-size:1.02rem; color:#475569; line-height:1.6; margin:0 0 14px;">' + escapeHtml(topic.overview) + '</p>' +
+          (topic.ieltsTip ? '<div style="background:#eff6ff; border-left:4px solid #2563eb; padding:12px 18px; border-radius:0 10px 10px 0; font-size:0.92rem; color:#1e40af; line-height:1.5;"><strong>🎯 IELTS Examiner Tip:</strong> ' + escapeHtml(topic.ieltsTip) + '</div>' : '') +
         '</div>' +
       '</div>';
     }
 
-    renderGrammarQuestionsList(topic, ex);
-    updateGrammarAnsweredBadge(ex);
+    updateTopicDetailStatus(topic.id);
+    renderGrammarTopicRules(topic);
+    renderGrammarTopicPractice(topic);
+    switchGrammarTab('rules');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function updateGrammarAnsweredBadge(ex) {
-    const badge = document.getElementById('grammar-exercise-score-badge');
-    const countEl = document.getElementById('grammar-answered-count');
-    if (!ex) return;
+  function switchGrammarTab(tab) {
+    state.grammarActiveTab = tab;
+    const btnRules = document.getElementById('btn-grammar-tab-rules');
+    const btnPractice = document.getElementById('btn-grammar-tab-practice');
+    const rulesContent = document.getElementById('grammar-rules-tab-content');
+    const practiceContent = document.getElementById('grammar-practice-tab-content');
 
-    let answeredCount = 0;
-    (ex.questions || []).forEach(function(q) {
-      const st = state.grammarExerciseState[q.id];
-      if (!st) return;
-      if (q.type === 'drag-and-drop') {
-        if (st.placedTokens && st.placedTokens.length > 0) answeredCount++;
-      } else if (q.type === 'gap-fill') {
-        if (st.selectedOption) answeredCount++;
-      }
-    });
+    if (btnRules) btnRules.classList.toggle('active', tab === 'rules');
+    if (btnPractice) btnPractice.classList.toggle('active', tab === 'practice');
 
-    if (badge) badge.textContent = 'Answered: ' + answeredCount + ' / 20';
-    if (countEl) countEl.textContent = answeredCount;
+    if (rulesContent) rulesContent.style.display = (tab === 'rules') ? 'block' : 'none';
+    if (practiceContent) practiceContent.style.display = (tab === 'practice') ? 'block' : 'none';
   }
 
-  function renderGrammarQuestionsList(topic, ex) {
-    const container = document.getElementById('grammar-questions-list');
-    if (!container || !ex) return;
+  function renderGrammarTopicRules(topic) {
+    const container = document.getElementById('grammar-rules-content-body');
+    if (!container || !topic) return;
 
     let html = '';
-
-    (ex.questions || []).forEach(function(q, idx) {
-      const qState = state.grammarExerciseState[q.id] || { placedTokens: [], selectedOption: '' };
-      const isDnd = q.type === 'drag-and-drop';
-
-      if (idx === 0) {
-        html += '<div style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:12px;">' +
-          '<span style="background:#2563eb; color:#fff; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:900; font-size:1.1rem;">A</span>' +
-          '<div>' +
-            '<h4 style="margin:0 0 2px; font-size:1.1rem; font-weight:800; color:#1e40af;">Part 1: Drag-and-Drop Sentence Builders (Questions 1–10)</h4>' +
-            '<p style="margin:0; font-size:0.88rem; color:#3b82f6;">Drag chips into the answer box or click to place / click to remove in correct grammatical order.</p>' +
+    (topic.rules || []).forEach(function(r, idx) {
+      let examplesHtml = '';
+      (r.examples || []).forEach(function(ex) {
+        examplesHtml += '<div class="grammar-examples-container">' +
+          '<div class="grammar-example-box wrong-box">' +
+            '<span class="grammar-example-badge" style="color:#b91c1c;">❌ Common IELTS Error (Band 5.5–6.0)</span>' +
+            '<div>' + escapeHtml(ex.wrong) + '</div>' +
           '</div>' +
-        '</div>';
-      } else if (idx === 10) {
-        html += '<div style="background:#f5f3ff; border:1.5px solid #ddd6fe; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:12px; margin-top:14px;">' +
-          '<span style="background:#7c3aed; color:#fff; width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:900; font-size:1.1rem;">B</span>' +
-          '<div>' +
-            '<h4 style="margin:0 0 2px; font-size:1.1rem; font-weight:800; color:#5b21b6;">Part 2: Gap-Fill Grammar Questions (Questions 11–20)</h4>' +
-            '<p style="margin:0; font-size:0.88rem; color:#7c3aed;">Select the grammatically correct word or phrase to complete the sentence.</p>' +
+          '<div class="grammar-example-box correct-box">' +
+            '<span class="grammar-example-badge" style="color:#15803d;">✅ High-Scoring Academic Structure (Band 8.0–9.0)</span>' +
+            '<div>' + escapeHtml(ex.correct) + '</div>' +
           '</div>' +
+          (ex.note ? '<div style="font-size:0.86rem; color:#64748b; font-style:italic; margin-top:4px;">💡 ' + escapeHtml(ex.note) + '</div>' : '') +
         '</div>';
-      }
+      });
 
-      if (isDnd) {
-        html += renderDndQuestionCard(q, qState, state.grammarSubmitted);
-      } else {
-        html += renderGapQuestionCard(q, qState, state.grammarSubmitted);
-      }
+      html += '<div class="grammar-rule-card">' +
+        '<div class="grammar-rule-title-row">' +
+          '<h3 class="grammar-rule-name">Rule ' + (idx + 1) + ': ' + escapeHtml(r.name) + '</h3>' +
+          '<span style="background:#f1f5f9; color:#475569; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:12px;">Core Pattern</span>' +
+        '</div>' +
+        '<p style="font-size:0.96rem; color:#334155; line-height:1.6; margin:0 0 10px;">' + escapeHtml(r.explanation) + '</p>' +
+        (r.formula ? '<div class="grammar-formula-box">' + escapeHtml(r.formula) + '</div>' : '') +
+        examplesHtml +
+      '</div>';
     });
+
+    // Call to action button at the bottom of rules
+    html += '<div style="text-align:center; margin:36px 0 20px;">' +
+      '<button class="btn main" onclick="window.ieltsApp.switchGrammarTab(\'practice\'); window.scrollTo({top:320, behavior:\'smooth\'});" style="padding:16px 36px; font-size:1.1rem; font-weight:800; border-radius:14px; background:#0e332d; border-color:#0e332d; box-shadow:0 8px 24px rgba(14,51,45,0.25);">' +
+        '<span>Proceed to Gap-Fill Practice Questions (' + (topic.questions ? topic.questions.length : 15) + ' Qs) &rarr;</span>' +
+      '</button>' +
+    '</div>';
 
     container.innerHTML = html;
   }
 
-  function renderDndQuestionCard(q, qState, isSubmitted) {
-    const placed = qState.placedTokens || [];
-    const available = (q.shuffledTokens || []).filter(function(t) {
-      const countInPlaced = placed.filter(function(p) { return p === t; }).length;
-      const countInShuffled = (q.shuffledTokens || []).filter(function(s) { return s === t; }).length;
-      return countInPlaced < countInShuffled;
-    });
+  function renderGrammarTopicPractice(topic) {
+    const container = document.getElementById('grammar-gap-questions-list');
+    const scoreCard = document.getElementById('grammar-practice-score-card');
+    const submitBar = document.getElementById('grammar-practice-submit-bar');
+    if (!container || !topic) return;
 
-    let resultClass = '';
-    let resultHeader = '';
-    let isCorrect = false;
-
-    if (isSubmitted) {
-      const userSentence = placed.join(' ').trim();
-      const targetSentence = q.targetSentence.trim();
-      isCorrect = (userSentence.toLowerCase() === targetSentence.toLowerCase()) ||
-                  (JSON.stringify(placed) === JSON.stringify(q.correctSequence));
-      resultClass = isCorrect ? 'result-correct' : 'result-incorrect';
-      resultHeader = isCorrect ?
-        '<span style="background:#16a34a; color:#fff; font-size:0.78rem; font-weight:800; padding:3px 10px; border-radius:12px;">✓ Correct (+1)</span>' :
-        '<span style="background:#dc2626; color:#fff; font-size:0.78rem; font-weight:800; padding:3px 10px; border-radius:12px;">✕ Incorrect (0/1)</span>';
+    if (!state.grammarTopicSubmitted && scoreCard) {
+      scoreCard.style.display = 'none';
+    }
+    if (submitBar) {
+      submitBar.style.display = 'flex';
     }
 
-    let placedHtml = '';
-    if (placed.length === 0) {
-      placedHtml = '<span class="grammar-dropzone-empty">' + (isSubmitted ? 'No words were placed.' : 'Click or drag word chips below into this box...') + '</span>';
-    } else {
-      placed.forEach(function(token, pIdx) {
-        placedHtml += '<span class="grammar-chip placed" ' + (!isSubmitted ? 'onclick="window.ieltsApp.removeDndToken(\'' + q.id + '\', ' + pIdx + ')" title="Click to remove"' : '') + '>' +
-          escapeHtml(token) +
-        '</span>';
+    const isSub = !!state.grammarTopicSubmitted;
+    let html = '';
+
+    (topic.questions || []).forEach(function(q) {
+      const selected = state.grammarTopicAnswers[q.id] || '';
+      let resultClass = '';
+      let isCorrect = false;
+
+      if (isSub) {
+        isCorrect = (selected.toLowerCase() === q.answer.toLowerCase());
+        resultClass = isCorrect ? 'result-correct' : 'result-incorrect';
+      }
+
+      // Sentence with interactive blank display
+      const blankDisplay = '<span class="grammar-blank-display" id="gap-display-' + q.id + '">' + (selected ? escapeHtml(selected) : '______') + '</span>';
+      const sentenceHtml = escapeHtml(q.sentence).replace(/___/g, blankDisplay);
+
+      const letters = ['A', 'B', 'C', 'D'];
+      let optionsHtml = '<div class="grammar-options-grid">';
+
+      (q.options || []).forEach(function(opt, optIdx) {
+        let optClass = 'grammar-option-pill';
+        const isOptSelected = (selected === opt);
+        const isOptCorrect = (opt.toLowerCase() === q.answer.toLowerCase());
+
+        if (isSub) {
+          if (isOptCorrect) {
+            optClass += ' correct-ans';
+          } else if (isOptSelected && !isOptCorrect) {
+            optClass += ' wrong-ans';
+          }
+        } else {
+          if (isOptSelected) optClass += ' selected';
+        }
+
+        const clickHandler = !isSub ? 'onclick="window.ieltsApp.selectGrammarGapOption(\'' + q.id + '\', \'' + escapeHtml(opt.replace(/'/g, "\\\'")) + '\')"' : '';
+
+        optionsHtml += '<div class="' + optClass + '" ' + clickHandler + ' id="opt-' + q.id + '-' + optIdx + '">' +
+          '<span class="grammar-option-letter">' + (letters[optIdx] || (optIdx + 1)) + '</span>' +
+          '<span style="flex:1;">' + escapeHtml(opt) + '</span>' +
+          (isSub && isOptCorrect ? '<span style="color:#15803d; font-weight:900;">✓</span>' : '') +
+          (isSub && isOptSelected && !isOptCorrect ? '<span style="color:#b91c1c; font-weight:900;">✕</span>' : '') +
+        '</div>';
+      });
+      optionsHtml += '</div>';
+
+      // Explanation card shown only after submission
+      let explanationHtml = '';
+      if (isSub) {
+        explanationHtml = '<div style="margin-top:16px; padding-top:14px; border-top:1px solid #e2e8f0;">' +
+          '<div style="font-size:0.92rem; margin-bottom:6px;"><strong>Correct Answer:</strong> <span style="color:#16a34a; font-weight:800;">' + escapeHtml(q.answer) + '</span></div>' +
+          (!isCorrect ? '<div style="font-size:0.92rem; margin-bottom:8px;"><strong>Your Selection:</strong> <span style="color:#dc2626; font-weight:700;">' + (selected ? escapeHtml(selected) : '<em>Unattempted</em>') + '</span></div>' : '') +
+          '<div class="grammar-explanation-card">' +
+            '<div class="grammar-explanation-title">📖 Grammatical Explanation</div>' +
+            '<p class="grammar-explanation-text">' + escapeHtml(q.explanation) + '</p>' +
+          '</div>' +
+        '</div>';
+      }
+
+      html += '<div class="grammar-q-card ' + resultClass + '" id="q-card-' + q.id + '">' +
+        '<div class="grammar-q-header">' +
+          '<span class="grammar-q-badge badge-gap">Question ' + q.number + ' &bull; Gap-Fill</span>' +
+          (isSub ? (isCorrect ? '<span style="background:#16a34a; color:#fff; font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:12px;">✓ Correct (+1)</span>' : '<span style="background:#dc2626; color:#fff; font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:12px;">✕ Incorrect (0/1)</span>') : '') +
+        '</div>' +
+        '<div class="grammar-gap-sentence">' + sentenceHtml + '</div>' +
+        optionsHtml +
+        explanationHtml +
+      '</div>';
+    });
+
+    container.innerHTML = html;
+    updateGrammarGapAnsweredCount(topic);
+  }
+
+  function selectGrammarGapOption(qId, optionText) {
+    if (state.grammarTopicSubmitted) return;
+    state.grammarTopicAnswers[qId] = optionText;
+
+    if (typeof GRAMMAR_DATA === 'undefined') return;
+    const topic = (GRAMMAR_DATA.topics || []).find(function(t) { return t.id === state.currentGrammarTopicId; });
+    if (!topic) return;
+
+    // Update blank slot in DOM
+    const blankEl = document.getElementById('gap-display-' + qId);
+    if (blankEl) blankEl.textContent = optionText;
+
+    // Update selected class on pills
+    const q = (topic.questions || []).find(function(item) { return item.id === qId; });
+    if (q) {
+      (q.options || []).forEach(function(opt, optIdx) {
+        const pill = document.getElementById('opt-' + qId + '-' + optIdx);
+        if (pill) {
+          pill.classList.toggle('selected', opt === optionText);
+        }
       });
     }
 
-    let poolHtml = '';
-    if (!isSubmitted) {
-      if (available.length === 0) {
-        poolHtml = '<span style="font-size:0.85rem; color:#64748b; font-style:italic; padding:6px 8px;">All chips placed in answer box.</span>';
-      } else {
-        available.forEach(function(token, tIdx) {
-          poolHtml += '<span class="grammar-chip" draggable="true" ondragstart="window.ieltsApp.handleDragStart(event, \'' + q.id + '\', \'' + escapeHtml(token.replace(/'/g, "\\'")) + '\')" onclick="window.ieltsApp.placeDndToken(\'' + q.id + '\', \'' + escapeHtml(token.replace(/'/g, "\\'")) + '\')">' +
-            escapeHtml(token) +
-          '</span>';
-        });
-      }
-    }
-
-    let reviewInfo = '';
-    if (isSubmitted) {
-      reviewInfo = '<div style="margin-top:14px; padding-top:12px; border-top:1px solid #e2e8f0;">' +
-        '<div style="font-size:0.92rem; margin-bottom:6px;"><strong>Target Sentence:</strong> <span style="color:#16a34a; font-weight:700;">' + escapeHtml(q.targetSentence) + '</span></div>' +
-        (!isCorrect ? '<div style="font-size:0.92rem; margin-bottom:8px;"><strong>Your Answer:</strong> <span style="color:#dc2626;">' + (placed.length ? escapeHtml(placed.join(' ')) : '<em>Unattempted</em>') + '</span></div>' : '') +
-        '<div class="grammar-explanation-card">' +
-          '<div class="grammar-explanation-title">Grammatical Explanation</div>' +
-          '<p class="grammar-explanation-text">' + escapeHtml(q.explanation) + '</p>' +
-        '</div>' +
-      '</div>';
-    }
-
-    return '<div class="grammar-q-card ' + resultClass + '" id="q-card-' + q.id + '">' +
-      '<div class="grammar-q-header">' +
-        '<div style="display:flex; align-items:center; gap:8px;">' +
-          '<span class="grammar-q-badge badge-dnd">Question ' + q.number + ' &bull; Drag &amp; Drop</span>' +
-        '</div>' +
-        (isSubmitted ? resultHeader : (!isSubmitted && placed.length > 0 ? '<button class="btn alt" style="font-size:0.75rem; padding:3px 8px;" onclick="window.ieltsApp.resetDndQuestion(\'' + q.id + '\')">Clear All</button>' : '')) +
-      '</div>' +
-      '<div class="grammar-q-instruction">' + escapeHtml(q.instruction) + '</div>' +
-      '<div class="grammar-dropzone" id="dropzone-' + q.id + '" ondragover="window.ieltsApp.handleDragOver(event)" ondrop="window.ieltsApp.handleDrop(event, \'' + q.id + '\')">' +
-        placedHtml +
-      '</div>' +
-      (!isSubmitted ? '<div class="grammar-chips-pool">' + poolHtml + '</div>' : '') +
-      reviewInfo +
-    '</div>';
+    updateGrammarGapAnsweredCount(topic);
   }
 
-  function renderGapQuestionCard(q, qState, isSubmitted) {
-    const selected = qState.selectedOption || '';
-    let resultClass = '';
-    let resultHeader = '';
-    let isCorrect = false;
-
-    if (isSubmitted) {
-      isCorrect = (selected.toLowerCase() === q.answer.toLowerCase()) ||
-                  (q.acceptableAnswers && q.acceptableAnswers.map(function(a){ return a.toLowerCase(); }).includes(selected.toLowerCase()));
-      resultClass = isCorrect ? 'result-correct' : 'result-incorrect';
-      resultHeader = isCorrect ?
-        '<span style="background:#16a34a; color:#fff; font-size:0.78rem; font-weight:800; padding:3px 10px; border-radius:12px;">✓ Correct (+1)</span>' :
-        '<span style="background:#dc2626; color:#fff; font-size:0.78rem; font-weight:800; padding:3px 10px; border-radius:12px;">✕ Incorrect (0/1)</span>';
-    }
-
-    const blankHtml = '<span class="grammar-blank-display">' + (selected ? escapeHtml(selected) : '______') + '</span>';
-    const sentenceWithBlank = escapeHtml(q.sentence).replace(/___/g, blankHtml);
-
-    const letters = ['A', 'B', 'C', 'D'];
-    let optionsHtml = '<div class="grammar-options-grid">';
-
-    (q.options || []).forEach(function(opt, optIdx) {
-      let optClass = 'grammar-option-pill';
-      const isOptSelected = (selected === opt);
-      const isOptCorrect = (opt.toLowerCase() === q.answer.toLowerCase());
-
-      if (isSubmitted) {
-        if (isOptCorrect) {
-          optClass += ' correct-ans';
-        } else if (isOptSelected && !isOptCorrect) {
-          optClass += ' wrong-ans';
-        }
-      } else {
-        if (isOptSelected) optClass += ' selected';
-      }
-
-      optionsHtml += '<div class="' + optClass + '" ' + (!isSubmitted ? 'onclick="window.ieltsApp.selectGapOption(\'' + q.id + '\', \'' + escapeHtml(opt.replace(/'/g, "\\'")) + '\')"' : '') + '>' +
-        '<span class="grammar-option-letter">' + (letters[optIdx] || (optIdx + 1)) + '</span>' +
-        '<span style="flex:1;">' + escapeHtml(opt) + '</span>' +
-        (isSubmitted && isOptCorrect ? '<span style="color:#15803d; font-weight:900;">✓</span>' : '') +
-        (isSubmitted && isOptSelected && !isOptCorrect ? '<span style="color:#b91c1c; font-weight:900;">✕</span>' : '') +
-      '</div>';
-    });
-
-    optionsHtml += '</div>';
-
-    let reviewInfo = '';
-    if (isSubmitted) {
-      reviewInfo = '<div style="margin-top:14px; padding-top:12px; border-top:1px solid #e2e8f0;">' +
-        '<div style="font-size:0.92rem; margin-bottom:6px;"><strong>Correct Answer:</strong> <span style="color:#16a34a; font-weight:800;">' + escapeHtml(q.answer) + '</span></div>' +
-        (!isCorrect ? '<div style="font-size:0.92rem; margin-bottom:8px;"><strong>Your Selection:</strong> <span style="color:#dc2626;">' + (selected ? escapeHtml(selected) : '<em>Unattempted</em>') + '</span></div>' : '') +
-        '<div class="grammar-explanation-card">' +
-          '<div class="grammar-explanation-title">Grammatical Explanation</div>' +
-          '<p class="grammar-explanation-text">' + escapeHtml(q.explanation) + '</p>' +
-        '</div>' +
-      '</div>';
-    }
-
-    return '<div class="grammar-q-card ' + resultClass + '" id="q-card-' + q.id + '">' +
-      '<div class="grammar-q-header">' +
-        '<div style="display:flex; align-items:center; gap:8px;">' +
-          '<span class="grammar-q-badge badge-gap">Question ' + q.number + ' &bull; Gap-Fill</span>' +
-        '</div>' +
-        (isSubmitted ? resultHeader : '') +
-      '</div>' +
-      '<div class="grammar-gap-sentence">' + sentenceWithBlank + '</div>' +
-      optionsHtml +
-      reviewInfo +
-    '</div>';
+  function updateGrammarGapAnsweredCount(topic) {
+    const answeredCount = Object.keys(state.grammarTopicAnswers || {}).length;
+    const totalCount = topic && topic.questions ? topic.questions.length : 15;
+    const countEl = document.getElementById('grammar-gap-answered-count');
+    if (countEl) countEl.textContent = answeredCount;
   }
 
-  function placeDndToken(qId, token) {
-    if (state.grammarSubmitted) return;
-    if (!state.grammarExerciseState[qId]) state.grammarExerciseState[qId] = { placedTokens: [] };
-    state.grammarExerciseState[qId].placedTokens.push(token);
-    rerenderSingleQuestion(qId);
-  }
-
-  function removeDndToken(qId, index) {
-    if (state.grammarSubmitted) return;
-    if (!state.grammarExerciseState[qId] || !state.grammarExerciseState[qId].placedTokens) return;
-    state.grammarExerciseState[qId].placedTokens.splice(index, 1);
-    rerenderSingleQuestion(qId);
-  }
-
-  function resetDndQuestion(qId) {
-    if (state.grammarSubmitted) return;
-    if (state.grammarExerciseState[qId]) {
-      state.grammarExerciseState[qId].placedTokens = [];
-    }
-    rerenderSingleQuestion(qId);
-  }
-
-  function handleDragStart(e, qId, token) {
-    e.dataTransfer.setData('text/plain', JSON.stringify({ qId: qId, token: token }));
-  }
-
-  function handleDragOver(e) {
-    e.preventDefault();
-  }
-
-  function handleDrop(e, qId) {
-    e.preventDefault();
-    if (state.grammarSubmitted) return;
-    try {
-      const data = JSON.parse(e.dataTransfer.getData('text/plain'));
-      if (data && data.qId === qId && data.token) {
-        placeDndToken(qId, data.token);
-      }
-    } catch(err) {}
-  }
-
-  function selectGapOption(qId, option) {
-    if (state.grammarSubmitted) return;
-    if (!state.grammarExerciseState[qId]) state.grammarExerciseState[qId] = {};
-    state.grammarExerciseState[qId].selectedOption = option;
-    rerenderSingleQuestion(qId);
-  }
-
-  function rerenderSingleQuestion(qId) {
+  function submitCurrentTopicPractice() {
+    if (state.grammarTopicSubmitted) return;
     if (typeof GRAMMAR_DATA === 'undefined') return;
-    const topic = GRAMMAR_DATA.topics.find(function(t) { return t.id === state.currentGrammarTopicId; });
+    const topic = (GRAMMAR_DATA.topics || []).find(function(t) { return t.id === state.currentGrammarTopicId; });
     if (!topic) return;
-    const ex = (topic.exercises || []).find(function(e) { return e.number === state.currentGrammarExerciseNum; });
-    if (!ex) return;
-    const q = (ex.questions || []).find(function(item) { return item.id === qId; });
-    if (!q) return;
 
-    const card = document.getElementById('q-card-' + qId);
-    if (!card) return;
-
-    const qState = state.grammarExerciseState[qId] || { placedTokens: [], selectedOption: '' };
-    const tempDiv = document.createElement('div');
-    if (q.type === 'drag-and-drop') {
-      tempDiv.innerHTML = renderDndQuestionCard(q, qState, state.grammarSubmitted);
-    } else {
-      tempDiv.innerHTML = renderGapQuestionCard(q, qState, state.grammarSubmitted);
-    }
-
-    if (tempDiv.firstElementChild) {
-      card.replaceWith(tempDiv.firstElementChild);
-    }
-
-    updateGrammarAnsweredBadge(ex);
-  }
-
-  function submitCurrentExercise() {
-    if (state.grammarSubmitted) return;
-    if (typeof GRAMMAR_DATA === 'undefined') return;
-    const topic = GRAMMAR_DATA.topics.find(function(t) { return t.id === state.currentGrammarTopicId; });
-    if (!topic) return;
-    const ex = (topic.exercises || []).find(function(e) { return e.number === state.currentGrammarExerciseNum; });
-    if (!ex) return;
-
-    let answered = 0;
-    (ex.questions || []).forEach(function(q) {
-      const st = state.grammarExerciseState[q.id];
-      if (st) {
-        if (q.type === 'drag-and-drop' && st.placedTokens && st.placedTokens.length > 0) answered++;
-        if (q.type === 'gap-fill' && st.selectedOption) answered++;
-      }
-    });
-
-    if (answered < 20) {
-      if (typeof confirm === 'function' && !confirm('You have answered ' + answered + ' of 20 questions. Do you want to submit anyway?')) {
+    const questions = topic.questions || [];
+    const answered = Object.keys(state.grammarTopicAnswers || {}).length;
+    if (answered < questions.length) {
+      if (typeof confirm === 'function' && !confirm('You have answered ' + answered + ' of ' + questions.length + ' questions. Do you want to submit anyway?')) {
         return;
       }
     }
 
     let score = 0;
-    (ex.questions || []).forEach(function(q) {
-      const st = state.grammarExerciseState[q.id] || { placedTokens: [], selectedOption: '' };
-      if (q.type === 'drag-and-drop') {
-        const userSentence = (st.placedTokens || []).join(' ').trim().toLowerCase();
-        const targetSentence = q.targetSentence.trim().toLowerCase();
-        if (userSentence === targetSentence || JSON.stringify(st.placedTokens) === JSON.stringify(q.correctSequence)) {
-          score++;
-        }
-      } else if (q.type === 'gap-fill') {
-        const sel = (st.selectedOption || '').toLowerCase();
-        const correct = q.answer.toLowerCase();
-        const acceptable = (q.acceptableAnswers || []).map(function(a) { return a.toLowerCase(); });
-        if (sel === correct || acceptable.includes(sel)) {
-          score++;
-        }
+    questions.forEach(function(q) {
+      const userAns = (state.grammarTopicAnswers[q.id] || '').trim().toLowerCase();
+      if (userAns === q.answer.trim().toLowerCase()) {
+        score++;
       }
     });
 
-    state.grammarSubmitted = true;
-    saveGrammarScore(topic.id, ex.number, score, 20);
+    state.grammarTopicSubmitted = true;
+    const pct = Math.round((score / questions.length) * 100);
 
-    const banner = document.getElementById('grammar-results-banner');
-    const submitContainer = document.getElementById('grammar-submit-container');
-    const reviewNavBar = document.getElementById('grammar-review-nav-bar');
+    // Auto mark complete if score >= 70%
+    if (pct >= 70) {
+      saveCompletedGrammarTopic(topic.id);
+      updateTopicDetailStatus(topic.id);
+    }
 
-    const pct = Math.round((score / 20) * 100);
-    let bandDesc = 'Band 8.5–9.0 Expert Grammatical Command';
-    if (pct < 50) bandDesc = 'Band 5.5–6.0 Modest User (Needs Focused Practice)';
-    else if (pct < 70) bandDesc = 'Band 6.5–7.0 Competent User';
-    else if (pct < 85) bandDesc = 'Band 7.5–8.0 Good User';
+    // Render score banner
+    const scoreCard = document.getElementById('grammar-practice-score-card');
+    if (scoreCard) {
+      let bandComment = 'Band 8.5–9.0 Expert Grammatical Command';
+      if (pct < 50) bandComment = 'Band 5.5–6.0 Modest Accuracy (Review Rules & Retake)';
+      else if (pct < 70) bandComment = 'Band 6.5–7.0 Competent User (Good Foundation)';
+      else if (pct < 85) bandComment = 'Band 7.5–8.0 Very Good User';
 
-    if (banner) {
-      banner.innerHTML = '<div class="grammar-score-banner">' +
+      scoreCard.innerHTML = '<div class="grammar-score-banner" style="background:linear-gradient(135deg, #0e332d 0%, #164e63 100%);">' +
         '<div>' +
-          '<div style="font-size:0.85rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; opacity:0.9;">Exercise ' + ex.number + ' Performance Assessment</div>' +
-          '<h2 style="font-size:2.2rem; font-weight:900; margin:0 0 6px;">Score: ' + score + ' / 20 (' + pct + '%)</h2>' +
-          '<div style="font-size:1.05rem; font-weight:700; color:#dbeafe;">' + bandDesc + '</div>' +
+          '<div style="font-size:0.85rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; opacity:0.9;">' + escapeHtml(topic.title) + ' Practice Results</div>' +
+          '<h2 style="font-size:2.2rem; font-weight:900; margin:0 0 6px;">Score: ' + score + ' / ' + questions.length + ' (' + pct + '%)</h2>' +
+          '<div style="font-size:1.05rem; font-weight:700; color:#67e8f9;">' + bandComment + '</div>' +
         '</div>' +
         '<div style="display:flex; gap:12px; flex-wrap:wrap;">' +
           '<div class="grammar-score-stat-box">' +
@@ -4397,7 +4228,7 @@
             '<div class="grammar-score-label">Correct</div>' +
           '</div>' +
           '<div class="grammar-score-stat-box">' +
-            '<div class="grammar-score-num" style="color:#fca5a5;">' + (20 - score) + '</div>' +
+            '<div class="grammar-score-num" style="color:#fca5a5;">' + (questions.length - score) + '</div>' +
             '<div class="grammar-score-label">Incorrect</div>' +
           '</div>' +
           '<div class="grammar-score-stat-box">' +
@@ -4406,34 +4237,20 @@
           '</div>' +
         '</div>' +
       '</div>';
-      banner.style.display = 'block';
+      scoreCard.style.display = 'block';
+      scoreCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    if (submitContainer) submitContainer.style.display = 'none';
-    if (reviewNavBar) reviewNavBar.style.display = 'flex';
-
-    renderGrammarQuestionsList(topic, ex);
-
-    const badge = document.getElementById('grammar-exercise-score-badge');
-    if (badge) {
-      badge.textContent = 'Score: ' + score + ' / 20 (' + pct + '%)';
-      badge.style.background = pct >= 80 ? '#dcfce7' : (pct >= 60 ? '#fef3c7' : '#fee2e2');
-      badge.style.color = pct >= 80 ? '#15803d' : (pct >= 60 ? '#b45309' : '#b91c1c');
-    }
-
-    banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    renderGrammarTopicPractice(topic);
   }
 
-  function retakeCurrentExercise() {
-    openGrammarExercise(state.currentGrammarTopicId, state.currentGrammarExerciseNum);
+  function resetCurrentTopicPractice() {
+    state.grammarTopicAnswers = {};
+    state.grammarTopicSubmitted = false;
+    if (typeof GRAMMAR_DATA === 'undefined') return;
+    const topic = (GRAMMAR_DATA.topics || []).find(function(t) { return t.id === state.currentGrammarTopicId; });
+    if (topic) renderGrammarTopicPractice(topic);
   }
-
-  function goToNextExercise() {
-    let nextNum = (state.currentGrammarExerciseNum || 1) + 1;
-    if (nextNum > 10) nextNum = 1;
-    openGrammarExercise(state.currentGrammarTopicId, nextNum);
-  }
-
 
   // ========================================================================
   // CAMBRIDGE OFFICIAL GUIDE CATALOG & MODAL ENGINE
@@ -5307,6 +5124,7 @@
           email: email,
           password: password,
           options: {
+            emailRedirectTo: window.location.origin + window.location.pathname,
             data: {
               full_name: name || email.split('@')[0]
             }
@@ -5415,6 +5233,7 @@
     filterReadingSkills,
     filterReadingSkillsCards,
     renderReadingSkillsCards,
+    markPassageComplete,
     filterRoadmap,
     openRoadmapDayModal,
     closeRoadmapModal,
@@ -5505,18 +5324,12 @@
     returnToGrammarTopics,
     renderGrammarTopicsHub,
     openGrammarTopic,
-    returnToTopicExercises,
-    openGrammarExercise,
-    placeDndToken,
-    removeDndToken,
-    resetDndQuestion,
-    handleDragStart,
-    handleDragOver,
-    handleDrop,
-    selectGapOption,
-    submitCurrentExercise,
-    retakeCurrentExercise,
-    goToNextExercise
+    toggleGrammarTopicComplete,
+    toggleCurrentTopicComplete,
+    switchGrammarTab,
+    selectGrammarGapOption,
+    submitCurrentTopicPractice,
+    resetCurrentTopicPractice
   };
 
   // Initialize App on DOMContentLoaded

@@ -1,12 +1,399 @@
-// Reading Skills Passages: 30 Interactive Passages (10 Easy, 10 Medium, 10 Hard)
-// Authentically calibrated to 320-400 words total per passage with 100+ words per paragraph.
+﻿// Reading Skills Passages: 40 Interactive Passages (10 Initial A2 + 10 Easy B1 + 10 Medium B2 + 10 Hard C1)
+// Initial A2 = Pre-IELTS Foundation (Band 4.0-5.0). Easy B1 = Band 5.5-6.5. Medium B2 = Band 6.5-7.5. Hard C1 = Band 8.0-9.0.
 // Includes per-paragraph notes, A1-A2 simplified summaries, and academic vocabulary.
 
 const READING_SKILLS_PASSAGES = [
+  // ============================================================
+  // INITIAL PASSAGES — A2 FOUNDATION LEVEL (Pre-IELTS, Band 4.0-5.0)
+  // ============================================================
+  {
+    "id": "initial-1",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "My Daily Routine",
+    "topic": "Everyday Life",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Every morning, I wake up at seven o'clock. I go to the bathroom and wash my face. Then I brush my teeth and get dressed. After that, I go to the kitchen and eat breakfast. I usually have toast and eggs. Sometimes I drink orange juice or a cup of tea. I like mornings because they are quiet and peaceful. My family eats breakfast together before we go to school or work.",
+        "paraSummaryA1": "The writer wakes up at seven, washes, gets dressed, and eats breakfast with family before school."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "After breakfast, I take the bus to school. The journey takes about twenty minutes. I sit near the window and look at the streets and shops. At school, I study English, mathematics, and science. I enjoy English classes the most because I like reading stories. At lunchtime, I eat with my friends in the school canteen. We talk and laugh together. It is a fun time of the day for me.",
+        "paraSummaryA1": "The writer takes the bus to school, studies different subjects, and eats lunch with friends."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "In the afternoon, I come home and do my homework. This takes about one hour. After homework, I have free time. I often watch television or play football with my neighbours. In the evening, my family has dinner together. We eat rice, vegetables, and sometimes fish or chicken. After dinner, I read a book or listen to music. I go to bed at ten o'clock at night. I think it is important to sleep enough to stay healthy and active.",
+        "paraSummaryA1": "After school the writer does homework, plays outside, has dinner with family, and sleeps at ten."
+      }
+    ],
+    "overallSummaryA1": "The writer describes a normal school day: waking up, going to school by bus, studying, coming home, doing homework, and spending the evening with family.",
+    "keyVocab": [
+      { "word": "Routine", "meaning": "A regular set of activities done every day (প্রতিদিনের নিয়মিত কাজ)" },
+      { "word": "Peaceful", "meaning": "Quiet and calm (শান্তিময়)" },
+      { "word": "Journey", "meaning": "Travel from one place to another (যাত্রা)" },
+      { "word": "Canteen", "meaning": "A place in a school or workplace where food is sold (ক্যান্টিন)" },
+      { "word": "Neighbour", "meaning": "A person who lives near you (প্রতিবেশী)" }
+    ],
+    "wordCount": 265
+  },
+  {
+    "id": "initial-2",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Animals on the Farm",
+    "topic": "Nature & Animals",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "A farm is a place where people grow food and keep animals. Many farms have cows, sheep, chickens, and pigs. Farmers wake up very early in the morning to feed the animals and clean their homes. Cows give us milk, and chickens give us eggs. These are important foods that people eat every day. Farmers work very hard to keep the animals healthy and happy.",
+        "paraSummaryA1": "Farms have different animals like cows and chickens. Farmers work hard to look after them and get food."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Sheep are very useful animals on a farm. Their wool is used to make warm clothes like jumpers and coats. In spring, farmers cut the wool off the sheep. This is called shearing. The sheep do not feel pain during shearing. After shearing, the wool is cleaned and sent to factories. Workers in the factories turn the wool into soft thread and then into fabric for clothing.",
+        "paraSummaryA1": "Sheep provide wool for warm clothes. Farmers cut the wool in spring and send it to factories to make fabric."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "Pigs are also kept on many farms. They eat a lot of different foods, including vegetables and grain. Pigs are very intelligent animals. They can learn simple commands and remember things well. Many people do not know that pigs are actually very clean animals. They do not like to sleep in dirty places. Farmers must provide clean and comfortable spaces for all their animals so they stay healthy and produce good food.",
+        "paraSummaryA1": "Pigs are intelligent and clean animals. Farmers must keep their spaces clean so they stay healthy."
+      }
+    ],
+    "overallSummaryA1": "Farms are important places with many animals. Cows give milk, chickens give eggs, sheep give wool, and pigs provide meat. Farmers work hard every day to care for all of them.",
+    "keyVocab": [
+      { "word": "Farmer", "meaning": "A person who works on a farm (কৃষক)" },
+      { "word": "Wool", "meaning": "Soft hair from a sheep used to make clothes (পশম)" },
+      { "word": "Shearing", "meaning": "Cutting wool from a sheep (ভেড়ার লোম কাটা)" },
+      { "word": "Intelligent", "meaning": "Smart and able to learn things quickly (বুদ্ধিমান)" },
+      { "word": "Fabric", "meaning": "Cloth or material used to make clothes (কাপড়)" }
+    ],
+    "wordCount": 252
+  },
+  {
+    "id": "initial-3",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Going to the Market",
+    "topic": "Everyday Life & Shopping",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Every Saturday morning, my mother and I go to the local market to buy food. The market is very busy and noisy. There are many stalls selling fruit, vegetables, meat, and fish. The colours are very bright, and the smells are strong. Sellers shout to customers and tell them about their fresh produce. We always make a list before we go so we do not forget anything important.",
+        "paraSummaryA1": "Every Saturday the writer goes to a busy, colourful market with their mother to buy food using a list."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "My mother is very good at choosing the best vegetables. She checks if they are fresh by looking at their colour and touching them. She always buys tomatoes, onions, potatoes, and leafy green vegetables. Sometimes she buys mangoes or bananas as a treat. The fruit seller knows my mother well and always gives her a good price. We also buy eggs and milk from a small dairy stall near the entrance of the market.",
+        "paraSummaryA1": "The writer's mother picks fresh vegetables carefully and buys fruit, eggs, and milk from the market."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "After buying everything on our list, we carry the bags to the bus stop. The bags are always very heavy because we buy enough food for the whole week. On the bus, we rest and talk about our plans for dinner. When we arrive home, we unpack everything and put it away carefully. I always help my mother in the kitchen to prepare the vegetables. Shopping at the market is hard work, but it is also a fun family activity that we both enjoy very much.",
+        "paraSummaryA1": "They carry heavy bags home by bus. At home they unpack the food and prepare vegetables together."
+      }
+    ],
+    "overallSummaryA1": "Every Saturday the writer and mother visit the local market to buy fresh fruit, vegetables, eggs and milk for the whole week. It is a tiring but enjoyable family routine.",
+    "keyVocab": [
+      { "word": "Market", "meaning": "A place where people buy and sell goods (বাজার)" },
+      { "word": "Stall", "meaning": "A small stand or table for selling things (দোকানের স্টল)" },
+      { "word": "Produce", "meaning": "Fresh fruit and vegetables (তাজা ফলমূল ও সবজি)" },
+      { "word": "Dairy", "meaning": "Related to milk and milk products (দুগ্ধজাত পণ্য)" },
+      { "word": "Unpack", "meaning": "To take things out of a bag or box (মালপত্র বের করা)" }
+    ],
+    "wordCount": 258
+  },
+  {
+    "id": "initial-4",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Weather and Seasons",
+    "topic": "Nature & Environment",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Weather changes every day. Sometimes it is sunny and warm. Sometimes it is cold and windy. Rain can fall in any season. Many countries have four seasons: spring, summer, autumn, and winter. In spring, flowers grow and trees become green again. In summer, the days are long and the sun is very strong. People go to the beach or swim in rivers to stay cool. Summer is the favourite season for many children because school is closed.",
+        "paraSummaryA1": "Countries have four seasons. Spring is for flowers, summer is hot and long, and many children love it because school closes."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Autumn comes after summer. The weather becomes cooler and leaves on trees change colour. They turn yellow, orange, and red. Then the leaves fall to the ground. This is a beautiful time of year. After autumn comes winter. Winter is the coldest season. In some places, snow falls and covers the ground. Children enjoy playing in the snow and making snowmen. People wear warm coats, scarves, and hats to keep themselves warm during winter.",
+        "paraSummaryA1": "In autumn leaves change colour and fall. In winter it snows in some places and people wear warm clothes."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "Weather affects what people do every day. When it rains, people use umbrellas and stay indoors. When it is sunny, people go outside to the park or garden. Farmers depend on the weather a lot. They need rain to grow crops and sunshine to help the plants grow. Too much rain can flood the fields and damage the crops. Too little rain causes drought, and plants die. Good weather is very important for farmers to produce enough food for everyone.",
+        "paraSummaryA1": "Weather controls daily activities. Farmers especially need the right amount of rain and sunshine to grow food safely."
+      }
+    ],
+    "overallSummaryA1": "Weather and seasons affect daily life. The four seasons bring different conditions: spring brings flowers, summer is hot, autumn turns leaves colourful, and winter brings snow. Farmers depend on good weather to grow food.",
+    "keyVocab": [
+      { "word": "Season", "meaning": "One of the four periods of the year: spring, summer, autumn, winter (ঋতু)" },
+      { "word": "Autumn", "meaning": "The season when leaves fall from trees (শরৎ / হেমন্ত)" },
+      { "word": "Drought", "meaning": "A long period with no rain (খরা)" },
+      { "word": "Crop", "meaning": "Plants grown by farmers for food (ফসল)" },
+      { "word": "Flood", "meaning": "When too much water covers the land (বন্যা)" }
+    ],
+    "wordCount": 263
+  },
+  {
+    "id": "initial-5",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Healthy Food and Exercise",
+    "topic": "Health & Well-being",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Eating healthy food is very important for the body. Fruit and vegetables give us vitamins and minerals that help us grow strong. Bread, rice, and pasta give us energy for work and play. Milk, cheese, and yoghurt make our bones strong. Fish and meat help our muscles grow. Doctors advise people to eat a balanced diet every day. This means eating different types of food in the right amounts, not too much of any one type.",
+        "paraSummaryA1": "Healthy food like fruit, vegetables, bread and meat gives us energy and keeps bones and muscles strong."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Some foods are not healthy if eaten too often. Sweets, cakes, and fizzy drinks contain a lot of sugar. Too much sugar can damage teeth and cause health problems like diabetes. Salty snacks and fried food contain too much fat. Eating too much fat can be bad for the heart. Health experts say people should drink plenty of water every day instead of sugary drinks. Water keeps the body clean and helps all our organs work properly.",
+        "paraSummaryA1": "Too much sugar and fat from sweets and fried food causes health problems. Drinking water is much better."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "Exercise is also very important for good health. Walking, running, swimming, and cycling are all good forms of exercise. Exercise makes the heart stronger and helps us keep a healthy weight. It also makes us feel happy because it releases chemicals in the brain called endorphins. Children should exercise for at least one hour every day. Adults are advised to exercise for thirty minutes most days of the week. A healthy lifestyle includes both good food and regular exercise.",
+        "paraSummaryA1": "Exercise like walking and swimming makes the heart strong and releases chemicals that make us happy."
+      }
+    ],
+    "overallSummaryA1": "A healthy lifestyle means eating balanced meals with fruit, vegetables, and protein, avoiding too much sugar and fat, drinking water, and exercising regularly to keep the body and mind strong.",
+    "keyVocab": [
+      { "word": "Vitamins", "meaning": "Natural substances in food that the body needs (ভিটামিন)" },
+      { "word": "Balanced diet", "meaning": "Eating the right amounts of all food types (সুষম খাদ্য)" },
+      { "word": "Diabetes", "meaning": "A health condition caused by too much sugar in the blood (ডায়াবেটিস)" },
+      { "word": "Endorphins", "meaning": "Brain chemicals that make you feel happy (এন্ডোরফিন — আনন্দ-রাসায়নিক)" },
+      { "word": "Lifestyle", "meaning": "The way a person lives every day (জীবনযাপনের ধরন)" }
+    ],
+    "wordCount": 262
+  },
+  {
+    "id": "initial-6",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "My School and Teachers",
+    "topic": "Education & School Life",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "My school is a large building with many classrooms, a library, and a sports field. There are about five hundred students at my school. Every morning, students line up outside their classrooms before lessons start. The school day begins at eight o'clock and finishes at three in the afternoon. We have six lessons each day with a short break in the morning and a longer lunch break in the middle of the day.",
+        "paraSummaryA1": "The school has 500 students. The school day runs from eight to three with six lessons and two breaks."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "My favourite teacher is my English teacher, Mr Rahman. He is kind, patient, and very funny. He explains difficult things in a simple way so everyone can understand. He uses games and songs to help us learn new vocabulary. He always encourages students to speak in English, even if they make mistakes. He says that making mistakes is a natural part of learning a new language. I feel comfortable in his class and I am not afraid to try.",
+        "paraSummaryA1": "The writer's favourite teacher Mr Rahman is kind and funny. He uses games and encourages students to speak even if they make mistakes."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "I believe school is very important for everyone. We learn reading, writing, mathematics, and many other subjects. We also learn how to work with other people and solve problems together. School teaches us to be responsible and organised. Good education gives people better opportunities in life. I work hard at school because I want to go to university one day and become a doctor. I know that if I study well now, I will have a bright future.",
+        "paraSummaryA1": "School teaches many skills and subjects. The writer works hard hoping to go to university and become a doctor."
+      }
+    ],
+    "overallSummaryA1": "The writer's school has 500 students and six daily lessons. The favourite teacher Mr Rahman teaches English in a fun way. School is important because good education leads to better opportunities in the future.",
+    "keyVocab": [
+      { "word": "Patient", "meaning": "Able to wait calmly without getting angry (ধৈর্যশীল)" },
+      { "word": "Encourage", "meaning": "To give someone support and confidence (উৎসাহিত করা)" },
+      { "word": "Responsible", "meaning": "Doing what is expected and being trusted (দায়িত্বশীল)" },
+      { "word": "Opportunity", "meaning": "A chance to do something (সুযোগ)" },
+      { "word": "University", "meaning": "A place for higher education after school (বিশ্ববিদ্যালয়)" }
+    ],
+    "wordCount": 255
+  },
+  {
+    "id": "initial-7",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Transport in the City",
+    "topic": "Transport & Urban Life",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Cities have many different types of transport. People travel by bus, train, bicycle, car, or on foot. In big cities, there are underground trains called the metro or subway. The metro is very fast and helps people avoid traffic on the roads. Many people use public transport every day to go to work, school, or shopping centres. Public transport is usually cheaper than using a private car. It also creates less pollution for the city's air.",
+        "paraSummaryA1": "Cities have buses, trains, cars and bicycles. The metro is fast and cheap. Public transport is better for air quality."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Buses are one of the most common types of transport in cities. They travel on fixed routes and stop at regular bus stops. Passengers buy tickets or use travel cards to pay for their journey. During rush hour in the morning and evening, buses can be very crowded. Some cities have special bus lanes so buses can move faster than other vehicles on the road. Buses are helpful because they can carry many people at the same time.",
+        "paraSummaryA1": "Buses follow fixed routes with stops. During rush hour they get very crowded. Bus lanes help them move faster."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "Many cities are now encouraging people to use bicycles more. Cycling is good for health and does not produce pollution. Some cities have built special cycling paths called cycle lanes so cyclists can travel safely away from cars. People can rent bicycles from stations around the city. This is called a bike-sharing scheme. Electric bicycles, called e-bikes, are also becoming popular because they help people travel uphill without getting too tired. Cycling is a great way to explore a city and is good for the environment.",
+        "paraSummaryA1": "Cycling is healthy and clean. Many cities build cycle lanes and offer bike-sharing schemes. E-bikes are now popular too."
+      }
+    ],
+    "overallSummaryA1": "Cities offer many transport choices. Public buses and the metro are affordable and eco-friendly. Cycling is growing in popularity because it is healthy, cheap, and produces no pollution.",
+    "keyVocab": [
+      { "word": "Metro", "meaning": "An underground train system in a city (মেট্রো বা পাতাল রেল)" },
+      { "word": "Rush hour", "meaning": "Busy times of day when many people travel (ভিড়ের সময়)" },
+      { "word": "Vehicle", "meaning": "A machine used for transport such as a car or bus (যানবাহন)" },
+      { "word": "Cycle lane", "meaning": "A road path only for bicycles (সাইকেলের জন্য আলাদা রাস্তা)" },
+      { "word": "Scheme", "meaning": "An organised plan or system (পরিকল্পনা বা প্রকল্প)" }
+    ],
+    "wordCount": 259
+  },
+  {
+    "id": "initial-8",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Water — The Most Important Resource",
+    "topic": "Environment & Science",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Water is one of the most important things on Earth. All living things need water to survive. People need to drink water every day to stay healthy. Our bodies are made of about sixty percent water. We use water for drinking, cooking, washing, and cleaning. Without clean water, people become sick very quickly. Many countries around the world do not have enough clean, safe water for everyone to use.",
+        "paraSummaryA1": "Water is essential for all life. The human body is 60% water and we use it for drinking, cooking, and cleaning."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Fresh water comes from rivers, lakes, and underground sources. Rain fills rivers and lakes with new water. However, only a small percentage of all the water on Earth is fresh water that people can drink. Most of the water on Earth is salty ocean water. People cannot drink ocean water because it has too much salt in it. Scientists and engineers work to build machines that remove salt from ocean water. This process is called desalination.",
+        "paraSummaryA1": "Most water on Earth is salty. Only a little is fresh. Scientists use desalination to remove salt from seawater."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "It is important to save water and not waste it. Simple actions can make a big difference. Turning off the tap when brushing teeth saves many litres every day. Taking shorter showers also reduces water use. Fixing dripping taps quickly stops wasted water. Farmers can use special watering systems called drip irrigation, which deliver water directly to plant roots and waste very little. Everyone must work together to protect water resources for future generations.",
+        "paraSummaryA1": "Saving water is everyone's responsibility. Short showers, fixing taps, and drip irrigation all help reduce water waste."
+      }
+    ],
+    "overallSummaryA1": "Water is essential for all living things. Most of Earth's water is salty and cannot be drunk. Fresh water is limited and must be saved through simple daily habits and smart farming techniques like drip irrigation.",
+    "keyVocab": [
+      { "word": "Resource", "meaning": "Something useful that people need and use (সম্পদ)" },
+      { "word": "Survive", "meaning": "To stay alive (বেঁচে থাকা)" },
+      { "word": "Desalination", "meaning": "The process of removing salt from seawater (লবণমুক্তকরণ)" },
+      { "word": "Drip irrigation", "meaning": "A farming system that delivers water directly to plant roots (ড্রিপ সেচ পদ্ধতি)" },
+      { "word": "Generation", "meaning": "All people born and living at around the same time (প্রজন্ম)" }
+    ],
+    "wordCount": 254
+  },
+  {
+    "id": "initial-9",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Using a Mobile Phone",
+    "topic": "Technology & Modern Life",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Today, most people own a mobile phone. Mobile phones help us communicate with family and friends at any time. We can call, send text messages, or use apps to chat online. Mobile phones can also take photos and record videos. They have many useful apps for maps, banking, weather, and entertainment. Children and adults use mobile phones every day for many different reasons. Life without a mobile phone seems very difficult to imagine now.",
+        "paraSummaryA1": "Mobile phones help people communicate, take photos, and use apps for maps, banking and entertainment daily."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "Mobile phones are very useful for studying and learning. Students can search for information on the internet for school projects. There are many free educational apps that teach mathematics, science, and language. Many students now read books on their phones instead of buying paper books. Teachers sometimes use phones in class to show videos or interactive activities. However, phones can also be a distraction if students use them for games or social media during lessons.",
+        "paraSummaryA1": "Phones help students find information and use learning apps, but they can also distract students during lessons."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "Despite their many benefits, mobile phones can cause problems if used too much. Spending too much time on a phone can harm eyesight and cause headaches. Children who spend many hours on screens may have trouble sleeping at night. Social media can sometimes make people feel unhappy about their own lives. Parents and teachers advise children to use phones for a limited amount of time each day. It is important to put the phone down and spend time talking to people face to face.",
+        "paraSummaryA1": "Too much phone use harms eyesight and sleep. Social media can cause unhappiness. Limiting screen time is important."
+      }
+    ],
+    "overallSummaryA1": "Mobile phones are very useful for communication, learning, and entertainment. However, using them too much can damage health and cause social problems. It is important to use phones wisely and in moderation.",
+    "keyVocab": [
+      { "word": "Communicate", "meaning": "To share information or talk with others (যোগাযোগ করা)" },
+      { "word": "App", "meaning": "A programme on a phone or computer (অ্যাপ বা সফটওয়্যার)" },
+      { "word": "Distraction", "meaning": "Something that takes attention away from what you should be doing (মনোযোগ নষ্টকারী বিষয়)" },
+      { "word": "Eyesight", "meaning": "The ability to see (দৃষ্টিশক্তি)" },
+      { "word": "Moderation", "meaning": "Not doing too much of something (পরিমিতভাবে)" }
+    ],
+    "wordCount": 256
+  },
+  {
+    "id": "initial-10",
+    "level": "initial",
+    "levelLabel": "Initial (Pre-IELTS · A2)",
+    "levelColor": "blue",
+    "title": "Visiting a New City",
+    "topic": "Travel & Culture",
+    "estimatedMinutes": 3,
+    "paragraphs": [
+      {
+        "id": "p1",
+        "label": "Paragraph 1",
+        "text": "Last summer, my family visited a new city for the first time. We travelled by train for about three hours. When we arrived, we went to our hotel to leave our bags. The hotel was near the city centre and very comfortable. After resting for a short time, we went out to explore the streets. The city was busy and exciting. There were many shops, restaurants, and beautiful old buildings to look at. We felt very happy and excited to be in a new place.",
+        "paraSummaryA1": "The writer's family arrived by train and stayed in a hotel. They explored the busy city with old buildings and shops."
+      },
+      {
+        "id": "p2",
+        "label": "Paragraph 2",
+        "text": "The next morning, we visited the city's famous museum. Inside the museum, there were paintings, old tools, and photographs from hundreds of years ago. A guide helped us understand the history of the city and explained many interesting facts. I learned that the city was built near a river more than five hundred years ago. After the museum, we walked to a large park and had lunch on the grass. The park was green and beautiful with flowers and birds everywhere.",
+        "paraSummaryA1": "They visited a museum and learned the city is 500 years old. After the museum they had lunch in a beautiful park."
+      },
+      {
+        "id": "p3",
+        "label": "Paragraph 3",
+        "text": "On the last day, we bought gifts and souvenirs for our friends at home. My favourite souvenir was a small painting of the city. We also tried local food from a traditional restaurant. The food was very different from what we eat at home, but it was delicious. Travelling helps people learn about new cultures and ways of living. It also brings families closer together. I hope we can travel to another new city next year because I love exploring new places.",
+        "paraSummaryA1": "On the last day they bought souvenirs and ate local food. The writer loved the experience and hopes to travel again."
+      }
+    ],
+    "overallSummaryA1": "The writer's family spent three enjoyable days in a new city, visiting a museum, exploring a park, eating local food, and buying souvenirs. Travel helps people understand new cultures and strengthens family bonds.",
+    "keyVocab": [
+      { "word": "Explore", "meaning": "To travel around a new place to discover it (অন্বেষণ করা)" },
+      { "word": "Museum", "meaning": "A building where historical objects are displayed (জাদুঘর)" },
+      { "word": "Guide", "meaning": "A person who shows tourists around a place (পথপ্রদর্শক)" },
+      { "word": "Souvenir", "meaning": "A gift bought to remember a place (স্মারক উপহার)" },
+      { "word": "Culture", "meaning": "The customs and beliefs of a group of people (সংস্কৃতি)" }
+    ],
+    "wordCount": 258
+  },
+
+  // ============================================================
+  // EASY PASSAGES — B1 LEVEL (Band 5.5 - 6.5)
+  // ============================================================
   {
     "id": "easy-1",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "The Secret Life of Honeybees",
     "topic": "Nature & Animals",
@@ -59,7 +446,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-2",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "How the Bicycle Changed the World",
     "topic": "History & Society",
@@ -112,7 +499,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-3",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "The Wonders of the Great Barrier Reef",
     "topic": "Environment & Nature",
@@ -165,7 +552,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-4",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "Why We Need Sleep",
     "topic": "Health & Biology",
@@ -218,7 +605,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-5",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "The History of Chocolate",
     "topic": "Culture & Food",
@@ -271,7 +658,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-6",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "Animals with Amazing Memories",
     "topic": "Science & Nature",
@@ -324,7 +711,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-7",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "How Tea Became a Global Drink",
     "topic": "History & Culture",
@@ -377,7 +764,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-8",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "The Sahara Desert: Life in the Sand",
     "topic": "Geography & Nature",
@@ -430,7 +817,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-9",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "The Invention of Paper",
     "topic": "History & Technology",
@@ -483,7 +870,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "easy-10",
     "level": "easy",
-    "levelLabel": "Easy (Band 5.0 - 6.0)",
+    "levelLabel": "Easy (B1 - Band 5.5-6.5)",
     "levelColor": "green",
     "title": "Why Plants Need Sunlight",
     "topic": "Science & Nature",
@@ -536,7 +923,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-1",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Architecture of Roman Aqueducts",
     "topic": "History & Engineering",
@@ -589,7 +976,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-2",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "Urban Green Spaces and Mental Well-being",
     "topic": "Psychology & Urban Planning",
@@ -642,7 +1029,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-3",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "How Languages Evolve and Disappear",
     "topic": "Linguistics & Culture",
@@ -695,7 +1082,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-4",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Science of Deep Sea Bioluminescence",
     "topic": "Marine Biology & Science",
@@ -748,7 +1135,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-5",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Agricultural Revolution in Mesopotamia",
     "topic": "History & Archaeology",
@@ -801,7 +1188,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-6",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "Renewable Energy: Solar and Wind Integration",
     "topic": "Technology & Energy",
@@ -854,7 +1241,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-7",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Psychology of Decision Making",
     "topic": "Psychology & Behavioral Science",
@@ -907,7 +1294,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-8",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Silk Road: Connecting Ancient Continents",
     "topic": "World History & Trade",
@@ -960,7 +1347,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-9",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "Biomimicry: Nature-Inspired Engineering",
     "topic": "Science & Innovation",
@@ -1013,7 +1400,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "med-10",
     "level": "medium",
-    "levelLabel": "Medium (Band 6.5 - 7.5)",
+    "levelLabel": "Medium (B2 - Band 6.5-7.5)",
     "levelColor": "amber",
     "title": "The Rise of Megacities and Urban Planning",
     "topic": "Society & Urban Design",
@@ -1066,7 +1453,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-1",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Epigenetics: How Environment Alters Gene Expression",
     "topic": "Genetics & Molecular Biology",
@@ -1119,7 +1506,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-2",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Cognitive Biases and Heuristics in Economics",
     "topic": "Behavioral Economics & Philosophy",
@@ -1172,7 +1559,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-3",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "The Neuroscience of Neuroplasticity",
     "topic": "Neuroscience & Medicine",
@@ -1225,7 +1612,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-4",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Quantum Computing and Cryptography",
     "topic": "Physics & Computer Science",
@@ -1278,7 +1665,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-5",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Artificial Intelligence and Autonomous Ethics",
     "topic": "Technology & Moral Philosophy",
@@ -1331,7 +1718,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-6",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "The Anthropocene: Geological Evidence of Human Impact",
     "topic": "Geology & Earth Science",
@@ -1384,7 +1771,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-7",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Linguistic Relativity: Does Language Shape Thought?",
     "topic": "Linguistics & Cognitive Science",
@@ -1437,7 +1824,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-8",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Dark Matter and Galactic Gravitational Lensing",
     "topic": "Astrophysics & Cosmology",
@@ -1490,7 +1877,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-9",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Socio-Economic Stratification in Early Civilizations",
     "topic": "Anthropology & Ancient History",
@@ -1543,7 +1930,7 @@ const READING_SKILLS_PASSAGES = [
   {
     "id": "hard-10",
     "level": "hard",
-    "levelLabel": "Hard (Band 8.0 - 9.0)",
+    "levelLabel": "Hard (C1 - Band 8.0-9.0)",
     "levelColor": "red",
     "title": "Ecological Tipping Points and Resilience Theory",
     "topic": "Ecology & Climate Systems",
