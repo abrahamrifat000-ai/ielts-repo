@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1794308436324">
+  <link rel="stylesheet" href="css/style.css?v=1794369520000">
   <link rel="icon" type="image/png" href="assets/images/ielts-warrior-favicon.png?v=7">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=7">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png?v=7">
@@ -283,15 +283,20 @@
     <header class="reader-header">
       <div class="reader-header-left">
         <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
-        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Online Practice Portals</h2>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0; color:#0e332d;">IELTS Online Practice Portals</h2>
+      </div>
+      <div class="header-actions">
+        <span style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; font-weight:700; font-size:0.82rem; padding:6px 14px; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">
+          <span>🌐</span> 3 Official Practice Portals
+        </span>
       </div>
     </header>
 
-    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+    <main class="wrap" style="padding-top:24px; padding-bottom:70px;">
       <!-- Title Block -->
-      <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 32px auto; padding:0 16px; display:block;">
+      <div class="sec-head" style="text-align:center; max-width:840px; margin:20px auto 36px auto; padding:0 16px; display:flex; flex-direction:column; align-items:center;">
         <span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; letter-spacing:1px; margin-bottom:14px; display:inline-block; padding:6px 18px; border-radius:999px; text-transform:uppercase; font-size:0.75rem;">ONLINE PRACTICE PORTALS</span>
-        <h2 style="font-size:2.05rem; font-weight:800; color:#0e332d; margin-bottom:12px;">IELTS Online Practice Portals</h2>
+        <h2 style="font-size:2.15rem; font-weight:800; color:#0e332d; margin-bottom:12px;">IELTS Online Practice Portals</h2>
         <p style="color:var(--muted); font-size:1.04rem; line-height:1.6; max-width:720px; margin:0 auto;">Hand-picked world-class IELTS online practice platforms. Choose your target portal to practice full Cambridge-standard mock tests, sectional mini-tests, and interactive skill modules.</p>
       </div>
 
@@ -355,6 +360,14 @@
         </div>
       </div>
     </main>
+
+    <footer class="app-global-footer">
+      <div class="wrap">
+        <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
+        <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
+        <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
+      </div>
+    </footer>
   </div>
 
   <!-- ========================================================================
@@ -1238,10 +1251,14 @@
   <div id="grammar-view" class="view-screen">
     <header class="reader-header">
       <div class="reader-header-left">
-        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <button class="home-nav-btn" id="grammar-back-nav-btn" onclick="window.ieltsApp.handleGrammarBackNav()"><span>&larr; Back to Home</span></button>
         <h2 id="grammar-header-title" style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Grammar Mastery Hub</h2>
       </div>
       <div class="header-actions">
+        <button class="btn main" onclick="window.ieltsApp.showGrammarVideoResources()" style="font-size:0.8rem; font-weight:800; padding:6px 14px; background:#e11d48; border-color:#e11d48; color:#fff; box-shadow:0 2px 8px rgba(225,29,72,0.3); display:inline-flex; align-items:center; gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video Resources (17 Classes)</span>
+        </button>
         <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('basic_grammar')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Parts of Speech Guide</button>
         <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('time_prepositions')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Prepositions Clock</button>
       </div>
@@ -1250,6 +1267,23 @@
     <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
       <!-- TIER 1: TOPIC CARDS HUB (VOCABULARY CARD STYLE) -->
       <div id="grammar-topics-hub">
+        <!-- FEATURED GRAMMAR VIDEO MASTERCLASS HERO CARD -->
+        <div class="grammar-video-hero-card" onclick="window.ieltsApp.showGrammarVideoResources()">
+          <div class="grammar-video-hero-left">
+            <span class="video-kicker-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M8 5v14l11-7z"/></svg> OFFICIAL GRAMMAR MASTERCLASS</span>
+            <h3 class="grammar-video-hero-title">IELTS Grammar Video Resources &amp; Lecture PDFs</h3>
+            <p class="grammar-video-hero-desc">
+              17 Comprehensive Live Class Recordings with 21 video lectures and 30+ official downloadable lecture sheets &amp; practice PDFs covering pronouns, tenses, clauses, conditionals, passive voice, and pronunciation.
+            </p>
+          </div>
+          <div class="grammar-video-hero-right">
+            <button class="grammar-video-hero-btn" onclick="event.stopPropagation(); window.ieltsApp.showGrammarVideoResources()">
+              <span>Explore 17 Video Classes &amp; PDFs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
         <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 28px auto; padding:0 16px; display:block;">
           <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin:0 0 10px;">8 Essential IELTS Grammar Topics</h2>
           <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
@@ -1314,6 +1348,30 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- TIER 3: GRAMMAR VIDEO RESOURCES & PDFS PORTAL -->
+      <div id="grammar-video-resources-view" style="display:none;">
+        <!-- Portal Header Banner -->
+        <div class="sec-head" style="text-align:center; max-width:840px; margin:20px auto 32px auto; padding:0 16px; display:block;">
+          <span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; letter-spacing:1px; margin-bottom:12px; display:inline-block; padding:6px 18px; border-radius:999px; text-transform:uppercase; font-size:0.75rem;">VIDEO VAULT &amp; LECTURE NOTES</span>
+          <h2 style="font-size:2.05rem; font-weight:800; color:#0e332d; margin:0 0 10px;">IELTS Grammar Video Resources</h2>
+          <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
+            Watch complete video lecture recordings and download the exact lecture handouts, rules sheets, and practice PDFs for each class.
+          </p>
+        </div>
+
+        <!-- Filter tabs for Video Classes -->
+        <div class="writing-mode-tabs" style="margin:0 auto 32px auto; max-width:720px;">
+          <button class="mode-tab-btn active" id="btn-gvideo-all" onclick="window.ieltsApp.filterGrammarVideos('all')">All Classes (17)</button>
+          <button class="mode-tab-btn" id="btn-gvideo-foundation" onclick="window.ieltsApp.filterGrammarVideos('foundation')">Foundation (1–5)</button>
+          <button class="mode-tab-btn" id="btn-gvideo-core" onclick="window.ieltsApp.filterGrammarVideos('core')">Tenses &amp; Voice (6–9)</button>
+          <button class="mode-tab-btn" id="btn-gvideo-advanced" onclick="window.ieltsApp.filterGrammarVideos('advanced')">Clauses &amp; Modals (10–14)</button>
+          <button class="mode-tab-btn" id="btn-gvideo-speech" onclick="window.ieltsApp.filterGrammarVideos('speech')">Speech &amp; Syntax (15–17)</button>
+        </div>
+
+        <!-- 17 Video Class Cards Grid (3 Cards Per Row Vocabulary Style) -->
+        <div class="topics-grid" id="grammar-video-cards-grid"></div>
       </div>
     </main>
 
@@ -1529,8 +1587,8 @@
   <script src="js/shadowing_data.js?v=1793785505936"></script>
   <script src="js/media_data.js?v=1793785505936"></script>
   <script src="js/vocabulary_data.js?v=1793785505936"></script>
-  <script src="js/grammar_data.js?v=1794308436324"></script>
-  <script src="js/app.js?v=1794308436324"></script>
+  <script src="js/grammar_data.js?v=1794367692615"></script>
+  <script src="js/app.js?v=1794368812678"></script>
 
   <!-- ========================================================================
        YOUTUBE & WEB RESOURCES MODAL (7 TOP CURATED CHANNELS)

@@ -2,7 +2,436 @@
 // 8 Core Academic Topics • 15 Pure Gap-Fill Questions per Topic = 120 Questions Total
 // Zero Drag-and-Drop • In-depth Rules, Formulas, Examples & Explanations
 
+const GRAMMAR_VIDEO_RESOURCES = [
+  {
+    "id": "class-01",
+    "classNo": "Class 01",
+    "num": 1,
+    "title": "Pronoun A2Z & Relative Pronouns",
+    "category": "FOUNDATION GRAMMAR",
+    "summary": "Complete breakdown of subjective, objective, possessive pronouns, and relative pronouns (who, whom, which, that).",
+    "duration": "2 Video Lectures",
+    "videos": [
+      {
+        "title": "Pronoun A2Z Masterclass",
+        "url": "https://youtu.be/0J3fOKr8rhU"
+      },
+      {
+        "title": "Relative Pronouns Explained",
+        "url": "https://youtu.be/cGtqIcQ1NwQ"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Pronoun A2Z Lecture Sheet.pdf",
+        "url": "https://drive.google.com/open?id=1DlSaLhZI3HgWSELOwyPW3hZQK4idfBRo"
+      },
+      {
+        "title": "Pronoun Practice Sheet.pdf",
+        "url": "https://drive.google.com/open?id=1AIZfNvsh-ruWBZuTVe1FfjpM5UI8HRJj"
+      },
+      {
+        "title": "Relative Pronoun Rules.pdf",
+        "url": "https://drive.google.com/open?id=1dUZnjPwAlAOwopAaSBIuGlbV4H2Kua1T"
+      }
+    ]
+  },
+  {
+    "id": "class-02",
+    "classNo": "Class 02",
+    "num": 2,
+    "title": "Quantifiers & Uncountable Nouns",
+    "category": "NOUNS & QUANTITY",
+    "summary": "Mastering quantifiers (much, many, few, little, a lot of) and high-frequency academic uncountable nouns for IELTS.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Quantifiers Masterclass",
+        "url": "https://youtu.be/_rHN7MTM8J8"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Quantifiers (New Edition).pdf",
+        "url": "https://drive.google.com/open?id=1-OpfI5wABU68jLy9eRwcwrod7w0Eh4JQ"
+      },
+      {
+        "title": "Uncountable Nouns for IELTS & BCS.pdf",
+        "url": "https://drive.google.com/open?id=1vnTqE7FZ44ilzZQKYcr3m_6fG_-qy9Lt"
+      }
+    ]
+  },
+  {
+    "id": "class-03",
+    "classNo": "Class 03",
+    "num": 3,
+    "title": "Noun Clauses & Syntactic Positions of Nouns",
+    "category": "CLAUSES & SYNTAX",
+    "summary": "Understanding noun clause structures, Cambridge reading passage analysis, and where nouns function in complex sentences.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Noun Clause Complete Guide",
+        "url": "https://youtu.be/BEtRuDNjQio"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Cambridge 10 Reading Test 1 Passage 1 Analysis.pdf",
+        "url": "https://drive.google.com/open?id=1xIxpTkG9HMfiQeblsWe3O497W0HJjaZg"
+      },
+      {
+        "title": "Positions of Noun in Sentences.pdf",
+        "url": "https://drive.google.com/open?id=1tUI69snimA9IZkWkI-e_WjDHfcVPX6az"
+      },
+      {
+        "title": "Noun Clause Practice Drills.pdf",
+        "url": "https://drive.google.com/open?id=18fmj0BJwa9AbPud-TMGufZiyyXnk3Qmg"
+      }
+    ]
+  },
+  {
+    "id": "class-04",
+    "classNo": "Class 04",
+    "num": 4,
+    "title": "Prepositions of Time & Direction",
+    "category": "PREPOSITIONS",
+    "summary": "Precise usage of in, on, at, during, for, since, and prepositional time frameworks in academic reporting.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Preposition of Time Masterclass",
+        "url": "https://youtu.be/b0iG9K-RvgQ"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Preposition of Time Reference Sheet.pdf",
+        "url": "https://drive.google.com/open?id=1m9Mt7GU1j3lrCBJOpQzBWjkFwXHziPhQ"
+      }
+    ]
+  },
+  {
+    "id": "class-05",
+    "classNo": "Class 05",
+    "num": 5,
+    "title": "Be Verbs, 'There is/are', 'It', & Verb Patterns",
+    "category": "VERB STRUCTURES",
+    "summary": "Essential existential structures (There/It), linking Be verbs, and infinitive vs gerund patterns (To + verb & Verb + ing).",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Be Verb and 'There' Structures",
+        "url": "https://youtu.be/AQiwTCH6ZFw"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Be Verb Rules & Usage.pdf",
+        "url": "https://drive.google.com/open?id=1029x1NQeiLQp8fQZrsrIIUMiWxB9sr25"
+      },
+      {
+        "title": "There and It Structures.pdf",
+        "url": "https://drive.google.com/open?id=1rxHaEyKXMnbuLlDCR5bvfeeb0qh3PvFg"
+      },
+      {
+        "title": "(To + Verb) & (Verb + Ing) Patterns.pdf",
+        "url": "https://drive.google.com/open?id=13p_6PBE6uj7pdm7yerV2_e1ba1Hjr5kS"
+      }
+    ]
+  },
+  {
+    "id": "class-06",
+    "classNo": "Class 06",
+    "num": 6,
+    "title": "Tenses (Part 01 & Part 02)",
+    "category": "TENSES & ASPECT",
+    "summary": "Complete 12-tense timeline, focusing on Present Perfect vs Past Simple and narrative sequencing for IELTS Writing.",
+    "duration": "2 Video Lectures",
+    "videos": [
+      {
+        "title": "Tense Part 01 — Fundamentals",
+        "url": "https://youtu.be/-TK2pJcJzAs"
+      },
+      {
+        "title": "Tense Part 02 — Advanced Aspects",
+        "url": "https://youtu.be/1KTKohWshHY"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Comprehensive Tense Master Lecture Sheet.pdf",
+        "url": "https://drive.google.com/file/d/1h-CTmsLpsYlE4tkFFsPBVXy26cQ-h7-z/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "id": "class-07",
+    "classNo": "Class 07",
+    "num": 7,
+    "title": "Passive Voice & Academic Impersonal Register",
+    "category": "VOICE & REGISTER",
+    "summary": "Active to passive transformation, process writing applications in Task 1, and impersonal reporting structures.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Passive Voice Masterclass",
+        "url": "https://youtu.be/vYpVAAQPDMM"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Passive Voice Rules & Formulas.pdf",
+        "url": "https://drive.google.com/open?id=1eCPdy45f9yWIpSn5JQvlQmv99mQ4hU58"
+      },
+      {
+        "title": "Passive Voice Class 38 Lecture Sheet.pdf",
+        "url": "https://drive.google.com/open?id=1QFYHBf72ON30TCwcIn1m5ewu7UXW5p9R"
+      }
+    ]
+  },
+  {
+    "id": "class-08",
+    "classNo": "Class 08",
+    "num": 8,
+    "title": "WH-Questions & Sequence of Tense",
+    "category": "SYNTAX & TENSES",
+    "summary": "Interrogative syntax, embedded questions, and chronological sequence of tenses across compound sentences.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "WH-Questions & Sequence of Tense",
+        "url": "https://youtu.be/IYybikkfj4I"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "WH-Questions & Sequence Study Document",
+        "url": "https://docs.google.com/document/d/1fgaK8XaJNRoHzQsrwbfPAMZNUupbyFMeJSz9SlAv5rM/edit?usp=sharing"
+      }
+    ]
+  },
+  {
+    "id": "class-09",
+    "classNo": "Class 09",
+    "num": 9,
+    "title": "Simple Sentences & Subject-Verb-Object Mechanics",
+    "category": "SENTENCE STRUCTURE",
+    "summary": "Building robust simple sentences, modifiers, appositives, and eliminating comma splices or fragments.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Simple Sentence Mastery",
+        "url": "https://youtu.be/XrFMjz2BeII"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Simple Sentence Foundation.pdf",
+        "url": "https://drive.google.com/open?id=1M3ck5UhwdkzuwjB1wbaGfraiSnBqYUnp"
+      },
+      {
+        "title": "Simple Sentence Class 38 Notes.pdf",
+        "url": "https://drive.google.com/open?id=1LGsWw3hZaiizCWdSCh7CutQuAiEuAGbT"
+      }
+    ]
+  },
+  {
+    "id": "class-10",
+    "classNo": "Class 10",
+    "num": 10,
+    "title": "Independent Clauses & Coordinating Conjunctions",
+    "category": "SENTENCE STRUCTURE",
+    "summary": "Mastering independent clauses, FANBOYS coordinators, semicolons, and conjunctive adverbs.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Independent Clause Masterclass",
+        "url": "https://youtu.be/QBoeaOqWCA4"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Independent Clauses & Connectors.pdf",
+        "url": "https://drive.google.com/open?id=1B5L4lsxe_t8nrAn8pzhQwmdJcmq858zD"
+      }
+    ]
+  },
+  {
+    "id": "class-11",
+    "classNo": "Class 11",
+    "num": 11,
+    "title": "Modal Verbs & Degrees of Certainty",
+    "category": "MODALITY & HEDGING",
+    "summary": "Can, could, may, might, must, should, would — understanding necessity, possibility, academic hedging, and modal passives.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Modal Verbs Complete Lecture",
+        "url": "https://youtu.be/CazebWo4s1I"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Modal Verbs Lecture Reference.pdf",
+        "url": "https://drive.google.com/file/d/1Y5Qt8nilov9U1LyDzDVdZI9Chqh4UmBg/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "id": "class-12",
+    "classNo": "Class 12",
+    "num": 12,
+    "title": "Subject-Verb Agreement & Discourse Linkers",
+    "category": "CONCORD & COHESION",
+    "summary": "Concord rules with complex head nouns, collective nouns, neither/either, and cohesive transition linkers.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Subject-Verb Agreement Lecture",
+        "url": "https://youtu.be/novj9w79vcc"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Linkers & Transition Document",
+        "url": "https://docs.google.com/document/d/1aJJRdpiMdbnvsvGgo8rhjCcR0-oYK5qLM8Tx3Gr3HGM/edit?usp=sharing"
+      },
+      {
+        "title": "Subject-Verb Agreement Rules.pdf",
+        "url": "https://drive.google.com/open?id=1H83GKBZ9TLwcYCvPcGNLIsjD4WwMh-bn"
+      }
+    ]
+  },
+  {
+    "id": "class-13",
+    "classNo": "Class 13",
+    "num": 13,
+    "title": "Conditional Sentences (Zero, 1, 2, 3 & Mixed)",
+    "category": "HYPOTHETICAL STRUCTURES",
+    "summary": "Real and unreal conditionals, hypothetical speculation in Task 2, unless, provided that, and inverted conditional clauses.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Conditional Sentences Masterclass",
+        "url": "https://youtu.be/x324GUpZm4g?si=zeoXZXXWCYiZVkmn"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Conditional Sentences Reference Sheet.pdf",
+        "url": "https://drive.google.com/open?id=1KhcpRHFxT0Hz9krUn8ErZ6WvXo3cjKiK"
+      }
+    ]
+  },
+  {
+    "id": "class-14",
+    "classNo": "Class 14",
+    "num": 14,
+    "title": "Degrees of Comparison (Positive, Comparative, Superlative)",
+    "category": "COMPARISON & DATA",
+    "summary": "Comparing data in Task 1 charts and graphs, proportional comparisons (the more... the more...), and irregular modifiers.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Degree of Comparison Masterclass",
+        "url": "https://youtu.be/iIz4JBrHasM"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Degrees of Comparison Reference.pdf",
+        "url": "https://drive.google.com/open?id=1O1G4hTmcSbwGt5KXdyUn-cJyCDA7QccK"
+      }
+    ]
+  },
+  {
+    "id": "class-15",
+    "classNo": "Class 15",
+    "num": 15,
+    "title": "Narration & Reported Speech",
+    "category": "REPORTED SPEECH",
+    "summary": "Direct to indirect speech transformations, reporting verbs (asserted, argued, contended), and tense backshifting.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Narration & Direct/Indirect Speech",
+        "url": "https://youtu.be/nQBpeixqM2M"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Narration Lecture Notes.pdf",
+        "url": "https://drive.google.com/open?id=1ckPJiWSzGT9U5AsXa11x8qCurAtUet16"
+      }
+    ]
+  },
+  {
+    "id": "class-16",
+    "classNo": "Class 16",
+    "num": 16,
+    "title": "Pronunciation, IPA Phonetics & Connected Speech",
+    "category": "SPEAKING & PHONETICS",
+    "summary": "International Phonetic Alphabet (IPA), Yod coalescence, elision, linking sounds, and natural British/American rhythm.",
+    "duration": "2 Video Lectures",
+    "videos": [
+      {
+        "title": "Pronunciation Lecture 01",
+        "url": "https://youtu.be/4rhGDBRC0VQ"
+      },
+      {
+        "title": "Pronunciation Lecture 02",
+        "url": "https://youtu.be/sY6dRR5BMiw"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "IPA Class 02 Phonetics Guide.pdf",
+        "url": "https://drive.google.com/open?id=1FOuoS67BvXTEOB8KEa5Hoa4ID0y6-G_1"
+      },
+      {
+        "title": "Yod Coalescence in English.pdf",
+        "url": "https://drive.google.com/open?id=1oh-odDf0OamHC0QBK3czhSADwRdYguqy"
+      },
+      {
+        "title": "Pronunciation Practice Drills.pdf",
+        "url": "https://drive.google.com/open?id=1koaX7Dk14eFN6CLU6vdXSMLsYiR52NFQ"
+      },
+      {
+        "title": "Pronunciation Tips & Hacks.pdf",
+        "url": "https://drive.google.com/open?id=1zStMwReuEqoZYWFUVEyGCwtfJWKYqQfp"
+      },
+      {
+        "title": "Pronunciation Class 01 Handout.pdf",
+        "url": "https://drive.google.com/open?id=1E9Pv4fta8Xx-C3VOBb2vQi5c5ysGbzP-"
+      }
+    ]
+  },
+  {
+    "id": "class-17",
+    "classNo": "Class 17",
+    "num": 17,
+    "title": "Sentence Structures (Simple, Complex & Compound)",
+    "category": "ADVANCED SYNTAX",
+    "summary": "Synthesizing simple, compound, and complex sentence structures for Band 8+ Grammatical Range and Accuracy.",
+    "duration": "1 Video Lecture",
+    "videos": [
+      {
+        "title": "Simple, Complex, Compound Sentences",
+        "url": "https://youtu.be/hz6rhcxgxl8"
+      }
+    ],
+    "pdfs": [
+      {
+        "title": "Advanced Sentence Structures Lecture Sheet.pdf",
+        "url": "https://drive.google.com/open?id=11rY-EBMq0ZaMSqZOcK8gzs8_63yYCUgf"
+      }
+    ]
+  }
+];
+
 const GRAMMAR_DATA = {
+  videoResources: GRAMMAR_VIDEO_RESOURCES,
   topics: [
   {
     "id": "subject-verb-agreement",

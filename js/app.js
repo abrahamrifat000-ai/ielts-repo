@@ -3898,11 +3898,15 @@
   function returnToGrammarTopics() {
     const hub = document.getElementById('grammar-topics-hub');
     const detailView = document.getElementById('grammar-detail-view');
+    const videoView = document.getElementById('grammar-video-resources-view');
     const headerTitle = document.getElementById('grammar-header-title');
+    const backBtn = document.getElementById('grammar-back-nav-btn');
 
     if (hub) hub.style.display = 'block';
     if (detailView) detailView.style.display = 'none';
+    if (videoView) videoView.style.display = 'none';
     if (headerTitle) headerTitle.textContent = 'IELTS Grammar Mastery Hub';
+    if (backBtn) backBtn.innerHTML = '<span>&larr; Back to Home</span>';
 
     renderGrammarTopicsHub();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3958,6 +3962,31 @@
       '</article>';
     });
 
+    // 9th Special Topic Card: Grammar Video Resources
+    const watchedCount = getWatchedGrammarClassCount();
+    html += '<article class="topic-card" id="grammar-card-video-resources" style="--c1:#e11d48; --c2:#be123c;" onclick="window.ieltsApp.showGrammarVideoResources()">' +
+      '<header class="topic-head">' +
+        '<span class="topic-num" style="font-size:22px;">VID</span>' +
+        '<h3 class="topic-title">Video Vault</h3>' +
+        '<span class="topic-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' +
+      '</header>' +
+      '<div class="topic-body">' +
+        '<span class="topic-label">VIDEO MASTERCLASSES</span>' +
+        '<h4>Grammar Video Resources</h4>' +
+        '<p class="keywords">17 Comprehensive video classes with 21 video lectures and 30+ official downloadable lecture PDFs &amp; practice sheets.</p>' +
+        '<div class="tags">' +
+          '<span>17 Classes</span>' +
+          '<span>21 Videos</span>' +
+          '<span>30+ PDFs</span>' +
+          '<span style="color:#e11d48; font-weight:800; background:#fff1f2;">Full Series</span>' +
+        '</div>' +
+        '<div class="topic-foot">' +
+          '<span style="font-size:0.8rem; font-weight:700; color:' + (watchedCount > 0 ? '#16a34a' : '#64748b') + ';">' + (watchedCount > 0 ? watchedCount + '/17 Watched' : 'Free Access') + '</span>' +
+          '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.showGrammarVideoResources()">Watch &amp; Download &rarr;</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+
     grid.innerHTML = html;
   }
 
@@ -3973,10 +4002,12 @@
     const hub = document.getElementById('grammar-topics-hub');
     const detailView = document.getElementById('grammar-detail-view');
     const headerTitle = document.getElementById('grammar-header-title');
+    const backBtn = document.getElementById('grammar-back-nav-btn');
 
     if (hub) hub.style.display = 'none';
     if (detailView) detailView.style.display = 'block';
     if (headerTitle) headerTitle.textContent = 'Topic ' + topic.number + ': ' + topic.title;
+    if (backBtn) backBtn.innerHTML = '<span>&larr; Back to Grammar Hub</span>';
 
     // Render Banner Box
     const bannerBox = document.getElementById('grammar-topic-banner-box');
@@ -4250,6 +4281,177 @@
     if (typeof GRAMMAR_DATA === 'undefined') return;
     const topic = (GRAMMAR_DATA.topics || []).find(function(t) { return t.id === state.currentGrammarTopicId; });
     if (topic) renderGrammarTopicPractice(topic);
+  }
+
+  // ========================================================================
+  // GRAMMAR VIDEO RESOURCES ENGINE (17 CLASSES • 21 VIDEOS • 30+ PDFS)
+  // ========================================================================
+  function handleGrammarBackNav() {
+    const videoView = document.getElementById('grammar-video-resources-view');
+    const detailView = document.getElementById('grammar-detail-view');
+    if ((videoView && videoView.style.display !== 'none') || (detailView && detailView.style.display !== 'none')) {
+      returnToGrammarTopics();
+    } else {
+      showHomeView();
+    }
+  }
+
+  function showGrammarVideoResources() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('grammar-view');
+    if (v) v.classList.add('active-view');
+
+    const hub = document.getElementById('grammar-topics-hub');
+    const detailView = document.getElementById('grammar-detail-view');
+    const videoView = document.getElementById('grammar-video-resources-view');
+    const headerTitle = document.getElementById('grammar-header-title');
+    const backBtn = document.getElementById('grammar-back-nav-btn');
+
+    if (hub) hub.style.display = 'none';
+    if (detailView) detailView.style.display = 'none';
+    if (videoView) videoView.style.display = 'block';
+    if (headerTitle) headerTitle.textContent = 'IELTS Grammar Video Resources (17 Classes)';
+    if (backBtn) backBtn.innerHTML = '<span>&larr; Back to Grammar Hub</span>';
+
+    renderGrammarVideoCards('all');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function filterGrammarVideos(filter) {
+    ['all', 'foundation', 'core', 'advanced', 'speech'].forEach(function(f) {
+      const btn = document.getElementById('btn-gvideo-' + f);
+      if (btn) btn.classList.toggle('active', f === filter);
+    });
+    renderGrammarVideoCards(filter);
+  }
+
+  function getWatchedGrammarClassCount() {
+    let count = 0;
+    for (let i = 1; i <= 17; i++) {
+      const id = 'class-' + (i < 10 ? '0' : '') + i;
+      if (localStorage.getItem('ielts_gclass_watched_' + id) === '1') {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  function toggleGrammarClassWatched(classId) {
+    const key = 'ielts_gclass_watched_' + classId;
+    const isWatched = localStorage.getItem(key) === '1';
+    if (isWatched) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, '1');
+    }
+    const card = document.getElementById('gcard-' + classId);
+    const btn = document.getElementById('gbtn-watched-' + classId);
+    const nowWatched = !isWatched;
+    if (card) {
+      if (nowWatched) {
+        card.classList.add('is-completed');
+      } else {
+        card.classList.remove('is-completed');
+      }
+    }
+    if (btn) {
+      btn.textContent = nowWatched ? '✓ Watched' : 'Mark Watched';
+      btn.className = 'status' + (nowWatched ? ' is-done' : '');
+    }
+  }
+
+  function renderGrammarVideoCards(filter) {
+    const grid = document.getElementById('grammar-video-cards-grid');
+    if (!grid || typeof GRAMMAR_DATA === 'undefined') return;
+
+    filter = filter || 'all';
+    let classes = GRAMMAR_DATA.videoResources || [];
+
+    if (filter === 'foundation') {
+      classes = classes.filter(function(c) { return c.num >= 1 && c.num <= 5; });
+    } else if (filter === 'core') {
+      classes = classes.filter(function(c) { return c.num >= 6 && c.num <= 9; });
+    } else if (filter === 'advanced') {
+      classes = classes.filter(function(c) { return c.num >= 10 && c.num <= 14; });
+    } else if (filter === 'speech') {
+      classes = classes.filter(function(c) { return c.num >= 15 && c.num <= 17; });
+    }
+
+    // 6 Rotating Palettes exactly matching Vocabulary cards
+    const themePalettes = [
+      { c1: '#8b1a2b', c2: '#c0392b', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+      { c1: '#0f3d3a', c2: '#166e66', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>' },
+      { c1: '#b45309', c2: '#d97706', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="6" r="2"/><circle cx="12" cy="18" r="2"/></svg>' },
+      { c1: '#1e3a8a', c2: '#2563eb', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
+      { c1: '#7f1d38', c2: '#9f2b48', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+      { c1: '#1b4332', c2: '#2d6a4f', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>' }
+    ];
+
+    let html = '';
+    classes.forEach(function(item, idx) {
+      const p = themePalettes[idx % themePalettes.length];
+      const isWatched = localStorage.getItem('ielts_gclass_watched_' + item.id) === '1';
+      const numStr = (item.num < 10 ? '0' : '') + item.num;
+      const vCount = (item.videos || []).length;
+      const pCount = (item.pdfs || []).length;
+
+      // Video items styled
+      let videosHtml = '';
+      (item.videos || []).forEach(function(v) {
+        videosHtml += '<a href="' + v.url + '" target="_blank" rel="noopener noreferrer" class="gclass-item-link gclass-video-link" title="Watch on YouTube" onclick="event.stopPropagation();">' +
+          '<span class="gclass-icon-tag">' +
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#e11d48; flex-shrink:0;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>' +
+            '<span>' + escapeHtml(v.title) + '</span>' +
+          '</span>' +
+          '<span class="gclass-action-pill">Watch &nearr;</span>' +
+        '</a>';
+      });
+
+      // PDF items styled
+      let pdfsHtml = '';
+      (item.pdfs || []).forEach(function(pdf) {
+        pdfsHtml += '<a href="' + pdf.url + '" target="_blank" rel="noopener noreferrer" class="gclass-item-link gclass-pdf-link" title="Open PDF in Google Drive" onclick="event.stopPropagation();">' +
+          '<span class="gclass-icon-tag">' +
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="color:#16a34a; flex-shrink:0;"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>' +
+            '<span>' + escapeHtml(pdf.title) + '</span>' +
+          '</span>' +
+          '<span class="gclass-action-pill">PDF &nearr;</span>' +
+        '</a>';
+      });
+
+      const firstVideoUrl = (item.videos && item.videos.length > 0) ? item.videos[0].url : '#';
+
+      html += '<article class="topic-card ' + (isWatched ? 'is-completed' : '') + '" id="gcard-' + item.id + '" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';">' +
+        '<header class="topic-head">' +
+          '<span class="topic-num">' + numStr + '</span>' +
+          '<h3 class="topic-title">Class ' + numStr + '</h3>' +
+          '<span class="topic-icon">' + p.icon + '</span>' +
+        '</header>' +
+        '<div class="topic-body">' +
+          '<span class="topic-label">' + escapeHtml((item.category || 'GRAMMAR').toUpperCase()) + '</span>' +
+          '<h4>' + escapeHtml(item.title) + '</h4>' +
+          '<p class="keywords">' + escapeHtml(item.summary) + '</p>' +
+          '<div class="tags">' +
+            '<span>🎥 ' + vCount + (vCount === 1 ? ' Video' : ' Videos') + '</span>' +
+            '<span>📄 ' + pCount + (pCount === 1 ? ' PDF' : ' PDFs') + '</span>' +
+            '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">' + (item.duration || 'Full Lecture') + '</span>' +
+          '</div>' +
+          '<div class="gclass-links-list" style="margin:6px 0 16px 0;">' +
+            videosHtml +
+            pdfsHtml +
+          '</div>' +
+          '<div class="topic-foot">' +
+            '<button type="button" class="status ' + (isWatched ? 'is-done' : '') + '" id="gbtn-watched-' + item.id + '" onclick="event.stopPropagation(); window.ieltsApp.toggleGrammarClassWatched(\'' + item.id + '\')">' +
+              (isWatched ? '✓ Watched' : 'Mark Watched') +
+            '</button>' +
+            '<a href="' + firstVideoUrl + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">Watch First &rarr;</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    });
+
+    grid.innerHTML = html || '<div style="grid-column:1/-1; text-align:center; padding:48px; color:#64748b;">No classes found for this category.</div>';
   }
 
   // ========================================================================
@@ -5329,7 +5531,11 @@
     switchGrammarTab,
     selectGrammarGapOption,
     submitCurrentTopicPractice,
-    resetCurrentTopicPractice
+    resetCurrentTopicPractice,
+    showGrammarVideoResources,
+    filterGrammarVideos,
+    toggleGrammarClassWatched,
+    handleGrammarBackNav
   };
 
   // Initialize App on DOMContentLoaded
