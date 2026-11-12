@@ -6,8 +6,9 @@
   <title>IELTS with Abraham Rifat | World-Class IELTS Preparation Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1794369520000">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1794468800000">
+  <link rel="stylesheet" href="css/reading_trainer.css?v=1794468800000">
   <link rel="icon" type="image/png" href="assets/images/ielts-warrior-favicon.png?v=7">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=7">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png?v=7">
@@ -371,42 +372,56 @@
   </div>
 
   <!-- ========================================================================
-       1B. AUTHENTIC IELTS READING MOCK TESTS PORTAL (26 TESTS)
+       1B. AUTHENTIC IELTS READING MOCK TESTS PORTAL (394 SETS & 26 TESTS)
        ======================================================================== -->
   <div id="reading-selection-view" class="view-screen">
     <header class="reader-header">
       <div class="reader-header-left">
         <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
-        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Reading Mock Tests (26 Tests)</h2>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;" id="reading-header-title">IELTS Reading Practice Hub &bull; 394 Sets &amp; Mock Tests</h2>
       </div>
       <div class="header-actions">
-        <div class="writing-mode-tabs">
-          <button class="mode-tab-btn active" id="btn-mock-filter-all" onclick="window.ieltsApp.filterReadingPassages('all')">All Tests (26)</button>
-          <button class="mode-tab-btn" id="btn-mock-filter-p1" onclick="window.ieltsApp.filterReadingPassages('p1')">Passage 1 (Q 1–13)</button>
-          <button class="mode-tab-btn" id="btn-mock-filter-p2" onclick="window.ieltsApp.filterReadingPassages('p2')">Passage 2 (Q 14–26)</button>
-          <button class="mode-tab-btn" id="btn-mock-filter-p3" onclick="window.ieltsApp.filterReadingPassages('p3')">Passage 3 (Q 27–40)</button>
+        <div class="writing-mode-tabs" id="reading-main-mode-tabs">
+          <button class="mode-tab-btn active" id="btn-reading-mode-trainer" onclick="window.ieltsApp.switchReadingMainMode('trainer')">
+            Type &amp; Topic Trainer (394 Sets)
+          </button>
+          <button class="mode-tab-btn" id="btn-reading-mode-scanned" onclick="window.ieltsApp.switchReadingMainMode('scanned')">
+            26 Cambridge Papers
+          </button>
         </div>
       </div>
     </header>
 
     <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
-      <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 32px auto; padding:0 16px; display:block;">
-        <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin-bottom:12px;">Authentic Reading Mock Tests &bull; 26 Scanned Papers</h2>
-        <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:700px; margin:0 auto 22px auto;">Official exam passages with original scanned layout, questions, 20-minute live timer, interactive answer sheet, and instant scoring.</p>
-        <div style="max-width:440px; margin:0 auto;">
-          <input type="text" id="reading-test-search" class="search-input" placeholder="Search 26 tests by title or keyword..." oninput="window.ieltsApp.searchReadingPassages(this.value)" style="width:100%; padding:12px 20px; border-radius:12px; border:1px solid #cbd5e1; font-size:14px; background:#fff; outline:none; transition:border-color 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+      <!-- CONTAINER 1: 394 SETS TYPE & TOPIC TRAINER (EMBEDDED NATIVELY) -->
+      <div id="reading-trainer-root"></div>
+
+      <!-- CONTAINER 2: 26 SCANNED EXAM PAPERS -->
+      <div id="reading-scanned-papers-root" style="display:none;">
+        <div class="sec-head" style="text-align:center; max-width:840px; margin:20px auto 28px auto; padding:0 16px; display:block;">
+          <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin-bottom:12px;">Authentic Cambridge Mock Papers &bull; 26 Full Tests</h2>
+          <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:700px; margin:0 auto 22px auto;">Complete scanned exam papers with original layout, questions, 20-minute live timer, and interactive answer sheets.</p>
+          <div style="display:flex; justify-content:center; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
+            <button class="mode-tab-btn active" id="btn-mock-filter-all" onclick="window.ieltsApp.filterReadingPassages('all')">All Tests (26)</button>
+            <button class="mode-tab-btn" id="btn-mock-filter-p1" onclick="window.ieltsApp.filterReadingPassages('p1')">Passage 1 (Q 1–13)</button>
+            <button class="mode-tab-btn" id="btn-mock-filter-p2" onclick="window.ieltsApp.filterReadingPassages('p2')">Passage 2 (Q 14–26)</button>
+            <button class="mode-tab-btn" id="btn-mock-filter-p3" onclick="window.ieltsApp.filterReadingPassages('p3')">Passage 3 (Q 27–40)</button>
+          </div>
+          <div style="max-width:440px; margin:0 auto;">
+            <input type="text" id="reading-test-search" class="search-input" placeholder="Search 26 tests by title or keyword..." oninput="window.ieltsApp.searchReadingPassages(this.value)" style="width:100%; padding:12px 20px; border-radius:12px; border:1px solid #cbd5e1; font-size:14px; background:#fff; outline:none; transition:border-color 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          </div>
         </div>
+        <div class="editorial-practice-grid" id="reading-selection-grid"></div>
       </div>
-      <div class="editorial-practice-grid" id="reading-selection-grid"></div>
     </main>
 
-      <footer class="app-global-footer">
-    <div class="wrap">
-      <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
-      <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
-      <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
-    </div>
-  </footer>
+    <footer class="app-global-footer">
+      <div class="wrap">
+        <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
+        <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
+        <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
+      </div>
+    </footer>
   </div>
 
   <!-- ========================================================================
@@ -421,10 +436,10 @@
         <span class="reading-frame-title" id="reading-frame-active-title">Test 01: A Survivor's Story</span>
       </div>
       <div style="display:flex; align-items:center; gap:8px;">
-        <a id="reading-frame-newtab-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="padding:8px 16px; font-size:13px; font-weight:700; color:#ffffff; background:#0e332d; border:1px solid #0e332d; border-radius:8px; display:inline-flex; align-items:center; gap:6px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
-          <span>Open Fullscreen</span>
-          <span>&nearr;</span>
-        </a>
+        <button id="reading-frame-fullscreen-btn" onclick="window.ieltsApp.toggleReadingFrameFullscreen()" class="btn" style="padding:8px 16px; font-size:13px; font-weight:700; color:#ffffff; background:#0e332d; border:1px solid #0e332d; border-radius:8px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+          <span>Toggle Fullscreen</span>
+          <span>&harr;</span>
+        </button>
       </div>
     </header>
     <iframe id="reading-test-iframe" class="reading-frame-container" src="" title="IELTS Reading Mock Test Runner"></iframe>
@@ -1588,7 +1603,9 @@
   <script src="js/media_data.js?v=1793785505936"></script>
   <script src="js/vocabulary_data.js?v=1793785505936"></script>
   <script src="js/grammar_data.js?v=1794367692615"></script>
-  <script src="js/app.js?v=1794368812678"></script>
+  <script src="js/reading_trainer_data.js?v=1794468800000"></script>
+  <script src="js/reading_trainer.js?v=1794468800000"></script>
+  <script src="js/app.js?v=1794468800000"></script>
 
   <!-- ========================================================================
        YOUTUBE & WEB RESOURCES MODAL (7 TOP CURATED CHANNELS)

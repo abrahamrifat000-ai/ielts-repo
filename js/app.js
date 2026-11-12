@@ -1900,7 +1900,9 @@
 
     document.addEventListener('mouseup', handleTextSelection);
     document.addEventListener('keyup', handleTextSelection);
+    document.addEventListener('dblclick', handleTextSelection);
 
+    // Hide floating bar on click outside
     document.addEventListener('mousedown', function(e) {
       var b = document.getElementById('hl-floating-bar');
       if (b && !b.contains(e.target)) {
@@ -1910,7 +1912,7 @@
 
     // Single-click on ANY highlight in Writing or Reading to clear/remove it
     document.addEventListener('click', function(e) {
-      var mark = e.target.closest('.highlight-yellow, .highlight-green, .highlight-blue, .ielts-hl');
+      var mark = e.target.closest('.highlight-yellow, .highlight-green, .highlight-blue, .ielts-hl, .rt-mark, mark');
       if (mark) {
         e.stopPropagation();
         e.preventDefault();
@@ -1972,7 +1974,18 @@
       '#passage-content, ' +
       '.pane-content, ' +
       '.reader-text, ' +
-      '.reader-passage-wrap'
+      '.reader-passage-wrap, ' +
+      '#reading-selection-view, ' +
+      '#rt-practice-container, ' +
+      '#rt-ptext, ' +
+      '#rt-panes, ' +
+      '.rt-pane, ' +
+      '.rt-passage-content, ' +
+      '.rt-passage-text, ' +
+      '.rt-questions-content, ' +
+      '.rt-qbody, ' +
+      '.rt-instructions-card, ' +
+      '.rt-listbox-card'
     );
 
     if (!isAllowed) {
@@ -1988,9 +2001,15 @@
       return;
     }
 
+    // Attach inside fullscreenElement if active so it stays visible in fullscreen
+    var container = document.fullscreenElement || document.body;
+    if (bar.parentNode !== container) {
+      container.appendChild(bar);
+    }
+
     // Position using fixed coordinates above the selection
     var barWidth = 280;
-    var top = rect.top - 50;
+    var top = rect.top - 52;
     var left = rect.left + (rect.width / 2) - (barWidth / 2);
 
     if (top < 10) top = rect.bottom + 12;
@@ -2037,7 +2056,7 @@
     var sel = window.getSelection();
     var range = activeHighlightRange || (sel && !sel.isCollapsed && sel.rangeCount > 0 ? sel.getRangeAt(0) : null);
     if (range) {
-      var allMarks = Array.from(document.querySelectorAll('.highlight-yellow, .highlight-green, .highlight-blue, .ielts-hl'));
+      var allMarks = Array.from(document.querySelectorAll('.highlight-yellow, .highlight-green, .highlight-blue, .ielts-hl, .rt-mark, mark'));
       var removed = 0;
       allMarks.forEach(function(m) {
         var isIntersect = false;
@@ -2062,7 +2081,9 @@
             node.classList.contains('highlight-yellow') ||
             node.classList.contains('highlight-green') ||
             node.classList.contains('highlight-blue') ||
-            node.classList.contains('ielts-hl')
+            node.classList.contains('ielts-hl') ||
+            node.classList.contains('rt-mark') ||
+            node.tagName === 'MARK'
           )) {
             var parent = node.parentNode;
             if (parent) {
@@ -2102,10 +2123,14 @@
 
   function copySelectedText() {
     var sel = window.getSelection();
-    if (!sel) return;
-    navigator.clipboard.writeText(sel.toString()).then(function() {
+    var str = (sel ? sel.toString().trim() : '') || (activeHighlightRange ? activeHighlightRange.toString().trim() : '');
+    if (!str) return;
+    navigator.clipboard.writeText(str).then(function() {
       var bar = document.getElementById('hl-floating-bar');
       if (bar) bar.style.display = 'none';
+      if (typeof showReaderToast === 'function') {
+        showReaderToast('Selected text copied to clipboard!');
+      }
     });
   }
 
@@ -3077,20 +3102,52 @@
   // ========================================================================
   // EDITORIAL READING SELECTION & SKILLS SELECTION VIEWS
   // ========================================================================
+  let currentReadingMainMode = 'trainer';
+
+  function switchReadingMainMode(mode) {
+    currentReadingMainMode = mode || 'trainer';
+    const trainerBtn = document.getElementById('btn-reading-mode-trainer');
+    const scannedBtn = document.getElementById('btn-reading-mode-scanned');
+    const trainerRoot = document.getElementById('reading-trainer-root');
+    const scannedRoot = document.getElementById('reading-scanned-papers-root');
+
+    if (trainerBtn) trainerBtn.classList.toggle('active', currentReadingMainMode === 'trainer');
+    if (scannedBtn) scannedBtn.classList.toggle('active', currentReadingMainMode === 'scanned');
+
+    if (currentReadingMainMode === 'trainer') {
+      if (trainerRoot) trainerRoot.style.display = 'block';
+      if (scannedRoot) scannedRoot.style.display = 'none';
+      if (window.ReadingTrainer && window.ReadingTrainer.init) {
+        window.ReadingTrainer.init();
+      }
+    } else {
+      if (trainerRoot) trainerRoot.style.display = 'none';
+      if (scannedRoot) scannedRoot.style.display = 'block';
+      renderReadingSelectionGrid('all', '');
+    }
+  }
+
+  function toggleReadingFrameFullscreen() {
+    const frameView = document.getElementById('reading-test-frame-view');
+    if (!document.fullscreenElement) {
+      if (frameView && frameView.requestFullscreen) {
+        frameView.requestFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+
   function showReadingSelection() {
     stopTimer();
     hideAllViews();
     const v = document.getElementById('reading-selection-view');
     if (v) v.classList.add('active-view');
-    ['all','p1','p2','p3'].forEach(function(f) {
-      const btn = document.getElementById('btn-mock-filter-' + f);
-      if (btn) btn.classList.toggle('active', f === 'all');
-    });
-    const sInput = document.getElementById('reading-test-search');
-    if (sInput) sInput.value = '';
-    currentReadingFilter = 'all';
-    currentReadingSearch = '';
-    renderReadingSelectionGrid('all', '');
+    switchReadingMainMode('trainer');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -3200,13 +3257,10 @@
             '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Live Timer &amp; Answers</span>' +
           '</div>' +
           '<div class="reading-step-actions">' +
-            '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">' +
-              '<span>Start Mock Test</span>' +
+            '<button class="reading-step-btn-start" style="background:' + c.bg + '; width:100%; justify-content:center;" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">' +
+              '<span>Start Full Mock Paper</span>' +
               '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
             '</button>' +
-            '<a href="' + testUrl + '" target="_blank" rel="noopener noreferrer" class="reading-step-btn-link" title="Open in separate tab">' +
-              '<span>Full</span> &nearr;' +
-            '</a>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -5421,6 +5475,8 @@
     showVocabularyView,
     showGrammarView,
     showReadingSelection,
+    switchReadingMainMode,
+    toggleReadingFrameFullscreen,
     openReadingMockTest,
     searchReadingPassages,
     showReadingSkillsSelection,
