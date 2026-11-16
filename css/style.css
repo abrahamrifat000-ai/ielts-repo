@@ -8460,9 +8460,8 @@ header.top {
   background: var(--maroon-d) !important;
 }
 
-/* Hide global nav only during strict authentic full-screen computer tests */
-body:has(#exam-view.active-view) .app-global-nav,
-body:has(#listening-exam-view.active-view) .app-global-nav {
+/* Hide global nav during all sub-views so there is only ONE clean navbar on screen */
+body:has(.view-screen.active-view:not(#home-view)) #main-nav {
   display: none !important;
 }
 
@@ -8899,8 +8898,10 @@ body:has(#listening-exam-view.active-view) .app-global-nav {
    ========================================================================== */
 #home-view #resources {
   background: linear-gradient(180deg, transparent, #efede4 30%, #efede4 100%) !important;
-  padding-bottom: 70px !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
   margin-top: 40px !important;
+  border-bottom: none !important;
 }
 
 #home-view .groups {
@@ -9236,21 +9237,23 @@ body > footer .top:hover {
 }
 
 /* ==========================================================================
-   APP GLOBAL FOOTER (FOR ALL OTHER VIEWS)
+   APP GLOBAL FOOTER (FOR ALL OTHER VIEWS - 100% UNIFORM WITH HOME FOOTER)
    ========================================================================== */
 .app-global-footer {
   margin-top: auto !important;
   background: #0a2722 !important;
   color: #a9c7bd !important;
-  font-size: .88rem !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
   width: 100% !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
 }
 
 .app-global-footer .wrap {
   max-width: 1140px !important;
   margin: 0 auto !important;
-  padding: 20px 24px !important;
+  padding: 16px 24px !important;
   display: flex !important;
   gap: 12px 28px !important;
   flex-wrap: wrap !important;
@@ -9535,12 +9538,13 @@ body:has(#reading-test-frame-view.active-view) .app-global-nav {
   box-sizing: border-box !important;
 }
 
-/* 2B. READING SKILLS BUILD-UP & INTERACTIVE READER: FIXED SUB-HEADER (NEVER SEPARATES FROM NAVBAR) */
+/* 2B. READING SKILLS BUILD-UP & INTERACTIVE READER: FIXED SUB-HEADER (SINGLE NAVBAR AT TOP) */
+body:has(.view-screen.active-view:not(#home-view)) .reader-header,
 #reader-view .reader-header,
 #reading-skills-selection-view .reader-header,
 #reading-selection-view .reader-header {
   position: fixed !important;
-  top: var(--nav-h, 82px) !important;
+  top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
@@ -9564,30 +9568,27 @@ body:has(#reading-test-frame-view.active-view) .app-global-nav {
 /* Ensure #reader-view does not trap scroll inside an inner box */
 #reader-view {
   overflow-y: visible !important;
-  min-height: calc(100vh - var(--nav-h, 82px)) !important;
+  min-height: 100vh !important;
 }
 
-/* Clear breathing room below the two fixed bars (70px navbar + 60px subheader + 24px padding = 154px) */
-#reader-view .reader-container {
-  margin-top: 0 !important;
-  padding-top: calc(var(--nav-h, 82px) + 60px + 24px) !important;
-}
-
+/* Clear breathing room below the single 60px white bar (60px header + 24px padding = 84px) */
+#reader-view .reader-container,
 #reading-skills-selection-view main.wrap,
 #reading-selection-view main.wrap {
-  padding-top: calc(var(--nav-h, 82px) + 60px + 24px) !important;
+  margin-top: 0 !important;
+  padding-top: calc(60px + 24px) !important;
 }
 
 /* 3. Reading Mock Test Runner View & Full-Width/Full-Height Iframe (ZERO GAP, NO OFF-WHITE BAR) */
 #reading-test-frame-view {
   position: fixed !important;
-  top: var(--nav-h, 82px) !important;
+  top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: calc(100vh - var(--nav-h, 82px)) !important;
+  height: 100vh !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box !important;
@@ -10628,6 +10629,7 @@ section#community-feedback,
   background: radial-gradient(circle at 50% 65%, rgba(20, 184, 166, 0.22) 0%, rgba(19, 66, 56, 0.75) 45%, #0e332d 92%) !important;
   color: #ffffff !important;
   padding: 85px 20px 95px !important;
+  margin-top: 0 !important;
   margin-bottom: 0 !important;
   text-align: center !important;
   overflow: hidden !important;
@@ -11949,4 +11951,215 @@ body,
   background-color: #fbf7ee !important;
   background: #fbf7ee !important;
 }
+
+/* ==========================================================================
+   STUDY ABROAD HOME FEATURE SHOWCASE BANNER
+   ========================================================================== */
+.sa-home-section {
+  background-color: #efede4 !important;
+  background: #efede4 !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.sa-showcase-card {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  background-color: #ffffff !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 44px -12px rgba(14, 51, 45, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06) !important;
+  min-height: 480px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.sa-showcase-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 28px !important;
+  z-index: 1 !important;
+}
+
+.sa-showcase-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: left center !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  transform: scale(1.02) !important;
+  transform-origin: left center !important;
+}
+
+.sa-showcase-content {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 52% !important;
+  min-height: 480px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 48px 48px 48px 20px !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 20%, #ffffff 40%) !important;
+  box-sizing: border-box !important;
+}
+
+.sa-showcase-inner {
+  max-width: 460px !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.sa-showcase-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: var(--mono, "JetBrains Mono", monospace) !important;
+  font-size: 0.74rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #0e332d !important;
+  background: rgba(14, 51, 45, 0.08) !important;
+  border: 1px solid rgba(14, 51, 45, 0.2) !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  margin-bottom: 16px !important;
+}
+
+.sa-showcase-title {
+  font-family: var(--display, var(--head, system-ui)) !important;
+  font-size: clamp(2.3rem, 4.2vw, 3.2rem) !important;
+  font-weight: 800 !important;
+  color: #0e332d !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 0 14px 0 !important;
+}
+
+.sa-showcase-desc {
+  font-family: var(--body, system-ui) !important;
+  font-size: 1.04rem !important;
+  line-height: 1.6 !important;
+  color: #4a5568 !important;
+  margin: 0 0 22px 0 !important;
+  max-width: 420px !important;
+}
+
+.sa-showcase-chips {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  margin-bottom: 26px !important;
+}
+
+.sa-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  font-size: 0.85rem !important;
+  color: #2d3748 !important;
+  font-weight: 500 !important;
+}
+
+.sa-chip b {
+  color: #c8102e !important;
+  font-weight: 700 !important;
+}
+
+.sa-showcase-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: #c8102e !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 14px 36px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 24px -4px rgba(200, 16, 46, 0.45) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+.sa-showcase-btn:hover {
+  background: #a60d25 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 30px -4px rgba(200, 16, 46, 0.55) !important;
+}
+
+.sa-showcase-btn svg {
+  transition: transform 0.2s ease !important;
+}
+
+.sa-showcase-btn:hover svg {
+  transform: translateX(4px) !important;
+}
+
+@media (max-width: 1199px) {
+  .sa-home-section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .sa-showcase-card {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .sa-showcase-bg {
+    position: relative !important;
+    height: 240px !important;
+  }
+  .sa-showcase-img {
+    object-position: center 35% !important;
+  }
+  .sa-showcase-content {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 36px 24px 44px 24px !important;
+    background: #ffffff !important;
+  }
+  .sa-showcase-title {
+    font-size: 2.1rem !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .sa-home-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+
 

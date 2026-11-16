@@ -289,7 +289,8 @@
     const viewIds = [
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
-      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view'
+      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view',
+      'study-abroad-view'
     ];
     viewIds.forEach(id => {
       const el = document.getElementById(id);
@@ -3949,20 +3950,31 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function showStudyAbroadView(countryId) {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('study-abroad-view');
+    if (v) v.classList.add('active-view');
+    if (window.studyAbroadApp) {
+      if (countryId) {
+        window.studyAbroadApp.openCountry(countryId);
+      } else {
+        window.studyAbroadApp.showHome();
+      }
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function returnToGrammarTopics() {
-    const hub = document.getElementById('grammar-topics-hub');
-    const detailView = document.getElementById('grammar-detail-view');
     const videoView = document.getElementById('grammar-video-resources-view');
-    const headerTitle = document.getElementById('grammar-header-title');
-    const backBtn = document.getElementById('grammar-back-nav-btn');
+    const preApp = document.getElementById('preielts-app');
 
-    if (hub) hub.style.display = 'block';
-    if (detailView) detailView.style.display = 'none';
     if (videoView) videoView.style.display = 'none';
-    if (headerTitle) headerTitle.textContent = 'IELTS Grammar Mastery Hub';
-    if (backBtn) backBtn.innerHTML = '<span>&larr; Back to Home</span>';
+    if (preApp) preApp.style.display = 'block';
 
-    renderGrammarTopicsHub();
+    if (window.PreIelts && window.PreIelts.init) {
+      window.PreIelts.init();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -4342,8 +4354,7 @@
   // ========================================================================
   function handleGrammarBackNav() {
     const videoView = document.getElementById('grammar-video-resources-view');
-    const detailView = document.getElementById('grammar-detail-view');
-    if ((videoView && videoView.style.display !== 'none') || (detailView && detailView.style.display !== 'none')) {
+    if (videoView && videoView.style.display !== 'none') {
       returnToGrammarTopics();
     } else {
       showHomeView();
@@ -4356,17 +4367,11 @@
     const v = document.getElementById('grammar-view');
     if (v) v.classList.add('active-view');
 
-    const hub = document.getElementById('grammar-topics-hub');
-    const detailView = document.getElementById('grammar-detail-view');
     const videoView = document.getElementById('grammar-video-resources-view');
-    const headerTitle = document.getElementById('grammar-header-title');
-    const backBtn = document.getElementById('grammar-back-nav-btn');
+    const preApp = document.getElementById('preielts-app');
 
-    if (hub) hub.style.display = 'none';
-    if (detailView) detailView.style.display = 'none';
+    if (preApp) preApp.style.display = 'none';
     if (videoView) videoView.style.display = 'block';
-    if (headerTitle) headerTitle.textContent = 'IELTS Grammar Video Resources (17 Classes)';
-    if (backBtn) backBtn.innerHTML = '<span>&larr; Back to Grammar Hub</span>';
 
     renderGrammarVideoCards('all');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5474,6 +5479,7 @@
     showRoadmapView,
     showVocabularyView,
     showGrammarView,
+    showStudyAbroadView,
     showReadingSelection,
     switchReadingMainMode,
     toggleReadingFrameFullscreen,

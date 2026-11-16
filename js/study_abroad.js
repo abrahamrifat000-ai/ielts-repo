@@ -1,0 +1,1617 @@
+/* ==========================================================================
+   IELTS WARRIOR — STUDY ABROAD DESK ENGINE (COMPLETE 35 COUNTRIES)
+   100% Exact Replica of Reference Features, Data, Filtering & Comparison
+   ========================================================================== */
+(function() {
+  'use strict';
+
+
+const C = [];
+window.ANN_API = "api/announcements.php"; window.STATS_API = "api/hit.php";
+/* Simplified flags drawn as inline SVG (60 x 40). Remote images cannot load in this page. */
+const FLAG = (() => {
+  const r = (x, y, w, h, f) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${f}"/>`;
+  const H = (...c) => c.map((f, i) => r(0, (40 / c.length) * i, 60, 40 / c.length + 0.2, f)).join("");
+  const V = (...c) => c.map((f, i) => r((60 / c.length) * i, 0, 60 / c.length + 0.2, 40, f)).join("");
+  const star = (cx, cy, rad, f, n = 5, rot = 0) => {
+    const p = [];
+    for (let i = 0; i < n * 2; i++) {
+      const a = (Math.PI / n) * i - Math.PI / 2 + rot;
+      const rr = i % 2 ? rad * (n > 6 ? 0.6 : 0.4) : rad;
+      p.push((cx + rr * Math.cos(a)).toFixed(2) + "," + (cy + rr * Math.sin(a)).toFixed(2));
+    }
+    return `<polygon points="${p.join(" ")}" fill="${f}"/>`;
+  };
+  const cross = (bg, c, vx, vw, hy, hh) => r(0, 0, 60, 40, bg) + r(vx, 0, vw, 40, c) + r(0, hy, 60, hh, c);
+  const uj = `<svg x="0" y="0" width="30" height="20" viewBox="0 0 30 20">${r(0, 0, 30, 20, "#012169")}<path d="M0,0L30,20M30,0L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0L30,20M30,0L0,20" stroke="#C8102E" stroke-width="1.6"/><path d="M15,0V20M0,10H30" stroke="#fff" stroke-width="6"/><path d="M15,0V20M0,10H30" stroke="#C8102E" stroke-width="3.6"/></svg>`;
+  const stripes = (n, a, b) => { let s = ""; for (let i = 0; i < n; i++) s += r(0, (40 / n) * i, 60, 40 / n + 0.2, i % 2 ? b : a); return s; };
+  const F = {
+    usa: () => { let s = stripes(13, "#B22234", "#fff") + r(0, 0, 26, 21.6, "#3C3B6E"); for (let y = 0; y < 5; y++) for (let x = 0; x < 6; x++) s += `<circle cx="${2.6 + x * 4.2}" cy="${2.6 + y * 4.1}" r="0.9" fill="#fff"/>`; return s; },
+    uk: () => `<svg x="0" y="0" width="60" height="40" viewBox="0 0 30 20" preserveAspectRatio="none">${r(0, 0, 30, 20, "#012169")}<path d="M0,0L30,20M30,0L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0L30,20M30,0L0,20" stroke="#C8102E" stroke-width="1.6"/><path d="M15,0V20M0,10H30" stroke="#fff" stroke-width="6"/><path d="M15,0V20M0,10H30" stroke="#C8102E" stroke-width="3.6"/></svg>`,
+    canada: () => r(0, 0, 60, 40, "#fff") + r(0, 0, 15, 40, "#D80621") + r(45, 0, 15, 40, "#D80621") + `<polygon fill="#D80621" points="30,8 32.2,12.5 34.8,11.5 34,16.5 37,14.5 37.8,16.5 41,16 39.8,20 41.2,21 35.5,25 36.2,27 31,26.4 31.2,31 28.8,31 29,26.4 23.8,27 24.5,25 18.8,21 20.2,20 19,16 22.2,16.5 23,14.5 26,16.5 25.2,11.5 27.8,12.5"/>`,
+    australia: () => r(0, 0, 60, 40, "#012169") + uj + star(15, 30, 5, "#fff", 7) + star(45, 8, 2.4, "#fff", 7) + star(52, 16, 2.4, "#fff", 7) + star(45, 32, 2.4, "#fff", 7) + star(38, 19, 2.4, "#fff", 7) + star(48.5, 23, 1.2, "#fff"),
+    "new-zealand": () => r(0, 0, 60, 40, "#012169") + uj + [[45, 9], [51, 17], [45, 31], [39, 18]].map(([x, y]) => star(x, y, 3.2, "#fff") + star(x, y, 2.1, "#C8102E")).join(""),
+    germany: () => H("#000", "#DD0000", "#FFCE00"),
+    france: () => V("#0055A4", "#fff", "#EF4135"),
+    netherlands: () => H("#AE1C28", "#fff", "#21468B"),
+    ireland: () => V("#169B62", "#fff", "#FF883E"),
+    italy: () => V("#009246", "#fff", "#CE2B37"),
+    spain: () => r(0, 0, 60, 40, "#AA151B") + r(0, 10, 60, 20, "#F1BF00") + `<rect x="14" y="15.5" width="6" height="9" rx="2" fill="#AA151B"/>`,
+    sweden: () => cross("#006AA7", "#FECC00", 17, 8, 16, 8),
+    finland: () => cross("#fff", "#003580", 16, 10, 15, 10),
+    denmark: () => cross("#C8102E", "#fff", 18, 6, 17, 6),
+    norway: () => cross("#BA0C2F", "#fff", 15, 12, 14, 12) + r(18, 0, 6, 40, "#00205B") + r(0, 17, 60, 6, "#00205B"),
+    switzerland: () => r(0, 0, 60, 40, "#DA291C") + r(26, 9, 8, 22, "#fff") + r(19, 16, 22, 8, "#fff"),
+    austria: () => H("#C8102E", "#fff", "#C8102E"),
+    belgium: () => V("#000", "#FDDA24", "#EF3340"),
+    poland: () => H("#fff", "#DC143C"),
+    hungary: () => H("#CE2939", "#fff", "#477050"),
+    czechia: () => H("#fff", "#D7141A") + `<polygon points="0,0 30,20 0,40" fill="#11457E"/>`,
+    portugal: () => r(0, 0, 24, 40, "#046A38") + r(24, 0, 36, 40, "#DA291C") + `<circle cx="24" cy="20" r="7" fill="#FFE900"/><rect x="21" y="16.5" width="6" height="7" rx="2.4" fill="#fff" stroke="#DA291C" stroke-width="1.2"/>`,
+    japan: () => r(0, 0, 60, 40, "#fff") + `<circle cx="30" cy="20" r="12" fill="#BC002D"/>`,
+    "south-korea": () => r(0, 0, 60, 40, "#fff") + `<g transform="rotate(-20 30 20)"><path d="M20,20a10,10 0 0 1 20,0a5,5 0 0 1 -10,0a5,5 0 0 0 -10,0z" fill="#CD2E3A"/><path d="M40,20a10,10 0 0 1 -20,0a5,5 0 0 1 10,0a5,5 0 0 0 10,0z" fill="#0047A0"/></g>` + [-34, 34, 146, 214].map(a => `<g transform="rotate(${a} 30 20)" fill="#000"><rect x="8.5" y="16.5" width="1.5" height="7"/><rect x="11" y="16.5" width="1.5" height="7"/><rect x="13.5" y="16.5" width="1.5" height="7"/></g>`).join(""),
+    china: () => r(0, 0, 60, 40, "#DE2910") + star(10, 10, 6, "#FFDE00") + star(20, 4, 2, "#FFDE00") + star(24, 8, 2, "#FFDE00") + star(24, 14, 2, "#FFDE00") + star(20, 18, 2, "#FFDE00"),
+    malaysia: () => stripes(14, "#CC0001", "#fff") + r(0, 0, 30, 22.9, "#010066") + `<circle cx="12" cy="11.4" r="7" fill="#FFCC00"/><circle cx="14.4" cy="11.4" r="6" fill="#010066"/>` + star(20, 11.4, 4.6, "#FFCC00", 14),
+    singapore: () => r(0, 0, 60, 20, "#EF3340") + r(0, 20, 60, 20, "#fff") + `<circle cx="12" cy="10" r="6" fill="#fff"/><circle cx="14.6" cy="10" r="5.6" fill="#EF3340"/>` + [0, 1, 2, 3, 4].map(i => { const a = (Math.PI * 2 / 5) * i - Math.PI / 2; return star(20 + 3.6 * Math.cos(a), 10 + 3.6 * Math.sin(a), 1.3, "#fff"); }).join(""),
+    uae: () => H("#009739", "#fff", "#000") + r(0, 0, 15, 40, "#EF3340"),
+    turkey: () => r(0, 0, 60, 40, "#E30A17") + `<circle cx="22" cy="20" r="10" fill="#fff"/><circle cx="24.5" cy="20" r="8" fill="#E30A17"/>` + star(34, 20, 5, "#fff", 5, -0.31),
+    malta: () => r(0, 0, 30, 40, "#fff") + r(30, 0, 30, 40, "#CF142B") + `<path d="M6.5,4h3v2.5h2.5v3h-2.5v2.5h-3v-2.5h-2.5v-3h2.5z" fill="#A0A0A0" stroke="#CF142B" stroke-width="0.5"/>`
+  };
+  F.romania = () => V("#002B7F", "#FCD116", "#CE1126");
+  F.estonia = () => H("#0072CE", "#000", "#fff");
+  F.latvia = () => r(0, 0, 60, 40, "#9E3039") + r(0, 16, 60, 8, "#fff");
+  F.lithuania = () => H("#FDB913", "#006A44", "#C1272D");
+  F.greece = () => stripes(9, "#0D5EAF", "#fff") + r(0, 0, 22.2, 22.2, "#0D5EAF") + r(8.9, 0, 4.4, 22.2, "#fff") + r(0, 8.9, 22.2, 4.4, "#fff");
+  const cache = {};
+  return (id, cls) => {
+    if (!cache[id]) cache[id] = F[id] ? F[id]() : r(0, 0, 60, 40, "#ccc");
+    return `<svg class="flag ${cls || ""}" viewBox="0 0 60 40" role="img" aria-hidden="true" focusable="false">${cache[id]}</svg>`;
+  };
+})();
+
+/* Countries 1-10. Figures reviewed November 2026. */
+C.push(
+{
+ id:"usa", name:"United States", code:"USA", region:"North America", capital:"Washington, D.C.", eng:true,
+ pitch:"The widest choice of universities anywhere, strong research funding for master's students, and up to three years of post-study work for STEM graduates.",
+ alerts:["Consulates check applicants' social-media accounts as part of 2026 screening, so list every handle you have used in the past five years.","Entry restrictions and visa bonds apply to some nationalities under recent presidential proclamations. Read your local US embassy page before you pay any fee."],
+ visa:"F-1 student visa", intakes:"Fall (Aug/Sep), Spring (Jan), a few in Summer", lang:"English",
+ ielts:{ug:6.0,pg:6.5,note:"Most universities also accept TOEFL, Duolingo or PTE."},
+ tuition:{ug:"US$10,000–35,000 a year at affordable public universities",pg:"US$12,000–30,000 a year; assistantships can waive it"},
+ living:"US$1,000–1,800 a month", fee:"US$185 visa fee + US$350 SEVIS fee. A US$250 Visa Integrity Fee is in the law; ask your embassy whether it is being collected yet.",
+ budget:[25000,55000],
+ funds:{amt:"The first-year cost printed on your I-20 (tuition + living), usually US$25,000–55,000",usd:30000,
+  how:"Bank statements, fixed deposits, an education loan sanction letter, or scholarship and assistantship letters. There is no blocked account.",
+  held:"No official holding period. Officers expect liquid money with a believable history, so 3–6 months of statements is the safe norm.",
+  solv:"Your sponsor (usually a parent) signs an affidavit of support and adds a bank solvency certificate plus income and tax papers. Money for later years should look plausible too."},
+ work:{term:"20 hours a week, on campus only. Off-campus work needs CPT or OPT authorisation.",n:20,post:"OPT gives 12 months of work; STEM degrees add 24 more."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse and children under 21 can get F-2 visas. An F-2 spouse cannot work and can study only part-time. Show extra funds for each dependant on the I-20."},
+ unis:[["Wichita State University","https://www.wichita.edu","From about US$19,000 a year"],["University of Central Missouri","https://www.ucmo.edu","From about US$10,000–17,000 a year"],["Minnesota State University, Mankato","https://www.mnsu.edu","From about US$10,000–19,000 a year"],["Arkansas State University","https://www.astate.edu","From about US$10,000–16,000 a year"]],
+ cities:[["Wichita, Kansas","US$900–1,200","Aircraft manufacturing and engineering internships, plus plenty of campus assistant jobs."],["Dallas–Arlington, Texas","US$1,300–1,800","IT, finance and logistics employers; one of the strongest internship markets in the country."],["Buffalo, New York","US$1,100–1,500","Hospitals, research labs and university departments hire student workers year-round."]],
+ subjects:["Computer science and AI","Data science and analytics","Electrical and mechanical engineering","MBA and business analytics","Public health and nursing","Cybersecurity"],
+ housing:{tip:"University halls are the easiest first-year choice; shared off-campus apartments are cheaper from the second year. Never send a deposit before a live video viewing.",links:[["Apartments.com","https://www.apartments.com"],["Zillow rentals","https://www.zillow.com"],["SpareRoom USA","https://www.spareroom.com"]]},
+ docs:["Form I-20 signed by you and the university","DS-160 confirmation page with barcode","SEVIS I-901 fee receipt","Visa interview appointment letter","SAT/ACT or GRE/GMAT scores if your program asks for them"],
+ ug:["Shortlist 6–8 universities and check each one's SAT/ACT policy; many are test-optional.","Apply 8–12 months ahead through the Common App or the university's own portal with transcripts, an essay and a recommendation.","Send your IELTS score and upload financial documents so the university can issue the I-20.","Pay the SEVIS I-901 fee once the I-20 arrives.","Fill in the DS-160, pay the visa fee and book an interview at the embassy.","Attend the interview with original academic and financial papers. You may enter up to 30 days before classes start."],
+ pg:["Shortlist by department and funding; for research degrees, email potential supervisors first.","Sit the GRE or GMAT if the program requires it.","Apply on each graduate portal with a statement of purpose, CV, 2–3 recommendation letters and transcripts (a WES evaluation if asked).","Apply for teaching or research assistantships at the same time; deadlines are often December–February for Fall.","After admission: I-20, SEVIS fee, DS-160 and the visa interview.","On arrival, report to the international student office so your SEVIS record is activated."],
+ links:[["EducationUSA (official advising)","https://educationusa.state.gov"],["Student visa – US State Department","https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html"],["Study in the States – DHS","https://studyinthestates.dhs.gov"],["Pay the SEVIS fee","https://www.fmjfee.com"],["Common App","https://www.commonapp.org"],["Fulbright Foreign Student Program","https://foreign.fulbrightonline.org"]],
+ jobs:[["Handshake","https://joinhandshake.com"],["Indeed","https://www.indeed.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"uk", name:"United Kingdom", code:"GBR", region:"Europe", capital:"London", eng:true,
+ pitch:"One-year master's degrees, a clear 28-day bank rule, and the Graduate Route for work after you finish.",
+ alerts:["The living-cost amount rises on 30 November 2026 to £1,203 a month outside London and £1,570 in London.","The Graduate Route is planned to shorten from 2 years to 18 months for applications from January 2027. Confirm on GOV.UK before you choose an intake."],
+ visa:"Student visa (you need a CAS from your university)", intakes:"September (main), January, a few in May", lang:"English",
+ ielts:{ug:6.0,pg:6.5,note:"Degree-level students can usually use ordinary IELTS Academic; IELTS for UKVI is needed for foundation and pre-sessional courses."},
+ tuition:{ug:"£11,500–20,000 a year",pg:"£13,000–22,000 for a one-year master's"},
+ living:"£900–1,400 a month outside London", fee:"£558 visa fee + £776 a year Immigration Health Surcharge",
+ budget:[24000,45000],
+ funds:{amt:"£1,203 a month outside London or £1,570 in London, for up to 9 months (£10,827 or £14,130), plus any unpaid first-year tuition",usd:14400,
+  how:"A bank statement in your name or your parents' names, or a loan letter from a regulated lender.",
+  held:"28 consecutive days. The statement's closing date must fall within 31 days of the day you apply.",
+  solv:"The balance must never drop below the required total during the 28 days, even for one day. For a parent's account add your birth certificate and a signed consent letter."},
+ work:{term:"20 hours a week in term time, full-time in official vacations.",n:20,post:"Graduate Route: 2 years (3 after a PhD), due to become 18 months from 2027."},
+ spouse:{ug:"no",pg:"limited",t:"Only PhD and research-based postgraduate students, or government-sponsored students, can bring dependants. Bachelor's and taught master's students cannot. Each dependant needs £680 a month (£845 in London) for up to 9 months."},
+ unis:[["Teesside University","https://www.tees.ac.uk","Around £15,000–17,000 a year"],["University of Sunderland","https://www.sunderland.ac.uk","Around £14,000–16,500 a year"],["University of Chester","https://www.chester.ac.uk","Around £14,000–15,500 a year"],["Leeds Beckett University","https://www.leedsbeckett.ac.uk","Around £15,000–17,000 a year"]],
+ cities:[["Sunderland and Newcastle","£800–1,050","Retail, care homes, call centres and the car-manufacturing supply chain."],["Middlesbrough","£750–1,000","Digital and games studios, logistics and care work; among the lowest rents in England."],["Leeds","£950–1,300","Finance, legal and health-tech firms, with a large part-time market in hospitality."]],
+ subjects:["Data science and AI","Nursing and healthcare","Business and finance","Cyber security","Civil and electrical engineering","Public health"],
+ housing:{tip:"Book university halls for the first year as soon as you firm your offer. For private rooms, check the landlord is registered and the deposit goes into a protection scheme.",links:[["Unite Students","https://www.unitestudents.com"],["SpareRoom","https://www.spareroom.co.uk"],["Rightmove","https://www.rightmove.co.uk"]]},
+ docs:["CAS number from your university","Tuberculosis test certificate from an approved clinic (required for many countries)","ATAS certificate for certain science and engineering master's courses","Parents' consent letter and your birth certificate if you use their funds","Immigration Health Surcharge payment reference"],
+ ug:["Choose up to five courses on UCAS. Most deadlines fall in late January; Oxford, Cambridge and medicine close in mid-October.","Write a personal statement and arrange a school reference.","Meet your offer conditions. Some universities ask for a foundation year after 12 years of schooling.","Accept the offer, pay the deposit and receive your CAS.","Hold your funds for 28 days, take the TB test, apply online and give biometrics at the visa centre.","Decisions usually arrive in about three weeks."],
+ pg:["Apply directly on university portals 6–9 months ahead; places are filled on a rolling basis.","Prepare bachelor's transcripts, a statement of purpose, two references and a CV. IELTS 6.5 is the common requirement.","Apply for Chevening, Commonwealth or GREAT scholarships; most close between October and December.","Pay the deposit to get your CAS. Some universities hold a short credibility interview first.","Hold funds for 28 days, then apply for the visa and attend biometrics."],
+ links:[["Student visa – GOV.UK","https://www.gov.uk/student-visa"],["UCAS","https://www.ucas.com"],["Study UK – British Council","https://study-uk.britishcouncil.org"],["Chevening Scholarships","https://www.chevening.org"],["Commonwealth Scholarships","https://cscuk.fcdo.gov.uk"],["UKCISA student advice","https://www.ukcisa.org.uk"]],
+ jobs:[["Indeed UK","https://uk.indeed.com"],["StudentJob UK","https://www.studentjob.co.uk"],["Prospects","https://www.prospects.ac.uk"]]
+},
+{
+ id:"canada", name:"Canada", code:"CAN", region:"North America", capital:"Ottawa", eng:true,
+ pitch:"Post-graduation work permits of up to three years and a direct line to permanent residence, though permits are now capped and harder to get.",
+ alerts:["Proof of funds rose to CAD 23,448 for applications from 1 September 2026.","A national cap on study permits continues. Most applicants need a provincial attestation letter (PAL); master's and doctoral students at public universities are exempt in 2026."],
+ visa:"Study permit", intakes:"September (main), January, May", lang:"English and French",
+ ielts:{ug:6.0,pg:6.5,note:"No band below 6.0 is the usual rule for degree programs."},
+ tuition:{ug:"CAD 17,000–35,000 a year",pg:"CAD 10,000–28,000 a year"},
+ living:"CAD 1,300–2,000 a month", fee:"CAD 150 study permit + CAD 85 biometrics",
+ budget:[25000,45000],
+ funds:{amt:"CAD 23,448 for living costs (one person, outside Quebec) plus first-year tuition and travel",usd:16650,
+  how:"A GIC from a Canadian bank, plus bank statements, an education loan, or proof that tuition is paid.",
+  held:"IRCC asks for four months of bank statements. A GIC has no holding period because the money already sits in Canada.",
+  solv:"Officers follow the money trail. Explain every large recent deposit with a sale deed, gift deed or loan papers, and add your sponsor's income and tax documents."},
+ work:{term:"24 hours a week off campus in term time, full-time in scheduled breaks.",n:24,post:"Post-graduation work permit of up to 3 years; college programs must be in an eligible field."},
+ spouse:{ug:"limited",pg:"yes",t:"A spouse gets an open work permit only if you study a master's of 16 months or longer, a doctorate, or a listed professional program. Spouses of bachelor's and diploma students can come as visitors but cannot work."},
+ unis:[["Memorial University of Newfoundland","https://www.mun.ca","Among the lowest fees in Canada"],["University of Manitoba","https://umanitoba.ca","Around CAD 18,000–22,000 a year"],["University of Saskatchewan","https://www.usask.ca","Around CAD 20,000–26,000 a year"],["University of Regina","https://www.uregina.ca","Around CAD 21,000–24,000 a year"]],
+ cities:[["St. John's, Newfoundland","CAD 1,100–1,500","Ocean technology, energy, healthcare and campus jobs."],["Winnipeg, Manitoba","CAD 1,200–1,600","Agribusiness, aerospace, transport and bank back offices."],["Saskatoon and Regina","CAD 1,100–1,500","Mining, agri-tech and public-sector employers; retail and care work for students."]],
+ subjects:["Computer science and software","Nursing and health sciences","Engineering","Business analytics","Supply chain and logistics","Early childhood education and skilled trades"],
+ housing:{tip:"Apply for residence when you accept your offer. Off campus, ask for a written lease and never pay more than first and last month's rent up front.",links:[["Places4Students","https://www.places4students.com"],["Rentals.ca","https://rentals.ca"],["Kijiji","https://www.kijiji.ca"]]},
+ docs:["Letter of acceptance from a designated learning institution (DLI)","Provincial or territorial attestation letter, unless exempt","GIC certificate","Immigration medical exam from a panel physician","Quebec Acceptance Certificate (CAQ) if you will study in Quebec","Letter of explanation setting out your study plan"],
+ ug:["Pick DLIs whose programs qualify for a post-graduation work permit.","Apply on the university portal, or through OUAC for Ontario and EducationPlannerBC for British Columbia.","Accept the offer, pay the deposit and request your attestation letter.","Open a GIC and complete the medical exam.","Apply online to IRCC and give biometrics.","Carry your approval letter and proof of funds to the port of entry, where the permit is printed."],
+ pg:["For thesis degrees, find a supervisor and funding first; for course-based degrees, apply on the portal.","Prepare a four-year bachelor's degree (or equivalent), statement of purpose, references, CV and IELTS 6.5.","Receive the admission letter. Public-university master's and PhD students do not need an attestation letter in 2026.","Arrange your GIC and funds evidence.","Apply for the study permit; your spouse can apply for an open work permit if your program runs 16 months or more."],
+ links:[["Study in Canada – IRCC","https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html"],["EduCanada","https://www.educanada.ca"],["Universities Canada","https://univcan.ca"],["OUAC (Ontario applications)","https://www.ouac.on.ca"]],
+ jobs:[["Job Bank (Government of Canada)","https://www.jobbank.gc.ca"],["Indeed Canada","https://ca.indeed.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"australia", name:"Australia", code:"AUS", region:"Oceania", capital:"Canberra", eng:true,
+ pitch:"Family can come with you, partners can work, and regional campuses add extra time on the post-study visa.",
+ alerts:["The visa charge rose to AUD 2,500 on 1 July 2026 and is not refunded if the visa is refused.","You must answer Genuine Student questions in the application; generic answers are a common reason for refusal."],
+ visa:"Student visa (subclass 500)", intakes:"February and July (some in November)", lang:"English",
+ ielts:{ug:6.0,pg:6.5,note:"The visa itself needs IELTS 6.0, or 5.5 with an English course first."},
+ tuition:{ug:"AUD 24,000–40,000 a year",pg:"AUD 26,000–45,000 a year"},
+ living:"AUD 1,800–2,600 a month", fee:"AUD 2,500 visa charge + Overseas Student Health Cover",
+ budget:[30000,50000],
+ funds:{amt:"AUD 29,710 for 12 months of living costs, plus first-year tuition and about AUD 2,000 for travel",usd:20500,
+  how:"Money on deposit with a financial institution, an education loan, a scholarship, or proof of a parent's or partner's annual income above the Home Affairs threshold.",
+  held:"No single legal minimum, but case officers and most universities expect deposits to be about three months old or to have a documented source.",
+  solv:"Funds can be held by you, parents, a spouse, grandparents or siblings. Show the source: salary, business income, a property sale or a bank loan."},
+ work:{term:"48 hours a fortnight in term time, unlimited in breaks. Research master's and PhD students have no cap.",n:24,post:"Temporary Graduate visa (485): 2 years after a bachelor's or coursework master's, 3 after a research degree. Age limit 35."},
+ spouse:{ug:"yes",pg:"yes",t:"Your partner and children can be included in your application or join later. Partners can work 48 hours a fortnight, or without limit if you study a master's or PhD. Add roughly AUD 10,400 a year for a partner."},
+ unis:[["Charles Darwin University","https://www.cdu.edu.au","Regional fees and scholarships"],["University of Southern Queensland","https://www.unisq.edu.au","Around AUD 26,000–32,000 a year"],["Federation University","https://www.federation.edu.au","Around AUD 26,000–31,000 a year"],["CQUniversity","https://www.cqu.edu.au","Around AUD 27,000–33,000 a year"]],
+ cities:[["Adelaide","AUD 1,700–2,200","Health and aged care, defence manufacturing and hospitality; counts as regional for visa purposes."],["Hobart","AUD 1,600–2,100","Tourism, aquaculture and care work."],["Darwin","AUD 1,700–2,200","Construction, hospitality and public services, with strong demand for workers."]],
+ subjects:["Nursing and aged care","IT and cyber security","Civil and mining engineering","Teaching (early childhood and secondary)","Social work","Accounting"],
+ housing:{tip:"Use purpose-built student housing or a homestay for the first month, then inspect shared houses in person. Bonds must be lodged with the state authority.",links:[["Flatmates.com.au","https://flatmates.com.au"],["realestate.com.au","https://www.realestate.com.au"],["UniLodge","https://www.unilodge.com.au"]]},
+ docs:["Confirmation of Enrolment (CoE)","Genuine Student answers in the online form","Overseas Student Health Cover policy for the whole stay","Health examination from a panel clinic","English test taken within the past two years"],
+ ug:["Choose a CRICOS-registered course and provider.","Apply directly or through a registered education agent. Some universities ask for a foundation year.","Pass the university's Genuine Student screening, then pay the deposit and health cover to receive your CoE.","Lodge the visa in ImmiAccount with your financial evidence.","Complete biometrics and the health examination.","Arrive up to 90 days before the course starts and tell your provider your address."],
+ pg:["Check that your bachelor's degree is recognised and whether work experience can earn credit.","For research degrees, secure a supervisor and apply for a Research Training Program scholarship.","Apply for an Australia Awards scholarship if your country is eligible (opens around February).","Receive the offer, pay the deposit and health cover, and get the CoE.","Lodge the visa; include your partner now if they plan to come."],
+ links:[["Student visa 500 – Home Affairs","https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"],["Study Australia","https://www.studyaustralia.gov.au"],["CRICOS course register","https://cricos.education.gov.au"],["Australia Awards","https://www.dfat.gov.au/people-to-people/australia-awards"],["Fair Work – your rights at work","https://www.fairwork.gov.au"]],
+ jobs:[["SEEK","https://www.seek.com.au"],["Indeed Australia","https://au.indeed.com"],["Jora","https://au.jora.com"]]
+},
+{
+ id:"germany", name:"Germany", code:"DEU", region:"Europe", capital:"Berlin", eng:false,
+ pitch:"No tuition at most public universities, more than 2,000 English-taught master's programs, and an 18-month permit to find work afterwards.",
+ alerts:["The blocked-account amount is reviewed each year. It is €11,904 for 2026; check the 2027 figure before you transfer.","Embassy appointment queues in South Asia can run for months. Book as soon as you apply to universities."],
+ visa:"National visa for study, then a residence permit", intakes:"Winter (October) and Summer (April)", lang:"German; many master's in English",
+ ielts:{ug:6.0,pg:6.5,note:"English-taught bachelor's programs are few. Most need German at C1."},
+ tuition:{ug:"None at most public universities; €150–350 semester fee. Baden-Württemberg charges €1,500 a semester and TU Munich charges non-EU fees.",pg:"Same as bachelor's; a few English master's charge €1,500–6,000 a semester"},
+ living:"€900–1,200 a month", fee:"€75 visa fee",
+ budget:[13500,19000],
+ funds:{amt:"€11,904 for the first year (€992 a month) in a blocked account",usd:13700,
+  how:"A blocked account (Sperrkonto) with Expatrio, Fintiba, Coracle or a bank. Alternatives are a scholarship or a formal obligation letter from a resident of Germany.",
+  held:"No waiting period. The account must be funded before your visa appointment and then releases €992 a month after you arrive.",
+  solv:"The blocked account is the proof, so a separate solvency certificate is not usually needed. Some embassies still ask for the sponsor's statement to see where the money came from."},
+ work:{term:"140 full days or 280 half days a year, roughly 20 hours a week.",n:20,post:"18-month permit to look for work, then an EU Blue Card."},
+ spouse:{ug:"limited",pg:"limited",t:"A family-reunion visa is possible if your stay is longer than a year and you can show enough income and living space. Spouses usually need basic German (A1). It is more realistic for master's and PhD students."},
+ unis:[["Chemnitz University of Technology","https://www.tu-chemnitz.de/index.html.en","No tuition; semester fee only"],["Rhine-Waal University of Applied Sciences","https://www.hochschule-rhein-waal.de/en","No tuition; most programs in English"],["BTU Cottbus-Senftenberg","https://www.b-tu.de/en/","No tuition; many English master's"],["Otto von Guericke University Magdeburg","https://www.ovgu.de/en/","No tuition; semester fee only"]],
+ cities:[["Leipzig","€850–1,050","DHL's air hub, BMW and Porsche plants and IT working-student jobs."],["Chemnitz","€750–900","Automotive suppliers and paid research-assistant (HiWi) posts at the university."],["Magdeburg","€750–950","Mechanical engineering firms, logistics and university assistant jobs."]],
+ subjects:["Mechanical and automotive engineering","Electrical and embedded systems","Computer science and AI","Data science","Renewable energy","Nursing and healthcare training"],
+ housing:{tip:"Apply to the local Studierendenwerk for a hall room the day you get your admission letter; waiting lists are long. Shared flats (WGs) are the usual alternative.",links:[["Studierendenwerke (student halls)","https://www.studierendenwerke.de/en"],["WG-Gesucht","https://www.wg-gesucht.de/en/"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Blocked-account confirmation","uni-assist result or preliminary review (VPD) if the university uses it","APS certificate (applicants from India, China and Vietnam)","Health insurance: travel cover for entry, then public insurance on enrolment","Motivation letter and proof of German or English level"],
+ ug:["Check whether your school certificate gives direct entry in the DAAD or anabin database. Many 12-year certificates need a one-year Studienkolleg or a year or two of university study at home.","Reach German B1 for Studienkolleg or C1 for the degree itself.","Apply through uni-assist or directly. Deadlines are usually 15 July for winter and 15 January for summer.","After admission, open the blocked account and arrange insurance.","Apply for the national visa at the embassy.","Register your address and collect the residence permit after arrival."],
+ pg:["Search the DAAD database of international programs.","Check that your credits and grades match; many programs want the German equivalent of 2.5 or better.","Apply through uni-assist or directly. Winter deadlines often fall between 31 May and 15 July.","Open the blocked account.","Apply for the national visa.","Enrol, register your address and apply for the residence permit."],
+ links:[["DAAD","https://www.daad.de/en/"],["Study in Germany","https://www.study-in-germany.de/en/"],["uni-assist","https://www.uni-assist.de/en/"],["Make it in Germany","https://www.make-it-in-germany.com/en/"],["anabin (degree recognition)","https://anabin.kmk.org"]],
+ jobs:[["Jobmensa","https://www.jobmensa.de"],["StepStone","https://www.stepstone.de"],["Federal Employment Agency","https://www.arbeitsagentur.de/en"]]
+},
+{
+ id:"france", name:"France", code:"FRA", region:"Europe", capital:"Paris", eng:false,
+ pitch:"Public-university fees are set by the state, more than 1,700 programs are taught in English, and master's graduates get a year to find work.",
+ alerts:["From 1 August 2026 the living-cost proof rose from €615 to about €877.50 a month.","For 2026–27 almost all new non-EU students pay the full differentiated fee, and non-EU students without a scholarship are reported to have lost housing benefit (APL)."],
+ visa:"Long-stay student visa (VLS-TS)", intakes:"September (main); some in January", lang:"French; many master's in English",
+ ielts:{ug:6.0,pg:6.5,note:"French-taught courses need B2 French (DELF or TCF)."},
+ tuition:{ug:"€2,895 a year at public universities",pg:"€3,941 a year at public universities; business and engineering schools €8,000–20,000"},
+ living:"€800–1,200 a month outside Paris; €1,300–1,800 in Paris", fee:"€50 through Études en France (€99 otherwise) + Campus France fee",
+ budget:[15000,23000],
+ funds:{amt:"About €877.50 a month, roughly €10,530 for a year",usd:12100,
+  how:"Bank statements, a guarantor's letter with their statements, a scholarship certificate, or a blocked account.",
+  held:"No formal holding period. Consulates want three months of statements with a stable balance.",
+  solv:"A sponsor signs an attestation de prise en charge and attaches ID, bank statements and proof of income."},
+ work:{term:"964 hours a year, about 20 a week.",n:20,post:"12-month job-search permit after a master's or professional bachelor's."},
+ spouse:{ug:"limited",pg:"limited",t:"There is no dependant visa on the student route. A spouse applies separately for a long-stay visitor visa with their own funds, or through family reunification once you have 18 months of residence and enough income."},
+ unis:[["University of Lille","https://www.univ-lille.fr/en/","State-set public fees"],["Université Grenoble Alpes","https://www.univ-grenoble-alpes.fr/english/","State-set public fees"],["University of Lorraine","https://www.univ-lorraine.fr/en/","State-set public fees"],["Nantes Université","https://english.univ-nantes.fr","State-set public fees"]],
+ cities:[["Lille","€800–1,000","Retail head offices, logistics, hospitality and English tutoring."],["Grenoble","€800–1,050","Semiconductor firms and research labs, plus seasonal ski-resort work."],["Toulouse","€850–1,100","Airbus and the aerospace supply chain, and IT services."]],
+ subjects:["Business and management","Aerospace and engineering","Data science and AI","Luxury and fashion management","Hospitality and culinary arts","Public health and international relations"],
+ housing:{tip:"Apply for a CROUS hall as early as you can. Private landlords ask for a guarantor; the free state guarantee Visale can stand in for one.",links:[["CROUS student housing","https://trouverunlogement.lescrous.fr"],["Studapart","https://www.studapart.com/en"],["Visale rent guarantee","https://www.visale.fr"]]},
+ docs:["Études en France attestation and Campus France interview certificate","Proof of accommodation for the first three months","Birth certificate with a French translation","Online validation of the visa within three months of arrival"],
+ ug:["Create an Études en France account if your country uses that procedure; first-year public bachelor's applications (DAP) run from October to mid-December.","Hold French B2, or choose an English-taught bachelor's, most of which are at private schools.","Attend the Campus France interview.","Receive your acceptance.","Apply for the visa at the consulate or visa centre.","Validate the VLS-TS online within three months of arriving."],
+ pg:["Search the Campus France catalogue for programs taught in English.","Apply through Études en France (up to seven choices), Mon Master, or directly to the school.","Attend the Campus France interview.","Ask your university to nominate you for the Eiffel scholarship; the deadline is in January.","Apply for the visa, then validate it online after arrival."],
+ links:[["Campus France","https://www.campusfrance.org/en"],["France-Visas","https://france-visas.gouv.fr/en/"],["Études en France","https://pastel.diplomatie.gouv.fr/etudesenfrance/"],["Mon Master","https://www.monmaster.gouv.fr"],["Eiffel scholarship","https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence"]],
+ jobs:[["JobTeaser","https://www.jobteaser.com/en"],["StudentJob France","https://www.studentjob.fr"],["Indeed France","https://fr.indeed.com"]]
+},
+{
+ id:"netherlands", name:"Netherlands", code:"NLD", region:"Europe", capital:"Amsterdam", eng:true,
+ pitch:"Hundreds of English-taught degrees, and your university handles the visa paperwork with the immigration service for you.",
+ alerts:["You must pass at least half of your credits every year or the university reports you to the immigration service.","Student housing is short. Several universities tell students not to travel without a confirmed room."],
+ visa:"MVV entry visa and residence permit, filed by your university", intakes:"September (main); some in February", lang:"Dutch; most programs for international students in English",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"€9,000–16,000 a year",pg:"€12,000–20,000 a year"},
+ living:"€1,100–1,500 a month", fee:"€254 (2026)",
+ budget:[24000,40000],
+ funds:{amt:"About €1,130–1,180 a month in 2026 (roughly €13,600–14,200 a year). The IND resets the figure every January and your university confirms the exact amount.",usd:15900,
+  how:"Most students transfer the year's living money to the university, which pays it back after arrival. A bank statement or sponsor declaration in the IND format also works.",
+  held:"No holding period when you transfer the money to the university. Bank statements must be recent.",
+  solv:"The university is your recognised sponsor and checks your finances itself, so follow its deadline, often 1 June or 1 July."},
+ work:{term:"16 hours a week, or full-time in June, July and August. Your employer must get a work permit (TWV).",n:16,post:"Orientation year: 12 months to find work."},
+ spouse:{ug:"limited",pg:"limited",t:"A partner can apply as a family member, but you must show stable long-term income, which few students have. It is realistic mainly with a funded PhD or once you start working."},
+ unis:[["University of Twente","https://www.utwente.nl/en/","Research university"],["Hanze University of Applied Sciences","https://www.hanze.nl/en","Around €9,000–10,000 a year"],["Fontys University of Applied Sciences","https://www.fontys.nl/en/","Around €9,000–10,500 a year"],["Saxion University of Applied Sciences","https://www.saxion.edu","Around €9,000–10,000 a year"]],
+ cities:[["Enschede","€950–1,200","High-tech start-ups around the university, logistics and delivery work."],["Groningen","€1,000–1,300","Energy and IT firms, with a large student job market in hospitality."],["Eindhoven","€1,100–1,400","ASML, Philips and the semiconductor supply chain."]],
+ subjects:["Computer science and AI","Semiconductor and electrical engineering","Water management and civil engineering","Logistics and supply chain","Agri-food sciences","International business"],
+ housing:{tip:"Register with the student housing provider your university names on the day you accept your offer, and be ready to pay a deposit quickly.",links:[["Kamernet","https://kamernet.nl/en"],["ROOM.nl","https://www.room.nl/en/"],["DUWO","https://www.duwo.nl/en/"]]},
+ docs:["Antecedents certificate (IND form)","Tuberculosis test declaration for listed nationalities","Proof that living costs were transferred","Legalised birth certificate for municipal registration"],
+ ug:["Check how your diploma compares on the Nuffic website.","Apply through Studielink and the university portal. Non-EU deadlines are often 1 April or 1 May; selective programs close on 15 January.","Accept the conditional offer, then pay tuition and transfer the living costs.","The university files your visa and residence-permit application.","Collect the MVV sticker at the embassy.","Register at the town hall and take the TB test after arrival."],
+ pg:["Choose between research-university and applied-sciences master's degrees.","Apply through Studielink and the portal with a GPA around 75% and IELTS 6.5.","Apply for the NL Scholarship and university excellence scholarships, usually by 1 February.","Pay tuition and transfer living costs so the university can file with the IND.","Collect the MVV, travel and register."],
+ links:[["Study in NL","https://www.studyinnl.org"],["IND (immigration service)","https://ind.nl/en"],["IND required amounts","https://ind.nl/en/required-amounts-income-requirements"],["Studielink","https://www.studielink.nl"],["Nuffic diploma comparison","https://www.nuffic.nl/en"]],
+ jobs:[["YoungCapital","https://www.youngcapital.nl"],["Undutchables","https://undutchables.nl"],["Indeed Netherlands","https://nl.indeed.com"]]
+},
+{
+ id:"ireland", name:"Ireland", code:"IRL", region:"Europe", capital:"Dublin", eng:true,
+ pitch:"English-speaking, home to the European offices of the big technology and pharma firms, and two years of post-study work after a master's.",
+ alerts:["Your course must be on the official list of eligible programs (ILEP), which is being replaced by the TrustEd Ireland mark.","Most visa-required students must pay fees before applying and give biometrics at a visa centre."],
+ visa:"Long-stay D study visa, then Stamp 2 permission", intakes:"September (main), January", lang:"English",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"€10,000–18,000 a year",pg:"€10,500–20,000 a year"},
+ living:"€1,000–1,500 a month; Dublin €1,400–2,000", fee:"€60 single-entry visa (€100 multiple) + €300 residence card",
+ budget:[24000,40000],
+ funds:{amt:"€10,000 a year for living costs, plus tuition",usd:11500,
+  how:"Bank statements in your name or your sponsor's, plus the receipt for fees paid to the college.",
+  held:"Six months of statements are requested, and every large recent lodgement must be explained.",
+  solv:"Say who your sponsor is and how you are related, and show their income with payslips, tax returns or business accounts. You must also show access to €10,000 for each later year."},
+ work:{term:"20 hours a week in term; 40 hours from June to September and 15 December to 15 January.",n:20,post:"Stamp 1G: 12 months after an honours bachelor's, 24 months after a master's."},
+ spouse:{ug:"no",pg:"limited",t:"Students generally have no right to family reunification. A spouse must apply in their own right, and approval is uncommon for bachelor's or taught master's students. PhD students have a better chance."},
+ unis:[["Atlantic Technological University","https://www.atu.ie","Around €10,000–12,500 a year"],["South East Technological University","https://www.setu.ie","Around €10,000–13,500 a year"],["Munster Technological University","https://www.mtu.ie","Around €12,000–13,500 a year"],["Dundalk Institute of Technology","https://www.dkit.ie","Around €10,000–12,000 a year"]],
+ cities:[["Galway and Sligo","€1,000–1,300","Medical-device makers and hospitality."],["Cork","€1,100–1,400","Pharmaceutical plants, Apple's European base and tech support centres."],["Waterford and Limerick","€950–1,250","Pharma, engineering and retail."]],
+ subjects:["Computing and data analytics","Pharmaceutical and biotechnology","Biomedical engineering","Finance and fintech","Cyber security","Business analytics"],
+ housing:{tip:"Rooms are scarce in every city. Start three months ahead, use college accommodation offices, and never pay a deposit by bank transfer for a room you have not seen.",links:[["Daft.ie","https://www.daft.ie"],["MyHome.ie","https://www.myhome.ie"],["Threshold tenant advice","https://www.threshold.ie"]]},
+ docs:["Receipt for tuition fees paid","Private medical insurance","Written explanation of any gaps in your education","Details of any previous visa refusals","Signed AVATS application summary"],
+ ug:["Apply directly to the college; non-EU students do not use the CAO system.","Meet the entry grades. Some colleges ask for a foundation year.","Accept the offer and pay the fees the visa rules require.","Complete the AVATS online form, then submit documents and biometrics at the visa centre.","Register for your residence permit within 90 days of arrival."],
+ pg:["Apply directly to each university; most master's degrees last one year.","Prepare transcripts, a statement of purpose, references and IELTS 6.5.","Apply for the Government of Ireland International Education Scholarship (a €10,000 stipend and fee waiver).","Pay fees and apply through AVATS.","Register for your residence permit after arrival."],
+ links:[["Irish Immigration Service","https://www.irishimmigration.ie"],["Education in Ireland","https://www.educationinireland.com"],["AVATS online visa form","https://www.visas.inis.gov.ie/avats/OnlineHome.aspx"],["Citizens Information","https://www.citizensinformation.ie"],["Higher Education Authority","https://hea.ie"]],
+ jobs:[["Jobs.ie","https://www.jobs.ie"],["IrishJobs.ie","https://www.irishjobs.ie"],["Indeed Ireland","https://ie.indeed.com"]]
+},
+{
+ id:"new-zealand", name:"New Zealand", code:"NZL", region:"Oceania", capital:"Wellington", eng:true,
+ pitch:"A lower funds requirement than Australia, 25 hours of work a week, and a post-study work visa of up to three years.",
+ alerts:["Work hours rose from 20 to 25 a week on 3 November 2025.","A partner can work only if you study at master's or PhD level, or a Green List qualification at level 7 or 8."],
+ visa:"Fee Paying Student Visa", intakes:"February and July", lang:"English",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"NZD 25,000–38,000 a year",pg:"NZD 28,000–45,000 a year; PhD students pay domestic fees"},
+ living:"NZD 1,600–2,300 a month", fee:"About NZD 750; confirm the current fee with Immigration New Zealand",
+ budget:[27000,42000],
+ funds:{amt:"NZD 20,000 a year for living costs, plus tuition and a return airfare",usd:11800,
+  how:"Bank statements, fixed deposits, an education loan, or a sponsor's financial undertaking form.",
+  held:"Immigration wants to see money held for a reasonable time or a clear source. Three to six months of history is the usual expectation.",
+  solv:"Sponsors are normally close family. Show where the money came from: income, savings history, a property sale or a bank loan."},
+ work:{term:"25 hours a week in term, full-time in holidays. Research master's and PhD students have no cap.",n:25,post:"Post Study Work Visa of up to 3 years for bachelor's degrees and above."},
+ spouse:{ug:"limited",pg:"yes",t:"Your partner can get an open work visa if you study a master's or PhD, or a level 7–8 qualification on the Green List. Other partners can only visit."},
+ unis:[["Massey University","https://www.massey.ac.nz","Around NZD 28,000–36,000 a year"],["University of Waikato","https://www.waikato.ac.nz","Around NZD 27,000–35,000 a year"],["Lincoln University","https://www.lincoln.ac.nz","Around NZD 28,000–34,000 a year"],["Auckland University of Technology","https://www.aut.ac.nz","Around NZD 32,000–40,000 a year"]],
+ cities:[["Palmerston North","NZD 1,400–1,800","Agri-food research institutes, logistics and campus jobs."],["Hamilton","NZD 1,500–1,900","Dairy and agri-tech firms, healthcare and retail."],["Christchurch","NZD 1,600–2,000","Construction, engineering, tourism and a growing tech sector."]],
+ subjects:["Agriculture and agri-tech","Construction and civil engineering","Nursing and health","Software and IT","Teaching","Veterinary and environmental science"],
+ housing:{tip:"University halls include meals and suit the first year. For flats, pay bonds only through Tenancy Services.",links:[["Trade Me Property","https://www.trademe.co.nz/a/property"],["NZ Flatmates","https://www.nzflatmates.co.nz"],["Tenancy Services","https://www.tenancy.govt.nz"]]},
+ docs:["Offer of place","Tuition receipt, or payment after approval in principle","Medical certificate and chest X-ray","Police certificate if you will stay 24 months or longer","Travel and medical insurance"],
+ ug:["Choose from the eight universities or a polytechnic; some courses ask for a foundation year.","Apply directly to the institution.","Receive your offer of place.","Apply online to Immigration New Zealand at least three months ahead.","After approval in principle, pay your fees to receive the eVisa."],
+ pg:["Pick a postgraduate diploma, a taught master's or a research master's.","For research degrees, agree a topic with a supervisor first.","Apply for the Manaaki New Zealand Scholarship if your country is eligible.","Receive the offer and apply for the visa.","Your partner can apply for a work visa alongside you."],
+ links:[["Immigration New Zealand","https://www.immigration.govt.nz"],["Study with New Zealand","https://www.studywithnewzealand.govt.nz"],["NZQA (qualification recognition)","https://www.nzqa.govt.nz"],["Manaaki New Zealand Scholarships","https://www.nzscholarships.govt.nz"]],
+ jobs:[["Student Job Search","https://www.sjs.co.nz"],["SEEK New Zealand","https://www.seek.co.nz"],["Trade Me Jobs","https://www.trademe.co.nz/a/jobs"]]
+},
+{
+ id:"italy", name:"Italy", code:"ITA", region:"Europe", capital:"Rome", eng:false,
+ pitch:"Income-based tuition that can fall below €1,000 a year, and regional scholarships that pay for fees, meals and a living allowance.",
+ alerts:["The proof of funds rose to €10,179.85 a year for 2026–27, up from €6,947.","Visa applications for 2026–27 bachelor's and master's enrolment close on 30 November 2026."],
+ visa:"National D study visa after Universitaly pre-enrolment", intakes:"September/October (main); a few in February", lang:"Italian; 500+ programs in English",
+ ielts:{ug:5.5,pg:6.0,note:"Many universities accept a medium-of-instruction letter instead."},
+ tuition:{ug:"€500–4,000 a year at public universities, based on family income",pg:"€500–4,000 a year at public universities"},
+ living:"€750–1,100 a month", fee:"€50 visa fee",
+ budget:[12000,18000],
+ funds:{amt:"€10,179.85 a year, about €848 a month",usd:11700,
+  how:"A personal bank statement stamped by the bank. Scholarships count; cash, crypto and property do not.",
+  held:"Embassies ask for the last three to six months of statements, and the money should not appear suddenly.",
+  solv:"Many embassies want the account in the student's own name, or a parent's with a notarised sponsorship letter. Meeting the minimum does not guarantee a visa; the family's finances are assessed too."},
+ work:{term:"20 hours a week, up to 1,040 hours a year.",n:20,post:"12-month permit to look for work after your degree."},
+ spouse:{ug:"limited",pg:"limited",t:"Family reunification needs a residence permit valid for at least a year, income above the social-allowance level and suitable housing. It is slow for students, so many spouses come on their own study or work visa."},
+ unis:[["University of Padua","https://www.unipd.it/en/","Income-based fees up to about €2,700"],["University of Bologna","https://www.unibo.it/en","Income-based fees up to about €3,000"],["Politecnico di Torino","https://www.polito.it/en","Income-based fees up to about €2,600"],["Sapienza University of Rome","https://www.uniroma1.it/en","Income-based fees up to about €3,000"]],
+ cities:[["Turin","€750–950","Car and aerospace plants, delivery and hospitality work."],["Padua","€750–1,000","Small manufacturing firms, tutoring, and tourism jobs near Venice."],["Bologna","€850–1,150","Packaging and motor industries, the food sector and trade fairs."]],
+ subjects:["Mechanical and automotive engineering","Architecture and design","Fashion and luxury management","Data science and AI","Medicine in English (IMAT)","Economics and management"],
+ housing:{tip:"Apply for the regional scholarship (DSU): it usually comes with a dorm place. Private rooms go fast in September, so book before you fly.",links:[["HousingAnywhere","https://housinganywhere.com"],["Uniplaces","https://www.uniplaces.com"],["Idealista","https://www.idealista.it/en/"]]},
+ docs:["Universitaly pre-enrolment summary","Declaration of Value or a CIMEA statement of comparability","Proof of accommodation","Health insurance with €30,000 cover","Six months of bank statements"],
+ ug:["Confirm you have 12 years of schooling and pick an English-taught bachelor's. Some need the TOLC or SAT; medicine needs the IMAT.","Apply on the university portal; calls run from November to May.","After admission, pre-enrol on Universitaly and wait for the university to validate it.","Obtain a Declaration of Value or CIMEA statement.","Book the visa appointment.","Apply for the residence permit within eight working days of arrival."],
+ pg:["Choose a Laurea Magistrale and check the required bachelor's credits.","Apply on the portal with transcripts and a CV; a few programs want the GRE.","Pre-enrol on Universitaly.","Apply for the regional DSU scholarship between July and September with your family-income documents.","Apply for the visa before the 30 November deadline."],
+ links:[["Universitaly","https://www.universitaly.it"],["Study in Italy","https://studyinitaly.esteri.it"],["Visa for Italy","https://vistoperitalia.esteri.it"],["CIMEA","https://www.cimea.it/EN/"]],
+ jobs:[["Indeed Italy","https://it.indeed.com"],["InfoJobs","https://www.infojobs.it"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+}
+);
+
+/* Countries 11-20. Figures reviewed November 2026. */
+C.push(
+{
+ id:"spain", name:"Spain", code:"ESP", region:"Europe", capital:"Madrid", eng:false,
+ pitch:"One of Europe's lowest proof-of-funds figures, 30 hours of work a week, and family can apply alongside you.",
+ alerts:["Since the 2025 immigration regulation, higher-education students are authorised to work up to 30 hours a week without a separate permit.","A medical certificate is required with every long-stay study visa application."],
+ visa:"Long-stay study visa", intakes:"September/October and February", lang:"Spanish; growing number of English master's",
+ ielts:{ug:6.0,pg:6.5,note:"Spanish-taught degrees need B2 Spanish (DELE or SIELE)."},
+ tuition:{ug:"€1,000–3,500 a year at public universities; more for non-EU students in Madrid and Catalonia",pg:"€1,500–5,000 a year public; private schools €6,000–20,000"},
+ living:"€800–1,200 a month", fee:"About €80–160 depending on nationality",
+ budget:[11000,20000],
+ funds:{amt:"€600 a month (100% of IPREM), so €7,200 for a year. Add €450 a month for the first family member and €300 for each additional one.",usd:8300,
+  how:"Bank statements, a sponsor's notarised letter with their statements, a scholarship, or proof of prepaid housing.",
+  held:"Consulates typically ask for the last three to six months of statements.",
+  solv:"Tuition money does not count towards the €600 a month. Show it separately."},
+ work:{term:"30 hours a week alongside your studies.",n:30,post:"12-month permit to look for work or start a business."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse or partner and children can apply with you or follow later on a dependant stay visa. You must show the extra monthly funds for each of them."},
+ unis:[["University of Granada","https://www.ugr.es/en","Low public fees"],["University of Valencia","https://www.uv.es","Low public fees"],["University of Salamanca","https://www.usal.es/en","Low public fees"],["Autonomous University of Barcelona","https://www.uab.cat/en/","Higher non-EU fees; many English master's"]],
+ cities:[["Granada","€700–900","Tourism, hospitality and language teaching."],["Valencia","€850–1,150","Port logistics, tourism and technology start-ups."],["Seville and Málaga","€800–1,050","Málaga's technology park and year-round tourism."]],
+ subjects:["Business and MBA","Tourism and hospitality","Renewable energy engineering","Spanish language and translation","Architecture","Data science and AI"],
+ housing:{tip:"Shared flats are the norm. Expect one or two months' deposit, and get a signed contract because you need it for your residence card.",links:[["Idealista","https://www.idealista.com/en/"],["Badi","https://badi.com"],["Spotahome","https://www.spotahome.com"]]},
+ docs:["Medical certificate","Criminal-record certificate, legalised and translated into Spanish by a sworn translator","Health insurance with no co-payments","Credential accreditation for bachelor's entry (UNEDasiss)"],
+ ug:["Have your school certificate accredited by UNEDasiss; competitive degrees also need PCE exams.","Reach Spanish B2 for most public bachelor's degrees.","Apply through the regional pre-enrolment system in June and July, or directly to private universities.","Receive your admission letter.","Apply for the visa two to three months before travel.","Apply for the TIE residence card within 30 days of arrival."],
+ pg:["Choose an official master's (máster universitario) of 60–120 credits.","Apply on each university's portal; rounds run from January to June.","Legalise your degree and transcripts; some universities want an equivalence statement.","Apply for the visa.","Get the TIE card after arrival."],
+ links:[["Ministry of Foreign Affairs – visas","https://www.exteriores.gob.es/en/"],["SEPIE (Study in Spain)","https://www.sepie.es"],["UNEDasiss","https://unedasiss.uned.es"],["Migration portal","https://www.inclusion.gob.es/web/migraciones"]],
+ jobs:[["InfoJobs","https://www.infojobs.net"],["Indeed Spain","https://es.indeed.com"],["Job Today","https://jobtoday.com"]]
+},
+{
+ id:"sweden", name:"Sweden", code:"SWE", region:"Europe", capital:"Stockholm", eng:true,
+ pitch:"One national application for every university, nearly all master's degrees in English, and family can come with you.",
+ alerts:["Rules changed on 11 June 2026: you must now pass 62.5% of first-year credits (75% afterwards), and work alongside studies is limited to 15 hours a week with some exceptions."],
+ visa:"Residence permit for higher education", intakes:"Autumn (late August); a small Spring intake in January", lang:"Swedish; around 1,000 programs in English",
+ ielts:{ug:6.5,pg:6.5,note:"No band below 5.5."},
+ tuition:{ug:"SEK 80,000–150,000 a year",pg:"SEK 90,000–190,000 a year"},
+ living:"SEK 10,500–13,000 a month", fee:"SEK 900 application fee + about SEK 1,500 for the permit",
+ budget:[20000,32000],
+ funds:{amt:"SEK 10,656 a month in 2026 (SEK 127,872 for 12 months). Add SEK 4,440 a month for a spouse and SEK 2,664 for each child.",usd:12800,
+  how:"Bank assets in your own name or a scholarship. A parent's account is not accepted.",
+  held:"No fixed holding period, but the money must be yours and available when you apply, shown on a recent statement.",
+  solv:"Sponsor letters do not count. Move the money into your own account and keep the transfer record."},
+ work:{term:"15 hours a week alongside studies since June 2026 (it was unlimited before). Check the Migration Agency's exceptions.",n:15,post:"12-month permit to look for work."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse or partner and children can apply at the same time as you, with the extra monthly funds shown. Check the Migration Agency's current conditions for family members after the 2026 changes."},
+ unis:[["Linnaeus University","https://lnu.se/en/","Around SEK 95,000–135,000 a year"],["Dalarna University","https://www.du.se/en/","Around SEK 90,000–130,000 a year"],["University West","https://www.hv.se/en/","Around SEK 100,000–140,000 a year"],["Mid Sweden University","https://www.miun.se/en/","Around SEK 100,000–140,000 a year"]],
+ cities:[["Växjö and Kalmar","SEK 9,000–11,000","IT firms, wood technology and campus or delivery jobs."],["Borlänge and Falun","SEK 8,500–10,500","Steel, energy and winter tourism."],["Gothenburg","SEK 11,000–13,500","Volvo and the automotive cluster, shipping and hospitality."]],
+ subjects:["Sustainable energy engineering","Computer science and AI","Automotive and battery technology","Life sciences and biotechnology","Interaction design","Public health"],
+ housing:{tip:"Many universities guarantee a room to fee-paying students if you apply by the deadline. In big cities, join the student housing queue the day you are admitted.",links:[["Qasa","https://qasa.se"],["SGS Studentbostäder (Gothenburg)","https://sgs.se"],["AF Bostäder (Lund)","https://www.afbostader.se"]]},
+ docs:["Notification of selection results from University Admissions","Proof that the first tuition instalment is paid","Comprehensive health insurance if your stay is under one year","Copies of every used page of your passport"],
+ ug:["Apply at universityadmissions.se from mid-October to mid-January for the autumn intake; rank up to eight programs.","Pay the SEK 900 fee and upload documents by 1 February.","Receive results in late March or early April.","Pay the first tuition instalment.","Apply online to the Migration Agency and give biometrics at the embassy.","Collect the residence-permit card before you travel."],
+ pg:["Apply at universityadmissions.se by mid-January; rank up to four master's programs.","Upload your degree, transcripts and IELTS by 1 February.","Apply for the Swedish Institute scholarship in February and for university scholarships.","Pay the first instalment after admission.","Apply for the residence permit, including family members if they are coming."],
+ links:[["Study in Sweden","https://studyinsweden.se"],["University Admissions","https://www.universityadmissions.se"],["Migration Agency – higher education","https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education"],["Swedish Institute scholarships","https://si.se/en/"]],
+ jobs:[["Arbetsförmedlingen job bank","https://arbetsformedlingen.se"],["Academic Work","https://www.academicwork.se"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"finland", name:"Finland", code:"FIN", region:"Europe", capital:"Helsinki", eng:true,
+ pitch:"One permit for your whole degree, 30 hours of work a week, a two-year job-search permit, and family members may work.",
+ alerts:["Scholarships of 50–100% of tuition are common, and many universities cut the fee if you accept early.","Non-EU applicants now pay an application fee for degree programs."],
+ visa:"Residence permit for studies", intakes:"Autumn (August/September); January at some universities of applied sciences", lang:"Finnish and Swedish; 500+ programs in English",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"€6,000–12,000 a year",pg:"€8,000–18,000 a year"},
+ living:"€800–1,100 a month; Helsinki €1,000–1,300", fee:"About €600 for the online permit application",
+ budget:[17000,28000],
+ funds:{amt:"€800 a month, so €9,600 for the first year, plus tuition if it is not yet paid",usd:11000,
+  how:"A bank statement in your own name, or a scholarship certificate. A sponsor's money counts only once it is in your account.",
+  held:"No holding period is stated, but the immigration service checks where the money came from. Borrowed show-money is a refusal risk.",
+  solv:"If the university gives you free housing, the amount falls to €400 a month."},
+ work:{term:"30 hours a week on average.",n:30,post:"2-year permit to look for work or start a business."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse and children can apply for residence permits on the basis of family ties, and they may work and study. You must show extra funds for them."},
+ unis:[["Tampere University","https://www.tuni.fi/en","Scholarships of 50–100%"],["University of Eastern Finland","https://www.uef.fi/en","Around €8,000–10,000 a year"],["LUT University","https://www.lut.fi/en","Around €9,500–13,500 a year"],["University of Oulu","https://www.oulu.fi/en","Around €10,000–13,000 a year"]],
+ cities:[["Tampere","€800–1,000","ICT, machinery and games firms; cleaning, delivery and restaurant jobs for students."],["Oulu","€750–950","Wireless and 6G research around Nokia, and health technology."],["Joensuu and Kuopio","€700–900","Forestry, health sciences and photonics."]],
+ subjects:["ICT and software","Nursing and social care","Forestry and bioeconomy","Education","Clean energy","Game development"],
+ housing:{tip:"Apply to the local student housing foundation as soon as you are admitted; rooms cost €250–450 a month and waiting lists build up in summer.",links:[["HOAS (Helsinki)","https://www.hoas.fi/en/"],["TOAS (Tampere)","https://toas.fi/en/"],["PSOAS (Oulu)","https://www.psoas.fi/en/"]]},
+ docs:["Private insurance covering medical and medicine costs","Proof of paid tuition or a scholarship decision","Identity check at the embassy or visa centre after applying online"],
+ ug:["Apply in the joint application on Studyinfo in January for the autumn intake.","Sit the university of applied sciences entrance exam, or submit SAT scores where accepted.","Receive results by late May and accept your place.","Pay tuition or confirm your scholarship.","Apply on Enter Finland, then visit the embassy or visa centre to prove your identity."],
+ pg:["Apply in the January joint application or a university's own rolling round.","Upload your degree certificate, transcripts and IELTS.","Apply for the university scholarship in the same form.","Accept the place and pay tuition.","Apply on Enter Finland, including family members if they are coming."],
+ links:[["Study in Finland","https://www.studyinfinland.fi"],["Studyinfo (applications)","https://opintopolku.fi/konfo/en/"],["Migri – funds for students","https://migri.fi/en/income-requirement-for-students"],["Enter Finland","https://enterfinland.fi"]],
+ jobs:[["Job Market Finland","https://tyomarkkinatori.fi/en"],["Work in Finland","https://www.workinfinland.com/en/"],["Duunitori","https://duunitori.fi"]]
+},
+{
+ id:"denmark", name:"Denmark", code:"DNK", region:"Europe", capital:"Copenhagen", eng:true,
+ pitch:"Problem-based teaching and strong engineering and life-science employers, but the rules for non-EU students tightened sharply in 2026.",
+ alerts:["From 1 October 2026, family members of bachelor's and master's students can no longer get residence permits, and the post-study job-search stay was cut from three years to one. PhD students are not affected.","Applicants from some countries now face extra entry tests and document checks."],
+ visa:"Residence permit for higher education (ST1)", intakes:"September (main), February", lang:"Danish; many master's in English",
+ ielts:{ug:6.5,pg:6.5,note:""},
+ tuition:{ug:"€8,000–15,000 a year",pg:"€8,000–17,000 a year"},
+ living:"DKK 7,500–10,500 a month", fee:"About DKK 2,300 case fee",
+ budget:[22000,36000],
+ funds:{amt:"About DKK 7,100–7,400 a month, tied to the Danish student-grant rate, for up to 12 months",usd:13400,
+  how:"A bank statement in your own name, a scholarship, or proof that tuition is paid.",
+  held:"No holding period is stated. The account must be yours and the statement no more than 30 days old.",
+  solv:"The immigration agency publishes the exact monthly figure each year; use that number, not this range."},
+ work:{term:"90 hours a month from September to May, full-time from June to August, at state-approved programs only.",n:20,post:"1 year to look for work for those under the October 2026 rules."},
+ spouse:{ug:"no",pg:"no",t:"Under the rules in force from 1 October 2026, accompanying family of bachelor's and master's students cannot get residence permits. PhD students keep the right to bring family."},
+ unis:[["Aalborg University","https://www.en.aau.dk","Around €12,000–14,000 a year"],["University of Southern Denmark","https://www.sdu.dk/en","Around €8,500–14,000 a year"],["Roskilde University","https://ruc.dk/en","Around €8,500–15,000 a year"],["VIA University College","https://en.via.dk","Around €8,000–11,500 a year"]],
+ cities:[["Aalborg","DKK 6,500–8,500","Wind-energy and telecom firms, warehouse and cleaning jobs for students."],["Odense","DKK 6,500–8,500","A robotics cluster and healthcare employers."],["Aarhus","DKK 7,500–10,000","IT, food companies and wind-turbine makers."]],
+ subjects:["Wind and energy engineering","Robotics","Pharmaceutical and biotechnology","Sustainable architecture and design","Computer science","Business"],
+ housing:{tip:"Sign up with student housing offices before you arrive; in Copenhagen the wait can be months. Never pay a deposit in cash.",links:[["Study in Denmark – housing","https://studyindenmark.dk"],["BoligPortal","https://www.boligportal.dk/en/"],["KKIK (Copenhagen halls)","https://www.s.dk"]]},
+ docs:["ST1 application started by your university","Receipt for the case fee","Proof of paid tuition for the first semester","Biometrics recorded at a visa centre within 14 days of applying"],
+ ug:["Apply through optagelse.dk by 15 March at noon.","Meet the specific subject and grade requirements for your program.","Accept your place and pay the first tuition instalment.","Your university opens the ST1 form; complete your part and pay the fee.","Give biometrics at the visa centre."],
+ pg:["Apply directly to the university; non-EU deadlines often fall between 15 January and 1 March.","Check that your bachelor's covers the required subject credits.","Apply for Danish government scholarships through the university.","Pay the first instalment and complete the ST1 form.","Give biometrics and wait for the decision."],
+ links:[["Study in Denmark","https://studyindenmark.dk"],["New to Denmark (immigration)","https://www.nyidanmark.dk/en-GB"],["Optagelse (bachelor's applications)","https://www.optagelse.dk"],["Work in Denmark","https://www.workindenmark.dk"]],
+ jobs:[["Jobindex","https://www.jobindex.dk"],["Work in Denmark","https://www.workindenmark.dk"],["Graduateland","https://graduateland.com"]]
+},
+{
+ id:"norway", name:"Norway", code:"NOR", region:"Europe", capital:"Oslo", eng:true,
+ pitch:"High wages for part-time work and family can usually join you, but non-EU students have paid tuition since 2023 and the funds requirement is large.",
+ alerts:["Your living money must sit in a Norwegian bank account or your university's deposit account before the permit is granted."],
+ visa:"Study permit", intakes:"August", lang:"Norwegian; around 200 master's in English",
+ ielts:{ug:6.0,pg:6.5,note:"Most bachelor's degrees are taught in Norwegian."},
+ tuition:{ug:"NOK 130,000–300,000 a year",pg:"NOK 130,000–400,000 a year"},
+ living:"NOK 13,000–17,000 a month", fee:"About NOK 5,900 application fee",
+ budget:[28000,45000],
+ funds:{amt:"NOK 15,488 a month, NOK 170,368 for the year, plus tuition",usd:16200,
+  how:"A deposit in a Norwegian bank account in your name or in the university's deposit account. A student loan, grant or part-time job offer can count towards it.",
+  held:"No holding period; the deposit itself is the proof.",
+  solv:"If you have paid one semester's tuition, show that you also hold the money for the second."},
+ work:{term:"20 hours a week, full-time in holidays.",n:20,post:"12-month permit to look for work."},
+ spouse:{ug:"limited",pg:"yes",t:"Your spouse or cohabitant and children can usually apply for family immigration. The immigration directorate handles their cases separately from yours, so expect a delay."},
+ unis:[["UiT The Arctic University of Norway","https://en.uit.no","Fees vary by subject"],["Nord University","https://www.nord.no/en","Fees vary by subject"],["University of South-Eastern Norway","https://www.usn.no/english/","Fees vary by subject"],["University of Stavanger","https://www.uis.no/en","Fees vary by subject"]],
+ cities:[["Tromsø","NOK 12,500–15,000","Fisheries, aquaculture, northern-lights tourism and research institutes."],["Bodø","NOK 12,000–14,500","Aquaculture, aviation and the public sector."],["Stavanger","NOK 13,500–16,500","Oil, gas and offshore wind engineering."]],
+ subjects:["Energy and offshore wind","Marine science and aquaculture","Maritime engineering","Computer science and AI","Arctic and environmental science","Nursing"],
+ housing:{tip:"Apply to the student welfare organisation in your city by the spring deadline; international students who apply on time are usually given a room.",links:[["SiO (Oslo)","https://www.sio.no/en"],["Hybel.no","https://hybel.no"],["Finn.no","https://www.finn.no"]]},
+ docs:["Deposit confirmation from the Norwegian bank or university","Admission letter","Proof of housing","UDI application cover letter and checklist"],
+ ug:["Check the GSU list: many countries' school certificates need one year of university study on top.","Reach the required Norwegian level; few bachelor's degrees are in English.","Apply through Samordna opptak or the university.","Pay tuition and deposit your living money.","Apply online to UDI and hand in documents at the embassy or visa centre."],
+ pg:["Apply directly to each university; non-EU deadlines fall between 1 November and 15 January.","Upload your degree, transcripts and IELTS.","Pay the tuition the university invoices.","Transfer living money to the deposit account.","Apply to UDI; family members apply separately."],
+ links:[["Study in Norway","https://studyinnorway.no"],["UDI – study permits","https://www.udi.no/en/want-to-apply/studies/"],["HK-dir (GSU list)","https://hkdir.no/en"],["Samordna opptak","https://www.samordnaopptak.no/info/english/"]],
+ jobs:[["Arbeidsplassen (NAV)","https://arbeidsplassen.nav.no"],["Finn jobb","https://www.finn.no/job"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"switzerland", name:"Switzerland", code:"CHE", region:"Europe", capital:"Bern", eng:false,
+ pitch:"Low tuition at world-ranked universities, offset by Europe's highest living costs and tight limits on work and family.",
+ alerts:["ETH Zurich and EPFL tripled fees for new foreign students in 2025; cantonal universities remain cheaper.","Non-EU students may start part-time work only after six months."],
+ visa:"National D visa, then a B permit for education", intakes:"September (main), February", lang:"German, French or Italian; many master's in English",
+ ielts:{ug:6.5,pg:6.5,note:"Bachelor's degrees need C1 in the local language."},
+ tuition:{ug:"CHF 1,500–4,500 a year",pg:"CHF 1,500–4,500 a year"},
+ living:"CHF 1,600–2,200 a month", fee:"About CHF 88 visa fee",
+ budget:[27000,39000],
+ funds:{amt:"Around CHF 21,000 a year; each canton sets its own figure and some ask for CHF 24,000 or more",usd:26000,
+  how:"A Swiss or home bank statement, sometimes a Swiss blocked account, or a notarised guarantee from a sponsor, ideally a Swiss resident.",
+  held:"The balance must cover the full first year on the statement date. Cantons may check again at renewal.",
+  solv:"You also sign a commitment to leave Switzerland when your studies end."},
+ work:{term:"15 hours a week, and only after your first six months.",n:15,post:"6 months to look for work."},
+ spouse:{ug:"no",pg:"no",t:"Students on an education permit generally cannot bring family. Exceptions are rare and decided by the canton, mostly for salaried PhD students."},
+ unis:[["University of Geneva","https://www.unige.ch/en/","About CHF 1,000 a year"],["University of Lausanne","https://www.unil.ch/unil/en/home.html","About CHF 1,200 a year"],["University of Basel","https://www.unibas.ch/en.html","About CHF 1,700 a year"],["Università della Svizzera italiana","https://www.usi.ch/en","About CHF 8,000 a year"]],
+ cities:[["Lausanne","CHF 1,600–2,000","Start-ups around EPFL, hospitality and international sports bodies."],["Basel","CHF 1,600–2,000","Roche, Novartis and the wider pharmaceutical industry."],["Bern and Fribourg","CHF 1,500–1,900","Public-sector employers and bilingual service jobs."]],
+ subjects:["Banking and finance","Hospitality management","Pharmaceutical and life sciences","Engineering and robotics","International relations","Computer and data science"],
+ housing:{tip:"Apply to the student housing foundation in your city on the day you are admitted. Private rooms in Zurich and Geneva cost CHF 700–1,100.",links:[["WGZimmer","https://www.wgzimmer.ch/en"],["WOKO (Zurich)","https://www.woko.ch/en"],["FMEL (Lausanne)","https://www.fmel.ch/en"]]},
+ docs:["Three copies of the long-stay visa form","Written commitment to leave after your studies","Study plan and CV","Proof of funds accepted by the canton"],
+ ug:["Check swissuniversities for how your certificate is recognised; some need an entrance exam.","Reach C1 in the teaching language.","Apply to the university by its deadline, often 28 February to 30 April.","Submit the visa application at the embassy; it is sent to the cantonal migration office.","Allow 8–12 weeks, then register with the commune after arrival."],
+ pg:["Apply directly to the university between December and April.","Upload your degree, transcripts and language certificates.","Research and PhD applicants can apply for Swiss Government Excellence Scholarships.","Submit the visa application as soon as you are admitted.","Register with the commune within 14 days of arrival."],
+ links:[["Study in Switzerland","https://www.studyinswitzerland.plus"],["State Secretariat for Migration","https://www.sem.admin.ch/sem/en/home.html"],["swissuniversities","https://www.swissuniversities.ch/en/"],["Government Excellence Scholarships","https://www.sbfi.admin.ch/scholarships_eng"]],
+ jobs:[["jobs.ch","https://www.jobs.ch/en/"],["Jobup.ch","https://www.jobup.ch/en/"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"austria", name:"Austria", code:"AUT", region:"Europe", capital:"Vienna", eng:false,
+ pitch:"Public-university tuition of about €1,450 a year and a lower funds requirement if you are under 24.",
+ alerts:["Bachelor's applicants must prove they would be admitted to the same subject at a university in the country that issued their school certificate.","Apply for the residence permit three to six months before you travel; processing is slow."],
+ visa:"Residence Permit – Student", intakes:"Winter (October) and Summer (March)", lang:"German; many master's in English",
+ ielts:{ug:6.0,pg:6.5,note:"Most bachelor's degrees need German at B2 or C1."},
+ tuition:{ug:"€726.72 a semester at public universities",pg:"€726.72 a semester at public universities"},
+ living:"€1,000–1,300 a month", fee:"About €218 application fee + about €96 on collection",
+ budget:[13000,20000],
+ funds:{amt:"Under 24: €722.58 a month (about €8,671 a year). Aged 24 or over: €1,308.39 a month (about €15,701 a year). 2026 rates, shown for 12 months.",usd:9970,
+  how:"A savings account or bank statement in your name that you can reach from Austria, a blocked account, a scholarship, or a notarised guarantee from an Austrian resident.",
+  held:"The full 12-month amount must be visible when you apply. Add more if your rent is above about €386 a month.",
+  solv:"The money must be liquid and in your own name; a parent's account alone is not enough."},
+ work:{term:"20 hours a week; your employer obtains the work permit from the employment service.",n:20,post:"12-month permit to look for work, then a Red-White-Red Card."},
+ spouse:{ug:"limited",pg:"limited",t:"A spouse and minor children can apply for a family residence permit. A couple must show about €2,064 a month, plus housing and insurance, and both spouses must be 21 or older."},
+ unis:[["University of Vienna","https://www.univie.ac.at/en/","€726.72 a semester"],["TU Wien","https://www.tuwien.at/en/","€726.72 a semester"],["Johannes Kepler University Linz","https://www.jku.at/en/","€726.72 a semester"],["University of Graz","https://www.uni-graz.at/en/","€726.72 a semester"]],
+ cities:[["Vienna","€1,050–1,350","Tourism, international organisations and IT, with a cheap youth transport pass."],["Graz","€900–1,150","Automotive engineering firms and research institutes."],["Linz","€900–1,100","Steel, industrial software and manufacturing."]],
+ subjects:["Engineering","Computer science","Music and performing arts","Tourism management","Life sciences","International business"],
+ housing:{tip:"Student halls cost €350–550 a month and fill months ahead. Shared flats are the main alternative.",links:[["OeAD student housing","https://www.oeadstudenthousing.at/en/"],["STUWO","https://www.stuwo.at/en/"],["home4students","https://www.home4students.at/en/"]]},
+ docs:["Proof of a university place in your home country for the same subject (bachelor's)","Legalised and translated birth certificate","Police clearance certificate","Proof of accommodation in Austria"],
+ ug:["Apply to the university well before 5 September (winter) or 5 February (summer); non-EU applicants should apply months earlier.","Include the proof of a study place in your home country.","Reach the required German level, through the university preparation programme if needed.","With the admission letter, apply for the residence permit at the embassy.","After approval, collect a visa D, travel, and pick up the permit card."],
+ pg:["Choose a master's; many are taught in English.","Apply with your bachelor's degree, transcripts and language proof.","Receive the admission letter.","Apply for the residence permit at the embassy three to six months ahead.","Register your address within three days of arrival."],
+ links:[["Study in Austria","https://studyinaustria.at/en/"],["OeAD – student residence permit","https://oead.at/en/to-austria/entry-and-residence/residence-permit-student-no-mobility-programme"],["Migration portal","https://www.migration.gv.at/en/"],["Scholarship database","https://grants.at/en/"]],
+ jobs:[["karriere.at","https://www.karriere.at"],["AMS job search","https://www.ams.at"],["unijobs","https://www.unijobs.at"]]
+},
+{
+ id:"belgium", name:"Belgium", code:"BEL", region:"Europe", capital:"Brussels", eng:false,
+ pitch:"Research universities in the world's top 100 with moderate fees, at the centre of the EU's institutions.",
+ alerts:["The monthly funds figure jumped to €1,062 for 2026–27, up from €835.","Bachelor's applicants need their school diploma declared equivalent, with a deadline of 15 July in the French Community."],
+ visa:"Type D student visa, then an A card", intakes:"September (main), February", lang:"Dutch and French; many master's in English",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"€1,000–4,200 a year in the French Community; €1,200–8,500 in Flanders",pg:"€1,200–8,500 a year depending on the program"},
+ living:"€950–1,300 a month", fee:"€180 visa fee + an administrative contribution of about €138–250",
+ budget:[16000,24000],
+ funds:{amt:"€1,062 net a month for 2026–27, so €12,744 for the year",usd:14650,
+  how:"A blocked account run by your university or an approved provider, a scholarship certificate, or an Annex 32 pledge from a guarantor.",
+  held:"The blocked account must be funded before you submit the visa file. It pays you back month by month.",
+  solv:"An Annex 32 guarantor must earn well above the Belgian threshold, and embassies check their payslips."},
+ work:{term:"20 hours a week in term, unlimited in official holidays.",n:20,post:"12-month search year."},
+ spouse:{ug:"limited",pg:"limited",t:"Family reunification is possible if you prove stable and sufficient means, housing and insurance. Conditions were tightened in 2025 and decisions can take up to nine months."},
+ unis:[["KU Leuven","https://www.kuleuven.be/english/","Around €1,200–7,000 a year"],["Ghent University","https://www.ugent.be/en","Around €1,200–6,500 a year"],["Vrije Universiteit Brussel","https://www.vub.be/en","Around €1,200–4,500 a year"],["University of Antwerp","https://www.uantwerpen.be/en/","Around €1,200–6,500 a year"]],
+ cities:[["Leuven","€900–1,150","Semiconductor research at imec, brewing and campus jobs."],["Ghent","€900–1,200","Biotechnology, the port and hospitality."],["Brussels","€1,050–1,400","EU institutions, NGOs and multilingual service jobs."]],
+ subjects:["European law and politics","Biotechnology and pharmaceuticals","Semiconductor and electrical engineering","Business and economics","Port logistics","Computer science and AI"],
+ housing:{tip:"Student rooms are called kots. Use your university's housing service; its listed landlords use the standard student lease.",links:[["Brik (Brussels student housing)","https://www.brik.be/en"],["Immoweb","https://www.immoweb.be/en"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Medical certificate from an embassy-approved doctor","Legalised police clearance certificate","Blocked-account certificate or Annex 32","Diploma equivalence decision (bachelor's)","Proof that the administrative contribution is paid"],
+ ug:["Apply for diploma equivalence from NARIC-Vlaanderen or the French Community.","Apply to the university; visa-requiring applicants often face a deadline of 1 February to 1 March.","Accept the offer and fund the blocked account.","Submit the visa file at the embassy or visa centre by about June.","Register at the town hall within eight days of arrival."],
+ pg:["Apply directly to the university by its non-EU deadline.","Upload your legalised degree, transcripts and IELTS.","Apply for Master Mind or ARES scholarships where available.","Fund the blocked account after admission.","Submit the visa file and register at the town hall after arrival."],
+ links:[["Study in Belgium","https://www.studyinbelgium.be/en"],["Study in Flanders","https://www.studyinflanders.be"],["Immigration Office","https://dofi.ibz.be/en"],["NARIC-Vlaanderen","https://www.naricvlaanderen.be/en"]],
+ jobs:[["Student.be","https://www.student.be/en"],["VDAB","https://www.vdab.be"],["Actiris (Brussels)","https://www.actiris.brussels/en/"]]
+},
+{
+ id:"poland", name:"Poland", code:"POL", region:"Europe", capital:"Warsaw", eng:false,
+ pitch:"EU degrees from about €2,000 a year, low living costs, and a large market for English-speaking office jobs.",
+ alerts:["Since the 2025 reform, students work without a permit only if their university is on the ministry's approved list; public universities qualify.","Consulates now verify admissions and language level (B2) closely, and appointment slots are scarce."],
+ visa:"National D visa, then a temporary residence card", intakes:"October (main), February/March", lang:"Polish; 900+ programs in English",
+ ielts:{ug:5.5,pg:6.0,note:"Proof of B2 in the teaching language is required by law."},
+ tuition:{ug:"€2,000–4,500 a year",pg:"€2,500–6,000 a year; medicine from €11,000"},
+ living:"PLN 2,800–4,000 a month (about €650–950)", fee:"About €135 visa fee",
+ budget:[8000,14000],
+ funds:{amt:"PLN 776 a month for living, plus your actual housing cost and PLN 2,500 for the journey home: about PLN 24,000 for a year in a dorm. Consulates commonly expect more.",usd:6500,
+  how:"A bank statement, a credit-card limit certificate or a scholarship letter. First-year tuition is usually paid in advance.",
+  held:"Consulates typically ask for three to six months of statements.",
+  solv:"A sponsor's statement needs proof of your relationship and of their income."},
+ work:{term:"No hour limit for full-time students at approved universities.",n:40,post:"9-month permit to look for work; graduates of full-time studies need no work permit."},
+ spouse:{ug:"limited",pg:"limited",t:"No dependant visa is attached to a student visa. Family reunification normally requires you to have lived in Poland for two years, so spouses usually apply on their own grounds."},
+ unis:[["University of Warsaw","https://en.uw.edu.pl","Around €2,000–4,000 a year"],["Jagiellonian University","https://en.uj.edu.pl","Around €2,500–5,000 a year"],["Wrocław University of Science and Technology","https://pwr.edu.pl/en/","Around €3,000–4,000 a year"],["University of Łódź","https://www.uni.lodz.pl/en/","Around €2,000–3,500 a year"]],
+ cities:[["Wrocław","PLN 3,000–3,800","IT firms and shared-service centres with English-speaking roles."],["Łódź","PLN 2,600–3,300","Business-process outsourcing, logistics and the film industry."],["Kraków","PLN 3,200–4,000","One of Europe's largest outsourcing hubs, plus tourism."]],
+ subjects:["Computer science and IT","Medicine and dentistry in English","Engineering","Business and finance","Logistics","Game development"],
+ housing:{tip:"University dormitories cost PLN 600–1,200 a month and are the cheapest option; apply as soon as you are admitted.",links:[["Otodom","https://www.otodom.pl"],["OLX","https://www.olx.pl"],["Pepe Housing","https://pepehousing.com"]]},
+ docs:["B2 certificate in the language of instruction","Legalised school certificate or degree with a sworn translation","Proof of tuition payment","Health insurance with €30,000 cover"],
+ ug:["Apply on the university's online portal; many hold an online interview.","Have your school certificate legalised and translated.","Pay the first year's or first semester's tuition.","Book a consulate appointment through e-Konsulat as early as possible.","Apply for the temporary residence card after arrival."],
+ pg:["Apply on the university portal with your degree, transcripts and language certificate.","Apply for the NAWA Banach scholarship if your country is eligible.","Pay tuition and get the admission confirmation.","Book the e-Konsulat appointment and apply for the visa.","Apply for the residence card before the visa expires."],
+ links:[["Study in Poland","https://study.gov.pl"],["NAWA scholarships","https://nawa.gov.pl/en"],["e-Konsulat","https://secure.e-konsulat.gov.pl"],["Office for Foreigners","https://www.gov.pl/web/udsc-en"]],
+ jobs:[["Pracuj.pl","https://www.pracuj.pl"],["Just Join IT","https://justjoin.it"],["OLX Praca","https://www.olx.pl/praca/"]]
+},
+{
+ id:"hungary", name:"Hungary", code:"HUN", region:"Europe", capital:"Budapest", eng:false,
+ pitch:"The Stipendium Hungaricum scholarship covers tuition, a stipend and housing, and medical degrees in English cost far less than in Western Europe.",
+ alerts:["Under the 2024 immigration law, holders of a study permit cannot sponsor family members.","Stipendium Hungaricum applications close in mid-January and need a nomination from your home country."],
+ visa:"D visa, then a residence permit for studies", intakes:"September (main), February", lang:"Hungarian; 500+ programs in English",
+ ielts:{ug:5.5,pg:6.0,note:""},
+ tuition:{ug:"€2,400–6,000 a year",pg:"€3,000–8,000 a year; medicine €12,000–18,000"},
+ living:"€550–850 a month", fee:"About €110 visa fee",
+ budget:[8000,15000],
+ funds:{amt:"No fixed legal figure. Plan to show about HUF 200,000 (around €500) a month plus tuition, roughly €6,000–7,000 for a year, or a Stipendium Hungaricum award.",usd:7500,
+  how:"A bank statement in your name, a parent's statement with a notarised support letter, or a scholarship certificate, plus the tuition receipt.",
+  held:"Consulates ask for three to six months of statements with a steady balance.",
+  solv:"Proof of accommodation for the whole stay is checked alongside the money."},
+ work:{term:"30 hours a week in term, full-time outside term.",n:30,post:"9-month permit to look for work."},
+ spouse:{ug:"no",pg:"no",t:"Holders of a study residence permit cannot sponsor family reunification. A spouse must qualify for their own permit."},
+ unis:[["University of Debrecen","https://edu.unideb.hu","Around €2,500–7,000 a year"],["University of Szeged","https://u-szeged.hu/english","Around €2,400–7,000 a year"],["University of Pécs","https://international.pte.hu","Around €2,500–7,000 a year"],["Eötvös Loránd University (ELTE)","https://www.elte.hu/en/","Around €3,000–6,500 a year"]],
+ cities:[["Debrecen","€500–700","Car and battery plants, shared-service centres and student-cooperative jobs."],["Szeged","€500–700","Research institutes, the food industry and services."],["Budapest","€700–1,000","Shared-service centres hiring English speakers, tourism and start-ups."]],
+ subjects:["Medicine, dentistry and pharmacy","Computer science","Engineering","Business","Agriculture and food science","Psychology"],
+ housing:{tip:"University dormitories cost €100–250 a month. Many students find jobs and rooms through student cooperatives and university groups.",links:[["Alberlet.hu","https://www.alberlet.hu/en"],["ingatlan.com","https://ingatlan.com"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Acceptance letter and proof of tuition payment","Proof of accommodation for the full stay","Health insurance","Enter Hungary online application"],
+ ug:["Apply directly to the university or through Stipendium Hungaricum.","Sit the online entrance exam or interview; medicine tests biology and chemistry.","Pay tuition after acceptance.","Apply for the D visa at the consulate.","Collect the residence permit after arrival."],
+ pg:["Apply directly or through Stipendium Hungaricum by mid-January.","Upload your degree, transcripts and IELTS.","Attend the online interview.","Pay tuition or accept the scholarship.","Apply for the D visa and collect the permit in Hungary."],
+ links:[["Study in Hungary","https://studyinhungary.hu"],["Stipendium Hungaricum","https://stipendiumhungaricum.hu"],["Enter Hungary","https://enterhungary.gov.hu/eh/"],["Immigration directorate","https://oif.gov.hu"]],
+ jobs:[["Profession.hu","https://www.profession.hu"],["Meló-Diák student cooperative","https://www.melodiak.hu"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+}
+);
+
+/* Countries 21-30. Figures reviewed November 2026. */
+C.push(
+{
+ id:"czechia", name:"Czechia", code:"CZE", region:"Europe", capital:"Prague", eng:false,
+ pitch:"Free tuition if you study in Czech, affordable English programs, and no hour limit on student work.",
+ alerts:["Your school certificate or degree must be officially recognised (nostrification) before enrolment; start early.","Visa appointment slots are limited; register the moment you have an admission letter."],
+ visa:"Long-term visa or residence permit for studies", intakes:"September/October (main), February", lang:"Czech; 1,000+ programs in English",
+ ielts:{ug:6.0,pg:6.5,note:"Czech-taught degrees are free and need B2 Czech."},
+ tuition:{ug:"Free in Czech; €2,000–8,000 a year in English",pg:"Free in Czech; €2,000–8,000 a year in English; medicine €12,000–16,000"},
+ living:"CZK 16,000–24,000 a month (about €650–950)", fee:"CZK 2,500",
+ budget:[9000,18000],
+ funds:{amt:"About CZK 125,000 for a one-year stay; the formula is tied to the subsistence minimum and housing costs",usd:5750,
+  how:"A bank statement in your name together with a payment card for that account, or a funding commitment from a state body or legal entity.",
+  held:"The balance must be available on the statement date. A long history is not required, but the account must be yours.",
+  solv:"A private sponsor's letter alone is not accepted; the money has to be in your own account."},
+ work:{term:"No hour limit and no permit for full-time students in accredited degree programs.",n:40,post:"9-month permit to look for work; graduates have free access to the labour market."},
+ spouse:{ug:"limited",pg:"limited",t:"A spouse can apply for a long-term visa for family reasons with proof of funds, housing and insurance. Processing is slow, so apply early."},
+ unis:[["Charles University","https://cuni.cz/UKEN-1.html","Around €2,000–8,000 a year in English"],["Czech Technical University in Prague","https://www.cvut.cz/en","Around €3,000–5,500 a year"],["Masaryk University","https://www.muni.cz/en","Around €2,000–5,000 a year"],["Czech University of Life Sciences Prague","https://www.czu.cz/en","Around €1,500–4,000 a year"]],
+ cities:[["Brno","CZK 15,000–20,000","IT companies, shared-service centres and very low unemployment."],["Prague","CZK 20,000–27,000","Tourism, multinational service centres and English teaching."],["Ostrava and Olomouc","CZK 13,000–17,000","Manufacturing, IT and university jobs."]],
+ subjects:["Medicine in English","Computer science and cybersecurity","Mechanical and automotive engineering","Economics","Life sciences and agriculture","Film and media"],
+ housing:{tip:"University dormitories (koleje) cost CZK 4,000–7,000 a month and come with the accommodation form the visa needs.",links:[["Sreality","https://www.sreality.cz/en"],["Bezrealitky","https://www.bezrealitky.com"],["Flatio","https://www.flatio.com"]]},
+ docs:["Nostrification decision for your certificate or degree","Signed proof-of-accommodation form","Criminal-record extract","Comprehensive health insurance from a Czech-licensed insurer"],
+ ug:["Apply directly to the faculty, usually between February and April.","Sit the entrance exam, often held online.","Start nostrification of your school certificate.","Register for a visa appointment at the embassy.","Allow up to 60 days, then give biometrics after arrival."],
+ pg:["Apply directly to the faculty with your degree and transcripts.","Complete any entrance interview or test.","Have your bachelor's degree recognised.","Apply for the long-term visa or residence permit.","Register with the Ministry of the Interior after arrival."],
+ links:[["Study in Czechia","https://www.studyin.cz"],["Immigration portal","https://ipc.gov.cz/en/"],["Ministry of Foreign Affairs – visas","https://mzv.gov.cz/jnp/en/information_for_aliens/index.html"],["Czech National Agency for International Education","https://www.dzs.cz/en"]],
+ jobs:[["Jobs.cz","https://www.jobs.cz/en/"],["Expats.cz jobs","https://www.expats.cz/jobs"],["Prace.cz","https://www.prace.cz"]]
+},
+{
+ id:"portugal", name:"Portugal", code:"PRT", region:"Europe", capital:"Lisbon", eng:false,
+ pitch:"Mild climate, moderate fees and living costs, and a year to look for work after graduation.",
+ alerts:["The funds benchmark follows the minimum wage, which is €920 a month in 2026.","The immigration agency AIMA has long backlogs; book your residence appointment as soon as you arrive."],
+ visa:"D4 study visa, then an AIMA residence permit", intakes:"September/October (main), February", lang:"Portuguese; growing number of English master's",
+ ielts:{ug:6.0,pg:6.5,note:"Most bachelor's degrees need B2 Portuguese."},
+ tuition:{ug:"€3,000–7,000 a year for international students",pg:"€1,500–8,000 a year"},
+ living:"€750–1,100 a month; Lisbon €1,000–1,400", fee:"About €90–110 visa fee",
+ budget:[13000,20000],
+ funds:{amt:"€920 a month, about €11,040 for 12 months; less if housing or meals are already paid",usd:12700,
+  how:"Bank statements, a scholarship, or a term of responsibility signed by a sponsor resident in Portugal.",
+  held:"Consulates ask for three to six months of statements.",
+  solv:"Add 50% of the benchmark for each extra adult and 30% for each child."},
+ work:{term:"20 hours a week in term, full-time in breaks.",n:20,post:"12-month stay to look for work."},
+ spouse:{ug:"limited",pg:"limited",t:"Residence-permit holders can apply for family reunification with extra funds, but 2025 law changes added waiting periods for some categories and queues are long. Check the current rule before you plan around it."},
+ unis:[["University of Porto","https://www.up.pt/portal/en/","Around €3,500–6,000 a year"],["University of Coimbra","https://www.uc.pt/en/","Around €7,000 a year"],["University of Minho","https://www.uminho.pt/EN","Around €4,500–6,500 a year"],["Polytechnic Institute of Bragança","https://www.ipb.pt","Among the lowest fees in Portugal"]],
+ cities:[["Braga and Guimarães","€650–850","Software and electronics firms, textiles and call centres."],["Coimbra","€650–900","Health and biotechnology, tutoring and hospitality."],["Porto","€850–1,150","Technology hubs, tourism and multilingual customer support."]],
+ subjects:["Tourism and hospitality","Computer science and software","Renewable and ocean engineering","Architecture","Business","Marine sciences"],
+ housing:{tip:"University residences are cheap but few. Book a private room before the September rush and keep the contract for your residence permit.",links:[["Uniplaces","https://www.uniplaces.com"],["Idealista","https://www.idealista.pt/en/"],["Spotahome","https://www.spotahome.com"]]},
+ docs:["Criminal-record certificate with apostille or legalisation","Proof of accommodation","Health insurance","Recognition of your school certificate or degree where required"],
+ ug:["Apply through each university's competition for international students; rounds run from January to July.","Use your national exam results or the equivalents the university accepts.","Meet the Portuguese language requirement or choose an English program.","Apply for the D4 visa at the consulate or visa centre; allow 60–90 days.","Attend your AIMA appointment in Portugal."],
+ pg:["Apply directly to the university in its application rounds.","Upload your degree, transcripts and language certificates.","Accept the place and pay the enrolment fee.","Apply for the D4 visa.","Book the AIMA appointment and get a tax number (NIF)."],
+ links:[["Study & Research in Portugal","https://www.study-research.pt"],["Visa portal – Ministry of Foreign Affairs","https://vistos.mne.gov.pt/en/"],["DGES (higher education)","https://www.dges.gov.pt/en"],["AIMA (immigration agency)","https://aima.gov.pt"]],
+ jobs:[["Net-Empregos","https://www.net-empregos.com"],["ITJobs","https://www.itjobs.pt"],["Indeed Portugal","https://pt.indeed.com"]]
+},
+{
+ id:"japan", name:"Japan", code:"JPN", region:"Asia", capital:"Tokyo", eng:false,
+ pitch:"National-university tuition of about ¥540,000 a year, generous MEXT scholarships, and 28 hours of part-time work a week.",
+ alerts:["Your school applies for the Certificate of Eligibility four to five months before the intake, so deadlines are early.","Some national universities have raised tuition above the standard ¥535,800."],
+ visa:"Student visa, issued after a Certificate of Eligibility", intakes:"April (main); September/October for English programs", lang:"Japanese; English-taught degrees at about 80 universities",
+ ielts:{ug:6.0,pg:6.5,note:"Japanese-taught courses need JLPT N2 and the EJU exam."},
+ tuition:{ug:"¥535,800 a year at national universities, plus a one-off ¥282,000 admission fee; private ¥800,000–1,500,000",pg:"¥535,800 a year at national universities; private ¥700,000–1,400,000"},
+ living:"¥90,000–150,000 a month", fee:"About ¥3,000",
+ budget:[14000,24000],
+ funds:{amt:"No single legal figure. Immigration looks for roughly ¥2 million, about a year of tuition and living costs, through your sponsor's records.",usd:13400,
+  how:"The sponsor's bank balance certificate, copies of bank books and income and tax certificates covering up to three years, and a signed letter of financial support.",
+  held:"Schools commonly ask how the balance was built up over one to three years, not only for a current figure.",
+  solv:"A formal bank balance (solvency) certificate carries real weight here, and it must match the income documents."},
+ work:{term:"28 hours a week with a work permission stamp, and up to 8 hours a day in long vacations.",n:28,post:"Job-hunting status for 6 months, renewable once."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse and children can get Dependent status if you show you can support them. Dependants may work 28 hours a week with permission."},
+ unis:[["University of Tsukuba","https://www.tsukuba.ac.jp/en/","National-university fees"],["Kyushu University","https://www.kyushu-u.ac.jp/en/","National-university fees"],["Hokkaido University","https://www.global.hokudai.ac.jp","National-university fees"],["Ritsumeikan Asia Pacific University","https://en.apu.ac.jp","Tuition reductions of 30–100%"]],
+ cities:[["Fukuoka","¥85,000–110,000","Start-ups, shops and restaurants, and logistics, with lower rents than Tokyo."],["Sapporo","¥80,000–105,000","Tourism, food processing and IT."],["Beppu and Oita","¥70,000–95,000","Hot-spring hotels and tourism jobs."]],
+ subjects:["Robotics and mechanical engineering","IT and AI","Automotive engineering","Business (English MBAs)","Japanese studies","Nursing care"],
+ housing:{tip:"University dormitories are cheapest. Private flats ask for key money and a guarantor, so share houses are simpler for the first year.",links:[["Oakhouse share houses","https://www.oakhouse.jp/eng"],["Sakura House","https://www.sakura-house.com/en"],["GaijinPot Apartments","https://apartments.gaijinpot.com"]]},
+ docs:["Certificate of Eligibility","Sponsor's financial papers","Photos in the 4 × 3 cm format","EJU or JLPT scores where the course needs them"],
+ ug:["Choose an English-taught degree, or plan one to two years of Japanese language school followed by the EJU exam.","Apply online, usually between November and February for an autumn start.","Apply for the MEXT undergraduate scholarship through the embassy in April–May.","After admission, the university applies for your Certificate of Eligibility.","Apply for the visa at the embassy and request work permission at the airport on arrival."],
+ pg:["Contact a professor in your field before applying.","Consider starting as a research student if the lab suggests it.","Apply for the MEXT research scholarship through the embassy (April–May) or the university (autumn).","Pass the entrance examination or document screening.","Receive the Certificate of Eligibility and apply for the visa."],
+ links:[["Study in Japan","https://www.studyinjapan.go.jp/en/"],["JASSO","https://www.jasso.go.jp/en/"],["Visa information – MOFA","https://www.mofa.go.jp/j_info/visit/visa/index.html"],["Immigration Services Agency","https://www.isa.go.jp/en/"]],
+ jobs:[["GaijinPot Jobs","https://jobs.gaijinpot.com"],["Townwork","https://townwork.net"],["Baitoru","https://www.baitoru.com"]]
+},
+{
+ id:"south-korea", name:"South Korea", code:"KOR", region:"Asia", capital:"Seoul", eng:false,
+ pitch:"Strong engineering and technology universities, the fully funded Global Korea Scholarship, and work hours that grow with your Korean level.",
+ alerts:["Part-time hours depend on your TOPIK level; without it the limits are much lower.","Dependant visas for students' families were restricted in 2025."],
+ visa:"D-2 student visa", intakes:"March and September", lang:"Korean; about 30% of courses in English at major universities",
+ ielts:{ug:5.5,pg:6.0,note:"TOPIK 3–4 is accepted instead for Korean-taught courses."},
+ tuition:{ug:"₩4–9 million a year at national universities; ₩7–14 million at private ones",pg:"₩5–10 million a year national; ₩8–16 million private"},
+ living:"₩900,000–1,400,000 a month", fee:"About US$60–90",
+ budget:[12000,22000],
+ funds:{amt:"A bank balance of ₩20 million for universities in the Seoul area or ₩16 million elsewhere; many schools quote US$20,000",usd:14500,
+  how:"A bank balance certificate in your name or your parents', issued within the past 30 days. A scholarship certificate reduces the amount.",
+  held:"Many embassies and universities want the balance kept for three to six months, some only one. Your admission guide states the rule.",
+  solv:"Add a family-relation certificate if the account is your parents'. Applicants from some countries face stricter document checks."},
+ work:{term:"With a work permit: bachelor's students up to 25 hours a week with TOPIK 3–4 (10 without); graduate students up to 30 (15 without).",n:25,post:"D-10 job-seeker visa, extendable to as long as 3 years."},
+ spouse:{ug:"no",pg:"limited",t:"F-3 dependant visas were restricted in 2025. In practice only master's and PhD students with enough funds qualify, and F-3 holders cannot work."},
+ unis:[["Pusan National University","https://www.pusan.ac.kr","National-university fees"],["Kyungpook National University","https://en.knu.ac.kr","National-university fees"],["Chonnam National University","https://global.jnu.ac.kr","National-university fees"],["Jeonbuk National University","https://www.jbnu.ac.kr/eng/","National-university fees"]],
+ cities:[["Busan","₩850,000–1,200,000","Port logistics, shipbuilding, tourism and cafés."],["Daegu","₩800,000–1,100,000","Robotics, medical industries and textiles."],["Gwangju and Jeonju","₩750,000–1,000,000","Car plants, an AI cluster and the food industry."]],
+ subjects:["Semiconductors and electronics","Computer science and AI","Shipbuilding and mechanical engineering","Media and cultural industries","Business","Korean language"],
+ housing:{tip:"Take the dormitory for the first semester. Private rooms need a large deposit, so many students choose a goshiwon or one-room with a small deposit.",links:[["Zigbang","https://www.zigbang.com"],["Dabang","https://www.dabangapp.com"],["Goshipages","https://goshipages.com"]]},
+ docs:["Certificate of Admission","Apostilled or consular-verified degree and transcripts","Tuberculosis test for listed countries","Bank balance certificate","Proof of family relationship"],
+ ug:["Apply directly to the university's international admissions: September–November for March, April–June for September.","Pass document screening and any interview.","Apply for the Global Korea Scholarship undergraduate track in September–October.","Pay tuition and receive the Certificate of Admission.","Apply at the embassy, then get your residence card within 90 days of arrival."],
+ pg:["Contact a supervisor for research degrees.","Apply directly to the graduate school.","Apply for the Global Korea Scholarship graduate track in February–March.","Receive the Certificate of Admission.","Apply for the D-2 visa and register after arrival."],
+ links:[["Study in Korea (includes GKS)","https://www.studyinkorea.go.kr"],["Korea Visa Portal","https://www.visa.go.kr"],["HiKorea (immigration)","https://www.hikorea.go.kr"]],
+ jobs:[["Albamon","https://www.albamon.com"],["Saramin","https://www.saramin.co.kr"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"china", name:"China", code:"CHN", region:"Asia", capital:"Beijing", eng:false,
+ pitch:"Low tuition, very large government scholarship schemes, and English-taught medical and engineering degrees.",
+ alerts:["Part-time work needs approval from both your university and the immigration office, and the hours are tightly limited.","Most universities require international students to live on campus in the first year."],
+ visa:"X1 visa, then a residence permit", intakes:"September (main), March", lang:"Chinese; many degrees in English",
+ ielts:{ug:5.5,pg:6.0,note:"Chinese-taught courses need HSK 4–5."},
+ tuition:{ug:"¥15,000–35,000 a year (about US$2,100–4,900); English-taught medicine ¥25,000–50,000",pg:"¥20,000–40,000 a year"},
+ living:"¥2,500–5,000 a month", fee:"About US$30–140 depending on nationality",
+ budget:[7000,14000],
+ funds:{amt:"No national minimum. Universities usually ask for proof of about US$5,000–10,000, or a scholarship shown on the JW201/JW202 form.",usd:7000,
+  how:"A bank statement or deposit certificate, or a government or provincial scholarship letter.",
+  held:"Usually a recent statement; some universities ask for a deposit frozen for three to six months.",
+  solv:"The university sets the rule, so follow its financial-guarantee form exactly."},
+ work:{term:"Only with university and immigration approval; typically no more than about 8 hours a week in term.",n:8,post:"Limited. Some cities allow master's graduates to apply for a work permit directly."},
+ spouse:{ug:"yes",pg:"yes",t:"Your spouse and children can apply for S1 long-stay visas as family of an X1 holder, with marriage and birth certificates. They cannot work."},
+ unis:[["Zhejiang University","https://www.zju.edu.cn/english/","Around ¥20,000–33,000 a year"],["Wuhan University","https://en.whu.edu.cn","Around ¥20,000–40,000 a year"],["Sichuan University","https://en.scu.edu.cn","Around ¥20,000–45,000 a year"],["Harbin Institute of Technology","https://en.hit.edu.cn","Around ¥20,000–35,000 a year"]],
+ cities:[["Wuhan","¥2,500–3,500","Optics and electric-vehicle industries, with approved campus jobs."],["Chengdu","¥2,800–3,800","Electronics, gaming and tourism."],["Harbin","¥2,200–3,000","Engineering firms and cross-border trade."]],
+ subjects:["Medicine (MBBS in English)","Civil and electrical engineering","Computer science and AI","International trade","Chinese language","Traditional Chinese medicine"],
+ housing:{tip:"International dormitories on campus cost ¥600–1,500 a month. If you move off campus, register your address with the police within 24 hours.",links:[["Study in China – campus life","https://www.campuschina.org"],["Ziroom","https://www.ziroom.com"],["58.com","https://www.58.com"]]},
+ docs:["Admission notice and JW201 or JW202 form","Foreigner physical examination form","Non-criminal record certificate","HSK certificate for Chinese-taught courses"],
+ ug:["Apply on the university's international student portal between November and May.","Apply for a Chinese Government Scholarship through the embassy (January–April) or the university.","Submit notarised school certificates and the medical form.","Receive the admission notice and JW202 form.","Apply for the X1 visa, then convert it to a residence permit within 30 days of arrival."],
+ pg:["Contact a supervisor and get an acceptance letter if you can.","Apply to the university and for a scholarship at the same time.","Submit your degree, transcripts, study plan and two recommendation letters.","Receive the admission notice and JW form.","Apply for the X1 visa and register after arrival."],
+ links:[["Study in China (CSC)","https://www.campuschina.org"],["China Scholarship Council","https://www.csc.edu.cn"],["Chinese Visa Application Service Center","https://www.visaforchina.cn"],["National Immigration Administration","https://en.nia.gov.cn"]],
+ jobs:[["eChinacities jobs","https://www.echinacities.com"],["HiredChina","https://www.hiredchina.com"]]
+},
+{
+ id:"malaysia", name:"Malaysia", code:"MYS", region:"Asia", capital:"Kuala Lumpur", eng:true,
+ pitch:"English-taught degrees at a fraction of Western prices, including branch campuses of British and Australian universities.",
+ alerts:["Students may work only during semester breaks, in a few sectors, with Immigration approval.","Your university submits the visa application to EMGS; you cannot apply on your own."],
+ visa:"Student Pass through EMGS", intakes:"Several a year: January–March, May–July, September–October", lang:"English and Malay",
+ ielts:{ug:5.0,pg:6.0,note:"Requirements vary by subject; health sciences need more."},
+ tuition:{ug:"MYR 8,000–20,000 a year at public universities; MYR 20,000–45,000 at private and branch campuses",pg:"MYR 8,000–25,000 a year public; MYR 20,000–50,000 private"},
+ living:"MYR 1,500–2,500 a month", fee:"About MYR 1,000–2,000 for EMGS processing, medical screening and insurance",
+ budget:[7000,14000],
+ funds:{amt:"No published national figure. Universities ask for evidence that you can cover first-year fees and living costs, commonly US$4,000–6,000 plus fees.",usd:5000,
+  how:"A bank statement or sponsor letter submitted with the EMGS application; some nationalities also sign a personal bond.",
+  held:"Usually the last three months of statements.",
+  solv:"The university decides what it accepts before it submits your file."},
+ work:{term:"No work in term time. Up to 20 hours a week in breaks longer than seven days, in restaurants, petrol stations, mini-markets and hotels.",n:0,post:"A 12-month Graduate Pass exists for selected nationalities; otherwise you need an Employment Pass."},
+ spouse:{ug:"no",pg:"yes",t:"Master's and PhD students can bring a spouse, children and parents on dependant passes arranged through EMGS. They cannot work. This is not open to most bachelor's students."},
+ unis:[["Universiti Malaya","https://www.um.edu.my","Public-university fees"],["Universiti Putra Malaysia","https://www.upm.edu.my","Public-university fees"],["Universiti Teknologi Malaysia","https://www.utm.my","Public-university fees"],["Universiti Kebangsaan Malaysia","https://www.ukm.my","Public-university fees"]],
+ cities:[["Kuala Lumpur and Selangor","MYR 1,800–2,600","Internships at multinational service centres; part-time work is limited."],["Johor Bahru","MYR 1,400–2,000","Manufacturing and data centres, next to Singapore."],["Penang","MYR 1,500–2,100","Semiconductor and electronics plants."]],
+ subjects:["Engineering","Computer science and IT","Business and Islamic finance","Medicine and pharmacy","Hospitality","Biotechnology"],
+ housing:{tip:"Campus hostels are cheapest. Off campus, rent a room in a shared apartment near a train line and ask for a stamped tenancy agreement.",links:[["iProperty","https://www.iproperty.com.my"],["Mudah","https://www.mudah.my"],["iBilik","https://www.ibilik.my"]]},
+ docs:["Offer letter","Copies of every passport page","Pre-arrival medical screening report","Visa Approval Letter from EMGS"],
+ ug:["Apply to the university with 12 years of schooling.","Accept the offer; the university submits your file to EMGS.","Track the application online until the Visa Approval Letter is issued, usually in 4–8 weeks.","Apply for the single-entry visa or eVISA.","Complete the medical check within seven days of arrival and receive the Student Pass."],
+ pg:["Apply to the university with your degree and a research proposal for research degrees.","Accept the offer and let the university submit to EMGS.","Receive the Visa Approval Letter.","Apply for the entry visa.","Add dependants through the university once your pass is issued."],
+ links:[["Education Malaysia Global Services","https://educationmalaysia.gov.my"],["Immigration Department","https://www.imi.gov.my"],["Malaysia eVISA","https://malaysiavisa.imi.gov.my/evisa/evisa.jsp"]],
+ jobs:[["JobStreet Malaysia","https://www.jobstreet.com.my"],["Hiredly","https://hiredly.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"singapore", name:"Singapore", code:"SGP", region:"Asia", capital:"Singapore", eng:true,
+ pitch:"Two universities in the world's top 20 and Asia's financial hub on the doorstep, at a high cost and with no family route.",
+ alerts:["The Tuition Grant cuts public-university fees sharply in return for working three years in Singapore after graduation.","Students at most private schools are not allowed to work."],
+ visa:"Student's Pass", intakes:"August (public universities); private schools all year", lang:"English",
+ ielts:{ug:6.5,pg:6.5,note:""},
+ tuition:{ug:"S$17,000–40,000 a year with the Tuition Grant; private schools S$15,000–30,000",pg:"S$35,000–60,000 a year"},
+ living:"S$1,500–2,500 a month", fee:"S$30 processing + S$60 issuance",
+ budget:[30000,55000],
+ funds:{amt:"No fixed statutory amount. Plan to show one year of costs, about S$30,000 or more. Some applicants to private schools also place a security deposit.",usd:23000,
+  how:"A bank statement or sponsor letter if the school or immigration authority asks; a security deposit or banker's guarantee for some nationalities.",
+  held:"Recent statements; the immigration authority can ask for more.",
+  solv:"Public universities rarely ask for bank papers, but private schools often do."},
+ work:{term:"16 hours a week in term for full-time students at approved institutions; no limit in vacations.",n:16,post:"A one-year Long-Term Visit Pass for graduates of public universities to look for work."},
+ spouse:{ug:"no",pg:"no",t:"Student's Pass holders cannot sponsor a spouse. A visiting spouse uses a short-term visit pass."},
+ unis:[["National University of Singapore","https://www.nus.edu.sg","Tuition Grant available"],["Nanyang Technological University","https://www.ntu.edu.sg","Tuition Grant available"],["Singapore Institute of Management","https://www.sim.edu.sg","Private; UK and Australian degrees"],["PSB Academy","https://www.psb-academy.edu.sg","Private; lower fees"]],
+ cities:[["Jurong West and Boon Lay","S$700–1,100 for a room","Close to NTU, with campus jobs and food-court work."],["Clementi and Queenstown","S$900–1,300 for a room","Close to NUS, with research-assistant and tutoring work."],["Woodlands and Punggol","S$650–1,000 for a room","Cheaper rooms, with logistics and retail employers."]],
+ subjects:["Finance and fintech","Computer science and AI","Biomedical sciences","Logistics and maritime","Engineering","Hospitality"],
+ housing:{tip:"Apply for a campus hall with your acceptance. Otherwise rent a room in a public-housing flat and check that the landlord is allowed to sublet.",links:[["PropertyGuru","https://www.propertyguru.com.sg"],["99.co","https://www.99.co"],["Roomies.sg","https://www.roomies.sg"]]},
+ docs:["In-Principle Approval letter","eForm 16 submitted through SOLAR","Medical examination and chest X-ray","Tuition Grant agreement, if you take it"],
+ ug:["Apply directly to the university between October and March with your school results and IELTS.","Accept the offer and decide on the Tuition Grant.","The university registers you on SOLAR.","Submit eForm 16 and pay the fee to receive the In-Principle Approval letter.","Arrive, complete the medical check and collect the pass."],
+ pg:["Apply directly to the faculty; research programs open twice a year.","Submit your degree, transcripts, GRE or GMAT where required, and references.","Apply for research scholarships in the same application.","Complete the SOLAR formalities after admission.","Arrive and collect the pass."],
+ links:[["Student's Pass – ICA","https://www.ica.gov.sg/reside/STP/apply"],["Ministry of Education","https://www.moe.gov.sg"],["Tuition Grant scheme","https://tgonline.moe.gov.sg"],["SkillsFuture Singapore (private school register)","https://www.ssg.gov.sg"]],
+ jobs:[["MyCareersFuture","https://www.mycareersfuture.gov.sg"],["JobStreet Singapore","https://www.jobstreet.com.sg"],["FastJobs","https://www.fastjobs.sg"]]
+},
+{
+ id:"uae", name:"United Arab Emirates", code:"ARE", region:"Middle East", capital:"Abu Dhabi", eng:true,
+ pitch:"Branch campuses of British, Australian and American universities, with the visa sponsored by the university itself.",
+ alerts:["Your school certificates must be attested and declared equivalent by the Ministry of Education.","Outstanding graduates can apply for a 10-year Golden Visa."],
+ visa:"Student residence visa sponsored by the university", intakes:"September and January (some in May)", lang:"English and Arabic",
+ ielts:{ug:5.0,pg:6.0,note:"Many universities accept EmSAT English instead."},
+ tuition:{ug:"AED 35,000–75,000 a year",pg:"AED 40,000–90,000 a year"},
+ living:"AED 3,500–6,000 a month", fee:"About AED 3,000–7,000 through the university, covering the visa, medical test, ID card and insurance",
+ budget:[20000,40000],
+ funds:{amt:"No fixed government amount. Universities ask for a bank statement or sponsor letter covering first-year fees and living costs, and some take a refundable visa deposit.",usd:15000,
+  how:"A bank statement or sponsor letter given to the university's visa office.",
+  held:"Usually the last three to six months of statements.",
+  solv:"The university is your visa sponsor, so its checklist is the one that counts."},
+ work:{term:"Part-time work with a permit and a no-objection letter from the university, typically up to 20 hours a week.",n:20,post:"Golden Visa for top graduates; others move to an employer-sponsored visa."},
+ spouse:{ug:"limited",pg:"limited",t:"A student can sponsor family only with enough income or deposits and suitable housing. In practice families usually come when a parent or spouse holds a work visa."},
+ unis:[["Ajman University","https://www.ajman.ac.ae/en","Around AED 35,000–55,000 a year"],["University of Sharjah","https://www.sharjah.ac.ae","Around AED 40,000–70,000 a year"],["United Arab Emirates University","https://www.uaeu.ac.ae/en/","Around AED 40,000–70,000 a year"],["Abu Dhabi University","https://www.adu.ac.ae","Around AED 45,000–75,000 a year"]],
+ cities:[["Ajman and Sharjah","AED 2,800–4,000","Lower rents, with retail and office internships."],["Dubai","AED 4,500–7,000","Hospitality, events, property and fintech internships."],["Abu Dhabi and Al Ain","AED 3,500–5,000","Energy companies and government-linked firms."]],
+ subjects:["Business and finance","Hospitality and tourism","Civil and petroleum engineering","Computer science and AI","Aviation management","Architecture"],
+ housing:{tip:"University dormitories include transport and are the simplest first-year choice. Shared flats must be registered in the tenant's name.",links:[["Bayut","https://www.bayut.com"],["Dubizzle","https://www.dubizzle.com"],["Property Finder","https://www.propertyfinder.ae"]]},
+ docs:["Attested school certificates and equivalency letter","Passport photo on a white background","Medical fitness test and Emirates ID biometrics after arrival","Health insurance"],
+ ug:["Apply to the university with 12 years of schooling and an English score.","Obtain the Ministry of Education equivalency for your certificate.","Pay the seat deposit.","The university applies for your entry permit.","Enter, then complete the medical test, ID biometrics and visa stamping."],
+ pg:["Apply to the university with an attested bachelor's degree.","Submit IELTS, a CV and references.","Pay the deposit and send your visa documents.","The university applies for the entry permit.","Complete the medical test and ID card after arrival."],
+ links:[["UAE Government – education","https://u.ae/en/information-and-services/education"],["Federal Authority for Identity and Citizenship","https://icp.gov.ae/en/"],["Ministry of Education","https://www.moe.gov.ae/En/"],["KHDA (Dubai private education)","https://web.khda.gov.ae/en/"]],
+ jobs:[["Bayt","https://www.bayt.com"],["Naukrigulf","https://www.naukrigulf.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"turkey", name:"Türkiye", code:"TUR", region:"Europe & Asia", capital:"Ankara", eng:false,
+ pitch:"The lowest total cost on this list, with the Türkiye Bursları scholarship covering tuition, a stipend, housing and flights.",
+ alerts:["Türkiye Bursları applications usually open from about 10 January to 20 February.","Bachelor's students may work only after their first year, and need a work permit."],
+ visa:"Student visa, then a student residence permit", intakes:"September/October (main), February", lang:"Turkish; many programs in English",
+ ielts:{ug:5.5,pg:6.0,note:"Universities often offer an English preparatory year instead."},
+ tuition:{ug:"US$300–3,000 a year at public universities; US$4,000–15,000 at private ones",pg:"US$300–3,000 a year public; US$4,000–12,000 private"},
+ living:"US$400–700 a month", fee:"About US$60–100",
+ budget:[6000,12000],
+ funds:{amt:"No fixed national figure. Consulates and immigration offices look for roughly US$5,000–8,000 for the year, or a Türkiye Bursları award.",usd:6000,
+  how:"A bank statement, a sponsor letter with proof of income, or a scholarship certificate.",
+  held:"Usually a statement covering the last three months.",
+  solv:"The residence-permit office in your city may ask for the proof again after you arrive."},
+ work:{term:"Bachelor's students only after the first year and with a work permit; master's and PhD students can apply from the start.",n:0,post:"No automatic stay. An employer must sponsor a work permit."},
+ spouse:{ug:"limited",pg:"limited",t:"Family residence permits generally require the sponsor to have lived in Türkiye for at least a year with sufficient income. Spouses often enter on their own short-term permit."},
+ unis:[["Middle East Technical University","https://www.metu.edu.tr","English-taught; public fees"],["Istanbul University","https://www.istanbul.edu.tr/en","Public fees"],["Ankara University","https://en.ankara.edu.tr","Public fees"],["Sakarya University","https://www.sakarya.edu.tr/en","Low public fees"]],
+ cities:[["Ankara","US$400–550","Public bodies, the defence industry and tutoring."],["Eskişehir and Sakarya","US$350–500","Student cities with aviation and manufacturing employers."],["Istanbul","US$550–800","Tourism, trade and export offices that need foreign-language staff."]],
+ subjects:["Medicine and dentistry","Civil and mechanical engineering","Architecture","International relations","Business","Tourism"],
+ housing:{tip:"State dormitories are very cheap but limited for international students. Private dorms and shared flats near campus are the usual choice.",links:[["Sahibinden","https://www.sahibinden.com"],["Hepsiemlak","https://www.hepsiemlak.com"],["State dormitories (KYK)","https://kygm.gsb.gov.tr"]]},
+ docs:["Exam result the university requires (TR-YÖS, SAT or national results)","Equivalence certificate for your school diploma","Health insurance","Biometric photos"],
+ ug:["Check which exam each university accepts: its own YÖS, the central TR-YÖS, the SAT or your school grades.","Apply to each university in its own window, mostly May to August.","Receive the acceptance letter.","Apply for the student visa at the embassy.","Enrol, then apply for the residence permit online within a month."],
+ pg:["Apply directly to the graduate institute.","Submit your degree, transcripts and any ALES, GRE or language scores required.","Attend the interview.","Apply for the student visa.","Apply for the residence permit after enrolment."],
+ links:[["Study in Türkiye","https://www.studyinturkiye.gov.tr"],["Türkiye Bursları scholarships","https://www.turkiyeburslari.gov.tr"],["e-Residence permit applications","https://e-ikamet.goc.gov.tr"],["Presidency of Migration Management","https://en.goc.gov.tr"],["ÖSYM (TR-YÖS exam)","https://www.osym.gov.tr"]],
+ jobs:[["Kariyer.net","https://www.kariyer.net"],["Yenibiris","https://www.yenibiris.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"malta", name:"Malta", code:"MLT", region:"Europe", capital:"Valletta", eng:true,
+ pitch:"An English-speaking EU country with moderate fees and a mild climate, though visa checks are strict.",
+ alerts:["Apply at least nine weeks before your course starts; refusal rates are high for some countries.","You cannot work in your first 90 days, and need an employment licence after that."],
+ visa:"National D visa, then a student residence permit", intakes:"October (University of Malta), February; private colleges all year", lang:"English and Maltese",
+ ielts:{ug:6.0,pg:6.5,note:""},
+ tuition:{ug:"€5,000–11,000 a year",pg:"€6,000–13,500 a year"},
+ living:"€900–1,300 a month", fee:"About €100 visa fee, plus the residence-permit fee",
+ budget:[16000,26000],
+ funds:{amt:"About €950 for each month of your stay in 2026, linked to Malta's minimum wage, plus paid tuition",usd:13100,
+  how:"Bank statements with a steady balance, a sponsor's declaration, or a scholarship, plus the tuition receipt.",
+  held:"Statements for the last three to six months; sudden deposits are questioned.",
+  solv:"Visa officers look closely at the source of funds and at your reasons for choosing Malta."},
+ work:{term:"20 hours a week, only after your first 90 days and with a Jobsplus employment licence.",n:20,post:"Up to 9 months to look for work after a higher-education qualification."},
+ spouse:{ug:"no",pg:"no",t:"The student route does not include dependants. A spouse generally has to qualify for their own visa."},
+ unis:[["University of Malta","https://www.um.edu.mt","Around €8,500–10,800 a year"],["MCAST","https://www.mcast.edu.mt","Lower vocational and degree fees"],["Global College Malta","https://www.gcmalta.com","Private; UK-validated degrees"],["American University of Malta","https://www.aum.edu.mt","Private"]],
+ cities:[["Msida and Gżira","€950–1,250","Beside the university, with hospitality and online-gaming support jobs."],["Sliema and St Julian's","€1,100–1,500","Online-gaming companies, tourism and language schools."],["Paola and Gozo","€750–1,000","Cheaper rents, near the MCAST campus, with retail work."]],
+ subjects:["Online gaming and software","Tourism and hospitality","Maritime studies","Finance and accounting","Nursing and healthcare","Digital marketing"],
+ housing:{tip:"Most students share flats. Insist on a registered lease, because the residence-permit office asks for it.",links:[["Maltapark","https://www.maltapark.com"],["QuickLets","https://www.quicklets.com.mt"],["Frank Salt Real Estate","https://www.franksalt.com.mt"]]},
+ docs:["Receipt for tuition paid","Registered accommodation contract","Health insurance with at least €30,000 cover","Police conduct certificate"],
+ ug:["Apply to the University of Malta by about 1 July for October if you need a visa, or to a licensed college.","Check that the college is licensed by the education authority.","Accept the offer and pay the fees.","Apply for the visa through the visa centre at least nine weeks ahead.","Apply for the residence permit after arrival and for a work licence after 90 days."],
+ pg:["Apply directly to the university or college.","Submit your degree, transcripts and IELTS.","Pay the fees after acceptance.","Apply for the visa.","Apply for the residence permit in Malta."],
+ links:[["Identità (visas and residence)","https://identita.gov.mt"],["University of Malta","https://www.um.edu.mt"],["MFHEA (licensed institutions)","https://mfhea.mt"],["Jobsplus","https://jobsplus.gov.mt"]],
+ jobs:[["Jobsplus","https://jobsplus.gov.mt"],["Keepmeposted","https://www.keepmeposted.com.mt"],["JobsinMalta","https://jobsinmalta.com"]]
+}
+);
+
+/* Countries 31-35. Figures reviewed November 2026. */
+C.push(
+{
+ id:"romania", name:"Romania", code:"ROU", region:"Europe", capital:"Bucharest", eng:false,
+ pitch:"EU degrees from about €2,000 a year, some of the lowest living costs in the Union, and medical degrees taught in English and French.",
+ alerts:["You first need a Letter of Acceptance issued by the Ministry of Education. Your university applies for it, and it can take one to two months.","Tuition for at least one full academic year must be paid before you apply for the visa."],
+ visa:"Long-stay study visa (D/SD), then a residence permit", intakes:"October (main); a few in February", lang:"Romanian; many programs in English and French",
+ ielts:{ug:5.5,pg:6.0,note:"Romanian-taught degrees start with a one-year language course."},
+ tuition:{ug:"€2,000–3,500 a year; medicine €6,000–9,000",pg:"€2,200–4,000 a year"},
+ living:"€400–650 a month", fee:"€120 visa fee, plus the residence-permit fees",
+ budget:[7000,13000],
+ funds:{amt:"The Romanian minimum wage for each month on the visa. Consulates apply either the net figure (about €530) or the gross figure (about €850), so ask yours which one it uses. Many universities advise showing a full year.",usd:7300,
+  how:"A bank statement in your name, or a sponsor's with proof of your relationship. The tuition receipt is filed separately.",
+  held:"No holding period is published. Consulates usually ask for the last three to six months of statements.",
+  solv:"The first year's tuition must already be paid, and that money does not count towards living funds."},
+ work:{term:"Part-time only, up to 4 hours a day, with no work permit once you hold the residence permit. Some sources report 6 hours after a recent amendment; confirm with the immigration office.",n:20,post:"Graduates can apply to extend their stay for up to 9 months to look for work."},
+ spouse:{ug:"limited",pg:"limited",t:"Students are rarely accepted as sponsors for family reunification, so a spouse normally needs a visa of their own. Ask the immigration inspectorate before you plan around it."},
+ unis:[["University of Bucharest","https://unibuc.ro/?lang=en","Around €2,000–3,500 a year"],["Babeș-Bolyai University","https://www.ubbcluj.ro/en/","Around €2,000–4,000 a year"],["Politehnica Bucharest","https://international.upb.ro","Around €2,700–3,500 a year"],["Alexandru Ioan Cuza University of Iași","https://www.uaic.ro/en/","Around €2,000–3,000 a year"]],
+ cities:[["Iași","€400–550","IT outsourcing firms and business-service centres that hire English speakers."],["Timișoara","€450–650","Automotive electronics plants and software companies."],["Cluj-Napoca","€550–750","Romania's main technology hub, with start-ups and shared-service centres."]],
+ subjects:["Medicine and dentistry","Computer science and IT","Engineering","Pharmacy","Business","Veterinary medicine"],
+ housing:{tip:"University dormitories cost €50–120 a month and are the cheapest option in the EU; ask for a place when you receive your Letter of Acceptance.",links:[["Storia","https://www.storia.ro"],["OLX","https://www.olx.ro"],["Imobiliare.ro","https://www.imobiliare.ro"]]},
+ docs:["Letter of Acceptance from the Ministry of Education","Proof of tuition paid for one academic year","Criminal-record certificate","Medical certificate","Legalised or apostilled school certificate with an authorised translation"],
+ ug:["Choose a program and send your file to the university, usually between April and July.","The university forwards it to the Ministry of Education, which issues the Letter of Acceptance.","For Romanian-taught degrees, complete the preparatory language year first.","Pay the first year's tuition.","Apply for the D/SD visa on the eVisa portal and attend the consulate.","Apply for the residence permit at least 30 days before the visa expires."],
+ pg:["Send your bachelor's degree, transcripts and language proof to the university.","Wait for the Letter of Acceptance from the Ministry of Education.","Apply for a Romanian Government scholarship in the same season if you want one; it replaces the tuition step.","Pay the first year's tuition.","Apply for the D/SD visa, then for the residence permit after arrival."],
+ links:[["Study in Romania","https://www.studyinromania.gov.ro"],["eVisa portal – Ministry of Foreign Affairs","https://evisa.mae.ro"],["General Inspectorate for Immigration","https://igi.mai.gov.ro/en/"],["Ministry of Education","https://www.edu.ro"]],
+ jobs:[["eJobs","https://www.ejobs.ro"],["BestJobs","https://www.bestjobs.eu"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"estonia", name:"Estonia", code:"EST", region:"Europe", capital:"Tallinn", eng:true,
+ pitch:"Europe's most digital society: no limit on student work hours, nine months to find a job afterwards, and a start-up scene that hires in English.",
+ alerts:["The income requirement rose to €880 a month in 2026.","Estonia has few embassies, so many applicants must travel to another country for the visa interview. Check where yours is before you apply."],
+ visa:"Long-stay D visa, then a temporary residence permit for study", intakes:"September (main); a few in February", lang:"Estonian; 150+ degree programs in English",
+ ielts:{ug:5.5,pg:6.0,note:"The University of Tartu asks for 6.0 and 6.5."},
+ tuition:{ug:"€1,660–6,000 a year",pg:"€2,000–7,500 a year; many master's have tuition-waiver places"},
+ living:"€600–900 a month", fee:"€120 D visa + €225 residence permit",
+ budget:[13000,20000],
+ funds:{amt:"€880 a month of legal income in 2026, so €10,560 for a year",usd:12100,
+  how:"Bank statements, scholarship letters, or proof of regular income from you or a supporter. Any third party may support you, not only family.",
+  held:"No holding period. Proof of regular income is accepted as readily as a balance, but you must be able to document where it comes from.",
+  solv:"You confirm the income when you sign the application, and the case officer can ask for the papers at any time."},
+ work:{term:"No hour limit, as long as you keep studying full-time and pass your courses.",n:40,post:"You may stay 270 days after your permit ends to look for work."},
+ spouse:{ug:"limited",pg:"limited",t:"A bachelor's or master's student must usually have lived in Estonia for two years on a residence permit before a spouse can apply to join them. Doctoral students are not subject to that wait."},
+ unis:[["University of Tartu","https://ut.ee/en","Tuition waivers for top applicants"],["Tallinn University of Technology","https://taltech.ee/en","Around €3,300–6,000 a year"],["Tallinn University","https://www.tlu.ee/en","Around €2,000–5,000 a year"],["Estonian University of Life Sciences","https://www.emu.ee/en","Around €1,700–4,200 a year"]],
+ cities:[["Tartu","€600–800","University spin-offs, software firms and research labs."],["Tallinn","€750–1,000","Technology companies, start-ups and customer-support centres working in English."],["Pärnu and Narva","€500–700","Tourism, manufacturing and lower rents."]],
+ subjects:["Software engineering and IT","Cyber security","E-governance and digital policy","Business and entrepreneurship","Robotics and computer engineering","Environmental and life sciences"],
+ housing:{tip:"University dormitories cost €120–350 a month; apply as soon as you are admitted. Private rooms in Tallinn are scarce in August.",links:[["Tartu Student Village","https://campus.ee/en/"],["KV.ee","https://www.kv.ee"],["City24","https://www.city24.ee/en"]]},
+ docs:["University admission letter and visa invitation","Proof of €880 a month in legal income","Health-insurance contract","Details of close relatives (form with the residence-permit application)"],
+ ug:["Apply through the DreamApply portal for Estonia, usually between January and April.","Send certified copies of your school certificate by post if the university asks.","Attend the online interview or entrance test.","Accept the offer and pay the first tuition instalment.","Apply for the D visa at an Estonian embassy.","Apply for the residence permit at a police service office after arrival."],
+ pg:["Apply through DreamApply by the university's deadline, often 15 March.","Upload your degree, transcripts, motivation letter and IELTS.","Tuition-waiver places are awarded by ranking in the same application.","Apply for the D visa after admission.","Apply for the residence permit in Estonia."],
+ links:[["Study in Estonia","https://www.studyinestonia.ee"],["Police and Border Guard Board","https://www.politsei.ee/en"],["DreamApply – Estonia","https://estonia.dreamapply.com"],["Work in Estonia","https://workinestonia.com"]],
+ jobs:[["CV.ee","https://www.cv.ee"],["CV Keskus","https://www.cvkeskus.ee"],["Work in Estonia","https://workinestonia.com"]]
+},
+{
+ id:"latvia", name:"Latvia", code:"LVA", region:"Europe", capital:"Riga", eng:false,
+ pitch:"Affordable EU degrees in English, a state scholarship for eligible countries, and Riga's growing business-services sector.",
+ alerts:["The subsistence requirement rose to €780 a month from 1 April 2026.","State scholarships are open only to citizens of the countries on the official list; check it before you count on one."],
+ visa:"Long-stay D visa or a temporary residence permit for study", intakes:"September (main), February", lang:"Latvian; 300+ programs in English",
+ ielts:{ug:5.5,pg:6.0,note:""},
+ tuition:{ug:"€2,000–5,000 a year; medicine from €12,000",pg:"€2,200–6,000 a year"},
+ living:"€500–800 a month", fee:"About €60–120, depending on the visa or permit route",
+ budget:[9000,15000],
+ funds:{amt:"€780 a month, so about €9,360 for a year",usd:10750,
+  how:"A bank statement in your name, or a sponsor's statement with a guarantee. Some missions also ask for a debit or credit card that works in euros.",
+  held:"No holding period is published; a recent statement showing the full amount is the norm.",
+  solv:"Universities quote the yearly total they want to see, so use your admission letter's figure if it is higher."},
+ work:{term:"20 hours a week in term and 40 in holidays. Master's and doctoral students may work 40 hours a week.",n:20,post:"Master's and doctoral graduates can request a 9-month permit to look for work."},
+ spouse:{ug:"limited",pg:"limited",t:"A spouse can apply for a residence permit if you show the extra subsistence (the adult rate again, plus a smaller amount per child), housing and insurance. It is assessed case by case."},
+ unis:[["University of Latvia","https://www.lu.lv/en/","Around €2,000–5,000 a year"],["Riga Technical University","https://www.rtu.lv/en","Around €2,600–4,800 a year"],["Riga Stradiņš University","https://www.rsu.lv/en","Medicine and health sciences"],["Latvia University of Life Sciences and Technologies","https://www.lbtu.lv/en","Around €2,000–4,000 a year"]],
+ cities:[["Riga","€650–900","Shared-service centres, IT firms, aviation and hospitality."],["Jelgava","€450–600","Food processing, engineering and campus jobs, 40 minutes from Riga."],["Daugavpils","€400–550","Manufacturing and the lowest rents in the country."]],
+ subjects:["Medicine and dentistry","Computer science","Aviation and transport engineering","Business and finance","Civil engineering","Chemistry and pharmacy"],
+ housing:{tip:"Student hostels cost €100–250 a month. Most private flats are advertised on one classifieds site, so check it daily in August.",links:[["SS.com","https://www.ss.com/en/"],["City24 Latvia","https://www.city24.lv/en"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Study agreement with the university","Proof of €780 a month in subsistence","Legalised criminal-record statement","Health insurance valid in Latvia","Proof of accommodation"],
+ ug:["Apply on the university's portal, usually by June or July for September.","Have your school certificate assessed by the Academic Information Centre through the university.","Sign the study agreement and pay the first year's tuition.","The university submits your invitation to the migration office.","Apply for the D visa or residence permit at the embassy or visa centre.","Collect your residence card after arrival."],
+ pg:["Apply on the portal with your bachelor's degree and transcripts.","Apply for the Latvian State Scholarship between 1 February and 1 April if your country is eligible.","Sign the study agreement and pay tuition.","Apply for the visa or residence permit.","Register and collect your card in Latvia."],
+ links:[["Study in Latvia","https://www.studyinlatvia.lv"],["Office of Citizenship and Migration Affairs","https://www.pmlp.gov.lv/en"],["Required subsistence (official)","https://www.pmlp.gov.lv/en/necessary-subsistence-0"],["Academic Information Centre","https://www.aic.lv/en"]],
+ jobs:[["CV.lv","https://www.cv.lv"],["CVMarket","https://www.cvmarket.lv"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+},
+{
+ id:"lithuania", name:"Lithuania", code:"LTU", region:"Europe", capital:"Vilnius", eng:false,
+ pitch:"Low fees, a fintech and business-services job market in Vilnius, and a full year to look for work after you graduate.",
+ alerts:["From 22 May 2026, first- and second-year bachelor's students may work only 20 hours a week; later years and master's students may work 40.","Your previous qualification must be recognised before admission, and parliament has been tightening residence and family rules for non-EU students. Check the Migration Department before you apply."],
+ visa:"National D visa or a temporary residence permit for study", intakes:"September (main), February", lang:"Lithuanian; 500+ programs in English",
+ ielts:{ug:5.5,pg:6.0,note:""},
+ tuition:{ug:"€2,500–5,500 a year; medicine from €13,000",pg:"€3,000–6,500 a year"},
+ living:"€550–850 a month", fee:"About €120–160",
+ budget:[9500,15000],
+ funds:{amt:"€577 a month for 12 months plus €1,153 for the journey home: about €8,077",usd:9300,
+  how:"A bank statement in your name, a scholarship letter, or a sponsor's statement with a notarised guarantee.",
+  held:"The balance must cover the whole amount on the statement date; no holding period is published.",
+  solv:"The monthly figure is half the national minimum wage, so it changes every January."},
+ work:{term:"20 hours a week in the first two bachelor's years; 40 hours from the third year and for master's students. No separate work permit.",n:20,post:"12-month permit to look for work or start a business."},
+ spouse:{ug:"limited",pg:"limited",t:"Family reunification normally requires two years of residence, with exceptions for some categories. Draft rules would stop master's students bringing family at all, so confirm the current position with the Migration Department."},
+ unis:[["Vilnius University","https://www.vu.lt/en/","Around €3,000–6,000 a year"],["Kaunas University of Technology","https://en.ktu.edu","Around €3,300–5,300 a year"],["Vilnius Gediminas Technical University","https://vilniustech.lt","Around €3,000–5,500 a year"],["Vytautas Magnus University","https://www.vdu.lt/en/","Around €2,500–5,000 a year"]],
+ cities:[["Kaunas","€500–700","Manufacturing, IT and logistics, with a large student population."],["Vilnius","€650–900","Fintech firms and international shared-service centres."],["Klaipėda","€500–650","The seaport, shipping and logistics."]],
+ subjects:["Computer science and IT","Fintech and business","Laser and photonics engineering","Medicine","Mechatronics and engineering","Biotechnology"],
+ housing:{tip:"University dormitories cost €100–250 a month; apply the day you are admitted. For private flats, expect one month's deposit.",links:[["Aruodas","https://en.aruodas.lt"],["Domoplius","https://domoplius.lt"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Academic recognition decision for your certificate or degree","Mediation letter that the university files with the Migration Department","Proof of funds of about €8,077","Health insurance with at least €10,000 cover","Criminal-record certificate"],
+ ug:["Apply on the university's portal, usually by June for September.","Have your school certificate recognised (the university or the national centre SKVC does this).","Pass the motivation interview.","Sign the study agreement and pay tuition.","Apply in the MIGRIS system, then visit the visa centre or embassy.","Collect your residence permit in Lithuania."],
+ pg:["Apply on the portal with your bachelor's degree and transcripts.","Apply for a Lithuanian State Scholarship in the spring call if your country is eligible.","Complete recognition and the interview.","Sign the agreement and pay tuition.","Apply in MIGRIS and attend the visa centre."],
+ links:[["Study in Lithuania","https://studyin.lt"],["Migration Department","https://www.migracija.lt/en"],["SKVC (recognition of qualifications)","https://skvc.lrv.lt/en/"],["Work in Lithuania","https://workinlithuania.com"]],
+ jobs:[["CVbankas","https://www.cvbankas.lt"],["CV-Online","https://www.cvonline.lt"],["Work in Lithuania","https://workinlithuania.com"]]
+},
+{
+ id:"greece", name:"Greece", code:"GRC", region:"Europe", capital:"Athens", eng:false,
+ pitch:"Low living costs for the eurozone, new English-taught degrees at public universities, and year-round tourism work.",
+ alerts:["Sources disagree on the funds figure: the long-standing legal minimum is €400 a month, but universities and consulates now commonly ask for €500–700. Use the number your consulate gives you.","Most public bachelor's degrees are taught in Greek; English-taught ones are still few."],
+ visa:"National D visa for studies, then a residence permit", intakes:"October (main); some master's in February", lang:"Greek; a growing number of programs in English",
+ ielts:{ug:6.0,pg:6.5,note:"Many master's programs accept 6.0."},
+ tuition:{ug:"€1,500–9,000 a year for English-taught degrees; medicine about €12,000",pg:"€1,500–4,000 a year"},
+ living:"€550–900 a month", fee:"About €90–180",
+ budget:[10000,18000],
+ funds:{amt:"Commonly €500–700 a month (about €6,000–8,400 a year); the legal minimum has long been €400 a month",usd:8300,
+  how:"A bank statement, a scholarship letter, or a sponsor's declaration with their statements.",
+  held:"No holding period is published; consulates usually ask for the last three to six months of statements.",
+  solv:"You must show the funds again each time you renew the residence permit."},
+ work:{term:"Part-time, up to 20 hours a week.",n:20,post:"A one-year permit to look for work exists under the 2023 migration code; confirm the procedure with the regional immigration office."},
+ spouse:{ug:"limited",pg:"limited",t:"Family reunification generally requires two years of lawful residence and proof of stable income, so a spouse usually cannot join during a short degree."},
+ unis:[["Aristotle University of Thessaloniki","https://www.auth.gr/en/","English bachelor's and master's"],["National and Kapodistrian University of Athens","https://en.uoa.gr","English bachelor's and master's"],["International Hellenic University","https://www.ihu.gr/en/","Master's from about €2,500 a year"],["University of Crete","https://en.uoc.gr","Master's from about €1,500 a year"]],
+ cities:[["Thessaloniki","€550–750","Tourism, the port and multilingual call centres."],["Heraklion and Patras","€500–650","Research institutes, agriculture and seasonal tourism."],["Athens","€700–950","Shipping companies, tourism and multilingual customer-support centres."]],
+ subjects:["Shipping and maritime studies","Tourism and hospitality","Archaeology and classics","Medicine","Computer science","Business"],
+ housing:{tip:"University halls are limited for international students, so most rent a studio or share a flat. Sign a contract registered on the tax portal; you need it for the residence permit.",links:[["Spitogatos","https://www.spitogatos.gr/en"],["XE.gr","https://www.xe.gr"],["HousingAnywhere","https://housinganywhere.com"]]},
+ docs:["Admission certificate from the university","Recognition of your school certificate or degree where required","Criminal-record certificate","Medical certificate","Health insurance","Proof of accommodation"],
+ ug:["Choose an English-taught bachelor's and check its entry requirements.","Apply directly to the program, usually between spring and July.","Have your school certificate apostilled and translated.","Pay the deposit and receive the admission certificate.","Apply for the national D visa at the Greek consulate.","Apply for the residence permit after arrival."],
+ pg:["Apply directly to each master's program; deadlines run from spring to early September.","Send your degree, transcripts, CV, two references and IELTS.","Attend the interview if invited.","Pay the first instalment and get the admission certificate.","Apply for the D visa, then the residence permit in Greece."],
+ links:[["Study in Greece","https://studyingreece.edu.gr"],["Ministry of Foreign Affairs – visas","https://www.mfa.gr/en/visas/"],["Ministry of Migration and Asylum","https://migration.gov.gr/en/"],["DOATAP (degree recognition)","https://www.doatap.gr/en/"]],
+ jobs:[["Kariera.gr","https://www.kariera.gr"],["Skywalker.gr","https://www.skywalker.gr"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]]
+}
+);
+
+/* Scholarships for all 35 countries. s: "yes" = real funded routes exist, "limited" = few options for most applicants. Reviewed November 2026. */
+const SCH = {
+ usa:{s:"yes",t:"Most funding comes from the universities themselves: merit awards for bachelor's students, and teaching or research assistantships that waive tuition and pay a stipend for master's and PhD students. Government scholarships are few and competitive.",list:[
+  ["Fulbright Foreign Student Program","https://foreign.fulbrightonline.org","Fully funded master's and PhD study. Apply through the US embassy or Fulbright commission in your own country, usually between February and October of the year before."],
+  ["Hubert H. Humphrey Fellowship","https://www.humphreyfellowship.org","Ten months of non-degree study and professional experience for mid-career professionals. Apply through the US embassy."],
+  ["AAUW International Fellowships","https://www.aauw.org","For women who are not US citizens, for full-time master's or doctoral study. Deadline in mid-November."]]},
+ uk:{s:"yes",t:"Strong options for master's students; very little for bachelor's beyond partial university discounts of £1,000–5,000.",list:[
+  ["Chevening Scholarships","https://www.chevening.org","Fully funded one-year master's for future leaders with two years of work experience. Applications run from August to early November."],
+  ["Commonwealth Scholarships","https://cscuk.fcdo.gov.uk","Fully funded master's and PhD study for citizens of Commonwealth countries. Most routes close between October and December."],
+  ["GREAT Scholarships","https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships","At least £10,000 towards a one-year master's at participating universities, for selected countries. Apply to the university."],
+  ["Gates Cambridge","https://www.gatescambridge.org","Full cost of postgraduate study at the University of Cambridge. Deadline in December or January depending on the course."]]},
+ canada:{s:"yes",t:"Thesis-based master's and PhD students are often funded by their department. Bachelor's students rely on university entrance awards, which are competitive.",list:[
+  ["EduCanada scholarship listings","https://www.educanada.ca/scholarships-bourses/index.aspx?lang=eng","The government's list of awards open to international students, searchable by country of origin."],
+  ["Lester B. Pearson International Scholarship","https://future.utoronto.ca/pearson/","Four years of tuition, books and residence at the University of Toronto for bachelor's students. Your school nominates you, usually by November."],
+  ["UBC international scholars awards","https://you.ubc.ca","Need- and merit-based bachelor's awards at the University of British Columbia. Apply with your admission application by 1 December."]]},
+ australia:{s:"yes",t:"Full government scholarships exist for eligible developing countries and for research degrees. Coursework students mostly receive university discounts of 10–30%.",list:[
+  ["Australia Awards Scholarships","https://www.dfat.gov.au/people-to-people/australia-awards","Full tuition, flights and a living allowance for citizens of eligible countries. Applications usually open from 1 February to 30 April."],
+  ["Research Training Program","https://www.education.gov.au/research-block-grants/research-training-program","Tuition offset and a stipend for research master's and PhD students. Apply through the university you want to join."],
+  ["Destination Australia","https://www.education.gov.au/destination-australia","Up to AUD 15,000 a year for study at regional campuses. Apply through participating universities."]]},
+ germany:{s:"yes",t:"With no tuition at most public universities, scholarships here pay living costs. They are mainly for master's and PhD students with strong grades.",list:[
+  ["DAAD scholarships","https://www.daad.de/en/studying-in-germany/scholarships/","Monthly stipends of about €992 for master's and €1,300 for PhD, plus insurance and travel. Deadlines vary by program, often between August and November."],
+  ["Deutschlandstipendium","https://www.deutschlandstipendium.de","€300 a month for at least two semesters, awarded by your German university once you are enrolled."],
+  ["Heinrich Böll Foundation","https://www.boell.de/en/scholarships","Stipends for master's and PhD students who are socially and politically engaged. Good German is usually expected. Deadlines 1 March and 1 September."]]},
+ france:{s:"yes",t:"Government and embassy scholarships cover master's and PhD students; bachelor's funding is rare.",list:[
+  ["Eiffel Excellence Scholarship","https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence","About €1,200 a month plus travel and insurance for master's students. Your French university applies for you, with a deadline in early January."],
+  ["CampusBourses scholarship catalogue","https://campusbourses.campusfrance.org","Campus France's searchable list of every French government, embassy, regional and university scholarship."],
+  ["France Excellence (embassy scholarships)","https://www.campusfrance.org/en","Awarded by the French embassy in your country; ask its cultural service for the yearly call."]]},
+ netherlands:{s:"yes",t:"Scholarships are partial for most students. Full awards are few and go to applicants with top grades.",list:[
+  ["NL Scholarship","https://www.studyinnl.org/finances/nl-scholarship","A one-off €5,000 in the first year for non-EEA bachelor's and master's students. Apply through your university, usually by 1 February or 1 May."],
+  ["University of Twente Scholarship","https://www.utwente.nl/en/education/scholarship-finder/university-of-twente-scholarship/","€3,000–22,000 for one year of a master's. Apply after admission, by 1 February or 1 May."],
+  ["Study in NL scholarship finder","https://www.studyinnl.org/finances","Lists the excellence scholarships offered by each Dutch university."]]},
+ ireland:{s:"yes",t:"One national scholarship for master's and PhD students, plus university merit discounts of €2,000–5,000.",list:[
+  ["Government of Ireland International Education Scholarship","https://hea.ie/policy/internationalisation/goi-ies/","A €10,000 stipend and a full fee waiver for one year of master's or PhD study. Applications usually close in March."],
+  ["Ireland Fellows Programme","https://www.irelandfellows.ie","Fully funded one-year master's for early-career professionals from eligible countries. Applications open in summer."],
+  ["University merit scholarships","https://www.educationinireland.com","Education in Ireland lists each university's international scholarships."]]},
+ "new-zealand":{s:"yes",t:"A full government scholarship for eligible countries, and domestic-level fees for every international PhD student.",list:[
+  ["Manaaki New Zealand Scholarships","https://www.nzscholarships.govt.nz","Full tuition, living allowance and flights for citizens of eligible countries. Applications usually open in February."],
+  ["University of Auckland scholarships","https://www.auckland.ac.nz/en/study/scholarships-and-awards.html","International Student Excellence awards of up to NZD 10,000 for bachelor's and master's students."],
+  ["University of Waikato scholarships","https://www.waikato.ac.nz","International excellence awards of up to NZD 15,000 towards tuition."]]},
+ italy:{s:"yes",t:"Italy is unusually generous: regional need-based grants are open to international students on the same terms as Italians and can cover fees, a dorm place, meals and a yearly allowance.",list:[
+  ["Regional DSU grants (example: EDISU Piemonte)","https://www.edisu.piemonte.it/en","Based on family income, not grades. Fee waiver plus about €5,000–7,500 a year or housing. Apply between July and September with consular-certified income documents; each region has its own office."],
+  ["Italian Government (MAECI) scholarships","https://studyinitaly.esteri.it","About €900 a month for master's, PhD and research. The call usually opens in spring."],
+  ["Invest Your Talent in Italy","https://investyourtalentitaly.esteri.it","Scholarships and internships for English-taught master's in engineering, management and design, for selected countries."]]},
+ spain:{s:"limited",t:"Spanish public scholarships mostly target Latin America and countries with cooperation agreements. Others rely on university fee discounts.",list:[
+  ["MAEC-AECID scholarships","https://www.aecid.es","Government scholarships for master's and research, for citizens of partner countries. Calls open early in the year."],
+  ["Fundación Carolina","https://www.fundacioncarolina.es","Postgraduate scholarships for citizens of Ibero-American countries."],
+  ["la Caixa doctoral fellowships","https://fundacionlacaixa.org/en/fellowships","Doctoral fellowships at Spanish research centres, open to all nationalities."]]},
+ sweden:{s:"yes",t:"One major government scholarship for master's students from eligible countries, plus tuition waivers from the universities.",list:[
+  ["Swedish Institute Scholarships for Global Professionals","https://si.se/en/apply/scholarships/","Full tuition, SEK 12,000 a month and travel for a master's. Requires work and leadership experience. Apply in February after you apply to universities."],
+  ["Lund University Global Scholarship","https://www.lunduniversity.lu.se","Covers 25–100% of tuition for top students. Apply in February after your program application."],
+  ["Study in Sweden scholarship list","https://studyinsweden.se/scholarships/","Every Swedish university's tuition waivers in one place."]]},
+ finland:{s:"yes",t:"Each university runs its own scholarship, and you apply in the same form as admission. Many cover 50–100% of tuition.",list:[
+  ["Finland Scholarship","https://www.studyinfinland.fi/scholarships","Full first-year tuition and a €5,000 relocation grant for master's students at universities. Apply in the January admission round."],
+  ["University tuition waivers and early-bird discounts","https://www.studyinfinland.fi/scholarships","Universities of applied sciences cut the fee by up to half if you accept and pay early."],
+  ["EDUFI Fellowships","https://www.oph.fi/en","Funding for doctoral studies; your Finnish host university applies for you."]]},
+ denmark:{s:"limited",t:"A small number of government scholarships are handed out by the universities to the strongest non-EU master's applicants.",list:[
+  ["Danish Government Scholarships","https://studyindenmark.dk","Full or partial tuition waivers, sometimes with a living grant. You are considered automatically when you apply for admission by the January–March deadline."],
+  ["University of Southern Denmark scholarships","https://www.sdu.dk/en","Tuition waivers for selected master's programs."]]},
+ norway:{s:"limited",t:"Since tuition was introduced for non-EU students in 2023, there has been no general national scholarship. A few universities and schools offer their own.",list:[
+  ["Study in Norway – scholarships","https://studyinnorway.no","The official overview of the limited schemes that remain."],
+  ["BI Presidential Scholarship","https://www.bi.edu","Full tuition and a stipend for outstanding master's applicants at BI Norwegian Business School."]]},
+ switzerland:{s:"limited",t:"Government scholarships are for research and PhD only. A few universities fund excellent master's students.",list:[
+  ["Swiss Government Excellence Scholarships","https://www.sbfi.admin.ch/scholarships_eng","Research, PhD and postdoctoral scholarships. Apply through the Swiss embassy in your country, usually between August and November."],
+  ["ETH Zurich Excellence Scholarship","https://ethz.ch/en/studies/financial/scholarships/excellencescholarship.html","Living and study costs plus a tuition waiver for top master's applicants. Deadline 15 December."],
+  ["University of Lausanne Master's Grants","https://www.unil.ch/international/en/home.html","CHF 1,600 a month for about ten master's students a year. Deadline around 1 November."]]},
+ austria:{s:"yes",t:"Tuition is already low, and one national database lists every grant. Most awards are for master's, PhD and research stays.",list:[
+  ["grants.at scholarship database","https://grants.at/en/","Austria's official database; filter by your country and level."],
+  ["OeAD scholarships","https://oead.at/en/to-austria/scholarships","Includes the Ernst Mach Grant for study and research stays. Deadlines differ by program."]]},
+ belgium:{s:"yes",t:"Full scholarships exist for citizens of developing countries on selected master's programs.",list:[
+  ["VLIR-UOS scholarships","https://www.vliruos.be/en/scholarships","Full funding for selected English-taught master's in Flanders, for citizens of eligible countries. Apply through the program, usually by February."],
+  ["ARES scholarships","https://www.ares-ac.be/en","Full funding for selected master's and training programs in the French Community, for eligible developing countries."],
+  ["Master Mind Scholarships","https://www.studyinflanders.be/scholarships/master-mind-scholarships","€9,600 a year for outstanding master's students in Flanders. Your Flemish university nominates you."]]},
+ poland:{s:"yes",t:"The national agency NAWA funds master's students from developing countries, and some universities waive fees for top applicants.",list:[
+  ["NAWA Banach Scholarship","https://nawa.gov.pl/en/students/foreign-students/the-banach-scholarship-programme","Tuition waiver and a monthly stipend for master's study in English, for citizens of eligible developing countries. The call usually opens in spring."],
+  ["NAWA – all programs","https://nawa.gov.pl/en","Lists every Polish government scheme for foreign students."]]},
+ hungary:{s:"yes",t:"One of the largest fully funded schemes in Europe, open to about 90 partner countries at every level.",list:[
+  ["Stipendium Hungaricum","https://stipendiumhungaricum.hu","Free tuition, a monthly stipend, housing support and health insurance for bachelor's, master's and PhD. Apply online by mid-January; you also need a nomination from your home country's authority."],
+  ["Stipendium Hungaricum application portal","https://apply.stipendiumhungaricum.hu","Where you submit the application and choose up to two programs."]]},
+ czechia:{s:"yes",t:"Government scholarships serve developing countries, and studying in Czech is free for everyone.",list:[
+  ["Czech Government Scholarships","https://www.dzs.cz/en","Monthly stipend for bachelor's, master's and PhD study, for citizens of eligible developing countries. Apply through the Czech embassy, usually July to September."],
+  ["Visegrad Scholarship Program","https://www.visegradfund.org","Semester stipends for master's and PhD students from eligible Eastern Partnership and Western Balkan countries. Deadline 15 March."]]},
+ portugal:{s:"limited",t:"Little is available for bachelor's and master's students beyond merit awards at individual universities. PhD funding is better.",list:[
+  ["FCT doctoral studentships","https://www.fct.pt/en/","About €1,300 a month for PhD students at Portuguese research centres. One call a year, usually in spring."],
+  ["Camões Institute scholarships","https://www.instituto-camoes.pt/en/","For Portuguese language and culture studies and for citizens of partner countries."],
+  ["University of Porto merit awards","https://www.up.pt/portal/en/","Fee reductions for the best-ranked international students."]]},
+ japan:{s:"yes",t:"The government's MEXT scholarship is one of the most complete in the world, and many more students receive smaller monthly awards after arrival.",list:[
+  ["MEXT Scholarship","https://www.studyinjapan.go.jp/en/","Tuition, about ¥117,000–145,000 a month and flights. Apply through the Japanese embassy in April–May, or through a Japanese university in autumn."],
+  ["JASSO Honors Scholarship","https://www.jasso.go.jp/en/","¥48,000 a month for self-financed students; your Japanese school nominates you after enrolment."],
+  ["ADB–Japan Scholarship Program","https://www.adb.org/work-with-us/careers/japan-scholarship-program","Full funding for master's study at partner universities, for citizens of Asian Development Bank member countries with work experience."],
+  ["JDS scholarship","https://jds-scholarship.org","Fully funded master's for young government officials from selected countries."]]},
+ "south-korea":{s:"yes",t:"The Global Korea Scholarship is fully funded at every level, and universities routinely cut tuition by 30–100% for good grades.",list:[
+  ["Global Korea Scholarship (GKS)","https://www.studyinkorea.go.kr","Tuition, about ₩1 million a month, flights and a year of Korean language. Bachelor's applications run September–October, graduate ones February–March, through the embassy or a university."],
+  ["KOICA Scholarship Program","https://www.koica.go.kr","Fully funded master's for government officials and public-sector staff from partner countries."],
+  ["KAIST international scholarships","https://admission.kaist.ac.kr","Full tuition and a monthly allowance for most admitted international students."]]},
+ china:{s:"yes",t:"Very large programs at national, provincial and university level. Many self-funded students win a partial award in their second year.",list:[
+  ["Chinese Government Scholarship (CSC)","https://www.campuschina.org","Tuition, a dorm place, medical insurance and ¥2,500–3,500 a month. Apply through the Chinese embassy or directly through a university, usually January to April."],
+  ["International Chinese Language Teachers Scholarship","https://cis.chinese.cn","For Chinese language study and teaching degrees. Apply through a Confucius Institute or partner school."],
+  ["China Scholarship Council","https://www.csc.edu.cn","The agency that runs the national scheme; its site lists participating universities."]]},
+ malaysia:{s:"limited",t:"Government scholarships are for postgraduate study only. Bachelor's students depend on merit discounts from private universities.",list:[
+  ["Malaysia International Scholarship (MIS)","https://www.mohe.gov.my/en","Tuition and a monthly allowance for master's and PhD study in priority fields. Run by the Ministry of Higher Education."],
+  ["Malaysian Technical Cooperation Programme","https://mtcp.kln.gov.my","Master's scholarships for citizens of partner developing countries."],
+  ["Universiti Malaya scholarships","https://www.um.edu.my","Graduate research assistantships and fee waivers."]]},
+ singapore:{s:"yes",t:"The Tuition Grant is the main support for bachelor's students. PhD students are usually fully funded.",list:[
+  ["MOE Tuition Grant","https://tgonline.moe.gov.sg","Cuts public-university fees by more than half in return for working in Singapore for three years after graduation. Apply after you accept your offer."],
+  ["Singapore International Graduate Award (SINGA)","https://www.a-star.edu.sg/Scholarships/for-graduate-studies/singapore-international-graduate-award-singa","Full PhD funding with a monthly stipend. Two intakes a year."],
+  ["NUS scholarships","https://www.nus.edu.sg/oam/scholarships","Merit scholarships for bachelor's students, considered with your admission application."]]},
+ uae:{s:"limited",t:"There is no national scholarship for international students. Awards come from individual universities, mostly as merit discounts of 10–50%.",list:[
+  ["Khalifa University graduate scholarships","https://www.ku.ac.ae","Full tuition and a monthly stipend for master's and PhD students in science and engineering."],
+  ["MBZUAI scholarships","https://mbzuai.ac.ae","Full scholarship, housing and stipend for every admitted master's and PhD student in artificial intelligence."],
+  ["UAE University scholarships","https://www.uaeu.ac.ae/en/","PhD scholarships and merit discounts for strong bachelor's students."]]},
+ turkey:{s:"yes",t:"Türkiye Bursları is fully funded at every level and takes thousands of students a year.",list:[
+  ["Türkiye Bursları (Türkiye Scholarships)","https://www.turkiyeburslari.gov.tr","Tuition, a monthly stipend, a dorm place, health insurance, flights and a year of Turkish. Apply online from about 10 January to 20 February."],
+  ["TÜBİTAK graduate scholarships","https://tubitak.gov.tr/en","Monthly stipends for international master's and PhD students in science and engineering."]]},
+ malta:{s:"limited",t:"Malta has no national scholarship for non-EU students. Expect to pay full fees unless you join a funded joint program.",list:[
+  ["University of Malta scholarships","https://www.um.edu.mt","A small number of bursaries and research-funded places, listed by the university."],
+  ["MCAST international office","https://www.mcast.edu.mt","Ask about fee instalment plans; scholarships for non-EU students are rare."]]},
+ romania:{s:"yes",t:"The Romanian state funds a set number of non-EU students each year, and tuition is low even without an award.",list:[
+  ["Romanian Government Scholarships (Ministry of Foreign Affairs)","https://www.mae.ro/en/node/10251","Free tuition, a dorm place and a small monthly stipend for bachelor's, master's and PhD. Apply online, usually between January and March. Medicine is excluded."],
+  ["Study in Romania portal","https://www.studyinromania.gov.ro","The application platform and the list of participating universities."]]},
+ estonia:{s:"yes",t:"Tuition-waiver places are the main support, and they are awarded automatically by ranking when you apply.",list:[
+  ["Study in Estonia scholarships","https://www.studyinestonia.ee/scholarships","The official list of state and university scholarships for degree students."],
+  ["University of Tartu tuition waivers","https://ut.ee/en","Most master's programs have tuition-free places for the best applicants. No separate application."],
+  ["TalTech tuition waivers","https://taltech.ee/en","Full or partial waivers on selected master's programs, decided at admission."]]},
+ latvia:{s:"limited",t:"The state scholarship is open only to citizens of the roughly 40 countries on the official list. Others rely on university discounts.",list:[
+  ["Latvian State Scholarships","https://www.studyinlatvia.lv/scholarships","€500 a month for bachelor's and master's students and €700 for doctoral students from eligible countries. The call runs from 1 February to 1 April."],
+  ["State Education Development Agency (VIAA)","https://www.viaa.gov.lv/en","Runs the state scholarship and publishes the list of eligible countries."]]},
+ lithuania:{s:"limited",t:"State scholarships cover master's students from a list of selected countries. Several universities offer their own fee waivers.",list:[
+  ["Lithuanian State Scholarships","https://studyin.lt/scholarships/","A monthly stipend and a grant towards tuition for full-time master's study, for citizens of selected countries. The call usually opens in spring."],
+  ["Kaunas University of Technology scholarships","https://en.ktu.edu","Tuition waivers of 50–100% for strong bachelor's and master's applicants."],
+  ["Vytautas Magnus University scholarships","https://www.vdu.lt/en/","Fee waivers for selected nationalities and high achievers."]]},
+ greece:{s:"limited",t:"Few awards are open to non-EU students. Fee reductions from individual master's programs are the most realistic route.",list:[
+  ["IKY State Scholarships Foundation","https://www.iky.gr/en/","Runs Greek state scholarships; calls open to foreign nationals appear occasionally."],
+  ["Onassis Foundation scholarships","https://www.onassis.org","Funding for research and study in Greece for international scholars and artists."],
+  ["Study in Greece","https://studyingreece.edu.gr","Lists English-taught programs and the scholarships each one offers."]]}
+};
+const ERASMUS = ["Erasmus Mundus Joint Masters","https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en","Full scholarships (tuition, travel and about €1,400 a month) for two-year master's taught across several European universities. Apply to each program's consortium, mostly between October and January."];
+C.forEach(c => {
+  const s = SCH[c.id];
+  c.sch = { s: s.s, t: s.t, list: s.list.slice() };
+  if (c.region.includes("Europe") && c.id !== "uk" && c.id !== "switzerland") c.sch.list.push(ERASMUS);
+});
+
+/* ---------- setup ---------- */
+const BY = {}; C.forEach(c => (BY[c.id] = c));
+const saView = () => document.getElementById('study-abroad-view');
+const $ = (s, r) => (r || saView() || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || saView() || document).querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+const BDT_PER_USD = 124; /* Bangladesh Bank weighted average, early November 2026 */
+const YEAR = new Date().getFullYear();
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("mis-" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("mis-" + k, JSON.stringify(v)); } catch (e) {} }
+};
+const S = {
+  level: store.get("level", "pg"), cur: store.get("cur", "USD"),
+  band: 6.5, budget: 20000, spouse: false, finder: false,
+  q: "", region: "All", low: false, eng: false, fam: false, work: false, sort: "pop",
+  cmp: ["germany", "uk", "canada"]
+};
+const LV = { ug: "Bachelor's", pg: "Master's" };
+const SP = { yes: ["Spouse can join", "ok"], limited: ["Spouse: conditions apply", "warn"], no: ["No spouse route", "no"] };
+const SC = { yes: ["Scholarships available", "ok"], limited: ["Few scholarships", "warn"], no: ["No scholarships", "no"] };
+const SPS = { yes: "spouse can join", limited: "conditions apply", no: "no spouse route" };
+
+function money(usd) {
+  if (S.cur === "BDT") { const l = (usd * BDT_PER_USD) / 1e5; return "৳" + (l >= 100 ? (l / 100).toFixed(2) + " crore" : l.toFixed(1) + " lakh"); }
+  return "US$" + Math.round(usd).toLocaleString("en-US");
+}
+function range(a, b) {
+  if (S.cur === "BDT") { const f = v => ((v * BDT_PER_USD) / 1e5).toFixed(1); return "৳" + f(a) + "–" + f(b) + " lakh"; }
+  return "US$" + a.toLocaleString("en-US") + "–" + b.toLocaleString("en-US");
+}
+const moneyShort = usd => (S.cur === "BDT" ? "৳" + ((usd * BDT_PER_USD) / 1e5).toFixed(1) + "L" : "$" + Math.round(usd).toLocaleString("en-US"));
+const workShort = c => (c.work.n >= 40 ? "No cap" : c.work.n === 0 ? "Restricted" : c.work.n + " h/week");
+const yt = q => "https://www.youtube.com/results?search_query=" + encodeURIComponent(q);
+const ytBtn = (label, q) => `<a class="yt" href="${esc(yt(q))}" target="_blank" rel="noopener"><i></i>${esc(label)}</a>`;
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+const linkList = arr => `<div class="links">${arr.map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener"><span class="ext">${esc(l)}</span><small>${esc(host(u))}</small></a>`).join("")}</div>`;
+
+/* ---------- finder (hero) ---------- */
+const fits = c => c.ielts[S.level] <= S.band && c.budget[0] <= S.budget && (!S.spouse || c.spouse[S.level] !== "no");
+function drawFinder() {
+  const bEl = $("#budget"); if (!bEl) return;
+  $$("[data-level]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.level === S.level)));
+  $$("#bands button").forEach(b => b.setAttribute("aria-pressed", String(parseFloat(b.dataset.band) === S.band)));
+  $("#budget").value = S.budget;
+  $("#budgetOut").textContent = money(S.budget);
+  $("#spouse").checked = S.spouse;
+  const m = C.filter(fits);
+  $("#count").textContent = m.length;
+  const cheap = m.slice().sort((a, b) => a.budget[0] - b.budget[0])[0];
+  $("#countLab").innerHTML = `<b>of ${C.length} countries fit</b>` + (cheap ? `Lowest-cost match: ${esc(cheap.name)}, from ${money(cheap.budget[0])} a year` : "Raise the budget or band to see matches");
+}
+
+/* ---------- explorer ---------- */
+function visible() {
+  const q = S.q.trim().toLowerCase();
+  let list = C.filter(c => {
+    if (S.finder && !fits(c)) return false;
+    if (S.region !== "All" && !c.region.includes(S.region)) return false;
+    if (S.low && c.budget[0] > 15000) return false;
+    if (S.eng && !c.eng) return false;
+    if (S.fam && c.spouse[S.level] === "no") return false;
+    if (S.work && c.work.n < 20) return false;
+    if (q) {
+      const hay = [c.name, c.code, c.capital, c.region, c.visa, c.lang, c.subjects.join(" "), c.unis.map(u => u[0]).join(" "), c.sch.list.map(x => x[0]).join(" "), c.cities.map(x => x[0] + " " + x[2]).join(" ")].join(" ").toLowerCase();
+      if (!q.split(/\s+/).every(w => hay.includes(w))) return false;
+    }
+    return true;
+  });
+  if (S.sort === "budget") list = list.slice().sort((a, b) => a.budget[0] - b.budget[0]);
+  if (S.sort === "funds") list = list.slice().sort((a, b) => a.funds.usd - b.funds.usd);
+  if (S.sort === "az") list = list.slice().sort((a, b) => a.name.localeCompare(b.name));
+  return list;
+}
+function ticket(c) {
+  const sp = SP[c.spouse[S.level]];
+  return `<a class="ticket" href="#${c.id}" aria-label="${esc(c.name)}: open the full guide">
+    <div class="t-main">
+      <div class="t-head">${FLAG(c.id, "md")}<div><h3>${esc(c.name)}<small>${esc(c.region)} · ${esc(c.capital)}</small></h3></div></div>
+      <p class="t-visa">${esc(c.visa)}</p>
+      <div class="t-stats">
+        <div><span>First year</span><b>${moneyShort(c.budget[0])}+</b></div>
+        <div><span>Show funds</span><b>≈${moneyShort(c.funds.usd)}</b></div>
+        <div><span>Work</span><b>${workShort(c)}</b></div>
+      </div>
+      <div class="t-foot"><span class="pill ${sp[1]}">${sp[0]}</span>${c.eng ? '<span class="pill line">Taught in English</span>' : ""}${c.budget[0] <= 15000 ? '<span class="pill line">Lower cost</span>' : ""}</div>
+    </div>
+    <div class="t-stub"><span class="t-code">${c.code}</span><div class="t-band"><b>${c.ielts[S.level].toFixed(1)}</b><span>IELTS</span></div><span class="t-go">Open →</span></div>
+  </a>`;
+}
+function drawGrid() {
+  const g = $("#grid"); if (!g) return;
+  const list = visible();
+  $("#grid").innerHTML = list.map(ticket).join("") || `<div class="empty" style="grid-column:1/-1">No country matches these filters. Clear a filter or widen your budget in the finder.</div>`;
+  $("#resN").textContent = list.length + (list.length === 1 ? " country" : " countries") + " · " + LV[S.level] + " view";
+  const f = $("#finderPill");
+  f.hidden = !S.finder;
+  if (S.finder) $("#finderTxt").textContent = `Finder: ${LV[S.level]} · IELTS ${S.band.toFixed(1)} · up to ${money(S.budget)}${S.spouse ? " · with spouse" : ""}`;
+  $$("[data-region]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.region === S.region)));
+  $$("[data-flag]").forEach(b => b.setAttribute("aria-pressed", String(!!S[b.dataset.flag])));
+  $$("[data-cur]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.cur === S.cur)));
+  $("#sort").value = S.sort;
+}
+
+/* ---------- money table + compare ---------- */
+function drawMoney() {
+  const mb = $("#moneyBody"); if (!mb) return;
+  $("#moneyBody").innerHTML = C.map(c => `<tr><th scope="row"><a href="#${c.id}">${FLAG(c.id, "xs")}${esc(c.name)}</a></th><td>${esc(c.funds.amt)}</td><td class="num">≈ ${money(c.funds.usd)}</td><td>${esc(c.funds.how)}</td><td>${esc(c.funds.held)}</td></tr>`).join("");
+  $("#rateNote").textContent = S.cur === "BDT" ? `Taka figures use about ৳${BDT_PER_USD} to US$1 (November 2026) and are rounded.` : "US dollar figures are rounded conversions of the official local-currency amounts.";
+}
+function drawCompare() {
+  const ct = $("#cmpTable"); if (!ct) return;
+  $$("#cmpPick select").forEach((s, i) => {
+    if (!s.options.length) s.innerHTML = C.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join("");
+    s.value = S.cmp[i];
+  });
+  const cs = S.cmp.map(id => BY[id]);
+  const rows = [
+    ["Visa", c => esc(c.visa)],
+    ["IELTS for " + LV[S.level].toLowerCase(), c => `<b class="mono">${c.ielts[S.level].toFixed(1)}</b>${c.ielts.note ? "<br><span class='note'>" + esc(c.ielts.note) + "</span>" : ""}`],
+    ["Tuition (" + LV[S.level].toLowerCase() + ")", c => esc(c.tuition[S.level])],
+    ["Living costs", c => esc(c.living)],
+    ["First-year budget", c => `<b class="mono">${range(c.budget[0], c.budget[1])}</b>`],
+    ["Bank statement to show", c => esc(c.funds.amt) + `<br><span class="note mono">≈ ${money(c.funds.usd)}</span>`],
+    ["How long funds are held", c => esc(c.funds.held)],
+    ["Work while studying", c => esc(c.work.term)],
+    ["After graduation", c => esc(c.work.post)],
+    ["Spouse (" + LV[S.level].toLowerCase() + ")", c => `<span class="pill ${SP[c.spouse[S.level]][1]}">${SP[c.spouse[S.level]][0]}</span>`],
+    ["Scholarships", c => `<span class="pill ${SC[c.sch.s][1]}">${SC[c.sch.s][0]}</span><br><span class="note">${esc(c.sch.list.slice(0, 2).map(x => x[0]).join("; "))}</span>`],
+    ["Intakes", c => esc(c.intakes)],
+    ["Visa fee", c => esc(c.fee)]
+  ];
+  $("#cmpTable").innerHTML = `<thead><tr><th></th>${cs.map(c => `<th scope="col">${esc(c.name)}</th>`).join("")}</tr></thead><tbody>` +
+    rows.map(([l, f]) => `<tr><th scope="row">${l}</th>${cs.map(c => `<td>${f(c)}</td>`).join("")}</tr>`).join("") +
+    `<tr><th scope="row">Full guide</th>${cs.map(c => `<td><a class="btn sm" href="#${c.id}">Open ${esc(c.name)}</a></td>`).join("")}</tr></tbody>`;
+}
+
+/* ---------- country dossier ---------- */
+const COMMON_DOCS = [
+  "Passport valid for at least six months beyond your course, with blank pages",
+  "Unconditional offer or admission letter",
+  "School certificates and transcripts, with certified English translations",
+  "IELTS test report form (keep the reference number handy)",
+  "Bank statements and a bank solvency certificate",
+  "Sponsor's affidavit of support with proof of income and tax",
+  "Statement of purpose or study plan",
+  "Passport-size photos in the embassy's format",
+  "Police clearance certificate",
+  "Health or travel insurance",
+  "Visa application form and fee receipt",
+  "Master's applicants: bachelor's degree, CV and two recommendation letters",
+  "If family is coming: marriage certificate and children's birth certificates"
+];
+function videoTopics(c) {
+  const n = c.name === "Türkiye" ? "Turkey" : c.name;
+  return [
+    ["Student visa, step by step", `${n} student visa ${YEAR} step by step for international students`],
+    ["Bank statement and proof of funds", `${n} student visa bank statement proof of funds ${YEAR}`],
+    ["Cost of living for students", `cost of living in ${n} for international students ${YEAR}`],
+    ["Applying for a bachelor's", `how to apply for bachelor's in ${n} international students`],
+    ["Applying for a master's", `how to apply for master's in ${n} international students`],
+    ["Part-time jobs", `part time jobs for international students in ${n}`],
+    ["Finding accommodation", `how to find student accommodation in ${n}`],
+    ["Bringing your spouse", `${n} student visa spouse dependent rules ${YEAR}`],
+    ["Scholarships", `${n} scholarships for international students ${YEAR}`],
+    ["Visa interview and refusals", `${n} student visa interview questions and rejection reasons`]
+  ];
+}
+function drawDetail(c) {
+  const dt = $("#detail"); if (!dt) return;
+  const i = C.indexOf(c), prev = C[(i + C.length - 1) % C.length], next = C[(i + 1) % C.length];
+  const n = c.name === "Türkiye" ? "Turkey" : c.name;
+  const lo = 6000, hi = 55000;
+  const pct = v => Math.max(0, Math.min(100, ((v - lo) / (hi - lo)) * 100));
+  const checked = store.get("docs-" + c.id, []);
+  const docs = COMMON_DOCS.map(d => [d, false]).concat(c.docs.map(d => [d, true]));
+  const secs = [["s-money", "Budget and bank statement"], ["s-sch", "Scholarships"], ["s-unis", "Universities"], ["s-cities", "Cities and jobs"], ["s-subjects", "Subjects"], ["s-docs", "Documents"], ["s-apply", "How to apply"], ["s-work", "Work rights"], ["s-housing", "Accommodation"], ["s-family", "Spouse and family"], ["s-links", "Official links"], ["s-videos", "Videos"]];
+  $("#detail").innerHTML = `
+  <div class="dossier-head"><div class="ghost" aria-hidden="true">${c.code}</div><div class="wrap">
+    <a class="back" href="#destinations">← All ${C.length} countries</a>
+    <div class="d-title">${FLAG(c.id, "lg")}<div><h1>${esc(c.name)}</h1><div class="meta">${c.code} · ${esc(c.region)} · Capital ${esc(c.capital)}</div></div></div>
+    <p class="d-pitch">${esc(c.pitch)}</p>
+    <div class="d-nav"><a href="#${prev.id}">← ${esc(prev.name)}</a><a href="#${next.id}">${esc(next.name)} →</a><a href="#compare">Compare countries</a></div>
+  </div></div>
+  <div class="wrap">
+    <div class="alerts">${c.alerts.map(a => `<div class="alert"><b>Check first</b><span>${esc(a)}</span></div>`).join("")}</div>
+    <div class="facts">
+      <div class="fact"><span>Visa</span><b>${esc(c.visa)}</b></div>
+      <div class="fact"><span>Intakes</span><b>${esc(c.intakes)}</b></div>
+      <div class="fact"><span>Teaching language</span><b>${esc(c.lang)}</b></div>
+      <div class="fact"><span>IELTS you need</span><b>Bachelor's ${c.ielts.ug.toFixed(1)} · Master's ${c.ielts.pg.toFixed(1)}${c.ielts.note ? `<br><span class="note">${esc(c.ielts.note)}</span>` : ""}</b></div>
+      <div class="fact"><span>Tuition, bachelor's</span><b>${esc(c.tuition.ug)}</b></div>
+      <div class="fact"><span>Tuition, master's</span><b>${esc(c.tuition.pg)}</b></div>
+      <div class="fact"><span>Living costs</span><b>${esc(c.living)}</b></div>
+      <div class="fact"><span>Visa fee</span><b>${esc(c.fee)}</b></div>
+    </div>
+  </div>
+  <div class="rail"><div class="wrap">${secs.map(([id, l]) => `<button type="button" data-jump="${id}">${l}</button>`).join("")}</div></div>
+  <div class="wrap d-body">
+    <section class="sec" id="s-money"><header><h2>Budget and bank statement</h2>${ytBtn("Proof of funds explained", `${n} student visa bank statement proof of funds ${YEAR}`)}</header>
+      <div class="two">
+        <div class="money"><div class="eyebrow">Typical first-year budget</div><div class="big">${range(c.budget[0], c.budget[1])}</div>
+          <small>Tuition, living costs, visa and insurance on the affordable route. An estimate to plan with, not an official figure.</small>
+          <div class="meter" aria-hidden="true"><i style="left:${pct(c.budget[0])}%;width:${Math.max(3, pct(c.budget[1]) - pct(c.budget[0]))}%"></i></div>
+          <div class="meter-lab" aria-hidden="true"><span>${money(lo)}</span><span>across all ${C.length} countries</span><span>${money(hi)}</span></div>
+        </div>
+        <dl class="kv">
+          <div><dt>Bank statement: amount to show</dt><dd>${esc(c.funds.amt)} <span class="note mono">(≈ ${money(c.funds.usd)})</span></dd></div>
+          <div><dt>How you show it</dt><dd>${esc(c.funds.how)}</dd></div>
+          <div><dt>Maturity: how long the money must be held</dt><dd>${esc(c.funds.held)}</dd></div>
+          <div><dt>Solvency and sponsor notes</dt><dd>${esc(c.funds.solv)}</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="sec" id="s-sch"><header><h2>Scholarships</h2>${ytBtn("Scholarship guides", `${n} scholarships for international students ${YEAR}`)}</header>
+      <div class="fam"><span class="pill ${SC[c.sch.s][1]}">${SC[c.sch.s][0]}</span></div>
+      <p style="max-width:62em;margin-bottom:16px">${esc(c.sch.t)}</p>
+      <div class="cards">${c.sch.list.map(x => `<div class="card"><h3>${esc(x[0])}</h3><p>${esc(x[2])}</p><a class="more ext" href="${esc(x[1])}" target="_blank" rel="noopener">Apply or read more: ${esc(host(x[1]))}</a><div>${ytBtn("How to apply", x[0] + " scholarship how to apply " + YEAR)}</div></div>`).join("")}</div>
+      <p class="note" style="margin-top:12px">Deadlines and amounts change every year. The scholarship's own page is the final word.</p>
+    </section>
+    <section class="sec" id="s-unis"><header><h2>Affordable universities</h2>${ytBtn("University reviews", `affordable universities in ${n} for international students`)}</header>
+      <div class="cards">${c.unis.map(u => `<div class="card"><h3>${esc(u[0])}</h3><span class="cost">${esc(u[2])}</span><a class="more ext" href="${esc(u[1])}" target="_blank" rel="noopener">${esc(host(u[1]))}</a></div>`).join("")}</div>
+      <p class="note" style="margin-top:12px">Fees are indicative for international students and vary by program. Confirm on the university's fee page before you apply.</p>
+    </section>
+    <section class="sec" id="s-cities"><header><h2>Affordable cities and the jobs in them</h2>${ytBtn("Part-time jobs", `part time jobs for international students in ${n}`)}</header>
+      <div class="cards">${c.cities.map(x => `<div class="card"><h3>${esc(x[0])}</h3><span class="cost">${esc(x[1])} a month</span><p>${esc(x[2])}</p></div>`).join("")}</div>
+      <h3 style="margin-top:18px">Where to look for work</h3>${linkList(c.jobs)}
+    </section>
+    <section class="sec" id="s-subjects"><header><h2>Most in-demand subjects</h2>${ytBtn("Best courses", `best courses to study in ${n} for jobs ${YEAR}`)}</header>
+      <div class="tags">${c.subjects.map(s => `<span>${esc(s)}</span>`).join("")}</div>
+    </section>
+    <section class="sec" id="s-docs"><header><h2>Required documents</h2><span class="pill line" id="docCount"></span></header>
+      <ul class="checklist">${docs.map((d, k) => `<li class="${d[1] ? "x" : ""}"><label><input type="checkbox" data-doc="${k}" ${checked.includes(k) ? "checked" : ""}><span>${esc(d[0])}</span></label></li>`).join("")}</ul>
+      <p class="note" style="margin-top:12px">Ticks are saved in this browser only. The embassy's own checklist for your country is the final word.</p>
+    </section>
+    <section class="sec" id="s-apply"><header><h2>How to apply</h2><div class="seg" role="group" aria-label="Level"><button type="button" data-level="ug">Bachelor's</button><button type="button" data-level="pg">Master's</button></div></header>
+      <ol class="steps">${c[S.level].map(s => `<li><span>${esc(s)}</span></li>`).join("")}</ol>
+      <div class="linkrow" style="margin-top:16px">${ytBtn(LV[S.level] + " application walkthrough", `how to apply for ${S.level === "ug" ? "bachelor's" : "master's"} in ${n} international students`)}${ytBtn("Visa, step by step", `${n} student visa ${YEAR} step by step`)}</div>
+    </section>
+    <section class="sec" id="s-work"><header><h2>Work rights</h2></header>
+      <dl class="kv two"><div><dt>While you study</dt><dd>${esc(c.work.term)}</dd></div><div><dt>After you graduate</dt><dd>${esc(c.work.post)}</dd></div></dl>
+    </section>
+    <section class="sec" id="s-housing"><header><h2>Finding accommodation</h2>${ytBtn("Housing tips", `how to find student accommodation in ${n}`)}</header>
+      <p style="margin-bottom:14px;max-width:62em">${esc(c.housing.tip)}</p>${linkList(c.housing.links)}
+    </section>
+    <section class="sec" id="s-family"><header><h2>Spouse and family</h2>${ytBtn("Dependant rules", `${n} student visa spouse dependent rules ${YEAR}`)}</header>
+      <div class="fam"><span class="pill ${SP[c.spouse.ug][1]}">Bachelor's: ${SPS[c.spouse.ug]}</span><span class="pill ${SP[c.spouse.pg][1]}">Master's: ${SPS[c.spouse.pg]}</span></div>
+      <p style="max-width:62em">${esc(c.spouse.t)}</p>
+    </section>
+    <section class="sec" id="s-links"><header><h2>Official links</h2></header>${linkList(c.links)}</section>
+    <section class="sec" id="s-videos"><header><h2>Videos on YouTube</h2></header>
+      <p class="note" style="margin-bottom:12px">Each button opens a YouTube search for that topic, so you always see the most recent videos. Prefer official channels and check the upload date.</p>
+      <div class="linkrow">${videoTopics(c).map(v => ytBtn(v[0], v[1])).join("")}</div>
+    </section>
+    <div class="nextprev"><a class="btn ghost" href="#${prev.id}">← ${esc(prev.name)}</a><a class="btn ghost" href="#destinations">All countries</a><a class="btn ghost" href="#${next.id}">${esc(next.name)} →</a></div>
+  </div>`;
+  $$("#detail [data-level]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.level === S.level)));
+  docCount(c);
+  document.title = c.name + " · IELTS Warrior";
+}
+function docCount(c) {
+  const all = $$("#detail [data-doc]"), done = all.filter(x => x.checked);
+  $("#docCount").textContent = done.length + " of " + all.length + " ready";
+  store.set("docs-" + c.id, done.map(x => +x.dataset.doc));
+}
+
+/* ---------- routing ---------- */
+let current = null;
+function route() {
+  if (!saView() || !saView().classList.contains('active-view')) return;
+  const h = decodeURIComponent(location.hash.slice(1));
+  const c = BY[h];
+  if (c) {
+    current = c; drawDetail(c);
+    $("#home").hidden = true; $("#detail").hidden = false;
+    window.scrollTo({ top: 0, behavior: "instant" });
+  } else {
+    current = null; $("#detail").hidden = true; $("#home").hidden = false;
+    document.title = "IELTS Warrior";
+    const t = h && document.getElementById(h);
+    if (t) t.scrollIntoView();
+  }
+}
+function redraw() {
+  drawFinder(); drawGrid(); drawMoney(); drawCompare();
+  if (current) { const y = window.scrollY; drawDetail(current); window.scrollTo({ top: y, behavior: "instant" }); }
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  if (!saView() || !saView().classList.contains('active-view')) return;
+  const t = e.target.closest("button,a");
+  if (!t) return;
+  if (t.dataset.level) { S.level = t.dataset.level; store.set("level", S.level); redraw(); }
+  else if (t.dataset.band) { S.band = parseFloat(t.dataset.band); drawFinder(); if (S.finder) drawGrid(); }
+  else if (t.dataset.cur) { S.cur = t.dataset.cur; store.set("cur", S.cur); redraw(); }
+  else if (t.dataset.region) { S.region = t.dataset.region; drawGrid(); }
+  else if (t.dataset.flag) { S[t.dataset.flag] = !S[t.dataset.flag]; drawGrid(); }
+  else if (t.dataset.jump) { const el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView(); }
+  else if (t.id === "go") { S.finder = true; drawGrid(); $("#destinations").scrollIntoView(); }
+  else if (t.id === "finderOff") { S.finder = false; drawGrid(); }
+  else if (t.id === "reset") { Object.assign(S, { q: "", region: "All", low: false, eng: false, fam: false, work: false, finder: false, sort: "pop" }); $("#q").value = ""; drawGrid(); }
+});
+document.addEventListener("input", e => {
+  if (!saView() || !saView().classList.contains('active-view')) return;
+  const t = e.target;
+  if (t.id === "budget") { S.budget = +t.value; drawFinder(); if (S.finder) drawGrid(); }
+  else if (t.id === "q") { S.q = t.value; drawGrid(); }
+});
+document.addEventListener("change", e => {
+  if (!saView() || !saView().classList.contains('active-view')) return;
+  const t = e.target;
+  if (t.id === "spouse") { S.spouse = t.checked; drawFinder(); if (S.finder) drawGrid(); }
+  else if (t.id === "sort") { S.sort = t.value; drawGrid(); }
+  else if (t.dataset.cmp) { S.cmp[+t.dataset.cmp] = t.value; drawCompare(); }
+  else if (t.dataset.doc && current) docCount(current);
+});
+window.addEventListener("hashchange", route);
+
+/* ---------- announcements ---------- */
+const ANN = { db: null, canEdit: false, items: [], state: "loading", busy: false, confirm: null };
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const today = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const validDate = s => typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s);
+function el(tag, cls, text) { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; }
+function sortedAnn() {
+  const t = today();
+  const rank = a => (a.pinned ? 0 : 1) + (validDate(a.date) && a.date < t ? 2 : 0);
+  return ANN.items.slice().sort((a, b) => rank(a) - rank(b) || (validDate(a.date) ? a.date : "9999").localeCompare(validDate(b.date) ? b.date : "9999") || (b.createdAt || 0) - (a.createdAt || 0));
+}
+const AD = "Agency ad";
+function annCard(a, t) {
+  const ad = a.type === AD;
+  const card = el("article", "notice" + (a.pinned ? " pin" : ""));
+  const box = el("div", "datebox");
+  if (ad) { box.appendChild(el("span", "", "Ad")); box.appendChild(el("b", "", (Array.from(String(a.title || "A").trim())[0] || "A").toUpperCase())); }
+  else if (validDate(a.date)) { box.appendChild(el("span", "", MON[+a.date.slice(5, 7) - 1] + " " + a.date.slice(2, 4))); box.appendChild(el("b", "", String(+a.date.slice(8, 10)))); }
+  else { box.appendChild(el("span", "", "Date")); box.appendChild(el("b", "", "TBA")); box.lastChild.style.fontSize = ".9rem"; box.lastChild.style.lineHeight = "2.2"; }
+  const body = el("div");
+  const tags = el("div", "t-foot");
+  tags.appendChild(el("span", "pill", ad ? "Sponsored" : String(a.type || "Notice").slice(0, 24)));
+  if (a.pinned && !ad) tags.appendChild(el("span", "pill line", "Pinned"));
+  if (!ad && validDate(a.date) && a.date < t) tags.appendChild(el("span", "pill no", "Started"));
+  body.appendChild(tags);
+  body.appendChild(el("h3", "", String(a.title || "Untitled").slice(0, 120)));
+  if (a.body) body.appendChild(el("p", "", String(a.body).slice(0, 800)));
+  if (ad && a.contact) { const c = el("p", "", String(a.contact).slice(0, 120)); c.style.fontWeight = "700"; c.style.color = "var(--ink)"; c.style.marginTop = "6px"; body.appendChild(c); }
+  const acts = el("div", "acts");
+  if (typeof a.link === "string" && /^https?:\/\//i.test(a.link)) { const l = el("a", "btn sm", ad ? "Visit website" : "Register or learn more"); l.href = a.link; l.target = "_blank"; l.rel = ad ? "noopener sponsored" : "noopener"; acts.appendChild(l); }
+  if (ANN.canEdit && ANN.db) {
+    if (ANN.confirm === a.id) {
+      const y = el("button", "btn sm ink", "Yes, delete"); y.type = "button"; y.onclick = () => delAnn(a.id);
+      const n = el("button", "btn sm ghost", "Keep"); n.type = "button"; n.onclick = () => { ANN.confirm = null; drawAnn(); };
+      acts.appendChild(y); acts.appendChild(n);
+    } else { const d = el("button", "btn sm ghost", "Delete"); d.type = "button"; d.onclick = () => { ANN.confirm = a.id; drawAnn(); }; acts.appendChild(d); }
+  }
+  if (acts.childNodes.length) body.appendChild(acts);
+  card.appendChild(box); card.appendChild(body);
+  return card;
+}
+function drawAnn() {
+  const board = $("#board"), strip = $("#strip"), adsWrap = $("#adsWrap"), adsBox = $("#ads");
+  if (!board || !adsBox) return;
+  board.textContent = ""; adsBox.textContent = "";
+  const all = sortedAnn(), list = all.filter(a => a.type !== AD), ads = all.filter(a => a.type === AD), t = today();
+  const own = $("#owner"); if (own) own.hidden = !(ANN.canEdit && ANN.db);
+  ads.forEach(a => adsBox.appendChild(annCard(a, t)));
+  adsWrap.hidden = !ads.length;
+  if (!list.length) {
+    const msg = { loading: "Checking for announcements…", slow: "Announcements are taking a while to load. They will appear here when the connection answers.", off: "Announcements can't be loaded right now. Refresh the page later, or contact IELTS Warrior for the next batch dates.", ready: ANN.canEdit ? "Nothing posted yet. Use the form below to announce your next course." : "No upcoming courses are announced yet. Check back soon." }[ANN.state];
+    board.appendChild(el("div", "empty", msg));
+    board.firstChild.style.gridColumn = "1/-1";
+    strip.hidden = true;
+    return;
+  }
+  list.forEach(a => board.appendChild(annCard(a, t)));
+  const top = list[0];
+  $("#stripTag").textContent = String(top.type || "Notice").slice(0, 24);
+  $("#stripTxt").textContent = String(top.title || "").slice(0, 120) + (validDate(top.date) ? " · " + +top.date.slice(8, 10) + " " + MON[+top.date.slice(5, 7) - 1] + " " + top.date.slice(0, 4) : "");
+  strip.hidden = false;
+}
+function say(text, good) { const m = $("#annMsg"); m.textContent = text; m.className = "msg " + (good ? "good" : "err"); }
+async function delAnn(id) {
+  if (ANN.busy || !ANN.db) return;
+  ANN.busy = true; ANN.confirm = null;
+  try { await ANN.db.collection("announcements").doc(id).delete(); say("Announcement deleted.", true); }
+  catch (e) { say("Could not delete it. Check your connection and try again.", false); }
+  ANN.busy = false; drawAnn();
+}
+async function postAnn(e) {
+  e.preventDefault();
+  if (ANN.busy || !ANN.db) return;
+  const title = $("#annTitle").value.trim(), body = $("#annBody").value.trim(), date = $("#annDate").value, link = $("#annLink").value.trim();
+  if (!title) { say("Add a title before posting.", false); $("#annTitle").focus(); return; }
+  if (link && !/^https?:\/\//i.test(link)) { say("The link must start with http:// or https://", false); $("#annLink").focus(); return; }
+  ANN.busy = true; $("#annPost").disabled = true; say("Posting…", true);
+  try {
+    await ANN.db.collection("announcements").add({ title: title.slice(0, 120), body: body.slice(0, 800), date: validDate(date) ? date : "", type: $("#annType").value, contact: $("#annContact").value.trim().slice(0, 120), link, pinned: $("#annPin").checked, createdAt: Date.now() });
+    $("#annForm").reset(); say("Posted. Everyone who can open this page now sees it.", true);
+  } catch (err) { say("Could not post. Only the page owner and editors can post announcements.", false); }
+  ANN.busy = false; $("#annPost").disabled = false;
+}
+async function loadAnnWeb() {
+  const timer = setTimeout(() => { if (ANN.state === "loading") { ANN.state = "slow"; drawAnn(); } }, 10000);
+  try {
+    const r = await fetch(window.ANN_API, { cache: "no-store", headers: { Accept: "application/json" } });
+    if (!r.ok) throw new Error(String(r.status));
+    const j = await r.json();
+    ANN.items = Array.isArray(j.items) ? j.items.filter(a => a && typeof a === "object" && a.id) : [];
+    ANN.state = "ready";
+  } catch (e) { ANN.state = ANN.items.length ? "ready" : "off"; }
+  clearTimeout(timer); drawAnn();
+}
+async function initAnn() {
+  drawAnn();
+  if (window.ANN_API) return loadAnnWeb();
+  $("#annForm").addEventListener("submit", postAnn);
+  let db = null, user = null;
+  try { if (window.claude && typeof window.claude.use === "function") { const r = await Promise.all([window.claude.use("db"), window.claude.use("user")]); db = r[0]; user = r[1]; } } catch (e) {}
+  if (user) { try { ANN.canEdit = !!(await user.canEdit()); } catch (e) {} }
+  if (!db) { ANN.state = "off"; drawAnn(); return; }
+  ANN.db = db;
+  const timer = setTimeout(() => { if (ANN.state === "loading") { ANN.state = "slow"; drawAnn(); } }, 10000);
+  try {
+    db.collection("announcements").onSnapshot(snap => {
+      if (!snap.metadata || !snap.metadata.fromCache) clearTimeout(timer);
+      ANN.items = snap.docs.map(d => Object.assign({}, d.data(), { id: d.id }));
+      ANN.state = "ready"; drawAnn();
+    }, () => { clearTimeout(timer); ANN.state = ANN.items.length ? "ready" : "off"; drawAnn(); });
+  } catch (e) { clearTimeout(timer); ANN.state = "off"; drawAnn(); }
+}
+
+function boot() {
+  const sa = saView();
+  if (!sa) return;
+  const links = C.reduce((n, c) => n + c.unis.length + c.links.length + c.jobs.length + c.housing.links.length, 0);
+  const stC = $("#stCountries"); if (stC) stC.textContent = C.length;
+  const stU = $("#stUnis"); if (stU) stU.textContent = C.reduce((n, c) => n + c.unis.length, 0);
+  const stCi = $("#stCities"); if (stCi) stCi.textContent = C.reduce((n, c) => n + c.cities.length, 0);
+  const stL = $("#stLinks"); if (stL) stL.textContent = links;
+  const ribEl = $("#ribbon");
+  if (ribEl) {
+    const rib = C.map(c => `<a href="#${c.id}" onclick="window.studyAbroadApp.openCountry('${c.id}'); return false;">${FLAG(c.id, "xs")}${esc(c.name)}</a>`).join("");
+    ribEl.innerHTML = rib + rib.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ');
+  }
+  const ieltsV = $("#ieltsVideos");
+  if (ieltsV) {
+    ieltsV.innerHTML = [
+      ["Writing Task 2, band 7+", "IELTS Academic writing task 2 band 7 tips " + YEAR],
+      ["Writing Task 1 charts", "IELTS Academic writing task 1 graph description band 7"],
+      ["Speaking Part 2 samples", "IELTS speaking part 2 cue card band 8 sample answer"],
+      ["Listening practice test", "IELTS listening practice test with answers " + YEAR],
+      ["Reading: finishing on time", "IELTS reading tips true false not given time management"],
+      ["IELTS or IELTS for UKVI?", "difference between IELTS Academic and IELTS for UKVI"],
+      ["One Skill Retake", "IELTS One Skill Retake explained"]
+    ].map(v => ytBtn(v[0], v[1])).join("");
+  }
+  redraw(); route(); initAnn();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
+
+
+
+  // Export public API to window
+  window.studyAbroadApp = {
+    getCountries: function() { return C; },
+    getFlag: function(id, size) { return FLAG(id, size); },
+    showHome: function(secId) {
+      current = null;
+      const homeEl = $('#home');
+      const detailEl = $('#detail');
+      if (detailEl) detailEl.hidden = true;
+      if (homeEl) homeEl.hidden = false;
+      if (secId) {
+        const el = saView() ? saView().querySelector('#' + secId) : document.getElementById(secId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
+    openCountry: function(countryId) {
+      const c = BY[countryId];
+      if (c) {
+        current = c;
+        drawDetail(c);
+        const homeEl = $('#home');
+        const detailEl = $('#detail');
+        if (homeEl) homeEl.hidden = true;
+        if (detailEl) detailEl.hidden = false;
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    },
+    scrollToSec: function(secId) {
+      if (current) {
+        this.showHome(secId);
+      } else {
+        const el = saView() ? saView().querySelector('#' + secId) : document.getElementById(secId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    redraw: function() {
+      redraw();
+    },
+    boot: function() {
+      boot();
+    }
+  };
+})();

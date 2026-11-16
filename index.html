@@ -7,8 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1794468800000">
+  <link rel="stylesheet" href="css/style.css?v=2026111608">
   <link rel="stylesheet" href="css/reading_trainer.css?v=1794468800000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wdth,wght@75..125,400..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/pre_ielts.css?v=2026111606">
+  <link rel="stylesheet" href="css/study_abroad.css?v=2026111602">
   <link rel="icon" type="image/png" href="assets/images/ielts-warrior-favicon.png?v=7">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=7">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png?v=7">
@@ -28,6 +33,7 @@
       <ul>
         <li><a href="#skills" onclick="window.ieltsApp.navigateToHomeSection('skills'); return false;">Skills</a></li>
         <li><a href="#practice" onclick="window.ieltsApp.showIeltsPracticeView(); return false;">Practice</a></li>
+        <li><a href="#study-abroad" onclick="window.ieltsApp.showStudyAbroadView(); return false;">Study Abroad</a></li>
         <li><a href="#resources" onclick="window.ieltsApp.navigateToHomeSection('resources'); return false;">Resources</a></li>
         <li><a href="#community-feedback" onclick="window.ieltsApp.navigateToHomeSection('community-feedback'); return false;">Feedback</a></li>
         <li><a href="#contact" onclick="window.ieltsApp.navigateToHomeSection('contact'); return false;">Contact</a></li>
@@ -167,6 +173,40 @@
     </section>
 
     <!-- ========================================================================
+         STUDY ABROAD FEATURE SHOWCASE BANNER (AIRPLANE ARTWORK & CTA)
+         ======================================================================== -->
+    <section class="sa-home-section" id="study-abroad-showcase">
+      <div class="wrap">
+        <div class="sa-showcase-card">
+          <div class="sa-showcase-bg">
+            <img src="assets/images/study-abroad-banner.jpg?v=2026111602" alt="Study Abroad — Flight to Your Dream Destination" class="sa-showcase-img">
+          </div>
+          <div class="sa-showcase-content">
+            <div class="sa-showcase-inner">
+              <span class="sa-showcase-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                35 COUNTRIES · 2026–2027
+              </span>
+              <h2 class="sa-showcase-title">Study Abroad</h2>
+              <p class="sa-showcase-desc">
+                Your band score is a boarding pass. Explore 35 countries with complete visa rules, bank statement maturity, affordable universities &amp; post-study work rights.
+              </p>
+              <div class="sa-showcase-chips">
+                <span class="sa-chip"><b>35</b> Countries</span>
+                <span class="sa-chip"><b>140+</b> Universities</span>
+                <span class="sa-chip"><b>Funds</b> Rules</span>
+              </div>
+              <button type="button" class="sa-showcase-btn" onclick="window.ieltsApp.showStudyAbroadView();">
+                <span>Explore Study Abroad</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
          COMMUNITY REACH & FEEDBACK SECTION (Tell us what you think)
          ======================================================================== -->
     <section class="community-feedback-section" id="community-feedback" style="background-color: #0e332d !important; background: radial-gradient(circle at 50% 65%, rgba(20, 184, 166, 0.22) 0%, rgba(19, 66, 56, 0.75) 45%, #0e332d 92%) !important; color: #ffffff !important;">
@@ -269,7 +309,7 @@
     <!-- ========================================================================
          FOOTER (Exact Replica of User Reference Image 2)
          ======================================================================== -->
-    <footer>
+    <footer class="app-global-footer">
       <div class="wrap">
         <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
         <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
@@ -1264,139 +1304,200 @@
   </div>
 
   <div id="grammar-view" class="view-screen">
-    <header class="reader-header">
-      <div class="reader-header-left">
-        <button class="home-nav-btn" id="grammar-back-nav-btn" onclick="window.ieltsApp.handleGrammarBackNav()"><span>&larr; Back to Home</span></button>
-        <h2 id="grammar-header-title" style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Grammar Mastery Hub</h2>
-      </div>
-      <div class="header-actions">
-        <button class="btn main" onclick="window.ieltsApp.showGrammarVideoResources()" style="font-size:0.8rem; font-weight:800; padding:6px 14px; background:#e11d48; border-color:#e11d48; color:#fff; box-shadow:0 2px 8px rgba(225,29,72,0.3); display:inline-flex; align-items:center; gap:6px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video Resources (17 Classes)</span>
+    <!-- Complete 60-Day Pre-IELTS Foundation Programme Container -->
+    <div id="preielts-app"></div>
+
+    <!-- TIER 3: GRAMMAR VIDEO RESOURCES & PDFS PORTAL -->
+    <div id="grammar-video-resources-view" style="display:none; padding: 24px 0 60px 0;">
+      <!-- Portal Header Banner -->
+      <div class="wrap" style="padding-bottom: 20px;">
+        <button class="btn alt" onclick="window.ieltsApp.returnToGrammarTopics()" style="margin-bottom:16px; font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+          <span>&larr; Back to 60-Day Programme</span>
         </button>
-        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('basic_grammar')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Parts of Speech Guide</button>
-        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('time_prepositions')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Prepositions Clock</button>
+      </div>
+      <div class="sec-head" style="text-align:center; max-width:840px; margin:0 auto 32px auto; padding:0 16px; display:block;">
+        <span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; letter-spacing:1px; margin-bottom:12px; display:inline-block; padding:6px 18px; border-radius:999px; text-transform:uppercase; font-size:0.75rem;">VIDEO VAULT &amp; LECTURE NOTES</span>
+        <h2 style="font-size:2.05rem; font-weight:800; color:#0e332d; margin:0 0 10px;">IELTS Grammar Video Resources</h2>
+        <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
+          Watch complete video lecture recordings and download the exact lecture handouts, rules sheets, and practice PDFs for each class.
+        </p>
+      </div>
+
+      <!-- Filter tabs for Video Classes -->
+      <div class="writing-mode-tabs" style="margin:0 auto 32px auto; max-width:720px;">
+        <button class="mode-tab-btn active" id="btn-gvideo-all" onclick="window.ieltsApp.filterGrammarVideos('all')">All Classes (17)</button>
+        <button class="mode-tab-btn" id="btn-gvideo-foundation" onclick="window.ieltsApp.filterGrammarVideos('foundation')">Foundation (1–5)</button>
+        <button class="mode-tab-btn" id="btn-gvideo-core" onclick="window.ieltsApp.filterGrammarVideos('core')">Tenses &amp; Voice (6–9)</button>
+        <button class="mode-tab-btn" id="btn-gvideo-advanced" onclick="window.ieltsApp.filterGrammarVideos('advanced')">Clauses &amp; Modals (10–14)</button>
+        <button class="mode-tab-btn" id="btn-gvideo-speech" onclick="window.ieltsApp.filterGrammarVideos('speech')">Speech &amp; Syntax (15–17)</button>
+      </div>
+
+      <!-- 17 Video Class Cards Grid (3 Cards Per Row Vocabulary Style) -->
+      <div class="wrap">
+        <div class="topics-grid" id="grammar-video-cards-grid"></div>
+      </div>
+    </div>
+
+    <footer class="app-global-footer">
+      <div class="wrap">
+        <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
+        <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
+        <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================
+       STUDY ABROAD VIEW (MOKTADIR'S STUDY ABROAD DESK 100% REPLICA)
+       ======================================================================== -->
+  <div id="study-abroad-view" class="view-screen">
+    <header class="sa-global-nav" id="sa-nav">
+      <div class="wrap">
+        <div class="sa-nav-left">
+          <button type="button" class="sa-back-btn" onclick="window.ieltsApp.showHomeView(); return false;">
+            <span>&larr; Back to Home</span>
+          </button>
+          <a href="#top" class="brand nav-logo-link" onclick="window.ieltsApp.showHomeView(); return false;" aria-label="IELTS Warrior, home">
+            <img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="nav-logo-img">
+          </a>
+        </div>
+        <ul class="sa-nav-links" aria-label="Sections">
+          <li><a href="#destinations" onclick="window.studyAbroadApp.scrollToSec('destinations'); return false;">Countries</a></li>
+          <li><a href="#money" onclick="window.studyAbroadApp.scrollToSec('money'); return false;">Bank statement</a></li>
+          <li><a href="#compare" onclick="window.studyAbroadApp.scrollToSec('compare'); return false;">Compare</a></li>
+          <li><a href="#plan" onclick="window.studyAbroadApp.scrollToSec('plan'); return false;">Timeline</a></li>
+          <li><a href="#announcements" onclick="window.studyAbroadApp.scrollToSec('announcements'); return false;">Announcements</a></li>
+        </ul>
+        <div class="sa-nav-right">
+          <div class="seg sm sa-cur-seg" role="group" aria-label="Show costs in">
+            <button type="button" data-cur="USD">US$</button>
+            <button type="button" data-cur="BDT">BDT ৳</button>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
-      <!-- TIER 1: TOPIC CARDS HUB (VOCABULARY CARD STYLE) -->
-      <div id="grammar-topics-hub">
-        <!-- FEATURED GRAMMAR VIDEO MASTERCLASS HERO CARD -->
-        <div class="grammar-video-hero-card" onclick="window.ieltsApp.showGrammarVideoResources()">
-          <div class="grammar-video-hero-left">
-            <span class="video-kicker-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M8 5v14l11-7z"/></svg> OFFICIAL GRAMMAR MASTERCLASS</span>
-            <h3 class="grammar-video-hero-title">IELTS Grammar Video Resources &amp; Lecture PDFs</h3>
-            <p class="grammar-video-hero-desc">
-              17 Comprehensive Live Class Recordings with 21 video lectures and 30+ official downloadable lecture sheets &amp; practice PDFs covering pronouns, tenses, clauses, conditionals, passive voice, and pronunciation.
-            </p>
-          </div>
-          <div class="grammar-video-hero-right">
-            <button class="grammar-video-hero-btn" onclick="event.stopPropagation(); window.ieltsApp.showGrammarVideoResources()">
-              <span>Explore 17 Video Classes &amp; PDFs</span>
-              <span>&rarr;</span>
-            </button>
-          </div>
-        </div>
+<div class="strip" id="strip" hidden><div class="wrap"><span class="tag" id="stripTag">Course</span><span id="stripTxt"></span><a href="#announcements">See all announcements</a></div></div>
 
-        <div class="sec-head" style="text-align:center; max-width:840px; margin:36px auto 28px auto; padding:0 16px; display:block;">
-          <h2 style="font-size:2rem; font-weight:800; color:#0e332d; margin:0 0 10px;">8 Essential IELTS Grammar Topics</h2>
-          <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
-            Master high-scoring grammatical structures for IELTS Band 7.5–9.0. Each module includes in-depth rules, formulas, common pitfalls, and 15 targeted gap-fill practice questions with instant checking and full explanations.
-          </p>
-        </div>
-
-        <div class="topics-grid" id="grammar-topics-grid"></div>
-      </div>
-
-      <!-- TIER 2: TOPIC STUDY & PRACTICE DETAIL VIEW -->
-      <div id="grammar-detail-view" style="display:none;">
-        <!-- Top Nav & Header -->
-        <div style="margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
-          <button class="btn alt" onclick="window.ieltsApp.returnToGrammarTopics()" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
-            <span>&larr; Back to All Grammar Topics</span>
-          </button>
-          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <span id="grammar-topic-status-pill" style="font-size:0.82rem; font-weight:800; padding:6px 14px; border-radius:20px; background:#f1f5f9; color:#475569;">Incomplete</span>
-            <button class="btn main" id="grammar-topic-toggle-btn" onclick="window.ieltsApp.toggleCurrentTopicComplete()" style="font-size:0.85rem; font-weight:800; padding:7px 16px;">
-              Mark as Complete
-            </button>
-          </div>
-        </div>
-
-        <!-- Topic Banner Box -->
-        <div id="grammar-topic-banner-box" style="background:#fff; border:1.5px solid #e2e8f0; border-radius:18px; padding:28px; margin-bottom:28px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
-          <!-- Injected dynamically: title, category tag, level, summary -->
-        </div>
-
-        <!-- Mode Navigation Tabs: Rules Guide vs Gap-Fill Practice -->
-        <div class="writing-mode-tabs" style="margin-bottom:28px; max-width:540px;">
-          <button class="mode-tab-btn active" id="btn-grammar-tab-rules" onclick="window.ieltsApp.switchGrammarTab('rules')">
-            <span>📘 Details &amp; Easy Rules</span>
-          </button>
-          <button class="mode-tab-btn" id="btn-grammar-tab-practice" onclick="window.ieltsApp.switchGrammarTab('practice')">
-            <span>✍️ Gap-Fill Practice (15 Qs)</span>
-          </button>
-        </div>
-
-        <!-- Tab 1: Rules & Details Guide -->
-        <div id="grammar-rules-tab-content">
-          <div id="grammar-rules-content-body"></div>
-        </div>
-
-        <!-- Tab 2: Gap-Fill Practice Questions -->
-        <div id="grammar-practice-tab-content" style="display:none;">
-          <div id="grammar-practice-score-card" style="display:none; margin-bottom:24px;"></div>
-          <div id="grammar-gap-questions-list" style="display:flex; flex-direction:column; gap:20px;"></div>
-
-          <!-- Bottom Action Bar -->
-          <div id="grammar-practice-submit-bar" style="margin-top:36px; padding:24px; background:#ffffff; border:2px solid #e2e8f0; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-            <div>
-              <div id="grammar-practice-answered-text" style="font-size:1.05rem; font-weight:800; color:#0f172a;">You have answered <span id="grammar-gap-answered-count">0</span> of 15 questions</div>
-              <p style="margin:4px 0 0; font-size:0.88rem; color:#64748b;">Select an option for each sentence blank, then submit to check your score and detailed grammatical explanations.</p>
-            </div>
-            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-              <button class="btn alt" onclick="window.ieltsApp.resetCurrentTopicPractice()" style="font-weight:700;">Reset Answers</button>
-              <button class="btn main" id="grammar-gap-submit-btn" onclick="window.ieltsApp.submitCurrentTopicPractice()" style="padding:14px 32px; font-size:1.05rem; font-weight:900; background:#0e332d; border-color:#0e332d; box-shadow:0 6px 18px rgba(14,51,45,0.25);">
-                <span>Submit &amp; Check Answers &rarr;</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TIER 3: GRAMMAR VIDEO RESOURCES & PDFS PORTAL -->
-      <div id="grammar-video-resources-view" style="display:none;">
-        <!-- Portal Header Banner -->
-        <div class="sec-head" style="text-align:center; max-width:840px; margin:20px auto 32px auto; padding:0 16px; display:block;">
-          <span class="pill" style="background:#0e332d; color:#f59e0b; font-weight:800; letter-spacing:1px; margin-bottom:12px; display:inline-block; padding:6px 18px; border-radius:999px; text-transform:uppercase; font-size:0.75rem;">VIDEO VAULT &amp; LECTURE NOTES</span>
-          <h2 style="font-size:2.05rem; font-weight:800; color:#0e332d; margin:0 0 10px;">IELTS Grammar Video Resources</h2>
-          <p style="color:var(--muted); font-size:1.02rem; line-height:1.6; max-width:720px; margin:0 auto;">
-            Watch complete video lecture recordings and download the exact lecture handouts, rules sheets, and practice PDFs for each class.
-          </p>
-        </div>
-
-        <!-- Filter tabs for Video Classes -->
-        <div class="writing-mode-tabs" style="margin:0 auto 32px auto; max-width:720px;">
-          <button class="mode-tab-btn active" id="btn-gvideo-all" onclick="window.ieltsApp.filterGrammarVideos('all')">All Classes (17)</button>
-          <button class="mode-tab-btn" id="btn-gvideo-foundation" onclick="window.ieltsApp.filterGrammarVideos('foundation')">Foundation (1–5)</button>
-          <button class="mode-tab-btn" id="btn-gvideo-core" onclick="window.ieltsApp.filterGrammarVideos('core')">Tenses &amp; Voice (6–9)</button>
-          <button class="mode-tab-btn" id="btn-gvideo-advanced" onclick="window.ieltsApp.filterGrammarVideos('advanced')">Clauses &amp; Modals (10–14)</button>
-          <button class="mode-tab-btn" id="btn-gvideo-speech" onclick="window.ieltsApp.filterGrammarVideos('speech')">Speech &amp; Syntax (15–17)</button>
-        </div>
-
-        <!-- 17 Video Class Cards Grid (3 Cards Per Row Vocabulary Style) -->
-        <div class="topics-grid" id="grammar-video-cards-grid"></div>
-      </div>
-    </main>
-
-      <footer class="app-global-footer">
+<main id="home">
+  <section class="hero" id="sa-top">
+    <div class="ghost" aria-hidden="true">9.0</div>
     <div class="wrap">
-      <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
-      <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
-      <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
+      <div>
+        <p class="kicker">Study abroad guide · bachelor's and master's</p>
+        <h1>Your band score is a <em>boarding pass.</em></h1>
+        <p class="lede">Tell the finder your level, IELTS band and first-year budget. It shows which of 35 countries fit, and each one opens into a full guide: universities, cities, jobs, bank-statement rules, documents and every application step.</p>
+        <div class="hero-stats">
+          <div><b id="stCountries">35</b><span>countries</span></div>
+          <div><b id="stUnis">140</b><span>affordable universities</span></div>
+          <div><b id="stCities">105</b><span>student cities</span></div>
+          <div><b id="stLinks">400</b><span>official and useful links</span></div>
+        </div>
+      </div>
+      <form class="pass" onsubmit="return false" aria-label="Destination finder">
+        <div class="pass-top"><span>Destination finder</span><b>MIS · 2026–27</b></div>
+        <div class="pass-body">
+          <div class="field"><span class="lab">I am applying for a</span>
+            <div class="seg" role="group" aria-label="Level"><button type="button" data-level="ug">Bachelor's</button><button type="button" data-level="pg">Master's</button></div>
+          </div>
+          <div class="field"><span class="lab">My IELTS band (overall)</span>
+            <div class="bands" id="bands" role="group" aria-label="IELTS band">
+              <button type="button" data-band="5">5.0</button><button type="button" data-band="5.5">5.5</button><button type="button" data-band="6">6.0</button><button type="button" data-band="6.5">6.5</button><button type="button" data-band="7">7.0</button><button type="button" data-band="7.5">7.5+</button>
+            </div>
+          </div>
+          <div class="field"><label for="budget">First-year budget (tuition + living)</label>
+            <div class="range-row"><input type="range" id="budget" min="6000" max="60000" step="1000" value="20000"><output id="budgetOut" for="budget"></output></div>
+          </div>
+          <label class="check"><input type="checkbox" id="spouse"> My spouse will come with me</label>
+        </div>
+        <div class="pass-stub">
+          <span class="count" id="count">0</span>
+          <span class="count-lab" id="countLab"></span>
+          <button type="button" class="btn" id="go">Show my matches →</button>
+        </div>
+      </form>
     </div>
-  </footer>
+  </section>
+
+  <div class="ribbon" aria-label="All 35 countries"><div class="ribbon-track" id="ribbon"></div></div>
+
+  <section class="block" id="announcements"><div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">From the school</p><h2>Course announcements</h2><p>Upcoming IELTS batches, mock tests and seminars at IELTS Warrior.</p></div></div>
+    <div class="board" id="board"></div>
+    <div id="adsWrap" hidden style="margin-top:38px">
+      <p class="eyebrow">Sponsored</p>
+      <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:16px">Partner agencies</h3>
+      <div class="board" id="ads"></div>
+    </div>
+  </div></section>
+
+  <section class="block tint" id="destinations"><div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">35 countries that issue student visas</p><h2>Find your destination</h2><p>Search by country, city, university or subject. Every card opens the complete guide for that country.</p></div></div>
+    <div class="tools">
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg><label class="sr" for="q">Search countries, cities, universities or subjects</label><input type="search" id="q" placeholder="Try Germany, nursing, Leipzig or Chevening" autocomplete="off"></div>
+      <div class="chips" role="group" aria-label="Filters">
+        <button type="button" class="chip" data-region="All">All regions</button><button type="button" class="chip" data-region="Europe">Europe</button><button type="button" class="chip" data-region="North America">North America</button><button type="button" class="chip" data-region="Asia">Asia</button><button type="button" class="chip" data-region="Oceania">Oceania</button><button type="button" class="chip" data-region="Middle East">Middle East</button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" class="chip" data-flag="low">Under US$15,000 a year</button><button type="button" class="chip" data-flag="eng">Taught in English</button><button type="button" class="chip" data-flag="fam">Spouse possible</button><button type="button" class="chip" data-flag="work">Work 20+ hours a week</button>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="ctrl"><span class="n" id="resN"></span><span class="pill" id="finderPill" hidden><span id="finderTxt"></span> <button type="button" id="finderOff" style="border:0;background:none;font-weight:800;cursor:pointer;color:inherit;padding:0 2px" aria-label="Turn the finder off">✕</button></span><button type="button" class="btn ghost sm" id="reset">Clear filters</button></div>
+      <div class="ctrl"><div class="seg sm" role="group" aria-label="Level"><button type="button" data-level="ug">Bachelor's</button><button type="button" data-level="pg">Master's</button></div><label class="sr" for="sort">Sort</label><select class="sel" id="sort"><option value="pop">Most popular first</option><option value="budget">Lowest first-year budget</option><option value="funds">Smallest bank statement</option><option value="az">A to Z</option></select></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div></section>
+
+  <section class="block" id="money"><div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Proof of funds</p><h2>Bank statement, solvency and maturity</h2><p>Money is the most common reason for a refusal. These are the terms embassies use, followed by what each of the 35 countries asks for.</p></div></div>
+    <div class="glossary">
+      <div class="term"><h3>Bank statement</h3><p>The transaction history of an account, usually for the last three to six months, printed and stamped by the bank. It shows the balance and how it got there.</p></div>
+      <div class="term"><h3>Solvency certificate</h3><p>A one-page letter from the bank stating the balance on a given date, often with a foreign-currency equivalent. It supports a statement; few countries accept it alone.</p></div>
+      <div class="term"><h3>Maturity (holding period)</h3><p>How long the money must sit in the account before you apply. The UK sets 28 days exactly; many others expect three to six months of steady history.</p></div>
+      <div class="term"><h3>Blocked account and GIC</h3><p>Money you transfer in advance to a bank in the destination country, released monthly after you arrive. Germany, Belgium and Canada use this model.</p></div>
+      <div class="term"><h3>Sponsor's affidavit</h3><p>A notarised promise from a parent or close relative to pay for your studies, backed by their bank statement, income proof and tax papers.</p></div>
+      <div class="term"><h3>Source of funds</h3><p>Evidence of where a large deposit came from: salary, business income, a land sale, a gift deed or a bank loan. Unexplained lump sums are treated as borrowed money.</p></div>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th scope="col">Country</th><th scope="col">Amount to show</th><th scope="col">Roughly</th><th scope="col">How you show it</th><th scope="col">Maturity: how long it must be held</th></tr></thead>
+      <tbody id="moneyBody"></tbody>
+    </table></div>
+    <p class="note" style="margin-top:10px" id="rateNote"></p>
+  </div></section>
+
+  <section class="block tint" id="compare"><div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Side by side</p><h2>Compare three countries</h2><p>The table follows the level you chose in the finder.</p></div>
+      <div class="seg" role="group" aria-label="Level"><button type="button" data-level="ug">Bachelor's</button><button type="button" data-level="pg">Master's</button></div></div>
+    <div class="cmp-pick" id="cmpPick"><select class="sel" data-cmp="0" aria-label="First country"></select><select class="sel" data-cmp="1" aria-label="Second country"></select><select class="sel" data-cmp="2" aria-label="Third country"></select></div>
+    <div class="tablewrap"><table id="cmpTable"></table></div>
+  </div></section>
+
+  <section class="block" id="plan"><div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow">Twelve months to departure</p><h2>A timeline that works for most countries</h2><p>Count back from your intake. For a September start, begin the September before.</p></div></div>
+    <ol class="steps12" style="padding:0;margin:0">
+      <li><b>12 to 10 months before</b><span>Prepare for and sit IELTS. Shortlist countries with the finder, then five to eight universities.</span></li>
+      <li><b>10 to 8 months</b><span>Collect transcripts, write your statement of purpose, ask for recommendation letters and submit applications.</span></li>
+      <li><b>8 to 6 months</b><span>Receive offers. Apply for scholarships; most deadlines fall in this window.</span></li>
+      <li><b>6 to 4 months</b><span>Place the money in the right account so it reaches maturity. Get a police clearance and start medical tests.</span></li>
+      <li><b>4 to 2 months</b><span>Accept the offer, pay the deposit, then apply for the visa and attend biometrics or the interview.</span></li>
+      <li><b>2 months to departure</b><span>Book housing and flights, buy insurance, and make certified copies of every document.</span></li>
+    </ol>
+    <h3 style="font-size:1.3rem;margin:34px 0 6px">IELTS preparation videos</h3>
+    <p class="note" style="margin-bottom:12px">Each button opens a YouTube search for that skill. For classes with feedback on your own writing and speaking, see the <a href="#announcements">course announcements</a>.</p>
+    <div class="linkrow" id="ieltsVideos"></div>
+  </div></section>
+</main>
+
+<main id="detail" hidden></main>
+
+    <!-- IELTS Warrior Global Uniform Footer -->
+    <footer class="app-global-footer">
+      <div class="wrap">
+        <span><img src="assets/images/ielts-warrior-logo.png?v=3" alt="IELTS Warrior" class="footer-inline-logo"> &nbsp;Authentic Cambridge Practice</span>
+        <span><a href="mailto:rifatmiah1992003@gmail.com">rifatmiah1992003@gmail.com</a> &nbsp; <a href="tel:+8801314078510">+880 1314078510</a></span>
+        <span>&copy; 2026 Abraham Rifat &nbsp;<a class="top" href="#sa-top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">&uarr; Top</a></span>
+      </div>
+    </footer>
   </div>
 
   <!-- ========================================================================
@@ -1605,7 +1706,10 @@
   <script src="js/grammar_data.js?v=1794367692615"></script>
   <script src="js/reading_trainer_data.js?v=1794468800000"></script>
   <script src="js/reading_trainer.js?v=1794468800000"></script>
-  <script src="js/app.js?v=1794468800000"></script>
+  <script src="js/pre_ielts_lessons.js?v=2026111605"></script>
+  <script src="js/pre_ielts.js?v=2026111605"></script>
+  <script src="js/study_abroad.js?v=2026111602"></script>
+  <script src="js/app.js?v=2026111606"></script>
 
   <!-- ========================================================================
        YOUTUBE & WEB RESOURCES MODAL (7 TOP CURATED CHANNELS)

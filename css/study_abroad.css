@@ -1,0 +1,1950 @@
+/* ==========================================================================
+   STUDY ABROAD VIEW STYLING (IELTS WARRIOR STUDY ABROAD DESK)
+   Scoped strictly under #study-abroad-view to prevent cross-view leakage
+   ========================================================================== */
+
+#study-abroad-view {
+  --paper: #ffffff;
+  --blush: #fff4f5;
+  --rose: #fde4e7;
+  --line: #f0d6da;
+  --ink: #24090e;
+  --muted: #73555b;
+  --red: #d0102c;
+  --red-deep: #9d0b20;
+  --red-ink: #5c0612;
+  --ok: #157347;
+  --ok-bg: #e6f4ec;
+  --warn: #8f5400;
+  --warn-bg: #fff2d6;
+  --no: #5b4a4d;
+  --no-bg: #efe8e9;
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r: 14px;
+  --wrap: 1140px;
+  color-scheme: light;
+  margin: 0;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  width: 100% !important;
+  min-height: 100vh !important;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+#study-abroad-view *,
+#study-abroad-view *::before,
+#study-abroad-view *::after {
+  box-sizing: border-box;
+}
+
+#study-abroad-view img,
+#study-abroad-view svg {
+  max-width: 100%;
+}
+
+#study-abroad-view a {
+  color: var(--red-deep);
+}
+
+#study-abroad-view a:hover {
+  color: var(--red);
+}
+
+#study-abroad-view button,
+#study-abroad-view input,
+#study-abroad-view select,
+#study-abroad-view textarea {
+  font: inherit;
+  color: inherit;
+}
+
+#study-abroad-view :focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+#study-abroad-view .hero :focus-visible,
+#study-abroad-view .dossier-head :focus-visible {
+  outline-color: #fff;
+}
+
+#study-abroad-view .pass :focus-visible {
+  outline-color: var(--ink);
+}
+
+#study-abroad-view h1,
+#study-abroad-view h2,
+#study-abroad-view h3,
+#study-abroad-view h4 {
+  font-family: var(--display);
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+  letter-spacing: -0.015em;
+}
+
+#study-abroad-view p {
+  margin: 0;
+}
+
+#study-abroad-view .wrap {
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  box-sizing: border-box !important;
+}
+
+#study-abroad-view .mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+#study-abroad-view .sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+#study-abroad-view [hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   1. STUDY ABROAD GLOBAL NAVBAR (MATCHES HOME NAVBAR DESIGN)
+   ========================================================================== */
+#study-abroad-view .sa-global-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: #0e332d !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  width: 100% !important;
+  height: var(--nav-h, 82px) !important;
+  min-height: var(--nav-h, 82px) !important;
+  max-height: var(--nav-h, 82px) !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#study-abroad-view .sa-global-nav .wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  gap: 16px !important;
+}
+
+#study-abroad-view .sa-nav-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  flex: none !important;
+}
+
+#study-abroad-view .sa-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  font-family: var(--body) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+#study-abroad-view .sa-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateX(-2px) !important;
+}
+
+#study-abroad-view .nav-logo-link {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+#study-abroad-view .nav-logo-img {
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  transition: transform 0.2s ease !important;
+}
+
+#study-abroad-view .nav-logo-link:hover .nav-logo-img {
+  transform: scale(1.02) !important;
+}
+
+#study-abroad-view .sa-nav-links {
+  display: flex !important;
+  gap: 6px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+}
+
+#study-abroad-view .sa-nav-links li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#study-abroad-view .sa-nav-links a {
+  display: block !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  color: #cfe3dc !important;
+  text-decoration: none !important;
+  transition: all 0.2s !important;
+  font-weight: 600 !important;
+  font-size: 0.92rem !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+}
+
+#study-abroad-view .sa-nav-links a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+#study-abroad-view .sa-nav-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: none !important;
+}
+
+#study-abroad-view .sa-cur-seg {
+  display: inline-flex !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 999px !important;
+  padding: 2px !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  gap: 2px !important;
+}
+
+#study-abroad-view .sa-cur-seg button {
+  border: 0 !important;
+  background: transparent !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  cursor: pointer !important;
+  color: #cfe3dc !important;
+  transition: all 0.2s !important;
+}
+
+#study-abroad-view .sa-cur-seg button:hover {
+  color: #ffffff !important;
+}
+
+#study-abroad-view .sa-cur-seg button[aria-pressed="true"] {
+  background: #d0102c !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ==========================================================================
+   2. ANNOUNCEMENT STRIP
+   ========================================================================== */
+#study-abroad-view .strip {
+  background: var(--red-ink);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+#study-abroad-view .strip .wrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .strip .tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: #fff;
+  color: var(--red-ink);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+#study-abroad-view .strip a {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (CENTERED IN VIEWPORT)
+   ========================================================================== */
+#study-abroad-view .hero {
+  display: block !important;
+  width: 100% !important;
+  background: var(--red, #d0102c) !important;
+  color: #ffffff !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#study-abroad-view .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.13) 1.2px, transparent 1.3px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(120deg, #000 0%, transparent 55%);
+  -webkit-mask-image: linear-gradient(120deg, #000 0%, transparent 55%);
+}
+
+#study-abroad-view .hero .ghost {
+  position: absolute;
+  right: -30px;
+  bottom: -90px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(220px, 34vw, 460px);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.07);
+  letter-spacing: -0.06em;
+  pointer-events: none;
+  user-select: none;
+}
+
+#study-abroad-view .hero .wrap {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) !important;
+  gap: clamp(32px, 4vw, 56px) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 64px 24px 72px 24px !important;
+  box-sizing: border-box !important;
+}
+
+#study-abroad-view .kicker {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.92;
+  margin-bottom: 16px;
+}
+
+#study-abroad-view .hero h1 {
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6.3vw, 4.9rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+#study-abroad-view .hero h1 em {
+  font-style: normal;
+  background: #fff;
+  color: var(--red);
+  padding: 0 0.14em;
+  border-radius: 0.12em;
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+#study-abroad-view .hero .lede {
+  font-size: 1.14rem;
+  max-width: 34em;
+  margin-top: 20px;
+  color: #ffe9ec;
+}
+
+#study-abroad-view .hero-stats {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+#study-abroad-view .hero-stats div {
+  border-left: 2px solid rgba(255, 255, 255, 0.45);
+  padding-left: 12px;
+}
+
+#study-abroad-view .hero-stats b {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+#study-abroad-view .hero-stats span {
+  font-size: 0.82rem;
+  color: #ffe1e5;
+}
+
+/* ==========================================================================
+   4. DESTINATION FINDER (BOARDING PASS)
+   ========================================================================== */
+#study-abroad-view .pass {
+  background: #fff;
+  color: var(--ink);
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -20px rgba(60, 0, 10, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.4);
+  animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(22px) rotate(1.2deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+#study-abroad-view .pass-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-bottom: 1.5px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+#study-abroad-view .pass-top b {
+  color: var(--red);
+}
+
+#study-abroad-view .pass-body {
+  padding: 18px 22px 6px;
+  display: grid;
+  gap: 16px;
+}
+
+#study-abroad-view .field label,
+#study-abroad-view .field .lab {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+#study-abroad-view .seg {
+  display: inline-flex;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 2px;
+  background: #fff;
+}
+
+#study-abroad-view .seg button {
+  border: 0;
+  background: none;
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+#study-abroad-view .seg button[aria-pressed="true"] {
+  background: var(--ink);
+  color: #fff;
+}
+
+#study-abroad-view .bands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#study-abroad-view .bands button {
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  min-width: 46px;
+  padding: 7px 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#study-abroad-view .bands button:hover {
+  border-color: var(--red);
+}
+
+#study-abroad-view .bands button[aria-pressed="true"] {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+#study-abroad-view .range-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#study-abroad-view .range-row output {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.02rem;
+  min-width: 8.5ch;
+  text-align: right;
+}
+
+#study-abroad-view input[type="range"] {
+  flex: 1;
+  accent-color: var(--red);
+  height: 28px;
+}
+
+#study-abroad-view .check {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#study-abroad-view .check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--red);
+}
+
+#study-abroad-view .pass-stub {
+  position: relative;
+  margin-top: 14px;
+  border-top: 1.5px dashed var(--line);
+  padding: 18px 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .pass-stub::before,
+#study-abroad-view .pass-stub::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+#study-abroad-view .pass-stub::before {
+  left: -11px;
+}
+
+#study-abroad-view .pass-stub::after {
+  right: -11px;
+}
+
+#study-abroad-view .count {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 3.4rem;
+  line-height: 0.9;
+  color: var(--red);
+  letter-spacing: -0.04em;
+}
+
+#study-abroad-view .count-lab {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: var(--muted);
+  flex: 1;
+  min-width: 120px;
+}
+
+#study-abroad-view .count-lab b {
+  color: var(--ink);
+  display: block;
+  font-size: 1rem;
+}
+
+#study-abroad-view .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+
+#study-abroad-view .btn:hover {
+  background: var(--red-deep);
+  color: #fff;
+}
+
+#study-abroad-view .btn.ghost {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  padding: 9px 16px;
+  font-size: 0.9rem;
+}
+
+#study-abroad-view .btn.ghost:hover {
+  background: var(--blush);
+  color: var(--ink);
+}
+
+#study-abroad-view .btn.sm {
+  padding: 7px 13px;
+  font-size: 0.84rem;
+}
+
+/* ==========================================================================
+   5. FLAG RIBBON TICKER
+   ========================================================================== */
+#study-abroad-view .ribbon {
+  border-bottom: 1px solid var(--line);
+  background: var(--blush);
+  overflow: hidden;
+  width: 100%;
+}
+
+#study-abroad-view .ribbon-track {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0;
+  width: max-content;
+  animation: sa-slide 70s linear infinite;
+}
+
+#study-abroad-view .ribbon:hover .ribbon-track {
+  animation-play-state: paused;
+}
+
+@keyframes sa-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+#study-abroad-view .ribbon a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.86rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px 5px 6px;
+  white-space: nowrap;
+}
+
+#study-abroad-view .ribbon a:hover {
+  border-color: var(--red);
+  color: var(--red-deep);
+}
+
+#study-abroad-view .flag {
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(36, 9, 14, 0.14);
+  flex: none;
+}
+
+#study-abroad-view .flag.xs {
+  width: 24px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+#study-abroad-view .flag.md {
+  width: 42px;
+  height: 28px;
+}
+
+#study-abroad-view .flag.lg {
+  width: 84px;
+  height: 56px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px #fff, 0 8px 20px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   6. CONTENT BLOCKS & SECTIONS
+   ========================================================================== */
+#study-abroad-view section.block {
+  padding: 64px 0;
+  scroll-margin-top: 90px;
+}
+
+#study-abroad-view section.block.tint {
+  background: var(--blush);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+#study-abroad-view .sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+#study-abroad-view .sec-head h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  font-weight: 800;
+}
+
+#study-abroad-view .sec-head p {
+  color: var(--muted);
+  max-width: 44em;
+  margin-top: 8px;
+}
+
+#study-abroad-view .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   7. COURSE ANNOUNCEMENTS
+   ========================================================================== */
+#study-abroad-view .board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+}
+
+#study-abroad-view .notice {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  position: relative;
+}
+
+#study-abroad-view .notice.pin {
+  border-color: var(--red);
+  box-shadow: inset 4px 0 0 var(--red);
+}
+
+#study-abroad-view .datebox {
+  width: 58px;
+  text-align: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+#study-abroad-view .datebox span {
+  display: block;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 0;
+}
+
+#study-abroad-view .datebox b {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+#study-abroad-view .notice h3 {
+  font-size: 1.14rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 6px 0 4px;
+  overflow-wrap: anywhere;
+}
+
+#study-abroad-view .notice p {
+  font-size: 0.93rem;
+  color: var(--muted);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+#study-abroad-view .notice .acts {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#study-abroad-view .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--rose);
+  color: var(--red-ink);
+  white-space: nowrap;
+}
+
+#study-abroad-view .pill.ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+#study-abroad-view .pill.warn {
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+
+#study-abroad-view .pill.no {
+  background: var(--no-bg);
+  color: var(--no);
+}
+
+#study-abroad-view .pill.line {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   8. DESTINATION EXPLORER & COUNTRY CARDS
+   ========================================================================== */
+#study-abroad-view .tools {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+#study-abroad-view .search {
+  position: relative;
+}
+
+#study-abroad-view .search input {
+  width: 100%;
+  padding: 15px 16px 15px 48px;
+  font-size: 1.05rem;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  background: #fff;
+}
+
+#study-abroad-view .search svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  color: var(--red);
+}
+
+#study-abroad-view .chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#study-abroad-view .chip {
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-weight: 600;
+  font-size: 0.87rem;
+  cursor: pointer;
+}
+
+#study-abroad-view .chip:hover {
+  border-color: var(--red);
+}
+
+#study-abroad-view .chip[aria-pressed="true"] {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+#study-abroad-view .chips .sep {
+  width: 1px;
+  height: 22px;
+  background: var(--line);
+  margin: 0 4px;
+}
+
+#study-abroad-view .bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+#study-abroad-view .bar .n {
+  font-weight: 700;
+}
+
+#study-abroad-view .bar .ctrl {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .sel {
+  width: auto;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+#study-abroad-view .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 18px;
+}
+
+#study-abroad-view .ticket {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--ink);
+  overflow: hidden;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+#study-abroad-view .ticket:hover {
+  transform: translateY(-4px);
+  border-color: var(--red);
+  box-shadow: 0 18px 30px -18px rgba(157, 11, 32, 0.45);
+  color: var(--ink);
+}
+
+#study-abroad-view .t-main {
+  padding: 16px 16px 14px;
+  display: grid;
+  gap: 11px;
+  align-content: start;
+  min-width: 0;
+}
+
+#study-abroad-view .t-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+#study-abroad-view .t-head h3 {
+  font-size: 1.28rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+#study-abroad-view .t-head small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--body);
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+
+#study-abroad-view .t-visa {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+#study-abroad-view .t-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.15fr) minmax(0, 0.9fr);
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+#study-abroad-view .t-stats div {
+  min-width: 0;
+}
+
+#study-abroad-view .t-stats span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+#study-abroad-view .t-stats b {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: block;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+#study-abroad-view .t-foot {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .t-stub {
+  background: var(--blush);
+  border-left: 2px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6px;
+  text-align: center;
+  position: relative;
+}
+
+#study-abroad-view .t-stub::before,
+#study-abroad-view .t-stub::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+}
+
+#study-abroad-view .t-stub::before {
+  top: -9px;
+}
+
+#study-abroad-view .t-stub::after {
+  bottom: -9px;
+}
+
+#study-abroad-view .ticket:hover .t-stub::before,
+#study-abroad-view .ticket:hover .t-stub::after {
+  border-color: var(--red);
+}
+
+#study-abroad-view .t-code {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: var(--red);
+}
+
+#study-abroad-view .t-band b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+#study-abroad-view .t-band span {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+#study-abroad-view .t-go {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--red-deep);
+}
+
+/* ==========================================================================
+   9. PROOF OF FUNDS (TABLE & GLOSSARY)
+   ========================================================================== */
+#study-abroad-view .tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: #fff;
+  width: 100%;
+}
+
+#study-abroad-view table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 760px;
+  font-size: 0.92rem;
+}
+
+#study-abroad-view th,
+#study-abroad-view td {
+  text-align: left;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+#study-abroad-view thead th {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--blush);
+  position: sticky;
+  top: 0;
+}
+
+#study-abroad-view tbody tr:last-child td,
+#study-abroad-view tbody tr:last-child th {
+  border-bottom: 0;
+}
+
+#study-abroad-view tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#study-abroad-view tbody th a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+#study-abroad-view tbody th a:hover {
+  color: var(--red);
+}
+
+#study-abroad-view td.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#study-abroad-view .glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+#study-abroad-view .term {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px;
+}
+
+#study-abroad-view .term h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--red-deep);
+}
+
+#study-abroad-view .term p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   10. COMPARE THREE COUNTRIES
+   ========================================================================== */
+#study-abroad-view .cmp-pick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+#study-abroad-view .cmp-pick .sel {
+  width: 100%;
+}
+
+/* ==========================================================================
+   11. TIMELINE & PREPARATION
+   ========================================================================== */
+#study-abroad-view .steps12 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  counter-reset: s;
+}
+
+#study-abroad-view .steps12 li {
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px;
+}
+
+#study-abroad-view .steps12 li b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+#study-abroad-view .steps12 li span {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+#study-abroad-view .linkrow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .yt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px 6px 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--ink);
+  background: #fff;
+}
+
+#study-abroad-view .yt:hover {
+  border-color: var(--red);
+  color: var(--red-deep);
+}
+
+#study-abroad-view .yt i {
+  width: 22px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--red);
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+}
+
+#study-abroad-view .yt i::before {
+  content: "";
+  border-left: 6px solid #fff;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  margin-left: 1px;
+}
+
+#study-abroad-view .ext::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   12. COUNTRY DOSSIER DETAIL VIEW (#detail)
+   ========================================================================== */
+#study-abroad-view .dossier-head {
+  background: var(--red);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+#study-abroad-view .dossier-head .wrap {
+  position: relative;
+  padding-top: 26px;
+  padding-bottom: 34px;
+}
+
+#study-abroad-view .dossier-head .ghost {
+  position: absolute;
+  right: -10px;
+  top: -40px;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(120px, 22vw, 260px);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.09);
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+#study-abroad-view .back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  padding: 6px 13px;
+  border-radius: 999px;
+}
+
+#study-abroad-view .back:hover {
+  background: #fff;
+  color: var(--red-deep);
+}
+
+#study-abroad-view .d-title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .d-title h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+#study-abroad-view .d-title .meta {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  color: #ffe1e5;
+}
+
+#study-abroad-view .d-pitch {
+  max-width: 46em;
+  font-size: 1.1rem;
+  margin-top: 16px;
+  color: #fff1f3;
+}
+
+#study-abroad-view .d-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .d-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.86rem;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+}
+
+#study-abroad-view .d-nav a:hover {
+  background: #fff;
+  color: var(--red-deep);
+}
+
+#study-abroad-view .alerts {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+}
+
+#study-abroad-view .alert {
+  background: var(--warn-bg);
+  color: #4a2c00;
+  border-left: 4px solid #d08a00;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.94rem;
+  display: flex;
+  gap: 10px;
+}
+
+#study-abroad-view .alert b {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+#study-abroad-view .facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-top: 22px;
+}
+
+#study-abroad-view .fact {
+  background: #fff;
+  padding: 14px 16px;
+}
+
+#study-abroad-view .fact > span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+#study-abroad-view .fact b {
+  font-weight: 600;
+  font-size: 0.96rem;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Sticky jump rail in country detail sticks neatly under the 82px nav */
+#study-abroad-view .rail {
+  position: sticky !important;
+  top: var(--nav-h, 82px) !important;
+  z-index: 900 !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid var(--line) !important;
+  margin-top: 0 !important;
+  backdrop-filter: blur(6px) !important;
+  width: 100% !important;
+}
+
+#study-abroad-view .rail .wrap {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+}
+
+#study-abroad-view .rail button {
+  flex: none;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#study-abroad-view .rail button:hover {
+  border-color: var(--red);
+  color: var(--red-deep);
+}
+
+#study-abroad-view .d-body {
+  display: grid;
+  gap: 22px;
+  padding-top: 26px;
+  padding-bottom: 70px;
+}
+
+#study-abroad-view .sec {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+  background: #fff;
+  scroll-margin-top: 140px !important;
+}
+
+#study-abroad-view .sec > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+#study-abroad-view .sec h2 {
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+#study-abroad-view .sec h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+#study-abroad-view .two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+#study-abroad-view .money {
+  background: var(--blush);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+#study-abroad-view .money .big {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  line-height: 1.05;
+  color: var(--red-deep);
+  letter-spacing: -0.02em;
+}
+
+#study-abroad-view .money small {
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+  font-size: 0.86rem;
+}
+
+#study-abroad-view .meter {
+  height: 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  position: relative;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+#study-abroad-view .meter i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--red);
+  border-radius: 999px;
+}
+
+#study-abroad-view .meter-lab {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+#study-abroad-view dl.kv {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+#study-abroad-view dl.kv dt {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+}
+
+#study-abroad-view dl.kv dd {
+  margin: 3px 0 0;
+  font-size: 0.97rem;
+}
+
+#study-abroad-view .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 14px;
+}
+
+#study-abroad-view .card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#study-abroad-view .card h3 {
+  margin: 0;
+}
+
+#study-abroad-view .card .cost {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--red-deep);
+}
+
+#study-abroad-view .card p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+#study-abroad-view .card a.more {
+  margin-top: auto;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding-top: 6px;
+}
+
+#study-abroad-view .tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#study-abroad-view .tags span {
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+#study-abroad-view .checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  gap: 8px 22px;
+}
+
+#study-abroad-view .checklist label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  cursor: pointer;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+#study-abroad-view .checklist input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--red);
+  flex: none;
+}
+
+#study-abroad-view .checklist input:checked + span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+#study-abroad-view .checklist .x span::after {
+  content: " · country-specific";
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  display: inline-block;
+}
+
+#study-abroad-view ol.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  counter-reset: st;
+}
+
+#study-abroad-view ol.steps li {
+  counter-increment: st;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 0.97rem;
+}
+
+#study-abroad-view ol.steps li::before {
+  content: counter(st);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--mono);
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+}
+
+#study-abroad-view .links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 10px;
+}
+
+#study-abroad-view .links a {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.93rem;
+  color: var(--ink);
+  background: #fff;
+}
+
+#study-abroad-view .links a:hover {
+  border-color: var(--red);
+  color: var(--red-deep);
+  background: var(--blush);
+}
+
+#study-abroad-view .links a small {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--muted);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 46%;
+}
+
+#study-abroad-view .fam {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+#study-abroad-view .note {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+#study-abroad-view .nextprev {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   13. GLOBAL UNIFORM FOOTER
+   ========================================================================== */
+#study-abroad-view .app-global-footer {
+  margin-top: auto !important;
+  background: #0a2722 !important;
+  color: #a9c7bd !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  width: 100% !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
+}
+
+#study-abroad-view .app-global-footer .wrap {
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  padding: 16px 24px !important;
+  display: flex !important;
+  gap: 12px 28px !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+
+#study-abroad-view .footer-inline-logo {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   14. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  #study-abroad-view .sa-nav-links a {
+    padding: 6px 10px !important;
+    font-size: 0.86rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #study-abroad-view .sa-global-nav {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 10px 0 !important;
+  }
+
+  #study-abroad-view .sa-global-nav .wrap {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  #study-abroad-view .sa-nav-links {
+    order: 3 !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 6px 0 !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  #study-abroad-view .hero .wrap {
+    grid-template-columns: 1fr !important;
+    padding-top: 48px !important;
+    padding-bottom: 56px !important;
+    gap: 36px !important;
+  }
+
+  #study-abroad-view .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #study-abroad-view .cmp-pick {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #study-abroad-view .wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  #study-abroad-view .hero .wrap {
+    padding-top: 36px !important;
+    padding-bottom: 44px !important;
+    gap: 28px !important;
+  }
+
+  #study-abroad-view section.block {
+    padding: 44px 0 !important;
+  }
+
+  #study-abroad-view .facts {
+    grid-template-columns: 1fr !important;
+  }
+
+  #study-abroad-view .sec {
+    padding: 16px !important;
+  }
+
+  #study-abroad-view .ticket {
+    grid-template-columns: minmax(0, 1fr) 74px !important;
+  }
+
+  #study-abroad-view .count {
+    font-size: 2.8rem !important;
+  }
+}
