@@ -1,17 +1,20 @@
-/* Layout idea: an exam answer sheet printed in red ink on white, the way OMR sheets are. One red band for the hero, one red margin line down every lesson. */#grammar-view, :root { 
+/* Layout: IELTS Warrior Website Color Combination (Forest Green & Emerald Accent) */
+#grammar-view, :root { 
   --paper: #FFFFFF;
-  --tint: #FFF4F4;
-  --ink: #21151A;
-  --ink-soft: #6B585D;
-  --rule: #EDD9DC;
-  --brand: #C8102E;
-  --brand-deep: #9F0C24;
-  --brand-wash: #FDEBEE;
+  --tint: #F4F9F6;
+  --ink: #0E332D;
+  --ink-soft: #486259;
+  --rule: #D5E5DF;
+  --brand: #0E332D;
+  --brand-deep: #08211D;
+  --brand-wash: #E8F5F1;
   --on-brand: #FFFFFF;
   --ok: #157A4E;
   --ok-wash: #E4F4EB;
-  --pencil: #2A1D21;
-  --bub: #DB9AA4;
+  --pencil: #0E332D;
+  --bub: #9EC1B4;
+  --error: #DC2626;
+  --error-wash: #FEF2F2;
   --display: "Anek Bangla", "Hind Siliguri", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
   --body: "Atkinson Hyperlegible", "Hind Siliguri", "Noto Sans Bengali", "Segoe UI", system-ui, sans-serif;
   --bangla: "Hind Siliguri", "Noto Sans Bengali", "Vrinda", system-ui, sans-serif;
@@ -90,7 +93,7 @@
 #grammar-view .hero-copy .bn {  color: #fff; font-size: 1.12rem; border-left: 3px solid #fff; padding-left: 12px;  }
 #grammar-view @media (max-width: 900px) {  .hero-grid { grid-template-columns: 1fr; }  }
 #grammar-view /* OMR answer sheet */
-.omr-card {  background: var(--paper); color: var(--ink); border-radius: 6px; box-shadow: 0 24px 50px -24px rgba(60, 0, 12, 0.7); position: relative;  }
+.omr-card {  background: var(--paper); color: var(--ink); border-radius: 6px; box-shadow: 0 24px 50px -24px rgba(14, 51, 45, 0.35); position: relative;  }
 #grammar-view .omr-card :focus-visible {  outline-color: var(--ink);  }
 #grammar-view .omr-head {  display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: end; padding: 16px 18px 12px; border-bottom: 2px solid var(--brand);  }
 #grammar-view .omr-head h2 {  font-size: 1.3rem;  }
@@ -234,7 +237,7 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 #grammar-view .dprog {  position: sticky; top: var(--head-h); z-index: 20; background: var(--tint); border-block: 1px solid var(--rule);  }
 #grammar-view .dprog-in {  display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding-block: 10px; font-family: var(--display); font-weight: 600; font-size: 0.95rem;  }
 #grammar-view .dprog .bar {  height: 10px;  }
-#grammar-view .paper {  background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; position: relative; margin-block: 24px 28px; box-shadow: 0 16px 36px -30px rgba(120, 0, 24, 0.5);  }
+#grammar-view .paper {  background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; position: relative; margin-block: 24px 28px; box-shadow: 0 16px 36px -30px rgba(14, 51, 45, 0.3);  }
 #grammar-view .paper::before {  content: ""; position: absolute; top: 0; bottom: 0; left: var(--margin-col); width: 1.5px; background: var(--brand); opacity: 0.55;  }
 #grammar-view .blk {  display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); border-bottom: 1px solid var(--rule);  }
 #grammar-view .blk:last-child {  border-bottom: 0;  }
@@ -250,14 +253,14 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 #grammar-view th {  font-family: var(--display); font-weight: 700; background: var(--brand-wash); white-space: nowrap;  }
 #grammar-view tr:last-child td {  border-bottom: 0;  }
 #grammar-view td:first-child {  font-weight: 700;  }
-#grammar-view .fixtbl td:first-child {  font-weight: 400; color: var(--ink-soft); text-decoration: underline wavy var(--brand); text-decoration-thickness: 1.5px; text-underline-offset: 4px;  }
+#grammar-view .fixtbl td:first-child {  font-weight: 400; color: var(--ink-soft); text-decoration: underline wavy var(--error); text-decoration-thickness: 1.5px; text-underline-offset: 4px;  }
 #grammar-view .fixtbl td:last-child {  font-weight: 700; color: var(--ok);  }
 #grammar-view .fixes {  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;  }
 #grammar-view .fixes li {  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 20px; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px; align-items: center;  }
-#grammar-view .fixes .no {  color: var(--ink-soft); text-decoration: underline wavy var(--brand); text-decoration-thickness: 1.5px; text-underline-offset: 4px;  }
+#grammar-view .fixes .no {  color: var(--ink-soft); text-decoration: underline wavy var(--error); text-decoration-thickness: 1.5px; text-underline-offset: 4px;  }
 #grammar-view .fixes .yes {  color: var(--ok); font-weight: 700; animation: pop 0.25s ease;  }
 #grammar-view .fixes span::before {  font-family: var(--display); font-weight: 800; margin-right: 8px; text-decoration: none; display: inline-block;  }
-#grammar-view .fixes .no::before {  content: "\2717"; color: var(--brand);  }
+#grammar-view .fixes .no::before {  content: "\2717"; color: var(--error);  }
 #grammar-view .fixes .yes::before {  content: "\2713";  }
 #grammar-view .fixes .reveal {  justify-self: start;  }
 #grammar-view @media (max-width: 620px) {  .fixes li { grid-template-columns: 1fr; }  }
@@ -320,14 +323,14 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 #grammar-view .game.won .tile {  border-color: var(--ok); cursor: default; background: var(--paper);  }
 #grammar-view .verdict {  font-weight: 700;  }
 #grammar-view .verdict.ok {  color: var(--ok);  }
-#grammar-view .verdict.no {  color: var(--brand);  }
+#grammar-view .verdict.no {  color: var(--error);  }
 #grammar-view .wm {  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px;  }
 #grammar-view .wm button {  min-height: 44px; padding: 8px 12px; border: 1.5px solid var(--bub); border-radius: 6px; background: var(--paper); cursor: pointer; text-align: left; font-weight: 700;  }
 #grammar-view .wm button.bnb {  font-family: var(--bangla); font-weight: 600;  }
 #grammar-view .wm button:hover:not([disabled]) {  border-color: var(--brand);  }
 #grammar-view .wm button.sel {  border-color: var(--brand); background: var(--brand-wash); box-shadow: 0 0 0 2px var(--brand);  }
 #grammar-view .wm button.hit {  border-color: var(--ok); background: var(--ok-wash); color: var(--ok); cursor: default;  }
-#grammar-view .wm button.miss {  animation: shake 0.3s ease; border-color: var(--brand);  }
+#grammar-view .wm button.miss {  animation: shake 0.3s ease; border-color: var(--error);  }
 #grammar-view @keyframes shake {  25% { transform: translateX(-5px); } 75% { transform: translateX(5px); }  }
 #grammar-view /* Quiz */
 .q {  border-top: 1px solid var(--rule); padding-top: 18px; display: flex; flex-direction: column; gap: 12px;  }
@@ -345,12 +348,12 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 #grammar-view .opt[disabled] {  cursor: default; color: var(--ink); opacity: 1;  }
 #grammar-view .opt.right {  border-color: var(--ok); background: var(--ok-wash);  }
 #grammar-view .opt.right .ob {  background: var(--ok); border-color: var(--ok); color: #fff;  }
-#grammar-view .opt.wrong {  border-color: var(--brand); background: var(--brand-wash);  }
-#grammar-view .opt.wrong .ob {  background: var(--brand); border-color: var(--brand); color: #fff;  }
+#grammar-view .opt.wrong {  border-color: var(--error); background: var(--error-wash);  }
+#grammar-view .opt.wrong .ob {  background: var(--error); border-color: var(--error); color: #fff;  }
 #grammar-view .why {  padding: 10px 14px; border-radius: 6px; background: var(--tint); border: 1px solid var(--rule); max-width: 76ch; animation: pop 0.25s ease;  }
 #grammar-view .why b {  font-family: var(--display); margin-right: 6px;  }
 #grammar-view .why.ok b {  color: var(--ok);  }
-#grammar-view .why.no b {  color: var(--brand);  }
+#grammar-view .why.no b {  color: var(--error);  }
 #grammar-view .score {  border: 2px solid var(--brand); border-radius: 6px; padding: 18px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between;  }
 #grammar-view .score.pass {  border-color: var(--ok);  }
 #grammar-view .score .mark {  font-family: var(--display); font-weight: 800; font-size: 2.2rem; color: var(--brand); line-height: 1; transform: rotate(-4deg); border: 2.5px solid var(--brand); border-radius: 50%; padding: 12px 16px; font-variant-numeric: tabular-nums;  }
@@ -478,7 +481,7 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 }
 
 #grammar-view .top-back-btn:focus-visible {
-  outline: 2px solid #C8102E !important;
+  outline: 2px solid #0E332D !important;
   outline-offset: 2px !important;
 }
 
@@ -517,33 +520,33 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 
 #grammar-view .nav a:hover,
 #preielts-app .nav a:hover {
-  color: #C8102E !important;
+  color: #0E332D !important;
   background: transparent !important;
 }
 
 #grammar-view .nav a.active,
 #preielts-app .nav a.active {
-  color: #C8102E !important;
+  color: #0E332D !important;
   text-decoration: underline !important;
-  text-decoration-color: #C8102E !important;
+  text-decoration-color: #0E332D !important;
   text-decoration-thickness: 3px !important;
   text-underline-offset: 6px !important;
 }
 
 #grammar-view .nav a:focus-visible {
-  outline: 2px solid #C8102E !important;
+  outline: 2px solid #0E332D !important;
   outline-offset: 2px !important;
 }
 
-/* 3. RIGHT: Existing red "Start with Day 1" button */
+/* 3. RIGHT: "Start with Day 1" button */
 #grammar-view #top-cta,
 #preielts-app #top-cta {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #C8102E !important;
+  background: #0E332D !important;
   color: #FFFFFF !important;
-  border: 1.5px solid #C8102E !important;
+  border: 1.5px solid #0E332D !important;
   border-radius: 8px !important;
   padding: 12px 20px !important;
   font-family: var(--display, system-ui, sans-serif) !important;
@@ -560,13 +563,13 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 
 #grammar-view #top-cta:hover,
 #preielts-app #top-cta:hover {
-  background: #A60D25 !important;
-  border-color: #A60D25 !important;
+  background: #14463E !important;
+  border-color: #14463E !important;
   transform: translateY(-1px) !important;
 }
 
 #grammar-view #top-cta:focus-visible {
-  outline: 2px solid #C8102E !important;
+  outline: 2px solid #0E332D !important;
   outline-offset: 2px !important;
 }
 
@@ -630,7 +633,7 @@ label.f {  display: flex; flex-direction: column; gap: 5px; font-family: var(--d
 #preielts-app .hero {
   display: block !important;
   width: 100% !important;
-  background: var(--brand, #c8102e) !important;
+  background: linear-gradient(135deg, #0e332d 0%, #15453e 100%) !important;
   color: #ffffff !important;
   padding-top: 96px !important;
   padding-bottom: 80px !important;

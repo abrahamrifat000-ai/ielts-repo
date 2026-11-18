@@ -188,10 +188,42 @@
 
   /* ---------- shell ---------- */
   var view = "";
+  function updateBackBtn() {
+    var btn = document.querySelector('.top-back-btn');
+    if (!btn) return;
+    var span = btn.querySelector('span') || btn;
+    if (view && view !== "home") {
+      span.innerHTML = '&larr; Back to Programme';
+      btn.setAttribute('title', 'Return to 60-Day Programme Overview');
+    } else {
+      span.innerHTML = '&larr; Back to Home';
+      btn.setAttribute('title', 'Return to IELTS Warrior Home');
+    }
+  }
+  function handleBack() {
+    if (view && view !== "home") {
+      renderHome();
+      updateBackBtn();
+      window.scrollTo(0, 0);
+      return;
+    }
+    var videoView = document.getElementById('grammar-video-resources-view');
+    if (videoView && videoView.style.display !== 'none') {
+      if (window.ieltsApp && window.ieltsApp.returnToGrammarTopics) {
+        window.ieltsApp.returnToGrammarTopics();
+      }
+      return;
+    }
+    if (window.ieltsApp && window.ieltsApp.showHomeView) {
+      window.ieltsApp.showHomeView();
+    } else {
+      window.location.hash = '';
+    }
+  }
   function shell() {
     ($("preielts-app") || $("app")).innerHTML =
       '<header class="top" id="top"><div class="wrap top-in">' +
-      '<button class="top-back-btn" type="button" onclick="if(window.ieltsApp&&window.ieltsApp.showHomeView){window.ieltsApp.showHomeView();}else{window.location.hash=\'\';}" aria-label="Back to IELTS Warrior Home"><span>&larr; Back to Home</span></button>' +
+      '<button class="top-back-btn" type="button" onclick="window.PreIelts.handleBack()" aria-label="Back"><span>&larr; Back to Home</span></button>' +
       '<button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>' +
       '<nav class="nav" aria-label="Main"><a href="#programme" class="nav-link">Programme (60 Days)</a><a href="#progress" class="nav-link">My progress</a><a href="#videos" class="nav-link">Video channels</a><a href="javascript:void(0)" onclick="if(window.ieltsApp&&window.ieltsApp.showGrammarVideoResources){window.ieltsApp.showGrammarVideoResources();}" class="nav-link">Video Vault &amp; PDFs</a></nav>' +
       '<a class="btn" id="top-cta" href="#day-1">Start with Day 1</a>' +
@@ -352,6 +384,7 @@
   function renderHome() {
     recStop(true); view = "home"; cur = null;
     $("view").innerHTML = heroHTML() + howHTML() + programmeHTML() + progressHTML() + videosHTML();
+    updateBackBtn();
     refreshCta();
   }
 
@@ -456,6 +489,7 @@
   }
   function renderDay(d) {
     recStop(true); view = "day"; cur = d; dayTouched = false;
+    updateBackBtn();
     mkQuiz("day", d.quiz.map(function (q, i) { return { d: d, i: i }; }));
     sb = sbTargets(d); if (d.vocab) wmNew(d); else wm = null;
     var w = Math.ceil(d.n / 6), wk = WEEKS[w - 1], step = 0, tasksState = S.tasks[d.n] || [];
@@ -545,9 +579,10 @@
       (deck.flipped ? '<button class="btn" type="button" data-act="card-know">I knew it</button><button class="btn btn-line" type="button" data-act="card-again">Show me again later</button>' : '<button class="btn" type="button" data-act="card-flip">Show the meaning</button>') + '</div>';
     return h + '</div></div>';
   }
-  function renderCards(fresh) { recStop(true); view = "cards"; cur = null; if (fresh || !deck) buildDeck(); $("view").innerHTML = cardsHTML(); refreshCta(); }
+  function renderCards(fresh) { recStop(true); view = "cards"; cur = null; if (fresh || !deck) buildDeck(); $("view").innerHTML = cardsHTML(); refreshCta(); updateBackBtn(); }
   function renderMistakes() {
     recStop(true); view = "mistakes"; cur = null;
+    updateBackBtn();
     var all = missList(), h = '<div class="wrap"><div class="stage"><div class="crumb"><a href="#progress">Back to my progress</a></div><h1>Practise my mistakes</h1>';
     if (!all.length) { quiz = null; h += '<p class="lede" style="margin:0">Nothing to practise yet. When you answer a test question wrong, it is saved here so you can try it again later.</p><div class="btn-row"><a class="btn" href="' + ctaLabel(false).href + '">' + ctaLabel(false).text + '</a></div>'; }
     else {
@@ -831,6 +866,8 @@
     renderDay: renderDay,
     renderCards: renderCards,
     renderMistakes: renderMistakes,
+    handleBack: handleBack,
+    updateBackBtn: updateBackBtn,
     openAdmin: openAdmin
   };
 

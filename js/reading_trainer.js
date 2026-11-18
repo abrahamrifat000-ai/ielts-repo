@@ -161,6 +161,7 @@
 
     const viewEl = document.getElementById('reading-selection-view');
     if (viewEl) viewEl.classList.remove('in-practice-mode');
+    syncHeaderBackBtn();
 
     const root = getContainer();
     if (!root) return;
@@ -330,6 +331,7 @@
 
     const viewEl = document.getElementById('reading-selection-view');
     if (viewEl) viewEl.classList.remove('in-practice-mode');
+    syncHeaderBackBtn();
 
     const isTopic = kind === 'topic';
     const item = (isTopic ? TOPICS : TYPES).find(x => x.id === id);
@@ -686,11 +688,13 @@
 
     currentView = 'practice';
     currentSet = set;
+    checked = false;
     clearInterval(timerId);
 
     // Apply practice mode to fill screen with zero cream void
     const viewEl = document.getElementById('reading-selection-view');
     if (viewEl) viewEl.classList.add('in-practice-mode');
+    syncHeaderBackBtn();
 
     const t = TYPES.find(x => x.id === set.type) || { name: 'IELTS Reading' };
     const P = PASSAGES[`t${set.test}p${set.part}`] || { title: 'Authentic Cambridge Reading Passage', html: '<p>Passage content unavailable.</p>' };
@@ -719,14 +723,14 @@
         <!-- Practice Top Bar (Fullscreen, Back, Highlighter, Clear, Timer, Check) -->
         <header class="rt-practice-topbar">
           <div class="rt-pbar-left">
-            <button class="rt-tb-btn" id="rt-fullscreen-btn" onclick="window.ReadingTrainer.toggleFullscreen()" title="Toggle full-screen view">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span id="rt-fs-text">Fullscreen</span>
-            </button>
-
-            <button class="rt-tb-btn" onclick="window.ReadingTrainer.backToList()" title="Return to sets list">
+            <button class="rt-tb-btn rt-pbar-back-btn" onclick="window.ReadingTrainer.backToList()" title="Return to sets list">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
               <span>Back to Sets</span>
+            </button>
+
+            <button class="rt-tb-btn rt-pbar-fs-btn" id="rt-fullscreen-btn" onclick="window.ReadingTrainer.toggleFullscreen()" title="Toggle full-screen practice">
+              <span class="rt-fs-btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></span>
+              <span class="rt-fs-text" id="rt-fs-text">Fullscreen</span>
             </button>
 
             <div class="rt-pbar-tools" title="Text Highlighting (Writing Section Style & Colors)">
@@ -742,7 +746,7 @@
                 <span class="color-dot dot-blue"></span>
                 <span>Blue</span>
               </button>
-              <button class="rt-tb-btn" onclick="window.ReadingTrainer.clearHighlights()" title="Clear all text highlights in this passage">
+              <button class="rt-tb-btn rt-hl-btn-tool rt-hl-clear-btn" onclick="window.ReadingTrainer.clearHighlights()" title="Clear all text highlights in this passage">
                 <span>Clear All</span>
               </button>
             </div>
@@ -759,7 +763,8 @@
               <span id="rt-timer-clock">0:00</span>
               <small>/ ${fmt(targetSeconds)}</small>
             </div>
-            <button class="btn main rt-submit-btn" id="rt-check-btn" onclick="window.ReadingTrainer.checkAnswers()">
+            <button class="btn main rt-submit-btn" id="rt-check-btn" onclick="window.ReadingTrainer.checkAnswers()" title="Evaluate your answers with Cambridge answer key">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Check Answers</span>
             </button>
           </div>
@@ -769,6 +774,10 @@
         <div class="rt-mobile-tabs" id="rt-mobile-tabs">
           <button class="rt-tab-btn active" data-tab="passage" onclick="window.ReadingTrainer.switchMobileTab('passage')">Passage</button>
           <button class="rt-tab-btn" data-tab="questions" onclick="window.ReadingTrainer.switchMobileTab('questions')">Questions</button>
+          <button class="rt-mobile-check-tab-btn" onclick="window.ReadingTrainer.checkAnswers()" title="Check Answers">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Check</span>
+          </button>
         </div>
 
         <!-- Edge-to-Edge Split Screen (Image 2 Standard) -->
@@ -798,6 +807,7 @@
               </div>
               ${listBox}
               <div class="rt-qbody" id="rt-qbody">${set.body || ''}</div>
+
               <div class="rt-result-card" id="rt-result"></div>
             </div>
           </section>
@@ -810,6 +820,35 @@
 
     // Setup interactive draggable splitter between panes
     setupSplitter();
+
+    // Render sticky bottom question palette
+    const allQNums = set.qs.flatMap(Q => Q.qs || [Q.q]).sort((a, b) => a - b);
+    const numbersWrap = document.getElementById('rt-palette-numbers');
+    const paletteCount = document.getElementById('rt-palette-count');
+    const paletteStatus = document.getElementById('rt-palette-status');
+    const paletteSubmitText = document.getElementById('rt-palette-submit-text');
+    const headerSubmitText = document.getElementById('reading-header-submit-text');
+
+    if (numbersWrap) {
+      numbersWrap.innerHTML = allQNums.map(qNum => {
+        return `<button type="button" class="rt-q-pill" data-q="${qNum}" onclick="window.ReadingTrainer.scrollToQuestion(${qNum})" title="Jump to Question ${qNum}">
+          <span>${qNum}</span>
+        </button>`;
+      }).join('');
+    }
+    if (paletteCount) paletteCount.textContent = `0 / ${allQNums.length} Answered`;
+    if (paletteStatus) paletteStatus.classList.remove('all-done');
+    if (paletteSubmitText) paletteSubmitText.textContent = 'Submit';
+    if (headerSubmitText) headerSubmitText.textContent = 'Submit';
+
+    const headerSubmitBtn = document.getElementById('reading-header-submit-btn');
+    if (headerSubmitBtn) {
+      headerSubmitBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="reading-header-submit-text">Submit</span>`;
+    }
+    const paletteSubmitBtn = document.getElementById('rt-palette-submit-btn');
+    if (paletteSubmitBtn) {
+      paletteSubmitBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="rt-palette-submit-text">Submit</span>`;
+    }
 
     // Start live timer
     const t0 = Date.now();
@@ -867,33 +906,43 @@
     });
   }
 
-  // Fullscreen Toggle
+  // Fullscreen Toggle (Cross-Browser, Rock Solid)
   function toggleFullscreen() {
-    const container = document.getElementById('rt-practice-container') || document.documentElement;
-    const fsText = document.getElementById('rt-fs-text');
+    const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+    const targetEl = document.documentElement;
 
-    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-      if (container.requestFullscreen) {
-        container.requestFullscreen();
-      } else if (container.webkitRequestFullscreen) {
-        container.webkitRequestFullscreen();
+    if (!isFs) {
+      const req = targetEl.requestFullscreen || targetEl.webkitRequestFullscreen || targetEl.msRequestFullscreen || targetEl.mozRequestFullScreen;
+      if (req) {
+        req.call(targetEl).catch(err => {
+          console.warn('Fullscreen request failed:', err);
+        });
       }
-      if (fsText) fsText.textContent = 'Exit Fullscreen';
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
+      const exit = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen;
+      if (exit) {
+        exit.call(document).catch(err => {
+          console.warn('Fullscreen exit failed:', err);
+        });
       }
-      if (fsText) fsText.textContent = 'Fullscreen';
     }
+    setTimeout(syncFullscreenUI, 80);
   }
 
-  document.addEventListener('fullscreenchange', function() {
-    const fsText = document.getElementById('rt-fs-text');
-    if (fsText) {
-      fsText.textContent = document.fullscreenElement ? 'Exit Fullscreen' : 'Fullscreen';
-    }
+  function syncFullscreenUI() {
+    const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+    document.querySelectorAll('.rt-fs-text').forEach(el => {
+      el.textContent = isFs ? 'Exit Fullscreen' : 'Fullscreen';
+    });
+    document.querySelectorAll('.rt-fs-btn-icon').forEach(el => {
+      el.innerHTML = isFs
+        ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>`
+        : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>`;
+    });
+  }
+
+  ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(evt => {
+    document.addEventListener(evt, syncFullscreenUI);
   });
 
   function setupQuestionsControls(set) {
@@ -980,6 +1029,41 @@
       }
       refreshUsed();
     });
+
+    // Real-time questions answered counter & sticky bottom palette live updater
+    const allQNums = set.qs.flatMap(Q => Q.qs || [Q.q]).sort((a, b) => a - b);
+    const updateAnsweredCount = () => {
+      let answeredCount = 0;
+      allQNums.forEach(qNum => {
+        let isAnswered = false;
+        const Q = set.qs.find(x => (x.qs && x.qs.includes(qNum)) || x.q === qNum);
+        if (Q) {
+          const name = `${set.id}-q${Q.q}`;
+          if (Q.m === 'multi') {
+            const checkedBoxes = qbody.querySelectorAll(`input[name="${name}"]:checked`);
+            const idxInMulti = Q.qs ? Q.qs.indexOf(qNum) : 0;
+            if (checkedBoxes.length > idxInMulti) isAnswered = true;
+          } else {
+            const radio = qbody.querySelector(`input[name="${name}"]:checked`);
+            const field = document.getElementById(name);
+            if (radio && radio.value) isAnswered = true;
+            else if (field && field.value && field.value.trim()) isAnswered = true;
+          }
+        }
+        if (isAnswered) answeredCount++;
+        const pill = document.querySelector(`.rt-q-pill[data-q="${qNum}"]`);
+        if (pill) pill.classList.toggle('answered', isAnswered);
+      });
+
+      const countEl = document.getElementById('rt-palette-count');
+      const statusEl = document.getElementById('rt-palette-status');
+      if (countEl) countEl.textContent = `${answeredCount} / ${allQNums.length} Answered`;
+      if (statusEl) statusEl.classList.toggle('all-done', answeredCount >= allQNums.length);
+    };
+
+    qbody.addEventListener('change', updateAnsweredCount);
+    qbody.addEventListener('input', updateAnsweredCount);
+    updateAnsweredCount();
 
     setupHighlighter(ptext);
   }
@@ -1162,8 +1246,55 @@
 
     const checkBtn = document.getElementById('rt-check-btn');
     if (checkBtn) {
-      checkBtn.innerHTML = `<span>Try Again</span>`;
+      checkBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><span>Try Again</span>`;
     }
+    const headerSubmitBtn = document.getElementById('reading-header-submit-btn');
+    if (headerSubmitBtn) {
+      headerSubmitBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><span id="reading-header-submit-text">Try Again</span>`;
+    }
+    const paletteSubmitBtn = document.getElementById('rt-palette-submit-btn');
+    if (paletteSubmitBtn) {
+      paletteSubmitBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><span id="rt-palette-submit-text">Try Again</span>`;
+    }
+    const mobileCheckBtn = document.querySelector('.rt-mobile-check-tab-btn');
+    if (mobileCheckBtn) {
+      mobileCheckBtn.innerHTML = `<span>Retry</span>`;
+    }
+
+    // Evaluate each question pill in the bottom palette (green for correct, red for wrong)
+    set.qs.forEach(Q => {
+      const name = `${set.id}-q${Q.q}`;
+      if (Q.m === 'multi') {
+        const boxes = [...qbody.querySelectorAll(`input[name="${name}"]`)];
+        const rightCheckedCount = boxes.filter(b => b.checked && Q.a.includes(b.value)).length;
+        (Q.qs || [Q.q]).forEach((qNum, idx) => {
+          const isRight = idx < rightCheckedCount;
+          const pill = document.querySelector(`.rt-q-pill[data-q="${qNum}"]`);
+          if (pill) {
+            pill.classList.remove('answered');
+            pill.classList.toggle('correct', isRight);
+            pill.classList.toggle('wrong', !isRight);
+          }
+        });
+      } else {
+        let val = '';
+        const radio = qbody.querySelector(`input[name="${name}"]:checked`);
+        const field = document.getElementById(name);
+        if (radio) val = radio.value;
+        else if (field) val = field.value;
+
+        const isRight = Q.m === 'text'
+          ? Q.a.some(a => norm(a) === norm(val) && norm(val) !== '')
+          : Q.a.some(a => a.toLowerCase() === String(val).toLowerCase() && val !== '');
+
+        const pill = document.querySelector(`.rt-q-pill[data-q="${Q.q}"]`);
+        if (pill) {
+          pill.classList.remove('answered');
+          pill.classList.toggle('correct', isRight);
+          pill.classList.toggle('wrong', !isRight);
+        }
+      }
+    });
 
     const panes = document.getElementById('rt-panes');
     if (panes && panes.dataset.tab === 'passage' && window.matchMedia('(max-width: 860px)').matches) {
@@ -1354,10 +1485,84 @@
     drawListRows();
   }
 
+  function syncHeaderBackBtn() {
+    const btn = document.getElementById('reading-nav-back-btn');
+    if (btn) {
+      const span = btn.querySelector('span') || btn;
+      if (currentView === 'practice') {
+        span.innerHTML = '&larr; Back to Sets';
+        btn.setAttribute('title', 'Return to Sets List');
+      } else if (currentView === 'list') {
+        span.innerHTML = '&larr; Back to Trainer';
+        btn.setAttribute('title', 'Return to 394 Sets Trainer Hub');
+      } else {
+        span.innerHTML = '&larr; Back to Home';
+        btn.setAttribute('title', 'Return to IELTS Warrior Home');
+      }
+    }
+
+    const modeTabs = document.getElementById('reading-main-mode-tabs');
+    const headerSubmitBtn = document.getElementById('reading-header-submit-btn');
+    const stickyPalette = document.getElementById('rt-sticky-palette');
+
+    if (currentView === 'practice') {
+      if (modeTabs) modeTabs.style.display = 'none';
+      if (headerSubmitBtn) headerSubmitBtn.style.display = 'inline-flex';
+      if (stickyPalette) stickyPalette.style.display = 'block';
+    } else {
+      if (modeTabs) modeTabs.style.display = 'flex';
+      if (headerSubmitBtn) headerSubmitBtn.style.display = 'none';
+      if (stickyPalette) stickyPalette.style.display = 'none';
+    }
+  }
+
+  function scrollToQuestion(qNum) {
+    if (window.matchMedia('(max-width: 860px)').matches) {
+      switchMobileTab('questions');
+    }
+
+    const qbody = document.getElementById('rt-qbody');
+    if (!qbody) return;
+
+    let target = qbody.querySelector(`.rt-gapw[data-q="${qNum}"], .rt-item-box[data-q="${qNum}"], [data-q="${qNum}"]`);
+    if (!target && currentSet) {
+      const parentQ = currentSet.qs.find(x => (x.qs && x.qs.includes(qNum)) || x.q === qNum);
+      if (parentQ) {
+        target = qbody.querySelector(`.rt-gapw[data-q="${parentQ.q}"], .rt-item-box[data-q="${parentQ.q}"]`);
+      }
+    }
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.classList.remove('rt-target-pulse');
+      void target.offsetWidth;
+      target.classList.add('rt-target-pulse');
+      setTimeout(() => {
+        target.classList.remove('rt-target-pulse');
+      }, 2000);
+
+      const field = target.querySelector('input:not([disabled]), select:not([disabled])');
+      if (field) field.focus({ preventScroll: true });
+    }
+  }
+
+  function stepBack() {
+    if (currentView === 'practice') {
+      backToList();
+      return true;
+    }
+    if (currentView === 'list') {
+      backToHome();
+      return true;
+    }
+    return false;
+  }
+
   function backToHome() {
     const viewEl = document.getElementById('reading-selection-view');
     if (viewEl) viewEl.classList.remove('in-practice-mode');
     renderHome();
+    syncHeaderBackBtn();
   }
 
   function backToList() {
@@ -1368,11 +1573,15 @@
     } else {
       renderHome();
     }
+    syncHeaderBackBtn();
   }
 
   // Public API
   window.ReadingTrainer = {
     init: renderHome,
+    getView: () => currentView,
+    stepBack,
+    syncHeaderBackBtn,
     switchBrowseMode,
     openList,
     openSet,
@@ -1386,7 +1595,8 @@
     clearHighlights,
     switchMobileTab,
     showEvidence,
-    toggleFullscreen
+    toggleFullscreen,
+    scrollToQuestion
   };
 
 })();

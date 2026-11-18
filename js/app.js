@@ -146,7 +146,36 @@
     initFeedbackSection();
     initAuth();
 
-    showHomeView();
+    if (window.location.pathname === '/writing-practice' || window.location.hash === '#writing-practice') {
+      showWritingPracticeView();
+    } else {
+      showHomeView();
+    }
+
+    window.addEventListener('popstate', () => {
+      const sa = document.getElementById('study-abroad-view');
+      if (sa && sa.classList.contains('active-view')) {
+        // Stay in Study Abroad view - do not force home view
+        return;
+      }
+      const wv = document.getElementById('writing-view');
+      if (wv && wv.classList.contains('active-view')) {
+        if (state.currentWritingTab && state.currentWritingTab !== 'hub') {
+          switchWritingTab('hub');
+          return;
+        }
+      }
+      const wp = document.getElementById('writing-practice-view');
+      if (wp && wp.classList.contains('active-view')) {
+        handleWritingPracticeBack();
+        return;
+      }
+      if (window.location.pathname === '/writing-practice' || window.location.hash === '#writing-practice') {
+        showWritingPracticeView();
+      } else if (window.location.pathname === '/' && (!window.location.hash || window.location.hash === '#top' || window.location.hash === '#home')) {
+        showHomeView();
+      }
+    });
   }
 
   // --- Data Loading ---
@@ -213,12 +242,58 @@
     showIeltsPracticeView();
   }
 
-  function showHomeView() {
+  function showHomeView(targetId) {
     stopTimer();
+
+    // Auto-detect target based on currently active view before hiding
+    if (!targetId) {
+      if (document.getElementById('vocabulary-view') && document.getElementById('vocabulary-view').classList.contains('active-view')) {
+        targetId = 'card-vocab-home';
+      } else if (document.getElementById('roadmap-view') && document.getElementById('roadmap-view').classList.contains('active-view')) {
+        targetId = 'card-routine-home';
+      } else if (document.getElementById('grammar-view') && document.getElementById('grammar-view').classList.contains('active-view')) {
+        targetId = 'card-grammar-home';
+      } else if (document.getElementById('podcast-view') && document.getElementById('podcast-view').classList.contains('active-view')) {
+        targetId = 'card-podcast-home';
+      } else if (document.getElementById('reading-skills-selection-view') && document.getElementById('reading-skills-selection-view').classList.contains('active-view')) {
+        targetId = 'card-reading-skills-home';
+      } else if (document.getElementById('study-abroad-view') && document.getElementById('study-abroad-view').classList.contains('active-view')) {
+        targetId = 'study-abroad-showcase';
+      } else if (document.getElementById('ielts-practice-view') && document.getElementById('ielts-practice-view').classList.contains('active-view')) {
+        targetId = 'card-practice-portals-home';
+      } else if (document.getElementById('reading-selection-view') && document.getElementById('reading-selection-view').classList.contains('active-view')) {
+        targetId = 'card-reading-home';
+      } else if ((document.getElementById('writing-view') && document.getElementById('writing-view').classList.contains('active-view')) || (document.getElementById('writing-practice-view') && document.getElementById('writing-practice-view').classList.contains('active-view'))) {
+        targetId = 'card-writing-home';
+      } else if ((document.getElementById('listening-view') && document.getElementById('listening-view').classList.contains('active-view')) || (document.getElementById('listening-exam-view') && document.getElementById('listening-exam-view').classList.contains('active-view'))) {
+        targetId = 'card-listening-home';
+      } else if (document.getElementById('shadowing-view') && document.getElementById('shadowing-view').classList.contains('active-view')) {
+        targetId = 'card-speaking-home';
+      }
+    }
+
     hideAllViews();
+    if (window.location.pathname === '/writing-practice') {
+      try { window.history.pushState(null, '', '/'); } catch(e){}
+    }
     if (dom.homeView) dom.homeView.classList.add('active-view');
-    window.scrollTo({ top: 0, behavior: 'instant' });
     renderHomePage();
+
+    if (targetId) {
+      setTimeout(function() {
+        const el = document.getElementById(targetId);
+        if (el) {
+          const navH = 76;
+          const rect = el.getBoundingClientRect();
+          const targetY = window.pageYOffset + rect.top - navH - 24;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      }, 60);
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   function showExamView(testId) {
@@ -290,12 +365,19 @@
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
       'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view',
-      'study-abroad-view'
+      'study-abroad-view', 'writing-practice-view'
     ];
     viewIds.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.remove('active-view');
     });
+    // Ensure body and html overflow are clean
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+    }
   }
 
   // --- Home Mode Switcher: Tests vs Skills vs Roadmap ---
@@ -853,10 +935,11 @@
     try {
       const saved = localStorage.getItem('mis_roadmap_progress');
       if (saved) return JSON.parse(saved);
+      return [1, 2]; // Initial sample progress matching reference design
     } catch (e) {
       console.error('Error reading mis_roadmap_progress:', e);
     }
-    return [];
+    return [1, 2];
   }
 
   function saveCompletedRoadmapDays(days) {
@@ -901,19 +984,24 @@
       }
     }
 
+    // Determine current / in-progress target day (active selection or next uncompleted)
+    let nextUncompleted = 1;
+    for (let d = 1; d <= 60; d++) {
+      if (!completed.includes(d)) {
+        nextUncompleted = d;
+        break;
+      }
+    }
+    const currentTargetDay = state.currentSelectedDay || 26;
+
     let html = '';
     daysToDisplay.forEach(dayNum => {
       const isDone = completed.includes(dayNum);
-      const dayHtml = tasks[dayNum] || '';
-      // Extract title snippet from first <strong>
-      const titleMatch = dayHtml.match(/<strong>(.*?)<\/strong>/);
-      let dayTitle = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : `Day ${dayNum} Tasks`;
-      // Clean up repetitive "Day X:" from title if present
-      dayTitle = dayTitle.replace(/^Day\s*\d+\s*:\s*/i, '');
+      const isCurrent = (!isDone && dayNum === currentTargetDay);
 
       html += `
-        <div class="day-card ${isDone ? 'completed' : ''}" id="day-${dayNum}" onclick="window.ieltsApp.openRoadmapDayModal(${dayNum})" title="Day ${dayNum} Task">
-          <span class="day-card-num">Day ${dayNum}</span>
+        <div class="day-card ${isDone ? 'completed' : ''} ${isCurrent ? 'current' : ''}" id="day-${dayNum}" onclick="window.ieltsApp.openRoadmapDayModal(${dayNum})" title="Day ${dayNum} Task">
+          <span class="day-card-num">Day ${dayNum}${isDone ? ' <span class="day-check">&#10003;</span>' : ''}</span>
         </div>
       `;
     });
@@ -932,10 +1020,10 @@
     const pct = Math.round((count / 60) * 100);
 
     if (dom.progressText) {
-      dom.progressText.textContent = `${convertToBanglaNumber(count)}/৬০`;
+      dom.progressText.textContent = `${count} of 60 days completed`;
     }
     if (dom.progressPct) {
-      dom.progressPct.textContent = `${pct}% Complete`;
+      dom.progressPct.textContent = `${pct}%`;
     }
     if (dom.progressBar) {
       dom.progressBar.style.width = `${pct}%`;
@@ -952,6 +1040,7 @@
 
   function openRoadmapDayModal(dayNumber) {
     state.currentSelectedDay = dayNumber;
+    renderRoadmapCalendar(state.currentRoadmapFilter || 'all');
     const tasks = getRoadmapTasks();
     const completed = getCompletedRoadmapDays();
     const isDone = completed.includes(dayNumber);
@@ -991,7 +1080,7 @@
         dom.completeTaskBtn.style.background = '#475569';
       } else {
         dom.completeTaskBtn.textContent = 'Mark as Complete ';
-        dom.completeTaskBtn.style.background = 'linear-gradient(135deg, #e31837 0%, #b91c1c 100%)';
+        dom.completeTaskBtn.style.background = 'linear-gradient(135deg, #0e332d 0%, #1b5e52 100%)';
       }
     }
 
@@ -2607,7 +2696,7 @@
     const photoBox = document.getElementById('photo');
     if (photoBox) photoBox.classList.add('has');
     if (imgEl && !imgEl.getAttribute('src')) {
-      imgEl.src = 'assets/images/abraham_rifat.jpg';
+      imgEl.src = 'assets/images/airplane_window.jpg';
     }
   }
 
@@ -2624,19 +2713,74 @@
   function showWritingView(tab) {
     stopTimer();
     hideAllViews();
+    if (window.location.pathname === '/writing-practice') {
+      try { window.history.pushState(null, '', '/'); } catch(e){}
+    }
     const v = document.getElementById('writing-view');
-    if (v) v.classList.add('active-view');
+    if (v) {
+      v.classList.add('active-view');
+      v.setAttribute('data-tab', tab || 'hub');
+    }
     switchWritingTab(tab || 'hub');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
+  }
+
+  function showWritingPracticeView() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('writing-practice-view');
+    if (v) v.classList.add('active-view');
+    if (window.location.pathname !== '/writing-practice') {
+      try {
+        window.history.pushState(null, '', '/writing-practice');
+      } catch (e) {}
+    }
+    window.scrollTo(0, 0);
+    if (window.ieltsWritingPractice) {
+      if (typeof window.ieltsWritingPractice.showPracticeNotepad === 'function') {
+        window.ieltsWritingPractice.showPracticeNotepad();
+      }
+      if (typeof window.ieltsWritingPractice.restoreDraft === 'function') {
+        window.ieltsWritingPractice.restoreDraft();
+      }
+    }
+  }
+
+  function showWritingProgressView() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('writing-practice-view');
+    if (v) v.classList.add('active-view');
+    window.scrollTo(0, 0);
+    if (window.ieltsWritingPractice && typeof window.ieltsWritingPractice.showProgressView === 'function') {
+      window.ieltsWritingPractice.showProgressView();
+    }
   }
 
   function switchWritingTab(tab) {
     state.currentWritingTab = tab;
+
+    const writingView = document.getElementById('writing-view');
+    if (writingView) {
+      writingView.setAttribute('data-tab', tab);
+    }
     
     // Update tab button active states
     document.querySelectorAll('.writing-mode-tabs .mode-tab-btn').forEach(function(b) {
       const target = b.id.replace('btn-tab-', '');
       b.classList.toggle('active', target === tab);
+    });
+
+    // Update secondary nav links
+    document.querySelectorAll('#writing-view .writing-nav-link').forEach(function(l) {
+      const text = l.textContent.trim().toLowerCase();
+      if (tab === 'hub') {
+        l.classList.toggle('active', text.includes('hub'));
+      } else if (tab === 'simulator') {
+        l.classList.toggle('active', text.includes('simulator'));
+      } else {
+        l.classList.remove('active');
+      }
     });
 
     const sections = {
@@ -2648,13 +2792,38 @@
 
     Object.keys(sections).forEach(function(k) {
       if (sections[k]) {
-        sections[k].style.display = (k === tab) ? 'block' : 'none';
+        if (k === tab) {
+          sections[k].style.setProperty('display', (k === 'simulator' ? 'flex' : 'block'), 'important');
+        } else {
+          sections[k].style.setProperty('display', 'none', 'important');
+        }
       }
     });
+
+    // Update secondary nav back button text and title
+    const backBtn = document.getElementById('writing-nav-back-btn');
+    if (backBtn) {
+      const span = backBtn.querySelector('span') || backBtn;
+      if (tab === 'hub') {
+        span.innerHTML = '&larr; Back to Home';
+        backBtn.setAttribute('title', 'Return to IELTS Warrior Home');
+      } else {
+        span.innerHTML = '&larr; Back to Writing Hub';
+        backBtn.setAttribute('title', 'Return to Writing Masterclass Hub');
+      }
+    }
 
     if (tab === 'task2') renderWritingTask2(state.currentTask2Filter || 'all');
     if (tab === 'task1') renderWritingTask1(state.currentTask1Filter || 'all');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function handleWritingNavBack() {
+    if (state.currentWritingTab && state.currentWritingTab !== 'hub') {
+      switchWritingTab('hub');
+    } else {
+      showHomeView('card-writing-home');
+    }
   }
 
   function filterWritingTask2(cat) {
@@ -3111,6 +3280,7 @@
     const scannedBtn = document.getElementById('btn-reading-mode-scanned');
     const trainerRoot = document.getElementById('reading-trainer-root');
     const scannedRoot = document.getElementById('reading-scanned-papers-root');
+    const backBtn = document.getElementById('reading-nav-back-btn');
 
     if (trainerBtn) trainerBtn.classList.toggle('active', currentReadingMainMode === 'trainer');
     if (scannedBtn) scannedBtn.classList.toggle('active', currentReadingMainMode === 'scanned');
@@ -3121,11 +3291,50 @@
       if (window.ReadingTrainer && window.ReadingTrainer.init) {
         window.ReadingTrainer.init();
       }
+      if (window.ReadingTrainer && window.ReadingTrainer.syncHeaderBackBtn) {
+        window.ReadingTrainer.syncHeaderBackBtn();
+      }
     } else {
       if (trainerRoot) trainerRoot.style.display = 'none';
       if (scannedRoot) scannedRoot.style.display = 'block';
       renderReadingSelectionGrid('all', '');
+      if (backBtn) {
+        const span = backBtn.querySelector('span') || backBtn;
+        span.innerHTML = '&larr; Back to Trainer';
+        backBtn.setAttribute('title', 'Back to Type & Topic Trainer');
+      }
     }
+  }
+
+  function handleReadingBack() {
+    if (currentReadingMainMode === 'trainer') {
+      if (window.ReadingTrainer && typeof window.ReadingTrainer.stepBack === 'function') {
+        const handled = window.ReadingTrainer.stepBack();
+        if (handled) return;
+      }
+      showHomeView();
+    } else if (currentReadingMainMode === 'scanned') {
+      switchReadingMainMode('trainer');
+    } else {
+      showHomeView();
+    }
+  }
+
+  function handleReadingFrameBack() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('reading-selection-view');
+    if (v) v.classList.add('active-view');
+    switchReadingMainMode('scanned');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function handleWritingPracticeBack() {
+    if (window.ieltsWritingPractice && typeof window.ieltsWritingPractice.stepBack === 'function') {
+      const handled = window.ieltsWritingPractice.stepBack();
+      if (handled) return;
+    }
+    showWritingView('hub');
   }
 
   function toggleReadingFrameFullscreen() {
@@ -3516,8 +3725,9 @@
 
   function filterVocabCategory(cat) {
     state.currentVocabCategory = cat;
-    document.querySelectorAll('#vocab-category-filter-bar .cat-filter-btn').forEach(function(b) {
-      b.classList.toggle('active', b.getAttribute('data-cat-filter') === cat);
+    document.querySelectorAll('#vocab-filter-bar .cat-filter-btn, #vocab-category-filter-bar .cat-filter-btn').forEach(function(b) {
+      const filterAttr = b.getAttribute('data-cat-filter') || b.getAttribute('data-vocab-filter');
+      b.classList.toggle('active', filterAttr === cat);
     });
     renderVocabTopicsHub();
   }
@@ -3527,8 +3737,22 @@
     renderVocabTopicsHub();
   }
 
+  function resumeNextVocabDay() {
+    if (typeof VOCABULARY_DATA === 'undefined' || !Array.isArray(VOCABULARY_DATA)) return;
+    const completed = getCompletedVocabDays();
+    const totalDays = VOCABULARY_DATA.length;
+    let nextDay = 1;
+    for (let i = 1; i <= totalDays; i++) {
+      if (!completed.includes(i)) {
+        nextDay = i;
+        break;
+      }
+    }
+    openVocabDayModal(nextDay);
+  }
+
   function renderVocabTopicsHub() {
-    const grid = document.getElementById('vocab-topics-cards-grid');
+    const grid = document.getElementById('vocab-calendar-grid') || document.getElementById('vocab-topics-cards-grid');
     if (!grid) return;
 
     if (typeof VOCABULARY_DATA === 'undefined' || !Array.isArray(VOCABULARY_DATA)) {
@@ -3536,11 +3760,66 @@
       return;
     }
 
+    const completed = getCompletedVocabDays();
+    const totalDays = VOCABULARY_DATA.length; // 60
+    const completedCount = completed.length;
+    const pct = totalDays > 0 ? Math.round((completedCount / totalDays) * 100) : 0;
+
+    // Update Floating Routine Progress Card
+    const progressText = document.getElementById('vocab-progress-text');
+    const progressBar = document.getElementById('vocab-progress-bar');
+    const progressPct = document.getElementById('vocab-progress-pct');
+    const resumeBtn = document.getElementById('vocab-resume-btn');
+
+    if (progressText) progressText.textContent = completedCount + ' of ' + totalDays + ' days completed';
+    if (progressBar) progressBar.style.width = pct + '%';
+    if (progressPct) progressPct.textContent = pct + '%';
+
+    let nextDay = 1;
+    for (let i = 1; i <= totalDays; i++) {
+      if (!completed.includes(i)) {
+        nextDay = i;
+        break;
+      }
+    }
+    const nextNumStr = (nextDay < 10 ? '0' : '') + nextDay;
+
+    if (resumeBtn) {
+      if (completedCount >= totalDays) {
+        resumeBtn.innerHTML = '<span>All 60 Days Completed! ✓</span>';
+      } else {
+        resumeBtn.innerHTML = '<span>Resume Day ' + nextNumStr + ' Routine &rarr;</span>';
+      }
+    }
+
     const cat = state.currentVocabCategory || 'all';
     const query = (state.vocabSearchQuery || '').toLowerCase().trim();
 
     let filteredDays = VOCABULARY_DATA.filter(function(day) {
-      if (cat !== 'all' && day.category !== cat) return false;
+      if (cat === 'completed') {
+        if (!completed.includes(day.day)) return false;
+      } else if (cat === 'pending') {
+        if (completed.includes(day.day)) return false;
+      } else if (cat === 'w1' || cat === 'week1') {
+        if (day.day < 1 || day.day > 7) return false;
+      } else if (cat === 'w2' || cat === 'week2') {
+        if (day.day < 8 || day.day > 14) return false;
+      } else if (cat === 'w3' || cat === 'week3') {
+        if (day.day < 15 || day.day > 21) return false;
+      } else if (cat === 'w4' || cat === 'week4') {
+        if (day.day < 22 || day.day > 28) return false;
+      } else if (cat === 'w5' || cat === 'week5') {
+        if (day.day < 29 || day.day > 35) return false;
+      } else if (cat === 'w6' || cat === 'week6') {
+        if (day.day < 36 || day.day > 42) return false;
+      } else if (cat === 'w7' || cat === 'week7') {
+        if (day.day < 43 || day.day > 49) return false;
+      } else if (cat === 'w8' || cat === 'week8') {
+        if (day.day < 50 || day.day > 60) return false;
+      } else if (cat !== 'all') {
+        if (day.category !== cat) return false;
+      }
+
       if (!query) return true;
 
       if ((day.theme || '').toLowerCase().includes(query)) return true;
@@ -3567,88 +3846,18 @@
     });
 
     if (filteredDays.length === 0) {
-      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px 20px; background:#fff; border-radius:14px; border:1px solid #e2e8f0; color:#64748b;">' +
-        
-        '<h4 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 6px;">No Vocabulary Topics Found</h4>' +
-        '<p style="margin:0; font-size:0.92rem;">Try clearing your search query or selecting another topic filter.</p>' +
-      '</div>';
+      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:#64748b;">No vocabulary days match this filter.</div>';
       return;
     }
 
-    // Palette matching Image 1: Yellow/Orange, Green, Cyan/Blue, Magenta/Pink
-    const themePalettes = [
-      // 1. Crimson Velvet (User's snippet: #8b1a2b -> #c0392b)
-      {
-        c1: '#8b1a2b',
-        c2: '#c0392b',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
-      },
-      // 2. Deep Pine Teal (Website --ink: #0f3d3a -> #166e66)
-      {
-        c1: '#0f3d3a',
-        c2: '#166e66',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>'
-      },
-      // 3. Warm Amber Gold (Website --t4: #b45309 -> #d97706)
-      {
-        c1: '#b45309',
-        c2: '#d97706',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'
-      },
-      // 4. Cambridge Navy Blue (Website Cambridge: #1e3a8a -> #2563eb)
-      {
-        c1: '#1e3a8a',
-        c2: '#2563eb',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
-      },
-      // 5. Rose Quartz Velvet (Website --t3: #7f1d38 -> #9f2b48)
-      {
-        c1: '#7f1d38',
-        c2: '#9f2b48',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
-      },
-      // 6. Forest Jade Emerald (Website --t2: #1b4332 -> #2d6a4f)
-      {
-        c1: '#1b4332',
-        c2: '#2d6a4f',
-        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>'
-      }
-    ];
-
     let html = '';
-    const completed = getCompletedVocabDays();
-
-    filteredDays.forEach(function(day, idx) {
-      const p = themePalettes[idx % themePalettes.length];
+    filteredDays.forEach(function(day) {
       const isDone = completed.includes(day.day);
-      const wordsPreview = (day.words || []).slice(0, 4).map(function(w) { return w.word; }).join(', ');
-      const numStr = (day.day < 10 ? '0' : '') + day.day;
+      const isCurrent = (!isDone && day.day === nextDay);
 
-      // Single Direct Card (Flip option OFF as requested)
-      html += '<article class="topic-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-        '<header class="topic-head">' +
-          '<span class="topic-num">' + numStr + '</span>' +
-          '<h3 class="topic-title">Topic ' + numStr + '</h3>' +
-          '<span class="topic-icon">' + p.icon + '</span>' +
-        '</header>' +
-        '<div class="topic-body">' +
-          '<span class="topic-label">' + escapeHtml((day.category || 'IELTS Core').toUpperCase()) + '</span>' +
-          '<h4>' + escapeHtml(day.theme) + '</h4>' +
-          '<p class="keywords">' + escapeHtml(wordsPreview) + '...</p>' +
-          '<div class="tags">' +
-            '<span>10 Words</span>' +
-            '<span>3 Phrasals</span>' +
-            '<span>2 Idioms</span>' +
-            '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">Band 7.5-9.0</span>' +
-          '</div>' +
-          '<div class="topic-foot">' +
-            '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
-              (isDone ? '✓ Completed' : 'Incomplete') +
-            '</button>' +
-            '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Explore &rarr;</a>' +
-          '</div>' +
-        '</div>' +
-      '</article>';
+      html += '<div class="day-card ' + (isDone ? 'completed ' : '') + (isCurrent ? 'current ' : '') + '" id="vocab-day-' + day.day + '" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')" title="Day ' + day.day + ': ' + escapeHtml(day.theme) + ' (' + escapeHtml(day.category || 'Academic') + ')">' +
+        '<span class="day-card-num">Day ' + day.day + (isDone ? ' <span class="day-check">&#10003;</span>' : '') + '</span>' +
+      '</div>';
     });
 
     grid.innerHTML = html;
@@ -3671,34 +3880,35 @@
     const content = document.getElementById('vocab-modal-body') || document.getElementById('vocab-modal-content');
     const completeBtn = document.getElementById('vocab-complete-btn') || document.getElementById('vocab-modal-complete-btn');
 
+    const numStr = (dayData.day < 10 ? '0' : '') + dayData.day;
     if (phaseTag) {
-      phaseTag.textContent = 'Day ' + dayData.day + ' Routine • ' + (dayData.category || 'Academic');
+      phaseTag.textContent = 'Day ' + numStr + ' Daily Routine • ' + (dayData.category || 'Academic');
     }
     if (title) {
-      title.textContent = 'Day ' + dayData.day + ': ' + dayData.theme;
+      title.textContent = 'Day ' + numStr + ': ' + dayData.theme;
     }
 
     const completed = getCompletedVocabDays();
     const isDone = completed.includes(dayData.day);
     if (completeBtn) {
       completeBtn.textContent = isDone ? '↺ Mark as Incomplete' : '✓ Mark as Complete';
-      completeBtn.style.background = isDone ? '#dc2626' : '#15803d';
+      completeBtn.style.background = isDone ? '#475569' : '#0e332d';
       completeBtn.style.color = '#ffffff';
-      completeBtn.style.borderColor = isDone ? '#b91c1c' : '#166534';
+      completeBtn.style.borderColor = isDone ? '#475569' : '#0e332d';
     }
 
     let html = '<div style="margin-bottom:20px;">' +
-      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:18px; background:#f8fafc; padding:14px 20px; border-radius:12px; border:1px solid #e2e8f0;">' +
-        '<div style="font-size:0.95rem; font-weight:700; color:#334155;">' +
-          '<span>Category: <strong style="color:#2563eb;">' + escapeHtml(dayData.category || 'Academic') + '</strong></span> &bull; ' +
-          '<span>Target Score: <strong style="color:#16a34a;">Band 8.0 - 9.0</strong></span>' +
+      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px; background:#f4f9f6; padding:14px 20px; border-radius:12px; border:1px solid #d5e5df;">' +
+        '<div style="font-size:0.95rem; font-weight:700; color:#0e332d;">' +
+          '<span>Category: <strong style="color:#0e332d;">' + escapeHtml(dayData.category || 'Academic') + '</strong></span> &bull; ' +
+          '<span>Target Score: <strong style="color:#15803d;">Band 8.0 - 9.0</strong></span>' +
         '</div>' +
-        '<div style="font-size:0.85rem; color:#64748b; font-weight:600;">10 Academic Words &bull; 3 Phrasal Verbs &bull; 2 Idioms</div>' +
+        '<div style="font-size:0.85rem; color:#52796f; font-weight:700;">10 Academic Words &bull; 3 Phrasal Verbs &bull; 2 Idioms</div>' +
       '</div>';
 
-    // 10 Words
-    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
-      '<span style="background:#2563eb; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">10</span>' +
+    // 10 Academic Words
+    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0e332d; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
+      '<span style="background:#0e332d; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">10</span>' +
       'Academic Vocabulary Words (Band 7.5 - 9.0)' +
     '</h4>' +
     '<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:14px; margin-bottom:24px;">';
@@ -3711,10 +3921,10 @@
       html += '<div style="background:#ffffff; border:1.5px solid #e2e8f0; border-radius:12px; padding:16px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">' +
         '<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">' +
           '<div>' +
-            '<span style="font-size:1.12rem; font-weight:800; color:#0f172a;">' + escapeHtml(w.word) + '</span> ' +
+            '<span style="font-size:1.15rem; font-weight:800; color:#0e332d;">' + escapeHtml(w.word) + '</span> ' +
             '<small style="color:#64748b; font-style:italic;">(' + escapeHtml(w.pos || 'n.') + ')</small>' +
           '</div>' +
-          '<button type="button" data-speak="' + escapeHtml(w.word || '') + '" onclick="window.ieltsApp.speakShadowingLine(this.getAttribute(\'data-speak\'))" title="Listen Pronunciation" style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; cursor:pointer; color:#2563eb; padding:4px 8px; display:inline-flex; align-items:center; gap:4px; font-size:0.78rem; font-weight:700;">' +
+          '<button type="button" data-speak="' + escapeHtml(w.word || '') + '" onclick="window.ieltsApp.speakShadowingLine(this.getAttribute(\'data-speak\'))" title="Listen Pronunciation" style="background:#e8f5f1; border:1px solid #d5e5df; border-radius:6px; cursor:pointer; color:#0e332d; padding:4px 8px; display:inline-flex; align-items:center; gap:4px; font-size:0.78rem; font-weight:700;">' +
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>' +
             '<span>Pronounce</span>' +
           '</button>' +
@@ -3724,7 +3934,7 @@
           '<span style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase;">Synonyms:</span>' +
           synHtml +
         '</div>' +
-        '<div style="background:#f8fafc; border-left:3px solid #2563eb; padding:8px 12px; border-radius:0 6px 6px 0; font-size:0.86rem; color:#1e293b; line-height:1.45;">' +
+        '<div style="background:#f4f9f6; border-left:3px solid #0e332d; padding:8px 12px; border-radius:0 6px 6px 0; font-size:0.86rem; color:#1e293b; line-height:1.45;">' +
           '<strong>Example:</strong> "' + escapeHtml(w.example || '') + '"' +
         '</div>' +
       '</div>';
@@ -3733,8 +3943,8 @@
     html += '</div>';
 
     // 3 Phrasal Verbs
-    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
-      '<span style="background:#059669; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">3</span>' +
+    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0e332d; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
+      '<span style="background:#2d6a4f; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">3</span>' +
       'Academic Phrasal Verbs (from 100 Reference Sheet)' +
     '</h4>' +
     '<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:12px; margin-bottom:24px;">';
@@ -3755,8 +3965,8 @@
     html += '</div>';
 
     // 2 Idioms
-    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
-      '<span style="background:#d97706; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">2</span>' +
+    html += '<h4 style="font-size:1.15rem; font-weight:800; color:#0e332d; margin:0 0 14px; display:flex; align-items:center; gap:8px;">' +
+      '<span style="background:#b45309; color:#fff; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:900;">2</span>' +
       'Band 8+ Idioms (from 100 Reference Sheet)' +
     '</h4>' +
     '<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:12px; margin-bottom:12px;">';
@@ -3960,6 +4170,9 @@
         window.studyAbroadApp.openCountry(countryId);
       } else {
         window.studyAbroadApp.showHome();
+      }
+      if (typeof window.studyAbroadApp.redraw === 'function') {
+        window.studyAbroadApp.redraw();
       }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4439,11 +4652,11 @@
 
     // 6 Rotating Palettes exactly matching Vocabulary cards
     const themePalettes = [
-      { c1: '#8b1a2b', c2: '#c0392b', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+      { c1: '#0e332d', c2: '#1b5e52', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
       { c1: '#0f3d3a', c2: '#166e66', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>' },
       { c1: '#b45309', c2: '#d97706', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="6" r="2"/><circle cx="12" cy="18" r="2"/></svg>' },
       { c1: '#1e3a8a', c2: '#2563eb', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
-      { c1: '#7f1d38', c2: '#9f2b48', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+      { c1: '#064e3b', c2: '#047857', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
       { c1: '#1b4332', c2: '#2d6a4f', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>' }
     ];
 
@@ -5057,35 +5270,37 @@
   }
 
   function renderNavAuthState() {
-    const slot = document.getElementById('nav-auth-slot');
-    if (!slot) return;
+    const slots = document.querySelectorAll('.nav-auth-slot');
+    if (!slots || slots.length === 0) return;
 
-    if (currentUser) {
-      const email = currentUser.email || 'Candidate';
-      const meta = currentUser.user_metadata || {};
-      const fullName = meta.full_name || meta.name || email.split('@')[0];
-      const avatarUrl = meta.avatar_url || meta.picture || '';
-      const initial = fullName.charAt(0).toUpperCase();
+    slots.forEach(slot => {
+      if (currentUser) {
+        const email = currentUser.email || 'Candidate';
+        const meta = currentUser.user_metadata || {};
+        const fullName = meta.full_name || meta.name || email.split('@')[0];
+        const avatarUrl = meta.avatar_url || meta.picture || '';
+        const initial = fullName.charAt(0).toUpperCase();
 
-      slot.innerHTML = `
-        <div class="nav-user-chip" id="nav-user-chip" title="${email}">
-          ${avatarUrl 
-            ? `<img class="nav-user-avatar" src="${avatarUrl}" alt="${fullName}" referrerpolicy="no-referrer">` 
-            : `<span class="nav-user-initial">${initial}</span>`}
-          <span class="nav-user-name">${fullName}</span>
-          <button type="button" class="nav-signout-btn" onclick="window.ieltsApp.signOut()" title="Sign Out">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        slot.innerHTML = `
+          <div class="nav-user-chip" title="${email}">
+            ${avatarUrl 
+              ? `<img class="nav-user-avatar" src="${avatarUrl}" alt="${fullName}" referrerpolicy="no-referrer">` 
+              : `<span class="nav-user-initial">${initial}</span>`}
+            <span class="nav-user-name">${fullName}</span>
+            <button type="button" class="nav-signout-btn" onclick="window.ieltsApp.signOut()" title="Sign Out">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </button>
+          </div>
+        `;
+      } else {
+        slot.innerHTML = `
+          <button type="button" class="nav-auth-btn" onclick="window.ieltsApp.openAuthModal('signin');">
+            <svg class="nav-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Sign In</span>
           </button>
-        </div>
-      `;
-    } else {
-      slot.innerHTML = `
-        <button type="button" class="nav-auth-btn" id="nav-login-btn" onclick="window.ieltsApp.openAuthModal('signin');">
-          <svg class="nav-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span>Sign In</span>
-        </button>
-      `;
-    }
+        `;
+      }
+    });
   }
 
   function openAuthModal(mode = 'signin') {
@@ -5473,6 +5688,8 @@
     showExamView,
     showReaderView,
     showWritingView,
+    showWritingPracticeView,
+    showWritingProgressView,
     showListeningView,
     showShadowingView,
     showPodcastView,
@@ -5482,6 +5699,10 @@
     showStudyAbroadView,
     showReadingSelection,
     switchReadingMainMode,
+    handleReadingBack,
+    handleReadingFrameBack,
+    handleWritingPracticeBack,
+    handleWritingNavBack,
     toggleReadingFrameFullscreen,
     openReadingMockTest,
     searchReadingPassages,
@@ -5572,6 +5793,7 @@
     submitListeningExam,
 
     // Vocabulary Topics Engine
+    resumeNextVocabDay,
     filterVocabCategory,
     searchVocab,
     renderVocabTopicsHub,

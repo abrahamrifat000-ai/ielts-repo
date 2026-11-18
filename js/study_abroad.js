@@ -1178,7 +1178,7 @@ function visible() {
 }
 function ticket(c) {
   const sp = SP[c.spouse[S.level]];
-  return `<a class="ticket" href="#${c.id}" aria-label="${esc(c.name)}: open the full guide">
+  return `<a class="ticket" href="#${c.id}" onclick="window.studyAbroadApp.openCountry('${c.id}'); return false;" aria-label="${esc(c.name)}: open the full guide">
     <div class="t-main">
       <div class="t-head">${FLAG(c.id, "md")}<div><h3>${esc(c.name)}<small>${esc(c.region)} · ${esc(c.capital)}</small></h3></div></div>
       <p class="t-visa">${esc(c.visa)}</p>
@@ -1395,6 +1395,22 @@ document.addEventListener("click", e => {
   if (!saView() || !saView().classList.contains('active-view')) return;
   const t = e.target.closest("button,a");
   if (!t) return;
+  if (t.classList.contains('sa-nav-back-btn') || t.classList.contains('sa-back-btn')) return;
+
+  const href = t.getAttribute('href');
+  if (href && href.startsWith('#')) {
+    const targetId = href.slice(1);
+    if (BY[targetId]) {
+      e.preventDefault();
+      window.studyAbroadApp.openCountry(targetId);
+      return;
+    } else if (['destinations', 'money', 'compare', 'plan', 'announcements', 'sa-top'].includes(targetId)) {
+      e.preventDefault();
+      window.studyAbroadApp.scrollToSec(targetId);
+      return;
+    }
+  }
+
   if (t.dataset.level) { S.level = t.dataset.level; store.set("level", S.level); redraw(); }
   else if (t.dataset.band) { S.band = parseFloat(t.dataset.band); drawFinder(); if (S.finder) drawGrid(); }
   else if (t.dataset.cur) { S.cur = t.dataset.cur; store.set("cur", S.cur); redraw(); }
@@ -1580,12 +1596,39 @@ if (document.readyState === "loading") {
       const detailEl = $('#detail');
       if (detailEl) detailEl.hidden = true;
       if (homeEl) homeEl.hidden = false;
+      const backBtn = document.getElementById('sa-nav-back-btn');
+      if (backBtn) {
+        const span = backBtn.querySelector('span') || backBtn;
+        span.innerHTML = '&larr; Back to Home';
+        backBtn.setAttribute('title', 'Back to Home Portal');
+      }
+      const sa = saView();
+      if (sa) {
+        sa.querySelectorAll('.sa-nav-link').forEach(l => l.classList.remove('active'));
+        const targetLink = secId ? sa.querySelector(`.sa-nav-link[href="#${secId}"]`) : sa.querySelector('.sa-nav-link');
+        if (targetLink) targetLink.classList.add('active');
+      }
       if (secId) {
-        const el = saView() ? saView().querySelector('#' + secId) : document.getElementById(secId);
+        const el = sa ? sa.querySelector('#' + secId) : document.getElementById(secId);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    },
+    handleBack: function() {
+      if (current) {
+        this.showHome();
+      } else {
+        if (window.ieltsApp && window.ieltsApp.showHomeView) {
+          window.ieltsApp.showHomeView();
+        }
+      }
+    },
+    setActiveNav: function(el) {
+      const sa = saView();
+      if (!sa) return;
+      sa.querySelectorAll('.sa-nav-link').forEach(l => l.classList.remove('active'));
+      if (el) el.classList.add('active');
     },
     openCountry: function(countryId) {
       const c = BY[countryId];
@@ -1596,6 +1639,12 @@ if (document.readyState === "loading") {
         const detailEl = $('#detail');
         if (homeEl) homeEl.hidden = true;
         if (detailEl) detailEl.hidden = false;
+        const backBtn = document.getElementById('sa-nav-back-btn');
+        if (backBtn) {
+          const span = backBtn.querySelector('span') || backBtn;
+          span.innerHTML = '&larr; Back to Countries';
+          backBtn.setAttribute('title', 'Back to All Countries');
+        }
         window.scrollTo({ top: 0, behavior: 'instant' });
       }
     },
