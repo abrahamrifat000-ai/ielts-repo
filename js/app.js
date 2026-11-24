@@ -238,6 +238,48 @@
     showIeltsPracticeView();
   }
 
+  function showRealReadingListView(origin) {
+    stopTimer();
+    hideAllViews();
+    if (origin) state.lastReadingOriginView = origin;
+    const v = document.getElementById('ielts-real-reading-list-view');
+    if (v) v.classList.add('active-view');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showRealListeningListView(origin) {
+    stopTimer();
+    hideAllViews();
+    if (origin) state.lastListeningOriginView = origin;
+    const examListening = document.getElementById('listening-exam-view');
+    if (examListening) {
+      examListening.classList.remove('active', 'active-view');
+      examListening.style.removeProperty('display');
+    }
+    const v = document.getElementById('ielts-real-listening-list-view');
+    if (v) {
+      v.classList.add('active-view');
+      v.style.removeProperty('display');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goBackFromRealListening() {
+    if (state.lastListeningOriginView === 'listening-view') {
+      showListeningView();
+    } else {
+      showPracticePortals();
+    }
+  }
+
+  function showRealTestHub() {
+    stopTimer();
+    hideAllViews();
+    const v = document.getElementById('ielts-real-test-hub-view');
+    if (v) v.classList.add('active-view');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function showPracticePortals() {
     showIeltsPracticeView();
   }
@@ -364,7 +406,7 @@
     const viewIds = [
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
-      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view',
+      'reading-selection-view', 'reading-skills-selection-view', 'listening-exam-view', 'vocabulary-view', 'reading-test-frame-view', 'ielts-practice-view', 'reading-exam-view', 'ielts-real-listening-list-view', 'ielts-real-reading-list-view', 'ielts-real-test-hub-view',
       'study-abroad-view', 'writing-practice-view'
     ];
     viewIds.forEach(id => {
@@ -373,6 +415,7 @@
     });
     // Ensure body and html overflow are clean
     if (typeof document !== 'undefined') {
+      document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active-view'));
       document.body.style.overflow = '';
       document.body.style.height = '';
       document.documentElement.style.overflow = '';
@@ -1002,6 +1045,7 @@
       html += `
         <div class="day-card ${isDone ? 'completed' : ''} ${isCurrent ? 'current' : ''}" id="day-${dayNum}" onclick="window.ieltsApp.openRoadmapDayModal(${dayNum})" title="Day ${dayNum} Task">
           <span class="day-card-num">Day ${dayNum}${isDone ? ' <span class="day-check">&#10003;</span>' : ''}</span>
+          <span class="day-card-sub">${isDone ? 'Complete ✓' : 'Incomplete'}</span>
         </div>
       `;
     });
@@ -3249,8 +3293,8 @@
     });
     const cardBbc = document.getElementById('media-card-bbc');
     const cardTed = document.getElementById('media-card-ted');
-    if (cardBbc) cardBbc.style.display = (channel === 'all' || channel === 'bbc') ? 'flex' : 'none';
-    if (cardTed) cardTed.style.display = (channel === 'all' || channel === 'ted') ? 'flex' : 'none';
+    if (cardBbc) cardBbc.style.setProperty('display', (channel === 'all' || channel === 'bbc') ? 'flex' : 'none', 'important');
+    if (cardTed) cardTed.style.setProperty('display', (channel === 'all' || channel === 'ted') ? 'flex' : 'none', 'important');
   }
 
   function renderTedGrid() {}
@@ -3323,11 +3367,42 @@
   function handleReadingFrameBack() {
     stopTimer();
     hideAllViews();
-    const v = document.getElementById('reading-selection-view');
-    if (v) v.classList.add('active-view');
-    switchReadingMainMode('scanned');
+    if (state.lastReadingOriginView === 'real-reading') {
+      const v = document.getElementById('ielts-real-reading-list-view');
+      if (v) v.classList.add('active-view');
+    } else if (state.lastReadingOriginView === 'practice-portals') {
+      const v = document.getElementById('ielts-practice-view');
+      if (v) v.classList.add('active-view');
+    } else {
+      const v = document.getElementById('reading-selection-view');
+      if (v) v.classList.add('active-view');
+      switchReadingMainMode('trainer');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  function openMoktadirReading(originView) {
+    stopTimer();
+    hideAllViews();
+    state.lastReadingOriginView = originView || 'reading-selection';
+    const frameView = document.getElementById('reading-test-frame-view');
+    const iframe = document.getElementById('reading-test-iframe');
+    const titleEl = document.getElementById('reading-frame-active-title');
+    const newTabBtn = document.getElementById('reading-frame-newtab-btn');
+
+    if (titleEl) {
+      titleEl.innerHTML = 'IELTS Warriors Reading Practice &bull; 16 Passages &bull; 5 Question Types';
+    }
+    // newTabBtn removed per user request
+    if (iframe) {
+      iframe.src = 'reading/moktadir/index.html';
+    }
+    if (frameView) {
+      frameView.classList.add('active-view');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 
   function handleWritingPracticeBack() {
     if (window.ieltsWritingPractice && typeof window.ieltsWritingPractice.stepBack === 'function') {
@@ -3854,9 +3929,9 @@
     filteredDays.forEach(function(day) {
       const isDone = completed.includes(day.day);
       const isCurrent = (!isDone && day.day === nextDay);
-
       html += '<div class="day-card ' + (isDone ? 'completed ' : '') + (isCurrent ? 'current ' : '') + '" id="vocab-day-' + day.day + '" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')" title="Day ' + day.day + ': ' + escapeHtml(day.theme) + ' (' + escapeHtml(day.category || 'Academic') + ')">' +
         '<span class="day-card-num">Day ' + day.day + (isDone ? ' <span class="day-check">&#10003;</span>' : '') + '</span>' +
+        '<span class="day-card-sub">' + (isDone ? 'Complete ✓' : 'Incomplete') + '</span>' +
       '</div>';
     });
 
@@ -5685,6 +5760,11 @@
     showIeltsPracticeView,
     showIeltsPractice,
     showPracticePortals,
+    showRealTestHub,
+    showRealReadingListView,
+    showIeltsWarriorsReadingView: showRealReadingListView,
+    showRealListeningListView,
+    goBackFromRealListening,
     showExamView,
     showReaderView,
     showWritingView,
@@ -5701,6 +5781,7 @@
     switchReadingMainMode,
     handleReadingBack,
     handleReadingFrameBack,
+    openMoktadirReading,
     handleWritingPracticeBack,
     handleWritingNavBack,
     toggleReadingFrameFullscreen,

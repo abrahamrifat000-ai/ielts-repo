@@ -1,0 +1,1585 @@
+/**
+ * IELTS Warriors - CD-IELTS Reading Exam Simulator Stylesheet
+ * Exact 1:1 Replica of OnMock Computer-Delivered IELTS Reading Interface
+ * Matching User Reference Screenshot (media_1795319974168_60a8407e.jpg) & Question pettern Screenshots
+ */
+
+/* 1. SELECTION VIEW: 8 RED CARDS GRID */
+.real-reading-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+}
+
+@media (max-width: 1024px) {
+  .real-reading-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-reading-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.real-reading-cards-grid .real-test-mod-card-red {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+  border: 2px solid #f43f5e !important;
+  border-radius: 20px !important;
+  min-height: 180px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.16) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-align: center !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+}
+
+.real-reading-cards-grid .real-test-mod-card-red:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 18px 36px rgba(225, 29, 72, 0.28) !important;
+  border-color: #fda4af !important;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+}
+
+.real-reading-cards-grid .red-mod-card-title {
+  color: #ffffff !important;
+  font-size: 1.55rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.3px !important;
+  line-height: 1.25 !important;
+}
+
+/* 2. EXAM VIEW ROOT (Full Screen Overlay) */
+#reading-exam-view {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  z-index: 99999 !important;
+  display: none !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif !important;
+  color: #111827 !important;
+}
+
+#reading-exam-view.active,
+#reading-exam-view.active-view {
+  display: flex !important;
+}
+
+/* 3. EXAM TOP HEADER BAR (Clean White 52px) */
+.onmock-reading-header {
+  height: 52px !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 18px !important;
+  flex-shrink: 0 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  z-index: 100 !important;
+}
+
+.onmock-reading-header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.onmock-reading-back-btn {
+  background: transparent !important;
+  color: #dc2626 !important;
+  border: none !important;
+  padding: 4px 6px !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.onmock-reading-back-btn:hover {
+  opacity: 0.8 !important;
+}
+
+.onmock-reading-brand-arrow {
+  color: #dc2626 !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+}
+
+.onmock-reading-brand-logo {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.3px !important;
+  color: #dc2626 !important;
+}
+
+.onmock-reading-candidate-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1.25 !important;
+  margin-left: 10px !important;
+}
+
+.onmock-reading-candidate-name {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.onmock-reading-test-subtitle {
+  font-size: 11.5px !important;
+  color: #6b7280 !important;
+  font-weight: 400 !important;
+}
+
+/* Center Timer (Pill Border) */
+.onmock-reading-header-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.onmock-reading-timer-card {
+  background: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  padding: 3px 14px !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.onmock-reading-timer-card svg {
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #6b7280 !important;
+}
+
+.onmock-reading-timer-card.low-time {
+  background: #fef2f2 !important;
+  border-color: #f87171 !important;
+  color: #dc2626 !important;
+  animation: timerBlink 1s infinite !important;
+}
+
+@keyframes timerBlink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Header Right Actions */
+.onmock-reading-header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.onmock-reading-icon-action {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 4px !important;
+  border: none !important;
+  background: transparent !important;
+  color: #374151 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  padding: 0 !important;
+}
+
+.onmock-reading-icon-action:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+.onmock-reading-icon-action.hl-active {
+  background: #fef08a !important;
+  color: #854d0e !important;
+}
+
+.onmock-reading-submit-btn {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 6px 18px !important;
+  border-radius: 4px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  margin-left: 6px !important;
+}
+
+.onmock-reading-submit-btn:hover {
+  background: #b91c1c !important;
+}
+
+/* 4. SUB-HEADER STRIP (Light Gray 36px) */
+.onmock-reading-substrip {
+  background: #f1f5f9 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  height: 36px !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  flex-shrink: 0 !important;
+  z-index: 90 !important;
+}
+
+.onmock-substrip-part {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.onmock-substrip-inst {
+  font-size: 13px !important;
+  color: #475569 !important;
+  font-weight: 400 !important;
+}
+
+/* 5. SPLIT WORKSPACE */
+.onmock-reading-workspace {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  position: relative !important;
+}
+
+.onmock-reading-pane {
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+}
+
+#onmock-reading-left-pane {
+  flex: 0 0 50% !important;
+  padding: 24px 36px 60px 36px !important;
+  background: #ffffff !important;
+}
+
+#onmock-reading-right-pane {
+  flex: 0 0 50% !important;
+  padding: 24px 36px 80px 36px !important;
+  background: #ffffff !important;
+  position: relative !important;
+}
+
+/* Center Splitter */
+.onmock-reading-splitter {
+  width: 8px !important;
+  background: #f1f5f9 !important;
+  cursor: col-resize !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+  border-left: 1px solid #e5e7eb !important;
+  border-right: 1px solid #e5e7eb !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  user-select: none !important;
+}
+
+.onmock-reading-splitter:hover,
+.onmock-reading-splitter:active {
+  background: #2563eb !important;
+}
+
+.onmock-splitter-handle {
+  width: 18px !important;
+  height: 26px !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11px !important;
+  color: #64748b !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  pointer-events: none !important;
+}
+
+/* Passage Left Pane Typography */
+.reading-passage-header-block {
+  margin-bottom: 20px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.reading-passage-main-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #111827 !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.35 !important;
+}
+
+.reading-passage-meta-tip {
+  font-size: 13px !important;
+  color: #6b7280 !important;
+  font-style: italic !important;
+}
+
+.reading-passage-html-body {
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.68 !important;
+  color: #1f2937 !important;
+}
+
+.reading-passage-html-body p {
+  margin-bottom: 16px !important;
+}
+
+.reading-passage-html-body p b,
+.onmock-p-tag {
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+/* 6. RIGHT PANE: QUESTIONS TYPOGRAPHY & PATTERNS */
+.onmock-qgroup-header {
+  margin-bottom: 16px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.onmock-qgroup-range {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-bottom: 6px !important;
+}
+
+.onmock-qgroup-inst {
+  font-size: 13px !important;
+  color: #374151 !important;
+  line-height: 1.45 !important;
+}
+
+.onmock-qgroup-inst p {
+  margin: 0 0 6px 0 !important;
+}
+
+.onmock-qgroup-inst ul {
+  margin: 6px 0 10px 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.onmock-qitem {
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+.onmock-qstem {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-bottom: 6px !important;
+}
+
+.onmock-qnum {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #111827 !important;
+  min-width: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+.onmock-qprompt {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #111827 !important;
+  line-height: 1.5 !important;
+}
+
+/* Vertical Radios (TFNG / YNNG / MCQ) */
+.onmock-radios-vertical,
+.onmock-mcq-options {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin: 6px 0 14px 24px !important;
+}
+
+.onmock-radio-lbl,
+.onmock-mcq-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  font-size: 13.5px !important;
+  color: #111827 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  user-select: none !important;
+  width: fit-content !important;
+  transition: background 0.12s ease !important;
+}
+
+.onmock-radio-lbl:hover,
+.onmock-mcq-label:hover {
+  background: #f8fafc !important;
+}
+
+.onmock-radio-lbl input[type="radio"],
+.onmock-mcq-label input[type="radio"] {
+  width: 15px !important;
+  height: 15px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  accent-color: #2563eb !important;
+}
+
+.onmock-radio-text,
+.onmock-opt-text {
+  font-size: 13.5px !important;
+  color: #111827 !important;
+}
+
+/* Multiple Selection Checkboxes */
+.onmock-checkboxes-vertical {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin: 6px 0 14px 24px !important;
+}
+
+.onmock-cb-lbl {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  font-size: 13.5px !important;
+  color: #111827 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+}
+
+.onmock-cb-lbl:hover {
+  background: #f8fafc !important;
+}
+
+.onmock-cb-lbl input[type="checkbox"] {
+  width: 15px !important;
+  height: 15px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  accent-color: #2563eb !important;
+}
+
+/* Gap-Fill & Summary (Generous line-height so boxes never touch) */
+.onmock-summary-wrap,
+.rt-qbody {
+  font-size: 13.5px !important;
+  line-height: 2.35 !important;
+  color: #1f2937 !important;
+}
+
+.onmock-summary-title {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-bottom: 10px !important;
+}
+
+.onmock-inline-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 4px !important;
+  vertical-align: middle !important;
+}
+
+.onmock-gap-badge {
+  display: none !important;
+}
+
+.onmock-gap-input {
+  border: 1px solid #767676 !important;
+  border-radius: 2px !important;
+  height: 26px !important;
+  line-height: 24px !important;
+  padding: 0 6px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #111827 !important;
+  background: #ffffff !important;
+  outline: none !important;
+  transition: border-color 0.15s ease !important;
+  width: 90px !important;
+  margin: 2px 4px !important;
+  vertical-align: middle !important;
+}
+
+.onmock-gap-input:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb !important;
+}
+
+.onmock-gap-input::placeholder {
+  color: #6b7280 !important;
+  font-weight: 600 !important;
+}
+
+/* Block Short Answer Inputs */
+.onmock-block-input,
+.onmock-gap-row input[type="text"] {
+  border: 1px solid #767676 !important;
+  border-radius: 2px !important;
+  height: 28px !important;
+  line-height: 26px !important;
+  padding: 0 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #111827 !important;
+  background: #ffffff !important;
+  outline: none !important;
+  width: 220px !important;
+  margin: 4px 0 14px 28px !important;
+  display: block !important;
+}
+
+.onmock-block-input:focus,
+.onmock-gap-row input[type="text"]:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb !important;
+}
+
+/* Headings List & Dropdowns */
+.onmock-headings-card {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 4px !important;
+  padding: 12px 16px !important;
+  margin-bottom: 20px !important;
+  background: #ffffff !important;
+}
+
+.onmock-headings-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 8px !important;
+}
+
+.onmock-headings-table td {
+  padding: 6px 8px !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.onmock-headings-table td:first-child {
+  font-weight: 700 !important;
+  width: 32px !important;
+  color: #111827 !important;
+}
+
+.onmock-dropdown {
+  border: 1px solid #767676 !important;
+  border-radius: 2px !important;
+  height: 28px !important;
+  padding: 2px 8px !important;
+  font-size: 13px !important;
+  color: #111827 !important;
+  background: #ffffff !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+.onmock-dropdown:focus {
+  border-color: #2563eb !important;
+}
+
+/* Matching Tables (Matrix) */
+.onmock-matrix-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid #e5e7eb !important;
+  margin: 16px 0 !important;
+  font-size: 13px !important;
+}
+
+.onmock-matrix-table th,
+.onmock-matrix-table td {
+  border: 1px solid #e5e7eb !important;
+  padding: 8px 10px !important;
+  text-align: center !important;
+}
+
+.onmock-matrix-table td:first-child {
+  text-align: left !important;
+  font-weight: 500 !important;
+}
+
+/* 2. Headings Rows with Leader Lines (Images 3 & 4) */
+.onmock-headings-rows-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  margin-top: 14px !important;
+}
+.onmock-heading-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 4px !important;
+  border-bottom: 1px solid #f8fafc !important;
+}
+.onmock-heading-left {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  white-space: nowrap !important;
+}
+.onmock-q-num-box {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  padding: 0 4px !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+.onmock-heading-row:focus-within .onmock-q-num-box,
+.onmock-matrix-row:focus-within .onmock-q-num-box {
+  border-color: #2563eb !important;
+  color: #2563eb !important;
+  background: #eff6ff !important;
+}
+.onmock-heading-label {
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+}
+.onmock-leader-line {
+  flex: 1 1 auto !important;
+  border-bottom: 1.5px dotted #94a3b8 !important;
+  margin: 0 16px !important;
+  height: 1px !important;
+}
+.onmock-heading-select {
+  width: 120px !important;
+  min-width: 120px !important;
+  height: 34px !important;
+  border: 1.5px solid #0f172a !important;
+  border-radius: 4px !important;
+  background: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  padding: 2px 8px !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+.onmock-heading-select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+}
+
+/* 3. Matrix Table (Matching Information & Features - Images 2 & 5) */
+.onmock-matrix-card {
+  margin: 16px 0 24px 0 !important;
+  overflow-x: auto !important;
+}
+.onmock-matrix-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+.onmock-matrix-table th,
+.onmock-matrix-table td {
+  border: 1px solid #e2e8f0 !important;
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
+.onmock-matrix-table th {
+  background: #ffffff !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  border-bottom: 1.5px solid #0f172a !important;
+}
+.onmock-matrix-table th.onmock-matrix-th-stmt {
+  background: #ffffff !important;
+  border-right: 1.5px solid #cbd5e1 !important;
+  width: auto !important;
+}
+.onmock-matrix-table th.onmock-matrix-th-col {
+  width: 44px !important;
+  min-width: 44px !important;
+  text-align: center !important;
+  border-left: 1px solid #e2e8f0 !important;
+}
+.onmock-matrix-row td.onmock-matrix-td-stmt {
+  font-weight: 400 !important;
+  color: #1f2937 !important;
+  line-height: 1.55 !important;
+  border-right: 1.5px solid #cbd5e1 !important;
+  padding: 12px 14px !important;
+}
+.onmock-matrix-stmt-wrap {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+.onmock-matrix-table td.onmock-matrix-td-cell {
+  text-align: center !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+.onmock-matrix-table tr.onmock-matrix-row:hover {
+  background: #f8fafc !important;
+}
+.onmock-matrix-table tr.onmock-matrix-row.is-ok {
+  background: #f0fdf4 !important;
+}
+.onmock-matrix-table tr.onmock-matrix-row.is-bad {
+  background: #fef2f2 !important;
+}
+.onmock-matrix-td-cell.matrix-cell-correct {
+  background: #dcfce7 !important;
+}
+.onmock-matrix-td-cell.matrix-cell-wrong {
+  background: #fee2e2 !important;
+}
+
+/* Custom Circular Radio Buttons inside Matrix (Image 2 & 5) */
+.onmock-matrix-radio-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 38px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.onmock-matrix-radio-label input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 19px !important;
+  height: 19px !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  outline: none !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  position: relative !important;
+  transition: all 0.15s ease !important;
+}
+.onmock-matrix-radio-label input[type="radio"]:checked {
+  border-color: #0f172a !important;
+  background: #ffffff !important;
+}
+.onmock-matrix-radio-label input[type="radio"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 3px !important;
+  left: 3px !important;
+  width: 11px !important;
+  height: 11px !important;
+  background: #0f172a !important;
+  border-radius: 50% !important;
+}
+
+/* 4. Multi-Choice Checkboxes (Image 1) */
+.onmock-multi-options {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin-top: 10px !important;
+}
+.onmock-check-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 14px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  transition: background 0.15s ease !important;
+  border: 1px solid transparent !important;
+}
+.onmock-check-row:hover {
+  background: #f8fafc !important;
+}
+.onmock-check-row:has(input:checked),
+.onmock-check-row.selected {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+.onmock-check-row input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  accent-color: #2563eb !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+.onmock-check-row .onmock-opt-text {
+  font-size: 14.5px !important;
+  color: #1e293b !important;
+  line-height: 1.5 !important;
+}
+
+/* Floating Navigation Buttons ([ < ] [ > ]) */
+.onmock-floating-nav {
+  position: fixed !important;
+  bottom: 58px !important;
+  right: 28px !important;
+  display: flex !important;
+  gap: 4px !important;
+  z-index: 100 !important;
+}
+
+.onmock-nav-sq-btn {
+  width: 34px !important;
+  height: 34px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.onmock-nav-sq-btn.prev-btn {
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+.onmock-nav-sq-btn.prev-btn:hover {
+  background: #cbd5e1 !important;
+}
+
+.onmock-nav-sq-btn.next-btn {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}
+
+.onmock-nav-sq-btn.next-btn:hover {
+  background: #1e293b !important;
+}
+
+/* 7. BOTTOM NAVIGATION DOCK (46px) */
+.onmock-reading-bottom-dock {
+  height: 46px !important;
+  background: #ffffff !important;
+  border-top: 1px solid #e5e7eb !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 18px !important;
+  flex-shrink: 0 !important;
+  z-index: 100 !important;
+}
+
+.onmock-reading-dock-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  max-width: calc(100% - 60px) !important;
+  scrollbar-width: none !important;
+}
+
+.onmock-reading-dock-left::-webkit-scrollbar {
+  display: none !important;
+}
+
+.onmock-dock-part-label {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-right: 10px !important;
+  white-space: nowrap !important;
+}
+
+.onmock-q-dot-btn {
+  min-width: 26px !important;
+  height: 26px !important;
+  border-radius: 3px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #374151 !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.12s ease !important;
+  padding: 0 4px !important;
+}
+
+.onmock-q-dot-btn:hover {
+  background: #f1f5f9 !important;
+  color: #111827 !important;
+}
+
+.onmock-q-dot-btn.active {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.onmock-q-dot-btn.answered {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  position: relative !important;
+}
+
+.onmock-q-dot-btn.answered::after {
+  content: '✓' !important;
+  font-size: 10px !important;
+  color: #10b981 !important;
+  margin-left: 2px !important;
+}
+
+.onmock-q-dot-btn.eval-correct {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+  border-color: #86efac !important;
+}
+
+.onmock-q-dot-btn.eval-wrong {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+  border-color: #fca5a5 !important;
+}
+
+.onmock-dock-inactive-pill {
+  font-size: 12px !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.12s !important;
+}
+
+.onmock-dock-inactive-pill:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.onmock-dock-check-btn {
+  width: 28px !important;
+  height: 28px !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #f8fafc !important;
+  color: #475569 !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.12s !important;
+}
+
+.onmock-dock-check-btn:hover {
+  background: #f1f5f9 !important;
+  color: #111827 !important;
+}
+
+/* 8. EXIT & RESULTS MODALS */
+.onmock-exit-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  z-index: 100000 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.onmock-exit-modal-overlay.active,
+.onmock-exit-modal-overlay.is-open {
+  display: flex !important;
+}
+
+.onmock-exit-modal-dialog {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  max-width: 440px !important;
+  width: 90% !important;
+  text-align: center !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.onmock-exit-icon-circle {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 16px auto !important;
+}
+
+.onmock-exit-modal-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #111827 !important;
+  margin: 0 0 8px 0 !important;
+}
+
+.onmock-exit-modal-text {
+  font-size: 13.5px !important;
+  color: #4b5563 !important;
+  line-height: 1.5 !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.onmock-exit-modal-btns {
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: center !important;
+}
+
+.onmock-exit-modal-continue {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  padding: 8px 18px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+.onmock-exit-modal-leave {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 8px 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Results Modal Overlay */
+#onmock-reading-results-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  z-index: 100000 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+}
+
+#onmock-reading-results-modal.active,
+#onmock-reading-results-modal.is-open {
+  display: flex !important;
+}
+
+.onmock-reading-results-dialog {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 28px !important;
+  max-width: 680px !important;
+  width: 100% !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  position: relative !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
+}
+
+.onmock-results-close-x {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 24px !important;
+  color: #6b7280 !important;
+  cursor: pointer !important;
+}
+
+.onmock-results-header {
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+.onmock-results-badge {
+  display: inline-block !important;
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 4px 12px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 8px !important;
+}
+
+.onmock-results-title {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #111827 !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.onmock-results-cand-info {
+  font-size: 13px !important;
+  color: #4b5563 !important;
+}
+
+.onmock-results-hero-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  margin-bottom: 20px !important;
+}
+
+.onmock-band-label {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 4px !important;
+}
+
+.onmock-reading-band-pill {
+  font-size: 38px !important;
+  font-weight: 900 !important;
+  color: #38bdf8 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 6px !important;
+}
+
+.onmock-band-desc {
+  font-size: 12px !important;
+  color: #cbd5e1 !important;
+}
+
+.onmock-results-stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.onmock-stat-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.onmock-stat-val {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+.onmock-stat-lbl {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+.onmock-breakdown-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.onmock-breakdown-title {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.onmock-breakdown-tabs {
+  display: flex !important;
+  gap: 6px !important;
+}
+
+.onmock-b-tab {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 4px 10px !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  cursor: pointer !important;
+}
+
+.onmock-b-tab.active {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+.onmock-results-q-list {
+  max-height: 240px !important;
+  overflow-y: auto !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.onmock-result-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  font-size: 12.5px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+}
+
+.onmock-result-row.is-correct {
+  border-color: #bbf7d0 !important;
+  background: #f0fdf4 !important;
+}
+
+.onmock-result-row.is-wrong {
+  border-color: #fecdd3 !important;
+  background: #fff1f2 !important;
+}
+
+.onmock-results-actions-bar {
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: flex-end !important;
+}
+
+.onmock-action-btn {
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.btn-retake {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.btn-back-list {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.btn-review-screen {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+
+/* 200% Replica of Question pettern folder styles for Reading Exam */
+.onmock-radio-row,
+.onmock-check-row {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  color: #111827 !important;
+  line-height: 1.55 !important;
+  padding: 4px 6px !important;
+  border-radius: 4px !important;
+  border: none !important;
+  background: transparent !important;
+  margin-bottom: 6px !important;
+  transition: background 0.15s ease !important;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.onmock-radio-row:hover,
+.onmock-check-row:hover {
+  background: #f1f5f9 !important;
+}
+
+.onmock-radio-row input[type="radio"] {
+  accent-color: #2563eb !important;
+  width: 15px !important;
+  height: 15px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  position: relative !important;
+  top: 2px !important;
+  flex-shrink: 0 !important;
+}
+
+.onmock-check-row input[type="checkbox"] {
+  accent-color: #2563eb !important;
+  width: 15px !important;
+  height: 15px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  position: relative !important;
+  top: 2px !important;
+  flex-shrink: 0 !important;
+}
+
+.onmock-qblock-divider {
+  height: 1px !important;
+  background: #e5e7eb !important;
+  border: none !important;
+  margin: 28px 0 !important;
+}
+
+/* ==========================================================================
+   POST-SUBMISSION IN-PASSAGE EVIDENCE HIGHLIGHTS & ANSWER REVIEWS
+   ========================================================================== */
+
+/* Evidence Highlight in Passage */
+mark.exam-evidence-highlight {
+  background: #fef08a !important; /* bright academic yellow highlighter */
+  color: #1e293b !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+  border-bottom: 2px solid #eab308 !important;
+  font-weight: 600 !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+  transition: all 0.3s ease !important;
+}
+
+mark.exam-evidence-highlight.flash-glow {
+  background: #fbbf24 !important;
+  box-shadow: 0 0 16px rgba(234, 179, 8, 0.8) !important;
+  outline: 2px solid #ca8a04 !important;
+  animation: pulseHighlight 0.6s 3 ease-in-out !important;
+}
+
+@keyframes pulseHighlight {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); background: #f59e0b; }
+  100% { transform: scale(1); }
+}
+
+/* Post Submit Card inside Question Item */
+.onmock-post-submit-card {
+  margin-top: 14px !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+}
+.onmock-post-submit-card.is-correct {
+  background: #f0fdf4 !important;
+  border: 1.5px solid #86efac !important;
+  color: #14532d !important;
+}
+.onmock-post-submit-card.is-wrong {
+  background: #fef2f2 !important;
+  border: 1.5px solid #fca5a5 !important;
+  color: #7f1d1d !important;
+}
+
+.onmock-post-status-row {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.onmock-post-tag {
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  text-transform: uppercase !important;
+}
+.onmock-post-tag.tag-correct {
+  background: #16a34a !important;
+  color: #ffffff !important;
+}
+.onmock-post-tag.tag-wrong {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+.onmock-post-ans {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.onmock-post-expl {
+  margin-top: 6px !important;
+  color: #334155 !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.onmock-post-ev-wrap {
+  margin-top: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  padding-top: 8px !important;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12) !important;
+}
+
+.onmock-ev-loc-btn {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  padding: 5px 12px !important;
+  border-radius: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25) !important;
+}
+.onmock-ev-loc-btn:hover {
+  background: #0369a1 !important;
+  transform: translateY(-1px) !important;
+}
+
+.onmock-ev-snippet {
+  font-style: italic !important;
+  color: #475569 !important;
+  font-size: 12.5px !important;
+  flex: 1 !important;
+}
+
+/* Radio Correct/Wrong Styling */
+.radio-correct-ans {
+  background: #dcfce7 !important;
+  border: 1.5px solid #22c55e !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+}
+.radio-wrong-ans {
+  background: #fee2e2 !important;
+  border: 1.5px solid #ef4444 !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+}
+
+/* Navbar Exit Button */
+.onmock-nav-exit-btn {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 6px 14px !important;
+  font-weight: 800 !important;
+  font-size: 13px !important;
+  color: #0f172a !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+.onmock-nav-exit-btn:hover {
+  background: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #dc2626 !important;
+}
+
+
+/* Enhanced In-Passage Evidence Pills & Pulses */
+.evidence-pill,
+.onmock-ev-pill {
+  display: inline-block !important;
+  background: #ca8a04 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  margin-right: 4px !important;
+  vertical-align: middle !important;
+  line-height: 1.2 !important;
+}
+
+mark.exam-evidence-highlight.evidence-pulse {
+  animation: evidencePulseGlow 0.8s 3 ease-in-out !important;
+}
+
+@keyframes evidencePulseGlow {
+  0% { background: #fef08a; transform: scale(1); }
+  50% { background: #f59e0b; box-shadow: 0 0 16px rgba(245, 158, 11, 0.9); transform: scale(1.02); }
+  100% { background: #fef08a; transform: scale(1); }
+}
+
+/* Post-Submit Gap Answer Badges */
+.onmock-gap-ans-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}

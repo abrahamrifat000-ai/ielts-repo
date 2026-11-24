@@ -1,0 +1,1547 @@
+/* ==========================================================================
+   IELTS WARRIORS - COMPUTER-DELIVERED IELTS LISTENING EXAM
+   Pixel-Perfect Native Replica of OnMock CD-IELTS Listening Interface
+   ========================================================================== */
+
+/* 1. Main View Screen Layout */
+#listening-exam-view {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 99999;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+#listening-exam-view.active-view {
+  display: flex !important;
+}
+
+/* 2. Top Header Bar (56px) */
+.onmock-listen-header {
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 50;
+}
+
+.onmock-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.onmock-listen-back-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.onmock-listen-back-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.onmock-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.onmock-brand-arrow {
+  color: #e11d48;
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.onmock-brand-logo {
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #e11d48;
+}
+
+.onmock-brand-logo span {
+  color: #0f172a;
+  margin-left: 2px;
+}
+
+.onmock-candidate-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.onmock-candidate-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.onmock-test-subtitle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+/* Header Center - Countdown Timer */
+.onmock-header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onmock-timer-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.04em;
+}
+
+.onmock-timer-card svg {
+  color: #64748b;
+  width: 16px;
+  height: 16px;
+}
+
+.onmock-timer-card.time-warning {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #e11d48;
+  animation: timerPulse 1s infinite alternate;
+}
+
+@keyframes timerPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.02); }
+}
+
+/* Header Right - Volume, Wifi, Bell, Fullscreen, Submit */
+.onmock-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.onmock-icon-action {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.onmock-icon-action:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Volume Popover */
+.listen-volume-popover {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 14px 16px;
+  width: 220px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.listen-volume-popover.is-open {
+  display: flex !important;
+}
+
+.listen-volume-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listen-vol-slider {
+  flex: 1;
+  accent-color: #e11d48;
+  cursor: pointer;
+}
+
+.listen-louder-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+}
+
+.listen-louder-toggle input {
+  accent-color: #e11d48;
+  cursor: pointer;
+}
+
+/* Fullscreen Button */
+.onmock-fullscreen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.onmock-fullscreen-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Red Submit Button */
+.onmock-submit-btn {
+  height: 36px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onmock-submit-btn:hover {
+  background: #be123c;
+}
+
+.onmock-submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* 3. Audio Controller Subbar (48px) */
+.onmock-listen-audio-bar {
+  height: 48px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.listen-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.listen-play-btn:hover {
+  background: #1e293b;
+  transform: scale(1.05);
+}
+
+.listen-time-display {
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  flex-shrink: 0;
+  min-width: 95px;
+}
+
+.listen-progress-track {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.listen-progress-buffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #cbd5e1;
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.listen-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #e11d48;
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.listen-exam-notice-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.listen-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e11d48;
+  display: inline-block;
+}
+
+.listen-status-dot.paused {
+  background: #f59e0b;
+}
+
+/* 4. Questions Workspace (Scrollable) */
+.onmock-listen-workspace {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 20px 80px 20px;
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+.onmock-listen-content-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Sub-header Banner (Part Info Box) */
+.onmock-part-banner {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 4px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+}
+
+.onmock-part-banner .part-badge {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.onmock-part-banner .part-instruction {
+  font-size: 0.92rem;
+  color: #475569;
+  margin-top: 3px;
+}
+
+/* Question Section Title */
+.listen-section-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.listen-section-instruction {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #475569;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Note Completion Box */
+.listen-notes-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.listen-notes-card h4 {
+  font-size: 1.06rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+}
+
+.listen-notes-group {
+  margin-bottom: 18px;
+}
+
+.listen-notes-group-title {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.listen-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listen-notes-list li {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 2.1;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.listen-bullet {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
+/* Interactive Gap Input */
+.onmock-gap-input {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+}
+
+.onmock-gap-num {
+  position: absolute;
+  left: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748b;
+  pointer-events: none;
+  user-select: none;
+}
+
+.onmock-listen-input {
+  height: 32px;
+  width: 140px;
+  padding-left: 26px;
+  padding-right: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.onmock-listen-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background: #f8faff;
+}
+
+.onmock-listen-input.answered {
+  border-color: #e11d48;
+  background: #fff1f2;
+}
+
+/* Multiple Choice Questions */
+.listen-mcq-group {
+  margin-bottom: 24px;
+}
+
+.listen-mcq-item {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.listen-mcq-stem {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.listen-mcq-num {
+  font-weight: 800;
+  color: #0f172a;
+  flex-shrink: 0;
+}
+
+.listen-mcq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 24px;
+}
+
+.listen-mcq-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.9rem;
+  color: #334155;
+  background: #ffffff;
+}
+
+.listen-mcq-label:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.listen-mcq-label input[type="radio"],
+.listen-mcq-label input[type="checkbox"] {
+  accent-color: #2563eb;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.listen-mcq-label.selected {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Map / Plan Labelling Section */
+.listen-map-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.listen-map-svg-wrap {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto 20px auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+  padding: 12px;
+  text-align: center;
+}
+
+.listen-map-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.listen-map-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.92rem;
+}
+
+.listen-map-table tr:last-child td {
+  border-bottom: none;
+}
+
+.listen-map-select {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.listen-map-select:focus {
+  border-color: #2563eb;
+}
+
+/* Matching Questions Section */
+.listen-matching-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+}
+
+.listen-matching-options-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.listen-matching-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.92rem;
+}
+
+.listen-matching-row:last-child {
+  border-bottom: none;
+}
+
+/* 5. Sticky Bottom Palette Dock (52px) */
+.onmock-listen-bottom-dock {
+  height: 52px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 50;
+  position: relative;
+}
+
+.onmock-palette-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.onmock-palette-left::-webkit-scrollbar {
+  display: none;
+}
+
+/* Inactive Part Button */
+.onmock-part-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.onmock-part-tab-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Active Part Dock Group */
+.onmock-active-part-dock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.onmock-active-part-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.onmock-qchips-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.onmock-qchip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 30px;
+  padding: 3px 4px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.15s ease;
+}
+
+.onmock-qchip:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.onmock-qchip.active {
+  border-color: #0f172a;
+  font-weight: 800;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+/* Status Indicator Bar */
+.onmock-qchip-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.15s ease;
+}
+
+.onmock-qchip.answered .onmock-qchip-bar {
+  background: #e11d48 !important;
+}
+
+/* Bottom Navigation Floating Buttons (< and >) */
+.onmock-palette-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.onmock-nav-sq-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease;
+  font-size: 1.15rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.onmock-nav-sq-btn:hover:not(:disabled) {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.onmock-nav-sq-btn:disabled {
+  background: #e2e8f0 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* 6. Exit Confirmation Modal */
+.onmock-exit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.onmock-exit-modal-overlay.is-visible {
+  display: flex !important;
+}
+
+.onmock-exit-modal-dialog {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 420px;
+  width: 100%;
+  padding: 32px 28px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.onmock-exit-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.onmock-exit-icon-circle svg {
+  width: 28px;
+  height: 28px;
+}
+
+.onmock-exit-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.onmock-exit-modal-text {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.onmock-exit-modal-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.onmock-exit-modal-continue {
+  flex: 1;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.onmock-exit-modal-continue:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.onmock-exit-modal-leave {
+  flex: 1;
+  height: 42px;
+  border-radius: 8px;
+  border: none;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.onmock-exit-modal-leave:hover {
+  background: #b91c1c;
+}
+
+/* 7. Results & Review Modal */
+.onmock-results-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.onmock-results-modal-overlay.is-visible {
+  display: flex !important;
+}
+
+.onmock-results-card {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 32px 28px;
+}
+
+.onmock-results-head {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.onmock-band-badge {
+  display: inline-block;
+  background: #fff1f2;
+  border: 2px solid #fecdd3;
+  color: #be123c;
+  font-size: 2.2rem;
+  font-weight: 900;
+  padding: 12px 28px;
+  border-radius: 12px;
+  margin: 12px 0;
+}
+
+.onmock-score-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.onmock-part-stat {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.onmock-part-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.onmock-part-stat-score {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 4px;
+}
+
+.onmock-results-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.onmock-btn-review {
+  flex: 1;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #0f172a;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.onmock-btn-done {
+  flex: 1;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  background: #e11d48;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 8. Dedicated Real Exam Mock Card (for Practice Hub & Home View) */
+.real-exam-mock-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 16px;
+  padding: 28px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.real-exam-mock-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.35);
+  border-color: rgba(225, 29, 72, 0.4);
+}
+
+.real-exam-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(225, 29, 72, 0.2);
+  color: #fb7185;
+  border: 1px solid rgba(225, 29, 72, 0.4);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.real-exam-card-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.real-exam-card-desc {
+  font-size: 0.94rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.real-exam-card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.real-exam-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.real-exam-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  width: fit-content;
+}
+
+.real-exam-card-action:hover {
+  background: #be123c;
+}
+
+
+/* ==========================================================================
+   9. TEXT HIGHLIGHTER STYLES (CD-IELTS Highlighting Tool)
+   ========================================================================== */
+mark.onmock-highlight {
+  background-color: #fef08a !important; /* Soft Yellow */
+  color: #0f172a !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease !important;
+  border-bottom: 2px solid #eab308 !important;
+}
+
+mark.onmock-highlight:hover {
+  background-color: #fde047 !important;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.3) !important;
+}
+
+/* Floating Highlighter Tooltip */
+.onmock-highlighter-tooltip {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 5px 8px;
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  font-family: 'Inter', -apple-system, sans-serif;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
+}
+
+.onmock-highlighter-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0f172a transparent transparent transparent;
+}
+
+.onmock-highlighter-tooltip.is-visible {
+  display: flex !important;
+  animation: tooltipFadeIn 0.12s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translate(-50%, -90%); }
+  to { opacity: 1; transform: translate(-50%, -100%); }
+}
+
+.onmock-hl-btn {
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.onmock-hl-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.onmock-hl-btn.btn-clear {
+  color: #fca5a5;
+}
+
+.onmock-hl-btn.btn-clear:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ffffff;
+}
+
+/* Header Highlighter Button Active State */
+.onmock-icon-action.hl-active {
+  background: #fef9c3 !important;
+  color: #854d0e !important;
+  border-color: #facc15 !important;
+}
+
+/* ==========================================================================
+   10. IELTS REAL TEST HUB VIEW STYLES (#ielts-real-test-hub-view)
+   ========================================================================== */
+.real-test-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .real-test-modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 740px;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-test-modules-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
+
+.real-test-mod-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  min-height: 380px;
+  box-sizing: border-box;
+}
+
+.real-test-mod-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+.mod-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mod-card-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.badge-green { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+.badge-amber { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.badge-purple { background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+.badge-crimson { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+
+.mod-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.icon-green { background: #fff1f2; }
+.icon-amber { background: #fef3c7; }
+.icon-purple { background: #f3e8ff; }
+.icon-crimson { background: #ffe4e6; }
+
+.mod-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.mod-card-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 18px 0;
+  flex: 1;
+}
+
+.mod-card-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.mod-card-pills span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mod-card-btn {
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.btn-green { background: #e11d48; color: #ffffff; }
+.btn-green:hover { background: #be123c; }
+
+.btn-amber { background: #f59e0b; color: #ffffff; }
+.btn-amber:hover { background: #d97706; }
+
+.btn-purple { background: #8b5cf6; color: #ffffff; }
+.btn-purple:hover { background: #7c3aed; }
+
+.btn-crimson { background: #e11d48; color: #ffffff; }
+.btn-crimson:hover { background: #be123c; }
+
+/* Special Highlighted Border for Listening Card */
+.featured-listening-card {
+  border: 2px solid #fecdd3 !important;
+  background: linear-gradient(180deg, #ffffff 0%, #fffbfa 100%) !important;
+  box-shadow: 0 8px 26px rgba(225, 29, 72, 0.12) !important;
+}
+
+.featured-listening-card:hover {
+  border-color: #f43f5e !important;
+  box-shadow: 0 16px 36px rgba(225, 29, 72, 0.22) !important;
+}
+
+/* ==========================================================================
+   SQUARE CARDS DESIGN (Image 2 Replica - 4 Cards Per Row)
+   ========================================================================== */
+.square-cards-grid,
+#reading-selection-grid,
+.real-listen-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  max-width: 1280px !important;
+  margin: 28px auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1100px) {
+  .square-cards-grid,
+  #reading-selection-grid,
+  .real-listen-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .square-cards-grid,
+  #reading-selection-grid,
+  .real-listen-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.square-mock-card {
+  position: relative !important;
+  aspect-ratio: 1 / 1 !important;
+  min-height: 220px !important;
+  background: #ffffff !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  padding: 22px 18px 18px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.square-mock-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1) !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Hanging ribbon tab at top-left */
+.square-ribbon-tag {
+  position: absolute !important;
+  top: 0 !important;
+  left: 20px !important;
+  width: 48px !important;
+  height: 44px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 800 !important;
+  font-size: 1.15rem !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+  z-index: 2 !important;
+}
+
+/* Color variations for ribbon tag and subtle card border */
+.square-mock-card.color-orange .square-ribbon-tag { background: #f59e0b; }
+.square-mock-card.color-orange { border-color: #fde68a !important; }
+.square-mock-card.color-orange:hover { border-color: #f59e0b !important; }
+
+.square-mock-card.color-red .square-ribbon-tag { background: #ef4444; }
+.square-mock-card.color-red { border-color: #fecaca !important; }
+.square-mock-card.color-red:hover { border-color: #ef4444 !important; }
+
+.square-mock-card.color-pink .square-ribbon-tag { background: #ec4899; }
+.square-mock-card.color-pink { border-color: #fbcfe8 !important; }
+.square-mock-card.color-pink:hover { border-color: #ec4899 !important; }
+
+.square-mock-card.color-cyan .square-ribbon-tag { background: #06b6d4; }
+.square-mock-card.color-cyan { border-color: #cffafe !important; }
+.square-mock-card.color-cyan:hover { border-color: #06b6d4 !important; }
+
+.square-mock-card.color-blue .square-ribbon-tag { background: #2563eb; }
+.square-mock-card.color-blue { border-color: #bfdbfe !important; }
+.square-mock-card.color-blue:hover { border-color: #2563eb !important; }
+
+.square-mock-card.color-purple .square-ribbon-tag { background: #8b5cf6; }
+.square-mock-card.color-purple { border-color: #ddd6fe !important; }
+.square-mock-card.color-purple:hover { border-color: #8b5cf6 !important; }
+
+.square-mock-card.color-slate .square-ribbon-tag { background: #475569; }
+.square-mock-card.color-slate { border-color: #cbd5e1 !important; }
+.square-mock-card.color-slate:hover { border-color: #475569 !important; }
+
+.square-mock-card.color-emerald .square-ribbon-tag { background: #e11d48; }
+.square-mock-card.color-emerald { border-color: #fecdd3 !important; }
+.square-mock-card.color-emerald:hover { border-color: #e11d48 !important; }
+
+.square-mock-card.color-teal .square-ribbon-tag { background: #e11d48; }
+.square-mock-card.color-teal { border-color: #99f6e4 !important; }
+.square-mock-card.color-teal:hover { border-color: #e11d48 !important; }
+
+/* Top right icon */
+.square-card-top-icon {
+  position: absolute !important;
+  top: 16px !important;
+  right: 18px !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #94a3b8 !important;
+}
+
+/* Card body */
+.square-card-body {
+  margin-top: 44px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  justify-content: space-between !important;
+}
+
+.square-card-kicker {
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748b !important;
+  margin-bottom: 6px !important;
+}
+
+.square-card-title {
+  font-size: 1.02rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.35 !important;
+  margin: 0 0 12px 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.square-card-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  width: fit-content !important;
+}
+
+.square-card-status.status-incomplete {
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.square-card-status.status-complete {
+  background: #fff1f2 !important;
+  color: #be123c !important;
+  border: 1px solid #fecdd3 !important;
+}

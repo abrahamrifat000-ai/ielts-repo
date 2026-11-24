@@ -10807,10 +10807,10 @@ body:has(.view-screen.active-view:not(#home-view)) .reader-header,
 .practice-cards-grid,
 .practice-cards-grid-v3 {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 28px !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
   align-items: stretch !important;
-  max-width: 1100px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 24px 0 10px !important;
 }
@@ -10837,7 +10837,8 @@ body:has(.view-screen.active-view:not(#home-view)) .reader-header,
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16) !important;
   transition: transform 0.28s ease, box-shadow 0.28s ease !important;
   overflow: hidden !important;
-  min-height: 520px !important;
+  aspect-ratio: 3 / 5 !important;
+  min-height: 300px !important;
   box-sizing: border-box !important;
   color: #ffffff !important;
 }
@@ -12728,3 +12729,675 @@ body,
 
 
 
+
+
+/* ==========================================================================
+   4. IELTS REAL TEST CARD & MODULES HUB STYLING
+   ========================================================================== */
+
+/* Card 4: Crimson / Ruby Red Gradient (IELTS REAL TEST) */
+.practice-card-v3.card-v3-cyan,
+.practice-card-v3.card-v3-sunset,
+.practice-card-v3.card-v3-amber,
+.practice-card-v3.card-v3-crimson {
+  background: linear-gradient(180deg, #ff1744 0%, #e11d48 55%, #9f1239 100%) !important;
+  box-shadow: 0 14px 34px rgba(225, 29, 72, 0.38) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+  aspect-ratio: 3 / 5 !important;
+  min-height: 300px !important;
+  cursor: pointer !important;
+}
+
+.practice-card-v3.card-v3-crimson:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 28px 60px rgba(225, 29, 72, 0.55) !important;
+}
+
+/* 4 Modules Grid */
+.real-test-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (max-width: 1024px) {
+  .real-test-modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-test-modules-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.real-test-mod-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  min-height: 380px;
+  box-sizing: border-box;
+}
+
+.real-test-mod-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.mod-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mod-card-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.badge-green { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.badge-amber { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.badge-purple { background: #faf5ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+.badge-crimson { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+
+.mod-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.icon-green { background: #dcfce7; }
+.icon-amber { background: #fef3c7; }
+.icon-purple { background: #f3e8ff; }
+.icon-crimson { background: #ffe4e6; }
+
+.mod-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.mod-card-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 18px 0;
+  flex: 1;
+}
+
+.mod-card-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.mod-card-pills span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mod-card-btn {
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.btn-green { background: #16a34a; color: #ffffff; }
+.btn-green:hover { background: #15803d; }
+
+.btn-amber { background: #f59e0b; color: #ffffff; }
+.btn-amber:hover { background: #d97706; }
+
+.btn-purple { background: #8b5cf6; color: #ffffff; }
+.btn-purple:hover { background: #7c3aed; }
+
+.btn-crimson { background: #e11d48; color: #ffffff; }
+.btn-crimson:hover { background: #be123c; }
+
+
+/* ==========================================================================
+   OFFICIAL CD-IELTS REAL TEST RED SQUARE CARDS & MODULES
+   ========================================================================== */
+.real-test-modules-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+}
+
+@media (max-width: 1024px) {
+  .real-test-modules-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-test-modules-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.real-test-mod-card-red {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+  border: 2px solid #f43f5e !important;
+  border-radius: 20px !important;
+  min-height: 200px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.2) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-align: center !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+}
+
+.real-test-mod-card-red:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 18px 36px rgba(225, 29, 72, 0.35) !important;
+  border-color: #fda4af !important;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+}
+
+.red-mod-card-title {
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px !important;
+  font-family: var(--head, 'Bricolage Grotesque', sans-serif) !important;
+  text-transform: capitalize !important;
+  user-select: none !important;
+  line-height: 1.2 !important;
+}
+
+.real-reading-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+}
+
+@media (max-width: 1024px) {
+  .real-reading-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .real-reading-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Strict practice-mode header hide override */
+#reading-selection-view.in-practice-mode .reader-header,
+#reading-selection-view.in-practice-mode #rt-sticky-palette {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -100 !important;
+}
+
+
+/* ==========================================================================
+   60-DAY IELTS ROUTINE & ROADMAP & VOCABULARY - 65% WIDTH BALANCED LAYOUT
+   ========================================================================== */
+
+#roadmap-view .roadmap-main-wrap,
+#vocabulary-view .roadmap-main-wrap,
+.roadmap-main-wrap {
+  position: relative !important;
+  z-index: 3 !important;
+  max-width: 1240px !important;
+  width: 65% !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+#roadmap-view .roadmap-nav-wrap,
+#vocabulary-view .roadmap-nav-wrap {
+  max-width: 1240px !important;
+  width: 65% !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+#roadmap-view .roadmap-matrix-card,
+#vocabulary-view .roadmap-matrix-card,
+.roadmap-matrix-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: #ffffff !important;
+  border-radius: 22px !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 26px 26px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+  margin-bottom: 32px !important;
+  box-sizing: border-box !important;
+}
+
+#roadmap-view .roadmap-progress-card,
+#vocabulary-view .roadmap-progress-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 22px !important;
+}
+
+/* 6-Column Grid for 60-Day Routine & Vocabulary - 65% Layout */
+.calendar-grid,
+#calendar-grid,
+#vocab-calendar-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 14px !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Day Card: Authentic Real Exam Red Gradient Style - Refined Square Shape */
+.day-card {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+  border: 2px solid #f43f5e !important;
+  border-radius: 18px !important;
+  padding: 14px 8px !important;
+  min-height: 110px !important;
+  aspect-ratio: 1 / 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.22) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  user-select: none !important;
+}
+
+.day-card:hover {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  border-color: #fda4af !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 14px 28px rgba(225, 29, 72, 0.36) !important;
+}
+
+.day-card-num {
+  font-size: 1.32rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  font-family: var(--head, 'Bricolage Grotesque', sans-serif) !important;
+}
+
+.day-card-sub {
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 3px 10px !important;
+  border-radius: 7px !important;
+  margin-top: 6px !important;
+  letter-spacing: 0.02em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+}
+
+/* Completed Day: Full Rich Green Gradient */
+.day-card.completed {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+  border: 2px solid #34d399 !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25) !important;
+}
+
+.day-card.completed:hover {
+  background: linear-gradient(135deg, #059669 0%, #065f46 100%) !important;
+  border-color: #a7f3d0 !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.36) !important;
+}
+
+.day-card.completed .day-card-num {
+  color: #ffffff !important;
+}
+
+.day-card.completed .day-card-sub {
+  background: rgba(0, 0, 0, 0.22) !important;
+  color: #ffffff !important;
+}
+
+.day-card .day-check {
+  display: inline-block !important;
+  margin-left: 2px !important;
+  font-weight: 900 !important;
+  font-size: 1.15rem !important;
+  color: #ffffff !important;
+}
+
+/* Current Day Highlight */
+.day-card.current {
+  border-color: #fef08a !important;
+  box-shadow: 0 0 0 3px #fef08a, 0 8px 20px rgba(225, 29, 72, 0.32) !important;
+}
+
+/* Hide artwork / images and week filters from 60-Day Routine & Vocabulary */
+.roadmap-mountain-artwork,
+.roadmap-bottom-artwork,
+#roadmap-view .roadmap-mountain-artwork,
+#roadmap-view .roadmap-bottom-artwork,
+.roadmap-filter-bar,
+#vocab-filter-bar {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Responsive Grid Scaling: Ensure mobile and tablet remain comfortably wide */
+@media (max-width: 1400px) {
+  #roadmap-view .roadmap-main-wrap,
+  #vocabulary-view .roadmap-main-wrap,
+  .roadmap-main-wrap,
+  #roadmap-view .roadmap-nav-wrap,
+  #vocabulary-view .roadmap-nav-wrap {
+    width: 72% !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  #roadmap-view .roadmap-main-wrap,
+  #vocabulary-view .roadmap-main-wrap,
+  .roadmap-main-wrap,
+  #roadmap-view .roadmap-nav-wrap,
+  #vocabulary-view .roadmap-nav-wrap {
+    width: 85% !important;
+  }
+  .calendar-grid,
+  #calendar-grid,
+  #vocab-calendar-grid {
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 820px) {
+  #roadmap-view .roadmap-main-wrap,
+  #vocabulary-view .roadmap-main-wrap,
+  .roadmap-main-wrap,
+  #roadmap-view .roadmap-nav-wrap,
+  #vocabulary-view .roadmap-nav-wrap {
+    width: 94% !important;
+  }
+  .calendar-grid,
+  #calendar-grid,
+  #vocab-calendar-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+  }
+  .day-card {
+    min-height: 95px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  #roadmap-view .roadmap-main-wrap,
+  #vocabulary-view .roadmap-main-wrap,
+  .roadmap-main-wrap,
+  #roadmap-view .roadmap-nav-wrap,
+  #vocabulary-view .roadmap-nav-wrap {
+    width: 96% !important;
+  }
+  .calendar-grid,
+  #calendar-grid,
+  #vocab-calendar-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+  .day-card {
+    min-height: 85px !important;
+  }
+  .day-card-num {
+    font-size: 1.05rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .calendar-grid,
+  #calendar-grid,
+  #vocab-calendar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .day-card {
+    min-height: 75px !important;
+  }
+  .day-card-num {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ==========================================================================
+   IELTS WARRIORS READING PRACTICE STYLES (RED THEME)
+   ========================================================================== */
+.card-v3-moktadir {
+  background: linear-gradient(180deg, #ff1744 0%, #e11d48 55%, #9f1239 100%) !important;
+  box-shadow: 0 18px 46px rgba(225, 29, 72, 0.42) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  cursor: pointer !important;
+}
+
+.card-v3-moktadir:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 28px 60px rgba(225, 29, 72, 0.55) !important;
+}
+
+.real-test-mod-card-red.moktadir-reading-card {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+  border: 2px solid #f43f5e !important;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.22) !important;
+}
+
+.real-test-mod-card-red.moktadir-reading-card:hover {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  border-color: #fda4af !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 14px 28px rgba(225, 29, 72, 0.36) !important;
+}
+
+.moktadir-reading-banner {
+  background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%) !important;
+  border: 1.5px solid #f43f5e !important;
+  box-shadow: 0 10px 30px rgba(225, 29, 72, 0.28) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.moktadir-reading-banner:hover {
+  box-shadow: 0 14px 36px rgba(225, 29, 72, 0.4) !important;
+}
+
+/* Practice Grid 5-Card Responsive Layout */
+.practice-cards-grid-v3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  max-width: 1280px !important;
+}
+
+/* ==========================================================================
+   HOMEPAGE: THE FOUR IELTS SKILLS TOP SPACING / GAP
+   ========================================================================== */
+#skills,
+#home-view section#skills,
+.skills-section-gap {
+  margin-top: 30px !important;
+  padding-top: 30px !important;
+}
+
+#skills .sec-head {
+  margin-top: 8px !important;
+}
+
+@media (max-width: 768px) {
+  #skills,
+  #home-view section#skills,
+  .skills-section-gap {
+    margin-top: 32px !important;
+    padding-top: 60px !important;
+  }
+}
+
+/* Ensure no fullscreen button shows outside the actual test environment */
+#reading-selection-view:not(.in-practice-mode) #reading-hub-fullscreen-btn {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+/* IELTS Warriors Unified Card Styles for Practice Portals */
+.practice-card-v3.card-v3-cyan,
+.practice-card-v3.card-v3-sunset,
+.practice-card-v3.card-v3-amber,
+.practice-card-v3.card-v3-crimson {
+  background: linear-gradient(180deg, #ff1744 0%, #e11d48 55%, #9f1239 100%) !important;
+  box-shadow: 0 18px 46px rgba(225, 29, 72, 0.42) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  cursor: pointer !important;
+}
+
+.practice-card-v3.card-v3-cyan:hover,
+.practice-card-v3.card-v3-sunset:hover,
+.practice-card-v3.card-v3-amber:hover,
+.practice-card-v3.card-v3-crimson:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 28px 60px rgba(225, 29, 72, 0.55) !important;
+}
+
+.practice-card-v3 .v3-card-btn {
+  background: #ffffff !important;
+  color: #be123c !important;
+  font-weight: 800 !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+.practice-card-v3 .v3-card-btn:hover {
+  background: #fff1f2 !important;
+  color: #9f1239 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* Unified IELTS Warriors 5:3 Aspect Ratio Cards for Listening and Speaking */
+.listening-theme4-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 1024px) {
+  .listening-theme4-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .listening-theme4-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.media-launch-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 640px) {
+  .media-launch-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.listening-player-card,
+.media-launch-card {
+  aspect-ratio: 3 / 5 !important;
+  min-height: 300px !important;
+  background: linear-gradient(180deg, #ff1744 0%, #e11d48 55%, #9f1239 100%) !important;
+  box-shadow: 0 14px 34px rgba(225, 29, 72, 0.38) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+  border-radius: 20px !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease !important;
+}
+
+.listening-player-card:hover,
+.media-launch-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 22px 48px rgba(225, 29, 72, 0.52) !important;
+}
